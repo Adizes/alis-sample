@@ -1,5 +1,5 @@
 /* Express Diagnostics — PDF report (jsPDF). Used by the widget (one person) and the admin (team).
- * d = { result: ED.score(...), company, participants: [names], dateIso, calendlyUrl }
+ * d = { result: ED.score(...), company, participants: [names], dateIso }
  */
 var ED_DIAGRAM = {
   culture: ['values', 'climate'],
@@ -212,25 +212,7 @@ function renderEdPdf(A, lang, d) {
     y += 16;
   });
 
-  /* ---------------- Last page: next step ---------------- */
-  newPage();
-  var top = 96;
-  if (A.arrowRed) doc.addImage(A.arrowRed, 'PNG', M, top - 36, 44, 31);
-  K.font('bold', 24, C.INK); doc.text(K.split(t.pdf.nextStep, CW, 'bold', 24), M, top + 30);
-  y = K.rich(t.pdf.nextBody, M, top + 70, CW, 11, { color: C.INK, lh: 1.6 }) + 6;
-  y = K.rich(t.results.sessionBody, M, y, CW, 11, { color: C.INK, lh: 1.6 }) + 22;
-  var cta = t.pdf.nextCta + '  →';
-  K.font('bold', 12, C.WHITE); var cw = doc.getTextWidth(cta) + 44;
-  K.fill(C.RED); doc.roundedRect(M, y, cw, 40, 6, 6, 'F');
-  K.font('bold', 12, C.WHITE); doc.text(cta, M + 22, y + 25);
-  if (d.calendlyUrl) doc.link(M, y, cw, 40, { url: d.calendlyUrl });
-  // black closing band
-  K.fill(C.INK); doc.rect(0, H - 250, W, 250, 'F');
-  if (A.logoWhite) doc.addImage(A.logoWhite, 'PNG', M, H - 200, 135, 45);
-  K.font('regular', 9.5, '#bdbdbd'); doc.text('www.adizes.com', M, H - 130);
-  if (A.arrowWhite) { K.alpha(0.08); doc.addImage(A.arrowWhite, 'PNG', W - 260, H - 230, 240, 170); K.alpha(1); }
-  K.font('regular', 7.5, '#8a8a8a');
-  doc.text(t.pdf.footer, M, H - 30); doc.text(t.pdf.page + ' ' + page, W - M, H - 30, { align: 'right' });
+  footer();
 
   doc.setProperties({ title: t.pdf.title + ' — ' + (d.company || ''), author: 'Adizes Institute', creator: 'Adizes Institute' });
   return doc;

@@ -7,7 +7,7 @@
  * The Webflow widgets send POST requests here (Content-Type text/plain, JSON body):
  *   ed_submit  → validates, scores on the server, saves a row in "ED Responses"
  *   ed_deliver → receives the PDF (base64), saves it in Drive, emails it, notifies it@adizes.com
- *   ed_event   → small events (booking click, PDF download)
+ *   ed_event   → small events (PDF download)
  * Backup: a time trigger (every 10 min) emails a summary to anyone whose PDF never arrived.
  *
  * First time: run setup() once from the editor (creates the data spreadsheet, the Drive
@@ -21,7 +21,6 @@ const CONFIG = {
     FROM_NAME: 'Adizes Institute',
     NOTIFY_TO: 'it@adizes.com',       // internal notifications (same domain → sent WITHOUT Reply-To)
   },
-  CALENDLY_URL: 'https://calendly.com/jaime-morales/30min',
   ASSETS_BASE: 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@__RELEASE__/shared/assets/',
   // Optional: leave '' and setup() creates them (IDs are then kept in Script Properties).
   DATA_SPREADSHEET_ID: '',
@@ -54,9 +53,6 @@ const LABELS = {
       count: { red: 'key focus zones', yellow: 'areas to improve', green: 'healthy' },
       focus: 'Where to look first',
       factors: 'All 16 factors',
-      sessionTitle: 'Turn this diagnosis into a plan',
-      sessionBody: 'In a free 30-minute session, a Certified Adizes Associate reviews your diagnostic with you and helps you decide where to start.',
-      sessionCta: 'Book my free session',
       sign: 'The Adizes Institute team',
       footer: 'You received this email because you completed the Express Diagnostics at adizes.com.',
     },
@@ -78,9 +74,6 @@ const LABELS = {
       count: { red: 'zonas de enfoque clave', yellow: 'áreas por mejorar', green: 'sanas' },
       focus: 'Por dónde empezar',
       factors: 'Los 16 factores',
-      sessionTitle: 'Convierte este diagnóstico en un plan',
-      sessionBody: 'En una sesión gratuita de 30 minutos, un Asociado Certificado de Adizes revisa tu diagnóstico contigo y te ayuda a decidir por dónde empezar.',
-      sessionCta: 'Agendar mi sesión gratuita',
       sign: 'El equipo del Instituto Adizes',
       footer: 'Recibiste este correo porque completaste el Diagnóstico Exprés en adizes.com.',
     },

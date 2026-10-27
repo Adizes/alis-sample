@@ -119,10 +119,6 @@ ED_I18N.es = {
     focusTitle: 'Por dónde empezar',
     focusHelp: 'Los factores en zona de enfoque clave, con las afirmaciones que los explican.',
     focusNone: 'Ningún factor quedó en zona de enfoque clave. Abajo están las áreas más cercanas a ella.',
-    sessionEyebrow: 'Siguiente paso',
-    sessionTitle: 'Convierte este diagnóstico en un plan',
-    sessionBody: 'En una sesión gratuita de 30 minutos, un Asociado Certificado de Adizes revisa tu diagnóstico contigo y te ayuda a decidir por dónde empezar.',
-    sessionCta: 'Agendar mi sesión gratuita',
     pdfTitle: 'Tu reporte completo',
     pdfSending: 'Enviando el PDF a {email}…',
     pdfSent: 'Enviamos el PDF a {email}. Si no lo ves, revisa tu carpeta de spam.',
@@ -148,11 +144,7 @@ ED_I18N.es = {
     colorsTitle: 'Significado de los colores',
     footer: 'Instituto Adizes · Diagnóstico Exprés',
     page: 'Página',
-    nextStep: 'Convierte este diagnóstico en un plan',
-    nextBody: 'El diagnóstico muestra dónde pierde energía la organización. El siguiente paso es decidir qué corregir primero, en qué orden y con quién.',
-    nextCta: 'Agendar una sesión gratuita',
     cont: 'cont.',
-    sign: 'Instituto Adizes',
   },
 
   questions: [

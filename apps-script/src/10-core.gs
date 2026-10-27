@@ -161,13 +161,6 @@ function emailShell_(inner, footer) {
     '<tr><td style="padding:16px 32px;background:#f6f6f6;font:12px/1.5 Arial,sans-serif;color:#8a8a8a">' + esc_(footer) + '</td></tr>' +
     '</table></div>';
 }
-function ctaBlock_(title, body, cta, url) {
-  return '<div style="background:#111111;border-radius:10px;padding:24px;margin:26px 0 8px">' +
-    '<div style="font:700 18px Arial,sans-serif;color:#ffffff">' + esc_(title) + '</div>' +
-    '<p style="font:14px/1.6 Arial,sans-serif;color:#cfcfcf;margin:8px 0 18px">' + esc_(body) + '</p>' +
-    '<a href="' + esc_(url) + '" style="display:inline-block;background:#d7141a;color:#ffffff;font:700 15px Arial,sans-serif;text-decoration:none;padding:12px 22px;border-radius:6px">' + esc_(cta) + ' &rarr;</a></div>';
-}
-
 /* =================================================================================
  *  SMALL UTILITIES
  * ================================================================================= */

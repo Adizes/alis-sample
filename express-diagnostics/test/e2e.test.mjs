@@ -61,10 +61,7 @@ async function runFlow(browser, { name, device, lang, answers, shots = true }) {
   const st = await p.evaluate(() => window.EDA.app.state);
   assert.equal(st.pdf, 'sent');
   assert.deepEqual(st.answers.slice(0, 67), answers);
-  const href = await p.getAttribute('[data-act="book"]', 'href');
-  assert.match(href, /^https:\/\/calendly\.com\/jaime-morales\/30min\?name=/);
-  await p.$eval('[data-act="book"]', a => { a.removeAttribute('target'); a.addEventListener('click', e => e.preventDefault()); });
-  await p.click('[data-act="book"]');
+  assert.equal(await p.locator('[data-act="book"], a[href*="calendly"]').count(), 0);
   const [dl] = await Promise.all([p.waitForEvent('download'), p.click('[data-act="download"]')]);
   writeFileSync(join(out, `${name}-downloaded.pdf`), readFileSync(await dl.path()));
   await p.waitForTimeout(500);
@@ -84,7 +81,7 @@ for (const f of [
   const { gas } = await runFlow(browser, f);
   const row = gas.state.sheets['ED Responses'].obj(2);
   assert.equal(row['Status'], 'Done'); assert.equal(row['Language'], f.lang); assert.equal(row['UTM Source'], 'linkedin');
-  assert.ok(row['Session Click'] instanceof Date); assert.equal(row['PDF Downloads'], 1);
+  assert.equal(row['PDF Downloads'], 1);
   assert.equal(gas.state.emails.length, 2);
   const pdf = pdfBytes(gas.state.files[0].blob);
   writeFileSync(join(out, `${f.name}-emailed.pdf`), pdf);

@@ -93,7 +93,7 @@ t('deliver: PDF to Drive, email from info@ with attachment, notification to it@ 
   assert.equal(user.options.attachments[0].name, 'Diagnostico-Expres-Acme.pdf');
   assert.ok(!('replyTo' in user.options));
   assert.match(user.options.htmlBody, /Zona de enfoque clave/);
-  assert.match(user.options.htmlBody, /calendly\.com\/jaime-morales\/30min\?name=Mar/);
+  assert.doesNotMatch(user.options.htmlBody + user.body, /calendly|sesi[oó]n|session/i);
   assert.match(user.options.htmlBody, /@v1\.\d+\.\d+\/shared\/assets\/adizes-logo-color\.png/);
   assert.match(user.body, /6 zonas de enfoque clave/);
   assert.equal(notify.to, 'it@adizes.com');
@@ -123,15 +123,14 @@ t('deliver: email failure → error returned, row marked Error', () => {
   assert.equal(sheet(ED_SHEET).obj(2)['Status'], 'Error');
 });
 
-t('events: booking click + downloads', () => {
+t('events: PDF downloads', () => {
   const { post, sheet } = loadGas();
   const { id } = post(base());
-  post({ action: 'ed_event', id, type: 'book_click' });
   post({ action: 'ed_event', id, type: 'pdf_download' });
   post({ action: 'ed_event', id, type: 'pdf_download' });
   assert.equal(post({ action: 'ed_event', id: 'nope', type: 'pdf_download' }).ok, true);
   const row = sheet(ED_SHEET).obj(2);
-  assert.ok(row['Session Click'] instanceof Date); assert.equal(row['PDF Downloads'], 2);
+  assert.equal(row['PDF Downloads'], 2); assert.ok(!('Session Click' in row));
 });
 
 t('backup: old rows without PDF get the summary email; recent ones wait', () => {

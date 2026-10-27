@@ -16,7 +16,6 @@ var DEFAULTS = {
   endpoint: '',                         // Apps Script web app URL ('' = demo mode, nothing is saved)
   lang: 'auto',
   languages: Object.keys(I18N),
-  calendlyUrl: 'https://calendly.com/jaime-morales/30min',
   privacyUrl: { en: 'https://www.adizes.com/privacy-policy', es: 'https://www.adizes.com/privacy-policy' },
   assetsBase: '',
   storageKey: 'adz-ed:v1',
@@ -285,28 +284,16 @@ App.prototype.renderResults = function () {
         '<div class="adz-radars">' + edRadarSvg(t, r, ED.RADARS[0], t.radar.title1) + edRadarSvg(t, r, ED.RADARS[1], t.radar.title2) + '</div>' +
         '<div class="adz-legend adz-legend--lines"><span class="is-ok"><i></i>' + esc(t.radar.normal) + '</span><span class="is-bad"><i></i>' + esc(t.radar.abnormal) + '</span><span class="is-you"><i></i>' + esc(t.radar.yours) + '</span></div></section>' +
       '<section class="adz-sec"><h2>' + esc(R.focusTitle) + '</h2><p class="adz-help">' + esc(focusNote || R.focusHelp) + '</p>' + focusHtml + '</section>' +
-      '<div class="adz-split">' +
-        '<section class="adz-card adz-card--dark">' +
-          '<div class="adz-eyebrow">' + esc(R.sessionEyebrow) + '</div><h2>' + esc(R.sessionTitle) + '</h2><p>' + esc(R.sessionBody) + '</p>' +
-          '<a class="adz-btn" data-act="book" href="' + esc(this.calendlyLink()) + '" target="_blank" rel="noopener">' + esc(R.sessionCta) + ' →</a>' +
-        '</section>' +
-        '<section class="adz-card">' +
-          '<h2>' + esc(R.pdfTitle) + '</h2><p class="adz-status" data-pdf-status>' + pdfStatus + '</p>' +
-          '<button type="button" class="adz-btn adz-btn--ghost" data-act="download">' + esc(R.download) + '</button>' +
-        '</section>' +
-      '</div>' +
+      '<section class="adz-sec adz-sec--pdf">' +
+        '<h2>' + esc(R.pdfTitle) + '</h2><p class="adz-status" data-pdf-status>' + pdfStatus + '</p>' +
+        '<button type="button" class="adz-btn" data-act="download">' + esc(R.download) + '</button>' +
+      '</section>' +
       '<div class="adz-foot"><button type="button" data-act="retake">' + esc(R.retake) + '</button></div>' +
     '</div>';
   this.bindLang(); this.scrollTop();
-  this.root.querySelector('[data-act="book"]').addEventListener('click', function () { self.event('book_click'); });
   this.root.querySelector('[data-act="download"]').addEventListener('click', function (e) { self.download(e.currentTarget); });
   this.root.querySelector('[data-act="retake"]').addEventListener('click', function () { store(self.cfg.storageKey, null); self.state = self.fresh(); self.dir = 1; self.renderIntro(); });
   if (s.pdf === 'pending' && !this.delivering) this.deliver();
-};
-App.prototype.calendlyLink = function () {
-  var c = this.state.contact || {}, u = this.cfg.calendlyUrl, sep = u.indexOf('?') >= 0 ? '&' : '?';
-  return u + sep + 'name=' + encodeURIComponent(c.name || '') + '&email=' + encodeURIComponent(c.email || '') +
-    '&utm_source=express-diagnostics&utm_content=' + encodeURIComponent(this.state.id || '');
 };
 App.prototype.event = function (type) { if (this.state.id) api(this.cfg.endpoint, { action: 'ed_event', id: this.state.id, type: type }, 15000).catch(function () {}); };
 App.prototype.setPdfStatus = function (kind) {
@@ -315,7 +302,7 @@ App.prototype.setPdfStatus = function (kind) {
 };
 App.prototype.pdfData = function () {
   var c = this.state.contact || {};
-  return { result: this.result(), company: c.company, participants: [c.name], dateIso: this.state.submittedAt, calendlyUrl: this.calendlyLink() };
+  return { result: this.result(), company: c.company, participants: [c.name], dateIso: this.state.submittedAt };
 };
 App.prototype.buildPdf = function (lang) {
   var self = this;
@@ -358,7 +345,7 @@ function boot() {
     // Team report (used by the admin): responses = [[67 raw answers], ...]
     teamPdf: function (responses, company, names, lang, dateIso) {
       return getPdfAssets(cfg.assetsBase).then(function (A) {
-        return renderEdPdf(A, lang || 'en', { result: ED.score(responses), company: company, participants: names || [], dateIso: dateIso, calendlyUrl: cfg.calendlyUrl });
+        return renderEdPdf(A, lang || 'en', { result: ED.score(responses), company: company, participants: names || [], dateIso: dateIso });
       });
     },
   };

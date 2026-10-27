@@ -121,10 +121,6 @@ ED_I18N.en = {
     focusTitle: 'Where to look first',
     focusHelp: 'The factors in your key focus zone, with the statements behind them.',
     focusNone: 'No factor fell into the key focus zone. The areas closest to it are listed below.',
-    sessionEyebrow: 'Next step',
-    sessionTitle: 'Turn this diagnosis into a plan',
-    sessionBody: 'In a free 30-minute session, a Certified Adizes Associate reviews your diagnostic with you and helps you decide where to start.',
-    sessionCta: 'Book my free session',
     pdfTitle: 'Your full report',
     pdfSending: 'Sending the PDF to {email}…',
     pdfSent: 'We sent the PDF to {email}. Check your spam folder if you don’t see it.',
@@ -150,11 +146,7 @@ ED_I18N.en = {
     colorsTitle: 'Colour decoding',
     footer: 'Adizes Institute · Express Diagnostics',
     page: 'Page',
-    nextStep: 'Turn this diagnosis into a plan',
-    nextBody: 'The diagnostic shows where the organization is losing energy. The next step is deciding what to fix first, in which order and with whom.',
-    nextCta: 'Book a free session',
     cont: 'cont.',
-    sign: 'Adizes Institute',
   },
 
   questions: [

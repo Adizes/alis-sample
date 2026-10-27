@@ -10,7 +10,7 @@ const ED_TABLE = {
     'Full Name', 'First Name', 'Last Name', 'Email', 'Company',
     'Key Focus Zones', 'To Improve', 'Healthy', 'Key Focus Areas',
   ].concat(ED_CELL_COLS, ED_Q_COLS, [
-    'Report URL', 'Emailed At', 'Notified', 'Session Click', 'PDF Downloads',
+    'Report URL', 'Emailed At', 'Notified', 'PDF Downloads',
     'Consent'], META_COLS, ['Widget Version', 'Error']),
   text: ['ID', 'Group Code', 'Full Name', 'First Name', 'Last Name', 'Email', 'Company', 'Key Focus Areas', 'Error'].concat(META_COLS),
 };
@@ -80,7 +80,6 @@ function edEvent_(b) {
   const found = findRecord_(ED_TABLE, 'ID', clean_(b.id, 40));
   if (!found) return { ok: true };
   const { sh, rowNum, rec, map } = found;
-  if (b.type === 'book_click' && !rec['Session Click']) setCells_(sh, rowNum, map, { 'Session Click': new Date() });
   if (b.type === 'pdf_download') setCells_(sh, rowNum, map, { 'PDF Downloads': (Number(rec['PDF Downloads']) || 0) + 1 });
   return { ok: true };
 }
@@ -106,10 +105,6 @@ function edBackup_() {
 /* ---------------- helpers ---------------- */
 function edCounts_(r) { const c = { red: 0, yellow: 0, green: 0 }; r.cells.forEach(x => c[x.color]++); return c; }
 function edRecScore_(rec) { return ED.score([ED_Q_COLS.map(h => Number(rec[h]))]); }
-function edCalendly_(rec, src) {
-  return CONFIG.CALENDLY_URL + '?name=' + encodeURIComponent(rec['Full Name'] || '') + '&email=' + encodeURIComponent(rec['Email'] || '') +
-    '&utm_source=' + (src || 'express-diagnostics-email') + '&utm_content=' + encodeURIComponent(rec['ID']);
-}
 const ED_HEX = { green: '#1e8e4e', yellow: '#9a7200', red: '#d7141a' };
 const ED_TINT = { green: '#dcf2e5', yellow: '#fff0bf', red: '#fbd6d7' };
 
@@ -117,7 +112,6 @@ function edSendUserEmail_(rec, pdfBlob) {
   const lang = LABELS[rec['Language']] ? rec['Language'] : 'en';
   const T = L_(lang), E = T.ed, r = edRecScore_(rec), counts = edCounts_(r);
   const first = esc_(rec['First Name'] || '');
-  const cal = edCalendly_(rec);
   const boxes = ['red', 'yellow', 'green'].map(c =>
     '<td width="33%" style="padding:0 4px"><div style="background:#f6f6f6;border-left:4px solid ' + ED_HEX[c] + ';padding:12px 14px">' +
     '<div style="font:700 26px Arial,sans-serif;color:#111111">' + counts[c] + '</div>' +
@@ -132,12 +126,11 @@ function edSendUserEmail_(rec, pdfBlob) {
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 -4px"><tr>' + boxes + '</tr></table>' +
     '<div style="font:700 16px Arial,sans-serif;color:#111111;margin:26px 0 4px">' + esc_(E.factors) + '</div>' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' + rows + '</table>' +
-    ctaBlock_(E.sessionTitle, E.sessionBody, E.sessionCta, cal) +
-    '<p style="margin:22px 0 0">' + esc_(E.sign) + '</p>';
+    '<p style="margin:26px 0 0">' + esc_(E.sign) + '</p>';
   const plain = fill_(E.hi, { first: rec['First Name'] || '' }) + '\n\n' + (pdfBlob ? E.intro : E.introNoPdf) + '\n\n' +
     ['red', 'yellow', 'green'].map(c => counts[c] + ' ' + E.count[c]).join(' · ') + '\n\n' +
     r.cells.map(x => T.cells[x.key] + ': ' + Math.round(x.percent) + '% (' + T.colors[x.color] + ')').join('\n') +
-    '\n\n' + E.sessionTitle + ': ' + cal + '\n\n' + E.sign;
+    '\n\n' + E.sign;
   sendMail_(rec['Email'], E.subject, plain, emailShell_(inner, E.footer), pdfBlob ? [pdfBlob] : null);
 }
 
