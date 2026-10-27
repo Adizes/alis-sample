@@ -29,109 +29,17 @@ __ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink);
 __ROOT__ .adz-cannot[aria-pressed="true"] { color: var(--red); border-bottom-color: var(--red); }
 __ROOT__ .adz-cannot[aria-pressed="true"]::before { content: '● '; }
 
-/* ---------- Results ---------- */
-__ROOT__ .adz-results { background: var(--white); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-__ROOT__ .adz-hero { padding: 26px 32px 34px; border-bottom: 1px solid var(--line); }
-__ROOT__ .adz-counts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 26px; max-width: 640px; }
-__ROOT__ .adz-countbox { background: var(--paper); border-left: 4px solid; padding: 14px 16px; border-radius: 4px; }
-__ROOT__ .adz-countbox b { display: block; font-size: 30px; line-height: 1; font-weight: 700; }
-__ROOT__ .adz-countbox span { display: block; margin-top: 6px; font-size: 13px; color: var(--muted); font-weight: 600; }
-__ROOT__ .adz-countbox.is-red { border-color: var(--red); }
-__ROOT__ .adz-countbox.is-yellow { border-color: var(--yellow); }
-__ROOT__ .adz-countbox.is-green { border-color: var(--green); }
-__ROOT__ .adz-sec { padding: 34px 32px; border-bottom: 1px solid var(--line); }
-__ROOT__ .adz-sec h2 { font-size: 24px; font-weight: 700; line-height: 1.25; }
+/* ---------- Messages ---------- */
+__ROOT__ .adz-hello { font-size: 18px; font-weight: 600; margin-top: 14px; }
+__ROOT__ .adz-hello + .adz-h1 { margin-top: 4px; }
+__ROOT__ .adz-msg { max-width: 640px; }
+__ROOT__ .adz-msg--done { text-align: center; margin: 0 auto; }
+__ROOT__ .adz-msg--done .adz-lead { margin: 0 auto; }
+__ROOT__ .adz-check { width: 56px; height: 56px; border-radius: 50%; background: var(--red); margin: 0 auto 8px; position: relative; }
+__ROOT__ .adz-check::after { content: ''; position: absolute; left: 20px; top: 14px; width: 12px; height: 22px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }
 
-/* Causal map */
-__ROOT__ .adz-diagram { max-width: 760px; font-size: 13px; }
-__ROOT__ .adz-box { border: 1px solid var(--ink); padding: 10px; text-align: center; }
-__ROOT__ .adz-box--ext { background: var(--paper); font-weight: 700; padding: 10px; }
-__ROOT__ .adz-box--int { background: var(--paper); padding: 10px 14px 14px; }
-__ROOT__ .adz-box--white { background: var(--white); margin-top: 8px; padding: 8px 10px 10px; }
-__ROOT__ .adz-box-t { font-weight: 700; margin-bottom: 8px; font-size: 13px; }
-__ROOT__ .adz-culture { border: 1px dashed var(--soft); padding: 8px; margin-bottom: 8px; }
-__ROOT__ .adz-row { display: grid; gap: 6px; margin-top: 6px; }
-__ROOT__ .adz-row:first-of-type { margin-top: 0; }
-__ROOT__ .adz-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-__ROOT__ .adz-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-__ROOT__ .adz-cell { min-height: 46px; padding: 6px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; border: 1px solid; line-height: 1.25; }
-__ROOT__ .adz-cell span { font-weight: 600; font-size: 12.5px; }
-__ROOT__ .adz-cell b { font-size: 11.5px; }
-__ROOT__ .adz-cell.is-green { background: var(--green-t); border-color: var(--green); }
-__ROOT__ .adz-cell.is-green b { color: var(--green); }
-__ROOT__ .adz-cell.is-yellow { background: var(--yellow-t); border-color: var(--yellow); }
-__ROOT__ .adz-cell.is-yellow b { color: var(--yellow-ink); }
-__ROOT__ .adz-cell.is-red { background: var(--red-t); border-color: var(--red); }
-__ROOT__ .adz-cell.is-red b { color: var(--red); }
-__ROOT__ .adz-cell.is-dotted { border: 1px dotted var(--ink); }
-__ROOT__ .adz-cell.is-thin { border: 1px solid var(--ink); }
-__ROOT__ .adz-cell.is-thick { border: 3px solid var(--ink); }
-__ROOT__ .adz-arrow { width: 2px; height: 16px; background: var(--ink); margin: 0 auto; position: relative; }
-__ROOT__ .adz-arrow::after { content: ''; position: absolute; left: -4px; bottom: -2px; border: 5px solid transparent; border-top: 6px solid var(--ink); border-bottom: 0; }
-__ROOT__ .adz-box--int > .adz-arrow { margin-top: 8px; margin-bottom: -6px; }
-__ROOT__ .adz-legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; font-size: 13px; color: var(--ink-2); }
-__ROOT__ .adz-legend span { display: inline-flex; align-items: center; gap: 8px; }
-__ROOT__ .adz-legend i { width: 18px; height: 12px; border: 1px solid; }
-__ROOT__ .adz-legend .is-green i { background: var(--green-t); border-color: var(--green); }
-__ROOT__ .adz-legend .is-yellow i { background: var(--yellow-t); border-color: var(--yellow); }
-__ROOT__ .adz-legend .is-red i { background: var(--red-t); border-color: var(--red); }
-__ROOT__ .adz-legend--lines i { height: 0; border: 0; border-top: 2px dashed; }
-__ROOT__ .adz-legend--lines .is-ok i { border-color: var(--green); }
-__ROOT__ .adz-legend--lines .is-bad i { border-color: var(--red); }
-__ROOT__ .adz-legend--lines .is-you i { border-top: 2.5px solid var(--ink); }
-
-/* Radars */
-__ROOT__ .adz-radars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-__ROOT__ .adz-radar figcaption { font-size: 14px; font-weight: 700; text-align: center; min-height: 2.8em; }
-__ROOT__ .adz-radar svg { display: block; width: 100%; height: auto; overflow: visible; }
-__ROOT__ .adz-grid { fill: none; stroke: #e2e2e2; stroke-width: 1; }
-__ROOT__ .adz-ref { fill: none; stroke-width: 1.4; stroke-dasharray: 4 3; }
-__ROOT__ .adz-ref--ok { stroke: var(--green); }
-__ROOT__ .adz-ref--bad { stroke: var(--red); }
-__ROOT__ .adz-you { fill: rgba(17, 17, 17, .09); stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; }
-__ROOT__ .adz-dot { fill: var(--white); stroke: var(--ink); stroke-width: 2; }
-__ROOT__ .adz-lbl { font: 600 11.5px Montserrat, Arial, sans-serif; fill: var(--ink); }
-__ROOT__ .adz-val { font-weight: 700; }
-__ROOT__ .adz-val.is-green { fill: var(--green); }
-__ROOT__ .adz-val.is-yellow { fill: var(--yellow-ink); }
-__ROOT__ .adz-val.is-red { fill: var(--red); }
-
-/* Focus list */
-__ROOT__ .adz-focus { border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: 4px; padding: 16px 18px; margin-top: 12px; }
-__ROOT__ .adz-focus.is-yellow { border-left-color: var(--yellow); }
-__ROOT__ .adz-focus-h { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; }
-__ROOT__ .adz-focus-h span { font-weight: 700; color: var(--red); }
-__ROOT__ .adz-focus.is-yellow .adz-focus-h span { color: var(--yellow-ink); }
-__ROOT__ .adz-focus ul { margin-top: 10px; display: grid; gap: 7px; }
-__ROOT__ .adz-focus li { position: relative; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); }
-__ROOT__ .adz-focus li::before { content: ''; position: absolute; left: 0; top: .5em; width: 8px; height: 8px; border-radius: 2px; background: var(--red); }
-__ROOT__ .adz-focus li.is-yellow::before { background: var(--yellow); }
-
-__ROOT__ .adz-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; padding: 32px; }
-__ROOT__ .adz-sec--pdf p { font-size: 15px; color: var(--ink-2); margin: 8px 0 18px; max-width: 620px; }
-__ROOT__ .adz-status { min-height: 1.5em; }
-__ROOT__ .adz-foot { padding: 22px 32px 26px; text-align: center; }
-__ROOT__ .adz-foot button { font-size: 13.5px; font-weight: 600; color: var(--muted); text-decoration: underline; }
-
-@media (max-width: 760px) {
-  __ROOT__ .adz-radars { grid-template-columns: 1fr; }
-  __ROOT__ .adz-split { grid-template-columns: 1fr; padding: 22px 18px; }
-}
 @media (max-width: 640px) {
-  __ROOT__ .adz-results { border-radius: 0; border-left: 0; border-right: 0; }
-  __ROOT__ .adz-hero, __ROOT__ .adz-sec { padding-left: 18px; padding-right: 18px; }
-  __ROOT__ .adz-counts { gap: 8px; }
-  __ROOT__ .adz-countbox { padding: 12px; }
-  __ROOT__ .adz-countbox b { font-size: 24px; }
-  __ROOT__ .adz-countbox span { font-size: 11.5px; }
   __ROOT__ .adz-hint--keys { display: none; }
   __ROOT__ .adz-q { min-height: 0; }
   __ROOT__ .adz-opt { padding: 12px 14px; }
-  __ROOT__ .adz-cell span { font-size: 11px; }
-  __ROOT__ .adz-box--int { padding: 8px; }
-  __ROOT__ .adz-box--white { padding: 6px; }
-  __ROOT__ .adz-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
-  __ROOT__ .adz-cell { padding: 5px 3px; min-height: 44px; }
-  __ROOT__ .adz-lbl { font-size: 14px; }
-  __ROOT__ .adz-radar svg { margin: 0 -8px; width: calc(100% + 16px); }
 }

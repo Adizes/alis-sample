@@ -13,34 +13,36 @@ ED_I18N.en = {
   locale: 'en-US',
 
   ui: {
-    start: 'Start the diagnostic',
+    start: 'Start',
     back: 'Back',
     next: 'Next',
     pressEnter: 'press Enter ↵',
     keyboardHint: 'Keys 1–4 · 0 = I cannot answer',
-    question: 'Statement',
     of: 'of',
     section: 'Area',
-    minutes: '≈ 10 minutes · 67 statements · free PDF report',
-    resume: 'You have a diagnostic in progress.',
+    language: 'Language',
+    resume: 'Welcome back. Your answers so far are saved.',
     resumeYes: 'Continue where I left off',
     resumeNo: 'Start over',
-    language: 'Language',
-    loading: 'Building your diagnostic…',
-    errorGeneric: 'Something went wrong. Please try again.',
+    loading: 'Loading…',
+    sending: 'Sending your answers…',
+    errorGeneric: 'Something went wrong. Please check your connection and try again.',
     retry: 'Try again',
   },
 
   intro: {
     eyebrow: 'Express Diagnostics',
-    title: 'Where is your organization losing energy?',
-    body: 'Most organizational problems are symptoms. This diagnostic, built on the Adizes methodology, looks underneath them: 67 statements across the 16 factors that shape how a company is led, structured and run.',
+    hello: 'Hi, {first}',
+    title: '{company} wants your view of the organization',
+    body: '{company} is running an organizational diagnostic with the Adizes Institute. You will rate 67 statements about how the company works today, across the 16 factors of the Adizes methodology.',
     bullets: [
-      'A causal map of your organization’s systemic problems',
-      'Two radar charts that compare your company with a healthy one',
-      'Every factor rated as healthy, needing improvement or a key focus zone',
+      'It takes about 10 minutes. You can pause and come back later with the same link.',
+      'Your answers are combined with those of the other participants in a group report.',
+      'Answer for how things actually work today, not how they are supposed to work.',
     ],
-    note: 'Answer for how things actually work today, not how they are supposed to work. If you have no basis to judge a statement, choose “I cannot answer”.',
+    note: 'If you have no basis to judge a statement, choose “I cannot answer”.',
+    deadline: 'Open until {date}',
+    meta: '67 statements · about 10 minutes',
   },
 
   // Raw values 2–5 (1 = cannot answer). Shown top to bottom.
@@ -80,7 +82,7 @@ ED_I18N.en = {
     title2: 'Operational problems and systemic manifestations (consequences)',
     normal: 'Normal situation',
     abnormal: 'Abnormal situation',
-    yours: 'Your company',
+    yours: 'The company',
   },
 
   colors: {
@@ -98,40 +100,25 @@ ED_I18N.en = {
   },
   noAnswer: 'no answer',
 
-  gate: {
-    eyebrow: 'Almost done',
-    title: 'Where should we send your report?',
-    body: 'Your results appear on the next screen, and we’ll email you the full PDF report.',
-    name: 'Full name', namePh: 'Jane Smith',
-    email: 'Work email', emailPh: 'jane@company.com',
-    company: 'Company', companyPh: 'Company name',
-    consent: 'I agree to the Adizes Institute processing my data to send me this report. {privacy}',
-    privacy: 'Privacy policy',
-    submit: 'See my results',
-    errName: 'Please enter your name.',
-    errEmail: 'Please enter a valid email.',
-    errCompany: 'Please enter your company.',
-    errConsent: 'Please accept to continue.',
+  review: {
+    eyebrow: 'Last step',
+    title: 'Ready to send',
+    body: 'You rated all 67 statements.',
+    cannot: '{n} marked as “I cannot answer”.',
+    warn: 'Once sent, your answers can’t be changed.',
+    submit: 'Send my answers',
+    edit: 'Review my answers',
   },
-
-  results: {
-    eyebrow: 'Express Diagnostics',
-    lead: 'This is how your answers map onto the 16 factors of the Adizes organizational diagnostic.',
-    count: { red: 'key focus zones', yellow: 'areas to improve', green: 'healthy' },
-    diagramTitle: 'Causal map',
-    diagramHelp: 'Problems flow downward: systemic causes produce symptoms in the subsystems, which show up as manifestations. Fixing the causes is what makes the symptoms go away.',
-    radarTitle: 'Your company against a healthy one',
-    radarHelp: 'The green ring marks a normal situation (75%), the red ring an abnormal one (50%).',
-    focusTitle: 'Where to look first',
-    focusHelp: 'The factors in your key focus zone, with the statements behind them.',
-    focusNone: 'No factor fell into the key focus zone. The areas closest to it are listed below.',
-    pdfTitle: 'Your full report',
-    pdfSending: 'Sending the PDF to {email}…',
-    pdfSent: 'We sent the PDF to {email}. Check your spam folder if you don’t see it.',
-    pdfError: 'We couldn’t email the PDF. Download it here.',
-    download: 'Download PDF',
-    preparing: 'Preparing…',
-    retake: 'Start a new diagnostic',
+  thanks: {
+    title: 'Thank you, {first}',
+    body: 'Your answers have been recorded. {company} will receive the group report through the Adizes Institute. You can close this window.',
+  },
+  states: {
+    noToken: { title: 'You need your personal link', body: 'To answer, open the link you received in your invitation email.' },
+    invalid_link: { title: 'This link isn’t valid', body: 'Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com.' },
+    completed: { title: 'You have already answered', body: 'Your answers were recorded. Thank you for participating.' },
+    closed: { title: 'This diagnostic is closed', body: 'Answers are no longer being collected. If you think this is a mistake, contact the person who invited you.' },
+    not_open: { title: 'This diagnostic isn’t open yet', body: 'Please try again later from the same link.' },
   },
 
   pdf: {
@@ -143,7 +130,7 @@ ED_I18N.en = {
     participants: 'Participants',
     participantsCount: 'Participants surveyed',
     howTitle: 'How to read this report',
-    howBody: 'Each of the 16 factors is rated from your answers on a 4-point scale (“I cannot answer” is not counted as an answer and lowers the factor’s score). The causal map shows where problems originate, the radar charts compare your company with a normal and an abnormal situation, and the last section lists every statement with its rating.',
+    howBody: 'Each of the 16 factors is rated from the participants’ answers on a 4-point scale (“I cannot answer” is not counted as an answer and lowers the factor’s score). The causal map shows where problems originate, the radar charts compare the company with a normal and an abnormal situation, and the last section lists every statement with its rating.',
     summary: 'At a glance',
     keyFactors: 'Key organizational factors',
     keyFactorsHelp: 'Each statement is shown in the wording that matches its rating.',
@@ -234,34 +221,36 @@ ED_I18N.es = {
   locale: 'es-MX',
 
   ui: {
-    start: 'Comenzar el diagnóstico',
+    start: 'Comenzar',
     back: 'Atrás',
     next: 'Siguiente',
     pressEnter: 'presiona Enter ↵',
     keyboardHint: 'Teclas 1–4 · 0 = No puedo responder',
-    question: 'Afirmación',
     of: 'de',
     section: 'Área',
-    minutes: '≈ 10 minutos · 67 afirmaciones · reporte PDF gratuito',
-    resume: 'Tienes un diagnóstico en curso.',
+    language: 'Idioma',
+    resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
     resumeYes: 'Continuar donde me quedé',
     resumeNo: 'Empezar de nuevo',
-    language: 'Idioma',
-    loading: 'Preparando tu diagnóstico…',
-    errorGeneric: 'Algo salió mal. Inténtalo de nuevo.',
+    loading: 'Cargando…',
+    sending: 'Enviando tus respuestas…',
+    errorGeneric: 'Algo salió mal. Revisa tu conexión e inténtalo de nuevo.',
     retry: 'Intentar de nuevo',
   },
 
   intro: {
     eyebrow: 'Diagnóstico Exprés',
-    title: '¿Dónde está perdiendo energía tu organización?',
-    body: 'La mayoría de los problemas organizacionales son síntomas. Este diagnóstico, basado en la metodología Adizes, mira lo que hay debajo: 67 afirmaciones sobre los 16 factores que definen cómo se dirige, se estructura y se opera una empresa.',
+    hello: 'Hola, {first}',
+    title: '{company} quiere conocer tu visión de la organización',
+    body: '{company} está realizando un diagnóstico organizacional con el Instituto Adizes. Calificarás 67 afirmaciones sobre cómo funciona hoy la empresa, en los 16 factores de la metodología Adizes.',
     bullets: [
-      'Un mapa causal de los problemas sistémicos de tu organización',
-      'Dos gráficas de radar que comparan tu empresa con una sana',
-      'Cada factor calificado como sano, con áreas de mejora o zona de enfoque clave',
+      'Toma alrededor de 10 minutos. Puedes pausar y continuar después con el mismo enlace.',
+      'Tus respuestas se combinan con las de los demás participantes en un reporte grupal.',
+      'Responde según cómo funcionan las cosas hoy, no cómo deberían funcionar.',
     ],
-    note: 'Responde según cómo funcionan las cosas hoy, no cómo deberían funcionar. Si no tienes elementos para juzgar una afirmación, elige “No puedo responder”.',
+    note: 'Si no tienes elementos para juzgar una afirmación, elige “No puedo responder”.',
+    deadline: 'Disponible hasta el {date}',
+    meta: '67 afirmaciones · alrededor de 10 minutos',
   },
 
   scale: [
@@ -300,7 +289,7 @@ ED_I18N.es = {
     title2: 'Problemas operativos y manifestaciones sistémicas (consecuencias)',
     normal: 'Situación normal',
     abnormal: 'Situación anormal',
-    yours: 'Tu empresa',
+    yours: 'La empresa',
   },
 
   colors: {
@@ -318,40 +307,25 @@ ED_I18N.es = {
   },
   noAnswer: 'sin respuesta',
 
-  gate: {
-    eyebrow: 'Ya casi',
-    title: '¿A dónde te enviamos tu reporte?',
-    body: 'Tus resultados aparecen en la siguiente pantalla y te enviamos por correo el reporte completo en PDF.',
-    name: 'Nombre completo', namePh: 'Ana López',
-    email: 'Correo de trabajo', emailPh: 'ana@empresa.com',
-    company: 'Empresa', companyPh: 'Nombre de la empresa',
-    consent: 'Acepto que el Instituto Adizes procese mis datos para enviarme este reporte. {privacy}',
-    privacy: 'Aviso de privacidad',
-    submit: 'Ver mis resultados',
-    errName: 'Escribe tu nombre.',
-    errEmail: 'Escribe un correo válido.',
-    errCompany: 'Escribe tu empresa.',
-    errConsent: 'Acepta para continuar.',
+  review: {
+    eyebrow: 'Último paso',
+    title: 'Listo para enviar',
+    body: 'Calificaste las 67 afirmaciones.',
+    cannot: '{n} como “No puedo responder”.',
+    warn: 'Una vez enviadas, tus respuestas ya no se pueden cambiar.',
+    submit: 'Enviar mis respuestas',
+    edit: 'Revisar mis respuestas',
   },
-
-  results: {
-    eyebrow: 'Diagnóstico Exprés',
-    lead: 'Así se reflejan tus respuestas en los 16 factores del diagnóstico organizacional Adizes.',
-    count: { red: 'zonas de enfoque clave', yellow: 'áreas por mejorar', green: 'sanas' },
-    diagramTitle: 'Mapa causal',
-    diagramHelp: 'Los problemas fluyen hacia abajo: las causas sistémicas producen síntomas en los subsistemas, que se ven como manifestaciones. Atender las causas es lo que hace desaparecer los síntomas.',
-    radarTitle: 'Tu empresa frente a una sana',
-    radarHelp: 'El anillo verde marca una situación normal (75%) y el rojo una anormal (50%).',
-    focusTitle: 'Por dónde empezar',
-    focusHelp: 'Los factores en zona de enfoque clave, con las afirmaciones que los explican.',
-    focusNone: 'Ningún factor quedó en zona de enfoque clave. Abajo están las áreas más cercanas a ella.',
-    pdfTitle: 'Tu reporte completo',
-    pdfSending: 'Enviando el PDF a {email}…',
-    pdfSent: 'Enviamos el PDF a {email}. Si no lo ves, revisa tu carpeta de spam.',
-    pdfError: 'No pudimos enviar el PDF por correo. Descárgalo aquí.',
-    download: 'Descargar PDF',
-    preparing: 'Preparando…',
-    retake: 'Hacer un nuevo diagnóstico',
+  thanks: {
+    title: 'Gracias, {first}',
+    body: 'Tus respuestas quedaron registradas. {company} recibirá el reporte grupal a través del Instituto Adizes. Ya puedes cerrar esta ventana.',
+  },
+  states: {
+    noToken: { title: 'Necesitas tu enlace personal', body: 'Para responder, abre el enlace que recibiste en tu correo de invitación.' },
+    invalid_link: { title: 'Este enlace no es válido', body: 'Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com.' },
+    completed: { title: 'Ya respondiste', body: 'Tus respuestas quedaron registradas. Gracias por participar.' },
+    closed: { title: 'Este diagnóstico ya cerró', body: 'Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó.' },
+    not_open: { title: 'Este diagnóstico aún no está abierto', body: 'Inténtalo más tarde con el mismo enlace.' },
   },
 
   pdf: {
@@ -363,7 +337,7 @@ ED_I18N.es = {
     participants: 'Participantes',
     participantsCount: 'Participantes encuestados',
     howTitle: 'Cómo leer este reporte',
-    howBody: 'Cada uno de los 16 factores se califica con tus respuestas en una escala de 4 puntos (“No puedo responder” no cuenta como respuesta y baja la calificación del factor). El mapa causal muestra dónde se originan los problemas, las gráficas de radar comparan tu empresa con una situación normal y una anormal, y la última sección presenta cada afirmación con su calificación.',
+    howBody: 'Cada uno de los 16 factores se califica con las respuestas de los participantes en una escala de 4 puntos (“No puedo responder” no cuenta como respuesta y baja la calificación del factor). El mapa causal muestra dónde se originan los problemas, las gráficas de radar comparan la empresa con una situación normal y una anormal, y la última sección presenta cada afirmación con su calificación.',
     summary: 'En resumen',
     keyFactors: 'Factores organizacionales clave',
     keyFactorsHelp: 'Cada afirmación aparece con la redacción que corresponde a su calificación.',
@@ -646,453 +620,83 @@ var ED = (function () {
   };
 })();
 
-/* Shared PDF helpers (jsPDF + Montserrat). Bundled inside each widget and the admin. */
-var JSPDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-var PDF_ASSETS = {};
-function getPdfAssets(base) {
-  if (PDF_ASSETS[base]) return PDF_ASSETS[base];
-  var jsp = (window.jspdf && window.jspdf.jsPDF) ? Promise.resolve() : loadScript(JSPDF_URL);
-  var f = function (n) { return fetchB64(base + 'fonts/Montserrat-' + n + '.ttf'); };
-  var img = function (n) { return fetchB64(base + n).then(function (b) { return 'data:image/png;base64,' + b; }).catch(function () { return null; }); };
-  var p = Promise.all([jsp, f('Light'), f('Regular'), f('SemiBold'), f('Bold'), img('adizes-logo-color.png'), img('adizes-logo-color-white.png'), img('arrow-red.png'), img('arrow-white.png')])
-    .then(function (a) { return { fonts: { Light: a[1], Regular: a[2], SemiBold: a[3], Bold: a[4] }, logo: a[5], logoWhite: a[6], arrowRed: a[7], arrowWhite: a[8] }; });
-  p.catch(function () { delete PDF_ASSETS[base]; });
-  PDF_ASSETS[base] = p;
-  return p;
-}
-
-function hexRgb(hex) { var n = parseInt(hex.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
-
-var PDF_C = {
-  INK: '#111111', MUTED: '#5f6368', SOFT: '#8a8f96', LINE: '#e4e4e4', PAPER: '#f5f5f5', RED: '#d7141a', WHITE: '#ffffff',
-  green: '#1e8e4e', yellow: '#d9a400', red: '#d7141a', yellowText: '#9a7200',
-  greenT: '#dcf2e5', yellowT: '#fff0bf', redT: '#fbd6d7',
-};
-
-// New letter-size document with Montserrat registered as family 'M' (light/regular/semibold/bold).
-function newPdf(A) {
-  var doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter', compress: true });
-  ['Light', 'Regular', 'SemiBold', 'Bold'].forEach(function (w) {
-    doc.addFileToVFS('M-' + w + '.ttf', A.fonts[w]);
-    doc.addFont('M-' + w + '.ttf', 'M', w.toLowerCase());
-  });
-  return doc;
-}
-
-function pdfKit(doc) {
-  var K = {};
-  K.font = function (w, size, color) { doc.setFont('M', w); doc.setFontSize(size); doc.setTextColor.apply(doc, hexRgb(color || PDF_C.INK)); };
-  K.fill = function (c) { doc.setFillColor.apply(doc, hexRgb(c)); };
-  K.stroke = function (c, w) { doc.setDrawColor.apply(doc, hexRgb(c)); if (w != null) doc.setLineWidth(w); };
-  K.dash = function (arr) { if (doc.setLineDashPattern) doc.setLineDashPattern(arr || [], 0); };
-  K.alpha = function (a) { if (doc.setGState) doc.setGState(new doc.GState({ opacity: a })); };
-  K.split = function (text, width, w, size) { doc.setFont('M', w); doc.setFontSize(size); return doc.splitTextToSize(String(text), width); };
-  // Wrapped text with **bold** spans. Returns the y after the last line.
-  K.rich = function (text, x, y, width, size, opts) {
-    opts = opts || {};
-    var lh = size * (opts.lh || 1.5), color = opts.color || PDF_C.INK, bcolor = opts.bold || color;
-    var reg = opts.weight || 'regular', bw = opts.boldWeight || 'bold';
-    var tokens = [];
-    String(text).split(/(\*\*.+?\*\*)/).forEach(function (part) {
-      if (!part) return;
-      var b = /^\*\*.+\*\*$/.test(part); if (b) part = part.slice(2, -2);
-      part.split(/(\s+)/).forEach(function (w) { if (w) tokens.push({ w: w, b: b }); });
-    });
-    var lines = [[]], lw = 0;
-    tokens.forEach(function (tk) {
-      doc.setFont('M', tk.b ? bw : reg); doc.setFontSize(size);
-      var tw = doc.getTextWidth(tk.w), space = /^\s+$/.test(tk.w);
-      if (!space && lw + tw > width && lines[lines.length - 1].length) { lines.push([]); lw = 0; }
-      if (space && !lines[lines.length - 1].length) return;
-      lines[lines.length - 1].push({ w: tk.w, b: tk.b, tw: tw }); lw += tw;
-    });
-    lines.forEach(function (ln) {
-      while (ln.length && /^\s+$/.test(ln[ln.length - 1].w)) ln.pop();
-      var cx = x;
-      if (opts.align === 'center') { var tot = ln.reduce(function (a, b) { return a + b.tw; }, 0); cx = x + (width - tot) / 2; }
-      ln.forEach(function (tk) {
-        K.font(tk.b ? bw : reg, size, tk.b ? bcolor : color);
-        if (!/^\s+$/.test(tk.w)) doc.text(tk.w, cx, y);
-        cx += tk.tw;
-      });
-      y += lh;
-    });
-    return y;
-  };
-  K.richHeight = function (text, width, size, opts) {
-    opts = opts || {};
-    return K.split(String(text).replace(/\*\*/g, ''), width, opts.weight || 'regular', size).length * size * (opts.lh || 1.5);
-  };
-  // Down arrow (line + head)
-  K.arrowDown = function (x, y1, y2, color, w) {
-    K.stroke(color || PDF_C.INK, w || 1.4); K.dash([]); doc.line(x, y1, x, y2 - 4);
-    K.fill(color || PDF_C.INK); doc.triangle(x - 4, y2 - 5, x + 4, y2 - 5, x, y2, 'F');
-  };
-  return K;
-}
-
-/* Radar chart: values in 0–100 (%), labels per axis, clockwise from the top. */
-function pdfRadar(doc, K, cx, cy, R, values, labels, opts) {
-  opts = opts || {};
-  var n = values.length;
-  function pt(i, pct) { var a = (-90 + i * 360 / n) * Math.PI / 180; return [cx + R * pct / 100 * Math.cos(a), cy + R * pct / 100 * Math.sin(a)]; }
-  function poly(pct) { var p = []; for (var i = 0; i < n; i++) p.push(pt(i, pct)); return p; }
-  function path(points, style) {
-    var rel = []; for (var i = 1; i < points.length; i++) rel.push([points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]]);
-    doc.lines(rel, points[0][0], points[0][1], [1, 1], style, true);
-  }
-  // grid
-  K.dash([]);
-  [25, 50, 75, 100].forEach(function (g) { K.stroke(PDF_C.LINE, 0.7); path(poly(g), 'S'); });
-  for (var i = 0; i < n; i++) { var e = pt(i, 100); K.stroke(PDF_C.LINE, 0.7); doc.line(cx, cy, e[0], e[1]); }
-  K.font('regular', 6.5, PDF_C.SOFT);
-  [25, 50, 75, 100].forEach(function (g) { doc.text(g + '%', cx + 3, cy - R * g / 100 + 8); });
-  // reference rings
-  [[opts.normal || 75, PDF_C.green], [opts.abnormal || 50, PDF_C.red]].forEach(function (rf) {
-    K.stroke(rf[1], 1); K.dash([2.5, 2]); path(poly(rf[0]), 'S'); K.dash([]);
-    poly(rf[0]).forEach(function (p) { K.fill(rf[1]); doc.circle(p[0], p[1], 1.6, 'F'); });
-  });
-  // company
-  var pts = values.map(function (v, k) { return pt(k, Math.max(0, Math.min(100, v))); });
-  K.alpha(0.12); K.fill(PDF_C.INK); path(pts, 'F'); K.alpha(1);
-  K.stroke(PDF_C.INK, 1.6); path(pts, 'S');
-  pts.forEach(function (p, k) { K.fill(PDF_C.WHITE); K.stroke(PDF_C.INK, 1.2); doc.circle(p[0], p[1], 2.8, 'FD'); });
-  // labels + values
-  for (var j = 0; j < n; j++) {
-    var a = (-90 + j * 360 / n) * Math.PI / 180, lx = cx + (R + 14) * Math.cos(a), ly = cy + (R + 14) * Math.sin(a);
-    var align = Math.abs(Math.cos(a)) < 0.2 ? 'center' : Math.cos(a) > 0 ? 'left' : 'right';
-    var lines = K.split(labels[j], 104, 'semibold', 8);
-    var top = Math.sin(a) < -0.2 ? ly - (lines.length - 1) * 10 - 9 : Math.sin(a) > 0.2 ? ly + 6 : ly - (lines.length * 10) / 2 + 3;
-    K.font('semibold', 8, PDF_C.INK);
-    lines.forEach(function (l, k) { doc.text(l, lx, top + k * 10, { align: align }); });
-    K.font('bold', 8, (opts.colors && opts.colors[j]) || PDF_C.RED);
-    doc.text(Math.round(values[j]) + '%', lx, top + lines.length * 10, { align: align });
-  }
-}
-
-/* Express Diagnostics — PDF report (jsPDF). Used by the widget (one person) and the admin (team).
- * d = { result: ED.score(...), company, participants: [names], dateIso }
- */
-var ED_DIAGRAM = {
-  culture: ['values', 'climate'],
-  causes: [['planning', 'responsibility', 'authority'], ['information', 'corrective', 'reward']],
-  subsystems: [['client', 'transformation'], ['human', 'financial']],
-  manifestations: [['inefficiency', 'behaviour'], ['changes', 'ineffectiveness']],
-};
-function edCellByKey(result, key) { for (var i = 0; i < result.cells.length; i++) if (result.cells[i].key === key) return result.cells[i]; return null; }
-function edQuestionText(t, q) { var x = t.questions[q.i]; return q.zone === 2 ? (x.z2 || x.t) : q.zone === 3 ? (x.z3 || x.t) : x.t; }
-function edCounts(result) { var c = { red: 0, yellow: 0, green: 0 }; result.cells.forEach(function (x) { c[x.color]++; }); return c; }
-
-function renderEdPdf(A, lang, d) {
-  var t = ED_I18N[lang] || ED_I18N.en, r = d.result, team = r.participants > 1;
-  var doc = newPdf(A), K = pdfKit(doc), C = PDF_C;
-  var W = 612, H = 792, M = 54, CW = W - 2 * M;
-  var dateStr = formatDate(d.dateIso, t.locale);
-  var page = 1;
-  var textColor = { green: C.green, yellow: C.yellowText, red: C.red };
-
-  function footer() {
-    K.font('regular', 7.5, C.SOFT);
-    doc.text(t.pdf.footer + (d.company ? '  ·  ' + d.company : ''), M, H - 30);
-    doc.text(t.pdf.page + ' ' + page, W - M, H - 30, { align: 'right' });
-    K.stroke(C.LINE, 0.6); K.dash([]); doc.line(M, H - 44, W - M, H - 44);
-  }
-  function newPage() { footer(); doc.addPage(); page++; }
-  function heading(text, y, size) {
-    K.fill(C.RED); doc.rect(M, y - (size || 20) + 2, 3, (size || 20) + 2, 'F');
-    K.font('bold', size || 20, C.INK); doc.text(text, M + 12, y);
-    return y;
-  }
-  // Coloured box with frame style
-  function swatch(x, y, w, h, color, border, n) {
-    K.fill(C[color + 'T']); doc.rect(x, y, w, h, 'F');
-    K.dash([]);
-    if (!team) { K.stroke(C[color], 0.8); doc.rect(x, y, w, h, 'S'); return; }
-    if (border === 'thick') { K.stroke(C.INK, 2.2); doc.rect(x + 1.1, y + 1.1, w - 2.2, h - 2.2, 'S'); }
-    else if (border === 'thin') { K.stroke(C.INK, 0.8); doc.rect(x, y, w, h, 'S'); }
-    else { K.stroke(C.INK, 0.8); K.dash([1, 1.6]); doc.rect(x, y, w, h, 'S'); K.dash([]); }
-  }
-  function legend(y) {
-    K.font('bold', 9.5, C.INK); doc.text(t.pdf.colorsTitle, M, y); y += 16;
-    ['green', 'yellow', 'red'].forEach(function (c, i) {
-      var x = M + i * (CW / 3);
-      swatch(x, y - 9, 18, 12, c, 'dotted');
-      K.font('regular', 8.5, C.INK); doc.text(K.split(t.colors[c], CW / 3 - 30, 'regular', 8.5), x + 24, y);
-    });
-    y += 24;
-    if (team) {
-      K.font('bold', 9.5, C.INK); doc.text(t.frames.title, M, y);
-      var ftw = doc.getTextWidth(t.frames.title);
-      K.font('regular', 8, C.MUTED); doc.text('  ·  ' + t.frames.sub, M + ftw, y);
-      y += 16;
-      ['dotted', 'thin', 'thick'].forEach(function (b, i) {
-        var x = M + i * (CW / 3);
-        swatch(x, y - 9, 18, 13, 'green', b);
-        K.font('regular', 8, C.INK); doc.text(K.split(t.frames[b], CW / 3 - 30, 'regular', 8), x + 24, y);
-      });
-      y += 30;
-    }
-    return y;
-  }
-
-  /* ---------------- Page 1: cover ---------------- */
-  if (A.logo) doc.addImage(A.logo, 'PNG', M, 50, 150, 50);
-  var y = 200;
-  K.font('bold', 38, C.INK); doc.text(t.pdf.title, M, y);
-  K.font('light', 38, C.INK); doc.text(t.pdf.subtitle, M, y + 44);
-  K.fill(C.RED); doc.rect(M, y + 64, 60, 4, 'F');
-  y += 110;
-  function meta(label, value) {
-    K.font('semibold', 8, C.RED); doc.text(label.toUpperCase(), M, y);
-    K.font('bold', 15, C.INK); doc.text(K.split(value, CW, 'bold', 15)[0] || '', M, y + 19);
-    y += 44;
-  }
-  meta(t.pdf.company, d.company || '');
-  meta(t.pdf.date, dateStr);
-  K.font('semibold', 8, C.RED); doc.text((team ? t.pdf.participantsCount + ': ' + r.participants : t.pdf.participants).toUpperCase(), M, y);
-  y += 17;
-  var names = (d.participants || []).slice(0, 14);
-  K.font('regular', 10.5, C.INK);
-  names.forEach(function (nm, i) { doc.text((i + 1) + '.  ' + nm, M, y); y += 15; });
-  if ((d.participants || []).length > names.length) { K.font('regular', 9.5, C.MUTED); doc.text('+ ' + (d.participants.length - names.length), M, y); y += 15; }
-  K.font('regular', 9, C.MUTED); doc.text(t.pdf.design, M, y + 6);
-  // at a glance
-  var counts = edCounts(r), by = Math.max(y + 48, 470), bw = (CW - 16) / 3;
-  K.font('bold', 9.5, C.INK); doc.text(t.pdf.summary, M, by - 10);
-  ['red', 'yellow', 'green'].forEach(function (c, i) {
-    var bx = M + i * (bw + 8);
-    K.fill(C.PAPER); doc.rect(bx, by, bw, 62, 'F');
-    K.fill(C[c]); doc.rect(bx, by, 4, 62, 'F');
-    K.font('bold', 26, C.INK); doc.text(String(counts[c]), bx + 16, by + 34);
-    K.font('semibold', 8.5, C.MUTED); doc.text(K.split(t.colorShort[c], bw - 60, 'semibold', 8.5), bx + 52, by + 25);
-  });
-  y = by + 90;
-  K.font('bold', 9.5, C.INK); doc.text(t.pdf.howTitle, M, y);
-  K.rich(t.pdf.howBody, M, y + 15, CW, 8.5, { color: C.MUTED, lh: 1.5 });
-
-  /* ---------------- Page 2: causal diagram ---------------- */
-  newPage();
-  heading(t.diagram.title, 74, 15);
-  y = 104;
-  var bh = 32, gap = 6;
-  function cellBox(key, x, yy, w) {
-    var c = edCellByKey(r, key);
-    swatch(x, yy, w, bh, c ? c.color : 'yellow', c ? c.border : 'dotted');
-    var label = t.diagram.labels[key];
-    var lines = K.split(label, w - 12, 'semibold', 8.5);
-    K.font('semibold', 8.5, C.INK);
-    var ty = yy + bh / 2 - (lines.length - 1) * 5 - 1;
-    lines.forEach(function (l, i) { doc.text(l, x + w / 2, ty + i * 10, { align: 'center' }); });
-    if (c) { K.font('bold', 7.5, textColor[c.color]); doc.text(Math.round(c.percent) + '%', x + w / 2, ty + lines.length * 10 - 0.5, { align: 'center' }); }
-  }
-  function frame(x, yy, w, h, title, fillc, dotted) {
-    if (fillc) { K.fill(fillc); doc.rect(x, yy, w, h, 'F'); }
-    K.stroke(dotted ? C.SOFT : C.INK, dotted ? 0.6 : 0.9); K.dash(dotted ? [1, 1.6] : []); doc.rect(x, yy, w, h, 'S'); K.dash([]);
-    if (title) { K.font('bold', 9.5, C.INK); doc.text(title, x + w / 2, yy + 15, { align: 'center' }); }
-  }
-  // External
-  frame(M, y, CW, 28, '', C.PAPER); K.font('bold', 10.5, C.INK); doc.text(t.diagram.external, W / 2, y + 18, { align: 'center' });
-  K.arrowDown(W / 2, y + 28, y + 42);
-  // Internal container
-  var iy = y + 42, ih = 482;
-  frame(M, iy, CW, ih, '', C.PAPER); K.font('bold', 10.5, C.INK); doc.text(t.diagram.internal, W / 2, iy + 18, { align: 'center' });
-  var ix = M + 18, iw = CW - 36;
-  // Systemic causes
-  var sy = iy + 30, sh = 192;
-  frame(ix, sy, iw, sh, t.diagram.causes, C.WHITE);
-  var cx0 = ix + 12, cw0 = iw - 24;
-  frame(cx0, sy + 24, cw0, 64, t.diagram.culture, null, true);
-  var half = (cw0 - 12 - gap) / 2;
-  cellBox('values', cx0 + 6, sy + 46, half);
-  cellBox('climate', cx0 + 6 + half + gap, sy + 46, half);
-  var third = (cw0 - 2 * gap) / 3;
-  [0, 1, 2].forEach(function (k) { K.arrowDown(cx0 + third * k + gap * k + third / 2, sy + 92, sy + 106, C.SOFT, 1.2); });
-  ED_DIAGRAM.causes.forEach(function (row, ri) {
-    row.forEach(function (key, k) { cellBox(key, cx0 + k * (third + gap), sy + 110 + ri * (bh + gap), third); });
-  });
-  K.arrowDown(W / 2, sy + sh, sy + sh + 14);
-  function block(title, rows, yy) {
-    var hh = 30 + rows.length * (bh + gap) + 6;
-    frame(ix, yy, iw, hh, title, C.WHITE);
-    var w2 = (cw0 - gap) / 2;
-    rows.forEach(function (row, ri) { row.forEach(function (key, k) { cellBox(key, cx0 + k * (w2 + gap), yy + 26 + ri * (bh + gap), w2); }); });
-    return yy + hh;
-  }
-  var ny = block(t.diagram.subsystems, ED_DIAGRAM.subsystems, sy + sh + 14);
-  K.arrowDown(W / 2, ny, ny + 14);
-  block(t.diagram.manifestations, ED_DIAGRAM.manifestations, ny + 14);
-  legend(iy + ih + 26);
-
-  /* ---------------- Page 3: radars ---------------- */
-  newPage();
-  var titles = [t.radar.title1, t.radar.title2];
-  ED.RADARS.forEach(function (ids, k) {
-    var top = k === 0 ? 74 : 392;
-    K.font('bold', 13, C.INK);
-    var tl = K.split(titles[k], CW, 'bold', 13);
-    tl.forEach(function (l, i) { doc.text(l, W / 2, top + i * 16, { align: 'center' }); });
-    var cells = ids.map(function (id) { return ED.cellById(r, id); });
-    pdfRadar(doc, K, W / 2, top + 150, 100, cells.map(function (c) { return c.percent; }), cells.map(function (c) { return t.cells[c.key]; }),
-      { normal: r.norms.upperPercent, abnormal: r.norms.lowerPercent, colors: cells.map(function (c) { return textColor[c.color]; }) });
-  });
-  var ly = 722, items = [[C.green, t.radar.normal, true], [C.red, t.radar.abnormal, true], [C.INK, t.radar.yours, false]];
-  items.forEach(function (it, i) {
-    var lx = M + 30 + i * (CW / 3);
-    K.stroke(it[0], it[2] ? 1 : 1.6); K.dash(it[2] ? [2.5, 2] : []); doc.line(lx, ly - 3, lx + 22, ly - 3); K.dash([]);
-    K.font('regular', 9, C.INK); doc.text(it[1], lx + 30, ly);
-  });
-
-  /* ---------------- Pages 4+: key organizational factors ---------------- */
-  newPage();
-  heading(t.pdf.keyFactors, 74, 18);
-  K.font('regular', 9, C.MUTED); doc.text(t.pdf.keyFactorsHelp, M, 96);
-  y = legend(122) + 6;
-  var textW = CW - 40;
-  r.cells.forEach(function (c, ci) {
-    var rows = c.questions.map(function (qi) {
-      var q = r.questions[qi], txt = edQuestionText(t, q);
-      var lines = K.split(txt, textW, 'regular', 9.5), extra = 0;
-      if (q.zone === 0) {
-        K.font('regular', 9.5, C.INK); var lw = doc.getTextWidth(lines[lines.length - 1]);
-        K.font('regular', 8, C.SOFT); if (lw + doc.getTextWidth('  ·  ' + t.noAnswer) > textW) extra = 12;
-      }
-      return { q: q, lines: lines, h: Math.max(20, lines.length * 12.5 + 7 + extra) };
-    });
-    if (y + 30 + rows[0].h > H - 60) { newPage(); y = 70; }
-    K.font('bold', 11.5, C.INK); doc.text((ci + 1) + '. ' + t.cells[c.key], M, y);
-    var pct = Math.round(c.percent) + '%  ·  ' + t.colorShort[c.color];
-    K.font('semibold', 8.5, textColor[c.color]); doc.text(pct, W - M, y, { align: 'right' });
-    y += 10;
-    rows.forEach(function (row) {
-      if (y + row.h > H - 60) {
-        newPage(); y = 70;
-        K.font('bold', 11.5, C.SOFT); doc.text((ci + 1) + '. ' + t.cells[c.key] + ' (' + t.pdf.cont + ')', M, y); y += 10;
-      }
-      swatch(M, y + 2, 24, 16, row.q.color, row.q.border);
-      K.font('regular', 9.5, C.INK);
-      var ty = y + 13;
-      row.lines.forEach(function (l, i) { doc.text(l, M + 36, ty + i * 12.5); });
-      if (row.q.zone === 0) {
-        K.font('regular', 9.5, C.INK);
-        var lw = doc.getTextWidth(row.lines[row.lines.length - 1]), sfx = '  ·  ' + t.noAnswer;
-        K.font('regular', 8, C.SOFT);
-        if (lw + doc.getTextWidth(sfx) > textW) doc.text(t.noAnswer, M + 36, ty + row.lines.length * 12.5);
-        else doc.text(sfx, M + 36 + lw, ty + (row.lines.length - 1) * 12.5);
-      }
-      y += row.h + 3;
-    });
-    y += 16;
-  });
-
-  footer();
-
-  doc.setProperties({ title: t.pdf.title + ' — ' + (d.company || ''), author: 'Adizes Institute', creator: 'Adizes Institute' });
-  return doc;
-}
-
-/* Express Diagnostics — on-screen visuals (HTML causal map + SVG radar). Class names use the "adz-" prefix. */
-function edDiagramHtml(t, r) {
-  function cell(key) {
-    var c = edCellByKey(r, key);
-    return '<div class="adz-cell is-' + c.color + (r.participants > 1 ? ' is-' + c.border : '') + '">' +
-      '<span>' + esc(t.diagram.labels[key]) + '</span><b>' + Math.round(c.percent) + '%</b></div>';
-  }
-  function rows(list, cls) { return list.map(function (row) { return '<div class="adz-row ' + cls + '">' + row.map(cell).join('') + '</div>'; }).join(''); }
-  var D = ED_DIAGRAM, arrow = '<div class="adz-arrow" aria-hidden="true"></div>';
-  return '<div class="adz-diagram">' +
-    '<div class="adz-box adz-box--ext">' + esc(t.diagram.external) + '</div>' + arrow +
-    '<div class="adz-box adz-box--int"><div class="adz-box-t">' + esc(t.diagram.internal) + '</div>' +
-      '<div class="adz-box adz-box--white"><div class="adz-box-t">' + esc(t.diagram.causes) + '</div>' +
-        '<div class="adz-culture"><div class="adz-box-t">' + esc(t.diagram.culture) + '</div>' + rows([D.culture], 'adz-row--2') + '</div>' +
-        rows(D.causes, 'adz-row--3') +
-      '</div>' + arrow +
-      '<div class="adz-box adz-box--white"><div class="adz-box-t">' + esc(t.diagram.subsystems) + '</div>' + rows(D.subsystems, 'adz-row--2') + '</div>' + arrow +
-      '<div class="adz-box adz-box--white"><div class="adz-box-t">' + esc(t.diagram.manifestations) + '</div>' + rows(D.manifestations, 'adz-row--2') + '</div>' +
-    '</div></div>';
-}
-
-function edRadarSvg(t, r, ids, title) {
-  var n = ids.length, S = 360, cx = S / 2, cy = S / 2, R = 112;
-  var cells = ids.map(function (id) { return ED.cellById(r, id); });
-  function pt(i, pct) { var a = (-90 + i * 360 / n) * Math.PI / 180; return [cx + R * pct / 100 * Math.cos(a), cy + R * pct / 100 * Math.sin(a)]; }
-  function poly(pct) { var p = []; for (var i = 0; i < n; i++) p.push(pt(i, pct).map(function (v) { return v.toFixed(1); }).join(',')); return p.join(' '); }
-  var g = '';
-  [25, 50, 75, 100].forEach(function (v) { g += '<polygon points="' + poly(v) + '" class="adz-grid"/>'; });
-  for (var i = 0; i < n; i++) { var e = pt(i, 100); g += '<line x1="' + cx + '" y1="' + cy + '" x2="' + e[0].toFixed(1) + '" y2="' + e[1].toFixed(1) + '" class="adz-grid"/>'; }
-  g += '<polygon points="' + poly(r.norms.upperPercent) + '" class="adz-ref adz-ref--ok"/>';
-  g += '<polygon points="' + poly(r.norms.lowerPercent) + '" class="adz-ref adz-ref--bad"/>';
-  var you = cells.map(function (c, k) { return pt(k, Math.max(0, Math.min(100, c.percent))).map(function (v) { return v.toFixed(1); }).join(','); }).join(' ');
-  g += '<polygon points="' + you + '" class="adz-you"/>';
-  cells.forEach(function (c, k) { var p = pt(k, Math.max(0, Math.min(100, c.percent))); g += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.5" class="adz-dot"/>'; });
-  cells.forEach(function (c, k) {
-    var a = (-90 + k * 360 / n) * Math.PI / 180, lx = cx + (R + 16) * Math.cos(a), ly = cy + (R + 16) * Math.sin(a);
-    var anchor = Math.abs(Math.cos(a)) < 0.2 ? 'middle' : Math.cos(a) > 0 ? 'start' : 'end';
-    var dy = Math.sin(a) < -0.2 ? -8 : Math.sin(a) > 0.2 ? 12 : 2;
-    var words = t.cells[c.key].split(' '), lines = [], cur = '';
-    words.forEach(function (w) { if ((cur + ' ' + w).trim().length > 14 && cur) { lines.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); });
-    lines.push(cur);
-    var base = ly + dy - (Math.sin(a) < -0.2 ? (lines.length - 1) * 12 : 0);
-    g += '<text x="' + lx.toFixed(1) + '" y="' + base.toFixed(1) + '" text-anchor="' + anchor + '" class="adz-lbl">' +
-      lines.map(function (l, j) { return '<tspan x="' + lx.toFixed(1) + '" dy="' + (j ? 12 : 0) + '">' + esc(l) + '</tspan>'; }).join('') +
-      '<tspan x="' + lx.toFixed(1) + '" dy="12" class="adz-val is-' + c.color + '">' + Math.round(c.percent) + '%</tspan></text>';
-  });
-  return '<figure class="adz-radar"><figcaption>' + esc(title) + '</figcaption><svg viewBox="-60 -10 ' + (S + 120) + ' ' + (S + 30) + '" role="img" aria-label="' + esc(title) + '">' + g + '</svg></figure>';
-}
-
-/* Express Diagnostics — widget (individual mode).
+/* Express Diagnostics — participant widget (personal invitation link ?t=TOKEN).
+ * The participant answers and only sees a thank-you; the group report is generated in the admin.
  * Embed:
  *   <div id="ed-assessment"></div>
  *   <script>window.ED_CONFIG = { endpoint: 'https://script.google.com/macros/s/XXX/exec' };</script>
  *   <script src="https://cdn.jsdelivr.net/gh/Adizes/alis-sample@vX/express-diagnostics/dist/express-diagnostics.min.js" defer></script>
- * Bundled by build.mjs together with: i18n files, shared/core.js, shared/ed-engine.js, shared/pdfkit.js,
- * shared/ed-report.js, shared/ed-visuals.js.
+ * Bundled by build.mjs together with: i18n files, shared/core.js, shared/ed-engine.js.
  */
 var VERSION = "1.0.0";
-var CSS = "__ROOT__ {\n--ink: #111111;\n--ink-2: #3a3a3a;\n--muted: #6b6f76;\n--soft: #9aa0a6;\n--line: #e6e6e6;\n--paper: #f6f6f6;\n--white: #ffffff;\n--red: #d7141a;\n--red-dark: #b10f14;\n--red-tint: #fdecec;\n--green: #1e8e4e; --green-t: #dcf2e5;\n--yellow: #d9a400; --yellow-ink: #8a6500; --yellow-t: #fff0bf;\n--red-t: #fbd6d7;\ndisplay: block; width: 100%;\nfont-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;\ncolor: var(--ink); line-height: 1.5; text-align: left;\n-webkit-font-smoothing: antialiased;\n}\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after {\nbox-sizing: border-box; margin: 0; padding: 0; border: 0;\nfont: inherit; color: inherit; letter-spacing: normal; text-transform: none;\nbackground: none; box-shadow: none; text-decoration: none; list-style: none;\n}\n__ROOT__ strong, __ROOT__ b { font-weight: 700; }\n__ROOT__ em { font-style: normal; color: var(--soft); }\n__ROOT__ button { cursor: pointer; -webkit-appearance: none; appearance: none; line-height: 1.3; }\n__ROOT__ button:focus-visible, __ROOT__ a:focus-visible, __ROOT__ input:focus-visible, __ROOT__ textarea:focus-visible, __ROOT__ select:focus-visible {\noutline: 3px solid rgba(215, 20, 26, .35); outline-offset: 2px;\n}\n__ROOT__ a { color: inherit; }\n__ROOT__ [hidden] { display: none !important; }\n__ROOT__ .adz-stage {\nbackground: var(--white); border: 1px solid var(--line); border-radius: 10px;\nmin-height: min(720px, 100svh); display: flex; flex-direction: column; overflow: hidden;\n}\n__ROOT__ .adz-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 32px 14px; }\n__ROOT__ .adz-logo { display: block; height: 38px; width: auto; max-width: none; }\n__ROOT__ .adz-logo-txt { font-weight: 800; letter-spacing: .06em; color: var(--red); }\n__ROOT__ .adz-lang { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }\n__ROOT__ .adz-lang button { padding: 6px 11px; font-size: 12px; font-weight: 600; color: var(--muted); }\n__ROOT__ .adz-lang button[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-progress { display: flex; gap: 3px; padding: 4px 32px 0; }\n__ROOT__ .adz-progress span { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }\n__ROOT__ .adz-progress i { display: block; height: 100%; background: var(--red); transition: width .35s ease; }\n__ROOT__ .adz-body { flex: 1; display: flex; align-items: center; padding: 32px 32px 40px; }\n__ROOT__ .adz-screen { width: 100%; max-width: 760px; margin: 0 auto; animation: adzIn .35s ease both; }\n__ROOT__ .adz-screen.is-back { animation-name: adzBack; }\n@keyframes adzIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }\n@keyframes adzBack { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }\n__ROOT__ .adz-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }\n__ROOT__ .adz-h1 { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.12; font-weight: 700; margin: 12px 0 16px; letter-spacing: -.01em; }\n__ROOT__ .adz-h1--sm { font-size: clamp(26px, 3.6vw, 36px); }\n__ROOT__ .adz-lead { font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 640px; }\n__ROOT__ .adz-list { margin: 22px 0; display: grid; gap: 10px; }\n__ROOT__ .adz-list li { position: relative; padding-left: 26px; font-size: 15.5px; color: var(--ink-2); }\n__ROOT__ .adz-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 12px; height: 2px; background: var(--red); }\n__ROOT__ .adz-note { font-size: 14px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--line); padding-left: 14px; }\n__ROOT__ .adz-meta { margin-top: 18px; font-size: 13px; color: var(--soft); }\n__ROOT__ .adz-help { font-size: 14.5px; color: var(--muted); max-width: 680px; margin: 4px 0 18px; }\n__ROOT__ .adz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }\n__ROOT__ .adz-actions--tight { margin-top: 0; }\n__ROOT__ .adz-btn {\ndisplay: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;\npadding: 12px 24px; border-radius: 6px; background: var(--red); color: var(--white);\nfont-size: 15px; font-weight: 600; transition: background .15s ease, transform .15s ease;\n}\n__ROOT__ .adz-btn:hover { background: var(--red-dark); }\n__ROOT__ .adz-btn:active { transform: translateY(1px); }\n__ROOT__ .adz-btn:disabled { opacity: .55; cursor: default; }\n__ROOT__ .adz-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }\n__ROOT__ .adz-btn--ghost:hover { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-btn--dark { background: var(--ink); }\n__ROOT__ .adz-btn--dark:hover { background: #000; }\n__ROOT__ .adz-hint { font-size: 12.5px; color: var(--soft); }\n__ROOT__ .adz-back { font-size: 14px; font-weight: 600; color: var(--muted); padding: 10px 2px; }\n__ROOT__ .adz-back:hover { color: var(--ink); }\n__ROOT__ .adz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }\n__ROOT__ .adz-form { margin-top: 24px; display: grid; gap: 14px; max-width: 520px; }\n__ROOT__ .adz-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }\n__ROOT__ .adz-field input[type=\"text\"], __ROOT__ .adz-field input[type=\"email\"], __ROOT__ .adz-field input:not([type]), __ROOT__ .adz-field select, __ROOT__ .adz-field textarea {\ndisplay: block; width: 100%; height: 48px; padding: 0 14px; border: 1px solid #cfcfcf; border-radius: 6px;\nbackground: var(--white); font-size: 16px; color: var(--ink); margin: 0;\n}\n__ROOT__ .adz-field textarea { height: auto; min-height: 96px; padding: 12px 14px; line-height: 1.5; resize: vertical; }\n__ROOT__ .adz-field input:focus, __ROOT__ .adz-field textarea:focus { border-color: var(--ink); outline: none; }\n__ROOT__ .adz-field input::placeholder, __ROOT__ .adz-field textarea::placeholder { color: #a5a5a5; }\n__ROOT__ .adz-err { display: none; font-size: 12.5px; color: var(--red); margin-top: 5px; }\n__ROOT__ .adz-field.has-error input { border-color: var(--red); }\n__ROOT__ .adz-field.has-error .adz-err { display: block; }\n__ROOT__ .adz-consent { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; font-size: 13.5px !important; color: var(--ink-2) !important; cursor: pointer; }\n__ROOT__ .adz-consent input { width: 18px; height: 18px; margin: 2px 0 0 !important; flex: none; accent-color: var(--red); -webkit-appearance: auto; appearance: auto; }\n__ROOT__ .adz-consent a { text-decoration: underline; }\n__ROOT__ .adz-loading { display: grid; justify-items: center; gap: 18px; text-align: center; padding: 40px 0; }\n__ROOT__ .adz-spinner { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: adzSpin .8s linear infinite; }\n@keyframes adzSpin { to { transform: rotate(360deg); } }\n__ROOT__ .adz-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px; }\n__ROOT__ .adz-card h2 { font-size: 21px; font-weight: 700; line-height: 1.25; margin: 6px 0 10px; }\n__ROOT__ .adz-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; }\n__ROOT__ .adz-card--dark { background: var(--ink); border-color: var(--ink); color: var(--white); }\n__ROOT__ .adz-card--dark p { color: #cfcfcf; }\n@media (max-width: 640px) {\n__ROOT__ .adz-stage { border-radius: 0; border-left: 0; border-right: 0; }\n__ROOT__ .adz-top { padding: 16px 18px 12px; }\n__ROOT__ .adz-logo { height: 30px; }\n__ROOT__ .adz-progress { padding: 0 18px; gap: 2px; }\n__ROOT__ .adz-body { padding: 24px 18px 32px; align-items: flex-start; }\n__ROOT__ .adz-lead { font-size: 16px; }\n__ROOT__ .adz-card { padding: 22px; }\n}\n@media (prefers-reduced-motion: reduce) {\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after { animation: none !important; transition: none !important; }\n}\n__ROOT__ .adz-qhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }\n__ROOT__ .adz-count { font-size: 13px; font-weight: 600; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-q { font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 600; margin: 16px 0 26px; min-height: 2.6em; }\n__ROOT__ .adz-scale { display: grid; gap: 10px; }\n__ROOT__ .adz-opt {\ndisplay: flex; align-items: center; gap: 16px; width: 100%; padding: 13px 16px; text-align: left;\nborder: 1px solid #d6d6d6; border-radius: 8px; background: var(--white); transition: border-color .15s, background .15s;\n}\n__ROOT__ .adz-opt:hover { border-color: var(--ink); }\n__ROOT__ .adz-opt[aria-checked=\"true\"] { border-color: var(--red); background: var(--red-tint); box-shadow: inset 0 0 0 1px var(--red); }\n__ROOT__ .adz-key {\nflex: none; width: 28px; height: 28px; border-radius: 6px; border: 1px solid #d6d6d6; display: grid; place-items: center;\nfont-size: 12.5px; font-weight: 700; color: var(--muted);\n}\n__ROOT__ .adz-opt[aria-checked=\"true\"] .adz-key { background: var(--red); border-color: var(--red); color: var(--white); }\n__ROOT__ .adz-opt-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }\n__ROOT__ .adz-opt-t b { font-size: 16px; font-weight: 600; }\n__ROOT__ .adz-opt-t small { font-size: 13px; color: var(--muted); }\n__ROOT__ .adz-opt.is-pop { animation: adzPop .28s ease; }\n@keyframes adzPop { 50% { transform: scale(.985); } }\n__ROOT__ .adz-cannot {\nmargin-top: 14px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 6px 2px;\nborder-bottom: 1px dashed #c4c4c4;\n}\n__ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"] { color: var(--red); border-bottom-color: var(--red); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"]::before { content: '● '; }\n__ROOT__ .adz-results { background: var(--white); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }\n__ROOT__ .adz-hero { padding: 26px 32px 34px; border-bottom: 1px solid var(--line); }\n__ROOT__ .adz-counts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 26px; max-width: 640px; }\n__ROOT__ .adz-countbox { background: var(--paper); border-left: 4px solid; padding: 14px 16px; border-radius: 4px; }\n__ROOT__ .adz-countbox b { display: block; font-size: 30px; line-height: 1; font-weight: 700; }\n__ROOT__ .adz-countbox span { display: block; margin-top: 6px; font-size: 13px; color: var(--muted); font-weight: 600; }\n__ROOT__ .adz-countbox.is-red { border-color: var(--red); }\n__ROOT__ .adz-countbox.is-yellow { border-color: var(--yellow); }\n__ROOT__ .adz-countbox.is-green { border-color: var(--green); }\n__ROOT__ .adz-sec { padding: 34px 32px; border-bottom: 1px solid var(--line); }\n__ROOT__ .adz-sec h2 { font-size: 24px; font-weight: 700; line-height: 1.25; }\n__ROOT__ .adz-diagram { max-width: 760px; font-size: 13px; }\n__ROOT__ .adz-box { border: 1px solid var(--ink); padding: 10px; text-align: center; }\n__ROOT__ .adz-box--ext { background: var(--paper); font-weight: 700; padding: 10px; }\n__ROOT__ .adz-box--int { background: var(--paper); padding: 10px 14px 14px; }\n__ROOT__ .adz-box--white { background: var(--white); margin-top: 8px; padding: 8px 10px 10px; }\n__ROOT__ .adz-box-t { font-weight: 700; margin-bottom: 8px; font-size: 13px; }\n__ROOT__ .adz-culture { border: 1px dashed var(--soft); padding: 8px; margin-bottom: 8px; }\n__ROOT__ .adz-row { display: grid; gap: 6px; margin-top: 6px; }\n__ROOT__ .adz-row:first-of-type { margin-top: 0; }\n__ROOT__ .adz-row--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n__ROOT__ .adz-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }\n__ROOT__ .adz-cell { min-height: 46px; padding: 6px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; border: 1px solid; line-height: 1.25; }\n__ROOT__ .adz-cell span { font-weight: 600; font-size: 12.5px; }\n__ROOT__ .adz-cell b { font-size: 11.5px; }\n__ROOT__ .adz-cell.is-green { background: var(--green-t); border-color: var(--green); }\n__ROOT__ .adz-cell.is-green b { color: var(--green); }\n__ROOT__ .adz-cell.is-yellow { background: var(--yellow-t); border-color: var(--yellow); }\n__ROOT__ .adz-cell.is-yellow b { color: var(--yellow-ink); }\n__ROOT__ .adz-cell.is-red { background: var(--red-t); border-color: var(--red); }\n__ROOT__ .adz-cell.is-red b { color: var(--red); }\n__ROOT__ .adz-cell.is-dotted { border: 1px dotted var(--ink); }\n__ROOT__ .adz-cell.is-thin { border: 1px solid var(--ink); }\n__ROOT__ .adz-cell.is-thick { border: 3px solid var(--ink); }\n__ROOT__ .adz-arrow { width: 2px; height: 16px; background: var(--ink); margin: 0 auto; position: relative; }\n__ROOT__ .adz-arrow::after { content: ''; position: absolute; left: -4px; bottom: -2px; border: 5px solid transparent; border-top: 6px solid var(--ink); border-bottom: 0; }\n__ROOT__ .adz-box--int > .adz-arrow { margin-top: 8px; margin-bottom: -6px; }\n__ROOT__ .adz-legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; font-size: 13px; color: var(--ink-2); }\n__ROOT__ .adz-legend span { display: inline-flex; align-items: center; gap: 8px; }\n__ROOT__ .adz-legend i { width: 18px; height: 12px; border: 1px solid; }\n__ROOT__ .adz-legend .is-green i { background: var(--green-t); border-color: var(--green); }\n__ROOT__ .adz-legend .is-yellow i { background: var(--yellow-t); border-color: var(--yellow); }\n__ROOT__ .adz-legend .is-red i { background: var(--red-t); border-color: var(--red); }\n__ROOT__ .adz-legend--lines i { height: 0; border: 0; border-top: 2px dashed; }\n__ROOT__ .adz-legend--lines .is-ok i { border-color: var(--green); }\n__ROOT__ .adz-legend--lines .is-bad i { border-color: var(--red); }\n__ROOT__ .adz-legend--lines .is-you i { border-top: 2.5px solid var(--ink); }\n__ROOT__ .adz-radars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }\n__ROOT__ .adz-radar figcaption { font-size: 14px; font-weight: 700; text-align: center; min-height: 2.8em; }\n__ROOT__ .adz-radar svg { display: block; width: 100%; height: auto; overflow: visible; }\n__ROOT__ .adz-grid { fill: none; stroke: #e2e2e2; stroke-width: 1; }\n__ROOT__ .adz-ref { fill: none; stroke-width: 1.4; stroke-dasharray: 4 3; }\n__ROOT__ .adz-ref--ok { stroke: var(--green); }\n__ROOT__ .adz-ref--bad { stroke: var(--red); }\n__ROOT__ .adz-you { fill: rgba(17, 17, 17, .09); stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; }\n__ROOT__ .adz-dot { fill: var(--white); stroke: var(--ink); stroke-width: 2; }\n__ROOT__ .adz-lbl { font: 600 11.5px Montserrat, Arial, sans-serif; fill: var(--ink); }\n__ROOT__ .adz-val { font-weight: 700; }\n__ROOT__ .adz-val.is-green { fill: var(--green); }\n__ROOT__ .adz-val.is-yellow { fill: var(--yellow-ink); }\n__ROOT__ .adz-val.is-red { fill: var(--red); }\n__ROOT__ .adz-focus { border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: 4px; padding: 16px 18px; margin-top: 12px; }\n__ROOT__ .adz-focus.is-yellow { border-left-color: var(--yellow); }\n__ROOT__ .adz-focus-h { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; }\n__ROOT__ .adz-focus-h span { font-weight: 700; color: var(--red); }\n__ROOT__ .adz-focus.is-yellow .adz-focus-h span { color: var(--yellow-ink); }\n__ROOT__ .adz-focus ul { margin-top: 10px; display: grid; gap: 7px; }\n__ROOT__ .adz-focus li { position: relative; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); }\n__ROOT__ .adz-focus li::before { content: ''; position: absolute; left: 0; top: .5em; width: 8px; height: 8px; border-radius: 2px; background: var(--red); }\n__ROOT__ .adz-focus li.is-yellow::before { background: var(--yellow); }\n__ROOT__ .adz-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; padding: 32px; }\n__ROOT__ .adz-sec--pdf p { font-size: 15px; color: var(--ink-2); margin: 8px 0 18px; max-width: 620px; }\n__ROOT__ .adz-status { min-height: 1.5em; }\n__ROOT__ .adz-foot { padding: 22px 32px 26px; text-align: center; }\n__ROOT__ .adz-foot button { font-size: 13.5px; font-weight: 600; color: var(--muted); text-decoration: underline; }\n@media (max-width: 760px) {\n__ROOT__ .adz-radars { grid-template-columns: 1fr; }\n__ROOT__ .adz-split { grid-template-columns: 1fr; padding: 22px 18px; }\n}\n@media (max-width: 640px) {\n__ROOT__ .adz-results { border-radius: 0; border-left: 0; border-right: 0; }\n__ROOT__ .adz-hero, __ROOT__ .adz-sec { padding-left: 18px; padding-right: 18px; }\n__ROOT__ .adz-counts { gap: 8px; }\n__ROOT__ .adz-countbox { padding: 12px; }\n__ROOT__ .adz-countbox b { font-size: 24px; }\n__ROOT__ .adz-countbox span { font-size: 11.5px; }\n__ROOT__ .adz-hint--keys { display: none; }\n__ROOT__ .adz-q { min-height: 0; }\n__ROOT__ .adz-opt { padding: 12px 14px; }\n__ROOT__ .adz-cell span { font-size: 11px; }\n__ROOT__ .adz-box--int { padding: 8px; }\n__ROOT__ .adz-box--white { padding: 6px; }\n__ROOT__ .adz-row--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }\n__ROOT__ .adz-cell { padding: 5px 3px; min-height: 44px; }\n__ROOT__ .adz-lbl { font-size: 14px; }\n__ROOT__ .adz-radar svg { margin: 0 -8px; width: calc(100% + 16px); }\n}";
+var CSS = "__ROOT__ {\n--ink: #111111;\n--ink-2: #3a3a3a;\n--muted: #6b6f76;\n--soft: #9aa0a6;\n--line: #e6e6e6;\n--paper: #f6f6f6;\n--white: #ffffff;\n--red: #d7141a;\n--red-dark: #b10f14;\n--red-tint: #fdecec;\n--green: #1e8e4e; --green-t: #dcf2e5;\n--yellow: #d9a400; --yellow-ink: #8a6500; --yellow-t: #fff0bf;\n--red-t: #fbd6d7;\ndisplay: block; width: 100%;\nfont-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;\ncolor: var(--ink); line-height: 1.5; text-align: left;\n-webkit-font-smoothing: antialiased;\n}\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after {\nbox-sizing: border-box; margin: 0; padding: 0; border: 0;\nfont: inherit; color: inherit; letter-spacing: normal; text-transform: none;\nbackground: none; box-shadow: none; text-decoration: none; list-style: none;\n}\n__ROOT__ strong, __ROOT__ b { font-weight: 700; }\n__ROOT__ em { font-style: normal; color: var(--soft); }\n__ROOT__ button { cursor: pointer; -webkit-appearance: none; appearance: none; line-height: 1.3; }\n__ROOT__ button:focus-visible, __ROOT__ a:focus-visible, __ROOT__ input:focus-visible, __ROOT__ textarea:focus-visible, __ROOT__ select:focus-visible {\noutline: 3px solid rgba(215, 20, 26, .35); outline-offset: 2px;\n}\n__ROOT__ a { color: inherit; }\n__ROOT__ [hidden] { display: none !important; }\n__ROOT__ .adz-stage {\nbackground: var(--white); border: 1px solid var(--line); border-radius: 10px;\nmin-height: min(720px, 100svh); display: flex; flex-direction: column; overflow: hidden;\n}\n__ROOT__ .adz-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 32px 14px; }\n__ROOT__ .adz-logo { display: block; height: 38px; width: auto; max-width: none; }\n__ROOT__ .adz-logo-txt { font-weight: 800; letter-spacing: .06em; color: var(--red); }\n__ROOT__ .adz-lang { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }\n__ROOT__ .adz-lang button { padding: 6px 11px; font-size: 12px; font-weight: 600; color: var(--muted); }\n__ROOT__ .adz-lang button[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-progress { display: flex; gap: 3px; padding: 4px 32px 0; }\n__ROOT__ .adz-progress span { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }\n__ROOT__ .adz-progress i { display: block; height: 100%; background: var(--red); transition: width .35s ease; }\n__ROOT__ .adz-body { flex: 1; display: flex; align-items: center; padding: 32px 32px 40px; }\n__ROOT__ .adz-screen { width: 100%; max-width: 760px; margin: 0 auto; animation: adzIn .35s ease both; }\n__ROOT__ .adz-screen.is-back { animation-name: adzBack; }\n@keyframes adzIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }\n@keyframes adzBack { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }\n__ROOT__ .adz-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }\n__ROOT__ .adz-h1 { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.12; font-weight: 700; margin: 12px 0 16px; letter-spacing: -.01em; }\n__ROOT__ .adz-h1--sm { font-size: clamp(26px, 3.6vw, 36px); }\n__ROOT__ .adz-lead { font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 640px; }\n__ROOT__ .adz-list { margin: 22px 0; display: grid; gap: 10px; }\n__ROOT__ .adz-list li { position: relative; padding-left: 26px; font-size: 15.5px; color: var(--ink-2); }\n__ROOT__ .adz-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 12px; height: 2px; background: var(--red); }\n__ROOT__ .adz-note { font-size: 14px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--line); padding-left: 14px; }\n__ROOT__ .adz-meta { margin-top: 18px; font-size: 13px; color: var(--soft); }\n__ROOT__ .adz-help { font-size: 14.5px; color: var(--muted); max-width: 680px; margin: 4px 0 18px; }\n__ROOT__ .adz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }\n__ROOT__ .adz-actions--tight { margin-top: 0; }\n__ROOT__ .adz-btn {\ndisplay: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;\npadding: 12px 24px; border-radius: 6px; background: var(--red); color: var(--white);\nfont-size: 15px; font-weight: 600; transition: background .15s ease, transform .15s ease;\n}\n__ROOT__ .adz-btn:hover { background: var(--red-dark); }\n__ROOT__ .adz-btn:active { transform: translateY(1px); }\n__ROOT__ .adz-btn:disabled { opacity: .55; cursor: default; }\n__ROOT__ .adz-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }\n__ROOT__ .adz-btn--ghost:hover { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-btn--dark { background: var(--ink); }\n__ROOT__ .adz-btn--dark:hover { background: #000; }\n__ROOT__ .adz-hint { font-size: 12.5px; color: var(--soft); }\n__ROOT__ .adz-back { font-size: 14px; font-weight: 600; color: var(--muted); padding: 10px 2px; }\n__ROOT__ .adz-back:hover { color: var(--ink); }\n__ROOT__ .adz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }\n__ROOT__ .adz-form { margin-top: 24px; display: grid; gap: 14px; max-width: 520px; }\n__ROOT__ .adz-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }\n__ROOT__ .adz-field input[type=\"text\"], __ROOT__ .adz-field input[type=\"email\"], __ROOT__ .adz-field input:not([type]), __ROOT__ .adz-field select, __ROOT__ .adz-field textarea {\ndisplay: block; width: 100%; height: 48px; padding: 0 14px; border: 1px solid #cfcfcf; border-radius: 6px;\nbackground: var(--white); font-size: 16px; color: var(--ink); margin: 0;\n}\n__ROOT__ .adz-field textarea { height: auto; min-height: 96px; padding: 12px 14px; line-height: 1.5; resize: vertical; }\n__ROOT__ .adz-field input:focus, __ROOT__ .adz-field textarea:focus { border-color: var(--ink); outline: none; }\n__ROOT__ .adz-field input::placeholder, __ROOT__ .adz-field textarea::placeholder { color: #a5a5a5; }\n__ROOT__ .adz-err { display: none; font-size: 12.5px; color: var(--red); margin-top: 5px; }\n__ROOT__ .adz-field.has-error input { border-color: var(--red); }\n__ROOT__ .adz-field.has-error .adz-err { display: block; }\n__ROOT__ .adz-consent { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; font-size: 13.5px !important; color: var(--ink-2) !important; cursor: pointer; }\n__ROOT__ .adz-consent input { width: 18px; height: 18px; margin: 2px 0 0 !important; flex: none; accent-color: var(--red); -webkit-appearance: auto; appearance: auto; }\n__ROOT__ .adz-consent a { text-decoration: underline; }\n__ROOT__ .adz-loading { display: grid; justify-items: center; gap: 18px; text-align: center; padding: 40px 0; }\n__ROOT__ .adz-spinner { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: adzSpin .8s linear infinite; }\n@keyframes adzSpin { to { transform: rotate(360deg); } }\n__ROOT__ .adz-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px; }\n__ROOT__ .adz-card h2 { font-size: 21px; font-weight: 700; line-height: 1.25; margin: 6px 0 10px; }\n__ROOT__ .adz-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; }\n__ROOT__ .adz-card--dark { background: var(--ink); border-color: var(--ink); color: var(--white); }\n__ROOT__ .adz-card--dark p { color: #cfcfcf; }\n@media (max-width: 640px) {\n__ROOT__ .adz-stage { border-radius: 0; border-left: 0; border-right: 0; }\n__ROOT__ .adz-top { padding: 16px 18px 12px; }\n__ROOT__ .adz-logo { height: 30px; }\n__ROOT__ .adz-progress { padding: 0 18px; gap: 2px; }\n__ROOT__ .adz-body { padding: 24px 18px 32px; align-items: flex-start; }\n__ROOT__ .adz-lead { font-size: 16px; }\n__ROOT__ .adz-card { padding: 22px; }\n}\n@media (prefers-reduced-motion: reduce) {\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after { animation: none !important; transition: none !important; }\n}\n__ROOT__ .adz-qhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }\n__ROOT__ .adz-count { font-size: 13px; font-weight: 600; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-q { font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 600; margin: 16px 0 26px; min-height: 2.6em; }\n__ROOT__ .adz-scale { display: grid; gap: 10px; }\n__ROOT__ .adz-opt {\ndisplay: flex; align-items: center; gap: 16px; width: 100%; padding: 13px 16px; text-align: left;\nborder: 1px solid #d6d6d6; border-radius: 8px; background: var(--white); transition: border-color .15s, background .15s;\n}\n__ROOT__ .adz-opt:hover { border-color: var(--ink); }\n__ROOT__ .adz-opt[aria-checked=\"true\"] { border-color: var(--red); background: var(--red-tint); box-shadow: inset 0 0 0 1px var(--red); }\n__ROOT__ .adz-key {\nflex: none; width: 28px; height: 28px; border-radius: 6px; border: 1px solid #d6d6d6; display: grid; place-items: center;\nfont-size: 12.5px; font-weight: 700; color: var(--muted);\n}\n__ROOT__ .adz-opt[aria-checked=\"true\"] .adz-key { background: var(--red); border-color: var(--red); color: var(--white); }\n__ROOT__ .adz-opt-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }\n__ROOT__ .adz-opt-t b { font-size: 16px; font-weight: 600; }\n__ROOT__ .adz-opt-t small { font-size: 13px; color: var(--muted); }\n__ROOT__ .adz-opt.is-pop { animation: adzPop .28s ease; }\n@keyframes adzPop { 50% { transform: scale(.985); } }\n__ROOT__ .adz-cannot {\nmargin-top: 14px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 6px 2px;\nborder-bottom: 1px dashed #c4c4c4;\n}\n__ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"] { color: var(--red); border-bottom-color: var(--red); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"]::before { content: '● '; }\n__ROOT__ .adz-hello { font-size: 18px; font-weight: 600; margin-top: 14px; }\n__ROOT__ .adz-hello + .adz-h1 { margin-top: 4px; }\n__ROOT__ .adz-msg { max-width: 640px; }\n__ROOT__ .adz-msg--done { text-align: center; margin: 0 auto; }\n__ROOT__ .adz-msg--done .adz-lead { margin: 0 auto; }\n__ROOT__ .adz-check { width: 56px; height: 56px; border-radius: 50%; background: var(--red); margin: 0 auto 8px; position: relative; }\n__ROOT__ .adz-check::after { content: ''; position: absolute; left: 20px; top: 14px; width: 12px; height: 22px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }\n@media (max-width: 640px) {\n__ROOT__ .adz-hint--keys { display: none; }\n__ROOT__ .adz-q { min-height: 0; }\n__ROOT__ .adz-opt { padding: 12px 14px; }\n}";
 var I18N = ED_I18N;
 var N = ED.COUNT;
 
 var DEFAULTS = {
   mount: '#ed-assessment',
-  endpoint: '',                         // Apps Script web app URL ('' = demo mode, nothing is saved)
-  lang: 'auto',
+  endpoint: '',            // Apps Script web app URL ('' = demo mode: nothing is saved)
+  lang: 'auto',            // 'auto' = the language chosen for the launch
   languages: Object.keys(I18N),
-  privacyUrl: { en: 'https://www.adizes.com/privacy-policy', es: 'https://www.adizes.com/privacy-policy' },
   assetsBase: '',
-  storageKey: 'adz-ed:v1',
   loadFont: true,
 };
 
-// Step list: one step per statement, then the contact gate.
 function sectionOf(q) { var cat = ED.QUESTION_CATS[q]; for (var i = 0; i < ED.CELLS.length; i++) if (ED.CELLS[i].id === cat) return i; return 0; }
 var FIRST_OF_SECTION = {};
 for (var qi = 0; qi < N; qi++) { var s0 = sectionOf(qi); if (FIRST_OF_SECTION[s0] == null) FIRST_OF_SECTION[s0] = qi; }
 
 function App(el, cfg) {
   this.el = el; this.cfg = cfg;
+  this.token = (qs('t') || '').replace(/[^A-Za-z0-9]/g, '');
+  this.skey = 'adz-ed:' + (this.token || 'demo');
+  this.info = null;
   this.lang = this.pickLang();
-  this.state = this.fresh();
+  this.state = { step: 0, answers: [] };
   this.busy = false; this.dir = 1;
   this.root = document.createElement('div');
   this.root.className = 'adz';
   el.innerHTML = ''; el.appendChild(this.root);
-  var saved = load(cfg.storageKey);
-  if (saved && saved.result) { this.state = saved; this.renderResults(); }
-  else if (saved && (saved.step > 0 || (saved.answers || []).some(Boolean))) { this.saved = saved; this.renderResume(); }
-  else this.renderIntro();
   var self = this;
   this.onKey = function (e) { self.key(e); };
   document.addEventListener('keydown', this.onKey);
+  this.boot();
 }
-App.prototype.fresh = function () { return { step: 0, answers: [], contact: {}, startedAt: new Date().toISOString() }; };
 App.prototype.t = function () { return I18N[this.lang] || I18N.en; };
-App.prototype.pickLang = function () {
+App.prototype.pickLang = function (launchLang) {
   var avail = this.cfg.languages.filter(function (l) { return I18N[l]; });
-  var want = qs('lang') || (this.cfg.lang !== 'auto' ? this.cfg.lang : '') || ((load(this.cfg.storageKey) || {}).lang) ||
+  var saved = load(this.skey) || {};
+  var want = qs('lang') || saved.lang || (this.cfg.lang !== 'auto' ? this.cfg.lang : '') || launchLang ||
     ((navigator.language || 'en').slice(0, 2).toLowerCase());
   return avail.indexOf(want) >= 0 ? want : (avail.indexOf('en') >= 0 ? 'en' : avail[0]);
 };
-App.prototype.save = function () { this.state.lang = this.lang; store(this.cfg.storageKey, this.state); };
+App.prototype.save = function () { this.state.lang = this.lang; store(this.skey, this.state); };
+App.prototype.vars = function () {
+  var i = this.info || {};
+  return { company: esc(i.company || ''), first: esc(i.firstName || ''), date: esc(i.closeDate ? formatDate(i.closeDate + 'T12:00:00', this.t().locale) : '') };
+};
+
+/* ---------- loading the invitation ---------- */
+App.prototype.boot = function () {
+  var self = this;
+  if (!this.token && this.cfg.endpoint) return this.renderState('noToken');
+  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(this.t().ui.loading) + '</p></div>', { lang: false });
+  var req = this.cfg.endpoint ? api(this.cfg.endpoint, { action: 'p_load', t: this.token }, 20000)
+    : Promise.resolve({ ok: true, state: 'open', type: 'ED', lang: this.lang, company: 'Demo Company', firstName: 'Demo', closeDate: '' });
+  req.then(function (info) {
+    self.info = info;
+    if (!qs('lang') && !(load(self.skey) || {}).lang) self.lang = self.pickLang(info.lang);
+    if (info.state !== 'open') { store(self.skey, null); return self.renderState(info.state); }
+    var saved = load(self.skey);
+    if (saved && (saved.answers || []).some(Boolean)) { self.saved = saved; self.renderResume(); }
+    else self.renderIntro();
+  }).catch(function (e) {
+    if (e && e.code === 'invalid_link') return self.renderState('invalid_link');
+    self.frame('<div class="adz-loading"><p class="adz-lead">' + esc(self.t().ui.errorGeneric) + '</p>' +
+      '<button type="button" class="adz-btn" data-act="retry">' + esc(self.t().ui.retry) + '</button></div>', { lang: false });
+    self.root.querySelector('[data-act="retry"]').addEventListener('click', function () { self.boot(); });
+  });
+};
 
 /* ---------- chrome ---------- */
 App.prototype.logo = function () {
@@ -1107,7 +711,7 @@ App.prototype.langSwitch = function () {
   }).join('') + '</div>';
 };
 App.prototype.progress = function () {
-  var answered = this.state.step; // statements already passed
+  var answered = this.state.step;
   return '<div class="adz-progress" aria-hidden="true">' + ED.CELLS.map(function (c, i) {
     var start = FIRST_OF_SECTION[i], len = ED.QUESTION_CATS.filter(function (x) { return x === c.id; }).length;
     var f = Math.max(0, Math.min(1, (answered - start) / len));
@@ -1137,30 +741,35 @@ App.prototype.bindLang = function () {
   this.root.querySelectorAll('[data-lang]').forEach(function (b) {
     b.addEventListener('click', function () {
       self.lang = b.getAttribute('data-lang'); self.save(); self.dir = 1; self.mounted = false;
-      if (self.state.result) self.renderResults();
-      else if (self.view === 'intro') self.renderIntro();
-      else if (self.view === 'resume') self.renderResume();
-      else self.renderStep();
+      var fn = { intro: 'renderIntro', resume: 'renderResume', step: 'renderStep', review: 'renderReview', state: 'renderState', thanks: 'renderThanks' }[self.view];
+      if (fn) self[fn](self.stateKey);
     });
   });
 };
 
-/* ---------- intro / resume ---------- */
+/* ---------- screens ---------- */
+App.prototype.renderState = function (key) {
+  var s = this.t().states[key] || this.t().states.invalid_link;
+  this.view = 'state'; this.stateKey = key;
+  this.frame('<div class="adz-msg"><div class="adz-eyebrow">' + esc(this.t().intro.eyebrow) + '</div>' +
+    '<h1 class="adz-h1 adz-h1--sm">' + esc(s.title) + '</h1><p class="adz-lead">' + esc(s.body) + '</p></div>');
+};
 App.prototype.renderIntro = function () {
-  var t = this.t(), self = this;
+  var t = this.t(), v = this.vars(), self = this, i = this.info || {};
   this.view = 'intro';
   this.frame(
-    '<div class="adz-eyebrow">' + esc(t.intro.eyebrow) + '</div>' +
-    '<h1 class="adz-h1">' + esc(t.intro.title) + '</h1>' +
-    '<p class="adz-lead">' + esc(t.intro.body) + '</p>' +
+    '<div class="adz-eyebrow">' + esc(t.intro.eyebrow) + (v.company ? ' · ' + v.company : '') + '</div>' +
+    (v.first ? '<p class="adz-hello">' + fill(esc(t.intro.hello), v) + '</p>' : '') +
+    '<h1 class="adz-h1">' + fill(esc(t.intro.title), v) + '</h1>' +
+    '<p class="adz-lead">' + fill(esc(t.intro.body), v) + '</p>' +
     '<ul class="adz-list">' + t.intro.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' +
     '<p class="adz-note">' + esc(t.intro.note) + '</p>' +
     '<div class="adz-actions"><button type="button" class="adz-btn" data-act="start">' + esc(t.ui.start) + ' →</button>' +
     '<span class="adz-hint">' + esc(t.ui.pressEnter) + '</span></div>' +
-    '<p class="adz-meta">' + esc(t.ui.minutes) + '</p>');
+    '<p class="adz-meta">' + esc(t.intro.meta) + (i.closeDate ? ' · ' + fill(esc(t.intro.deadline), v) : '') + '</p>');
   this.root.querySelector('[data-act="start"]').addEventListener('click', function () { self.start(); });
 };
-App.prototype.start = function () { this.state = this.fresh(); this.dir = 1; this.save(); this.renderStep(); };
+App.prototype.start = function () { this.state = { step: 0, answers: [] }; this.dir = 1; this.save(); this.renderStep(); };
 App.prototype.renderResume = function () {
   var t = this.t(), self = this;
   this.view = 'resume';
@@ -1170,12 +779,12 @@ App.prototype.renderResume = function () {
     '<div class="adz-actions"><button type="button" class="adz-btn" data-act="yes">' + esc(t.ui.resumeYes) + ' →</button>' +
     '<button type="button" class="adz-btn adz-btn--ghost" data-act="no">' + esc(t.ui.resumeNo) + '</button></div>');
   this.root.querySelector('[data-act="yes"]').addEventListener('click', function () { self.state = self.saved; self.renderStep(); });
-  this.root.querySelector('[data-act="no"]').addEventListener('click', function () { store(self.cfg.storageKey, null); self.renderIntro(); });
+  this.root.querySelector('[data-act="no"]').addEventListener('click', function () { store(self.skey, null); self.renderIntro(); });
 };
 
 /* ---------- statements ---------- */
 App.prototype.renderStep = function () {
-  if (this.state.step >= N) return this.renderGate();
+  if (this.state.step >= N) return this.renderReview();
   var t = this.t(), self = this, q = this.state.step, sec = sectionOf(q), cell = ED.CELLS[sec];
   var cur = this.state.answers[q];
   this.view = 'step';
@@ -1233,141 +842,41 @@ App.prototype.key = function (e) {
   if (e.key === 'Backspace') { e.preventDefault(); this.back(); }
 };
 
-/* ---------- gate ---------- */
-App.prototype.renderGate = function () {
-  var t = this.t(), g = t.gate, c = this.state.contact || {}, self = this;
-  var privacy = (this.cfg.privacyUrl && (this.cfg.privacyUrl[this.lang] || this.cfg.privacyUrl.en)) || '#';
-  var consent = esc(g.consent).replace('{privacy}', '<a href="' + esc(privacy) + '" target="_blank" rel="noopener">' + esc(g.privacy) + '</a>');
-  this.view = 'gate';
-  function field(n, type, label, ph, val, err, ac) {
-    return '<div class="adz-field" data-f="' + n + '"><label for="adz-' + n + '">' + esc(label) + '</label>' +
-      '<input id="adz-' + n + '" name="' + n + '" type="' + type + '" placeholder="' + esc(ph) + '" value="' + esc(val || '') + '" autocomplete="' + ac + '"' + (n === 'email' ? ' inputmode="email"' : '') + '>' +
-      '<div class="adz-err">' + esc(err) + '</div></div>';
-  }
+/* ---------- review + submit + thanks ---------- */
+App.prototype.renderReview = function () {
+  var t = this.t(), R = t.review, self = this;
+  var cannot = this.state.answers.slice(0, N).filter(function (v) { return v === 1; }).length;
+  this.view = 'review';
   this.frame(
-    '<div class="adz-eyebrow">' + esc(g.eyebrow) + '</div>' +
-    '<h1 class="adz-h1 adz-h1--sm">' + esc(g.title) + '</h1>' +
-    '<p class="adz-lead">' + esc(g.body) + '</p>' +
-    '<form class="adz-form" novalidate>' +
-      field('name', 'text', g.name, g.namePh, c.name, g.errName, 'name') +
-      field('email', 'email', g.email, g.emailPh, c.email, g.errEmail, 'email') +
-      field('company', 'text', g.company, g.companyPh, c.company, g.errCompany, 'organization') +
-      '<div class="adz-field" data-f="consent"><label class="adz-consent"><input type="checkbox" name="consent"' + (c.consent ? ' checked' : '') + '><span>' + consent + '</span></label><div class="adz-err">' + esc(g.errConsent) + '</div></div>' +
-      '<div class="adz-nav"><button type="button" class="adz-back" data-act="back">← ' + esc(t.ui.back) + '</button>' +
-      '<button type="submit" class="adz-btn">' + esc(g.submit) + ' →</button></div>' +
-    '</form>', { progress: true, lang: false });
-  var form = this.root.querySelector('form');
-  this.root.querySelector('[data-act="back"]').addEventListener('click', function () { self.back(); });
-  form.addEventListener('input', function (e) { var f = e.target.closest('.adz-field'); if (f) f.classList.remove('has-error'); });
-  form.addEventListener('submit', function (e) { e.preventDefault(); self.submit(form); });
+    '<div class="adz-eyebrow">' + esc(R.eyebrow) + '</div>' +
+    '<h1 class="adz-h1 adz-h1--sm">' + esc(R.title) + '</h1>' +
+    '<p class="adz-lead">' + esc(R.body) + (cannot ? ' ' + fill(esc(R.cannot), { n: cannot }) : '') + '</p>' +
+    '<p class="adz-note">' + esc(R.warn) + '</p>' +
+    '<div class="adz-actions"><button type="button" class="adz-btn" data-act="submit">' + esc(R.submit) + ' →</button>' +
+    '<button type="button" class="adz-btn adz-btn--ghost" data-act="edit">' + esc(R.edit) + '</button></div>', { progress: true });
+  this.root.querySelector('[data-act="submit"]').addEventListener('click', function () { self.submit(); });
+  this.root.querySelector('[data-act="edit"]').addEventListener('click', function () { self.state.step = 0; self.dir = -1; self.save(); self.renderStep(); });
 };
-App.prototype.submit = function (form) {
-  var v = { name: form.name.value.trim().replace(/\s+/g, ' '), email: form.email.value.trim(), company: form.company.value.trim().replace(/\s+/g, ' '), consent: form.consent.checked };
-  var bad = [];
-  if (v.name.length < 2) bad.push('name');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.email)) bad.push('email');
-  if (!v.company) bad.push('company');
-  if (!v.consent) bad.push('consent');
-  form.querySelectorAll('.adz-field').forEach(function (f) { f.classList.toggle('has-error', bad.indexOf(f.getAttribute('data-f')) >= 0); });
-  if (bad.length) { var el = form.querySelector('[name="' + bad[0] + '"]'); if (el) el.focus(); return; }
-  this.state.contact = v; this.save(); this.send();
-};
-App.prototype.send = function () {
-  var t = this.t(), self = this, s = this.state;
-  this.view = 'loading';
-  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(t.ui.loading) + '</p></div>', { lang: false });
-  var answers = s.answers.slice(0, N);
-  var payload = { action: 'ed_submit', v: VERSION, lang: this.lang, answers: answers, contact: s.contact, meta: utmMeta(s.startedAt) };
+App.prototype.submit = function () {
+  var t = this.t(), self = this;
+  this.view = 'sending';
+  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(t.ui.sending) + '</p></div>', { lang: false });
   var started = Date.now();
-  api(this.cfg.endpoint, payload, 30000).then(function (res) {
-    setTimeout(function () {
-      s.id = res.id; s.result = true; s.submittedAt = new Date().toISOString(); s.pdf = 'pending';
-      self.save(); self.renderResults();
-    }, Math.max(0, 1200 - (Date.now() - started)));
-  }).catch(function () {
+  api(this.cfg.endpoint, { action: 'p_submit', v: VERSION, t: this.token, lang: this.lang, answers: this.state.answers.slice(0, N) }, 30000).then(function () {
+    setTimeout(function () { store(self.skey, null); self.renderThanks(); }, Math.max(0, 900 - (Date.now() - started)));
+  }).catch(function (e) {
+    if (e && (e.code === 'already_completed' || e.code === 'closed' || e.code === 'invalid_link')) { store(self.skey, null); return self.renderState(e.code === 'already_completed' ? 'completed' : e.code); }
     self.frame('<div class="adz-loading"><p class="adz-lead">' + esc(t.ui.errorGeneric) + '</p>' +
       '<button type="button" class="adz-btn" data-act="retry">' + esc(t.ui.retry) + '</button></div>', { lang: false });
-    self.root.querySelector('[data-act="retry"]').addEventListener('click', function () { self.send(); });
+    self.root.querySelector('[data-act="retry"]').addEventListener('click', function () { self.submit(); });
   });
 };
-
-/* ---------- results ---------- */
-App.prototype.result = function () { return ED.score([this.state.answers.slice(0, N)]); };
-App.prototype.renderResults = function () {
-  var t = this.t(), R = t.results, s = this.state, r = this.result(), self = this;
-  this.view = 'results';
-  var counts = edCounts(r);
-  var focus = r.cells.filter(function (c) { return c.color === 'red'; });
-  var focusNote = '';
-  if (!focus.length) { focus = r.cells.filter(function (c) { return c.color === 'yellow'; }).sort(function (a, b) { return a.percent - b.percent; }).slice(0, 3); focusNote = R.focusNone; }
-  var focusHtml = focus.map(function (c) {
-    var qs2 = c.questions.map(function (i) { return r.questions[i]; }).filter(function (q) { return q.color !== 'green'; });
-    return '<div class="adz-focus is-' + c.color + '"><div class="adz-focus-h"><b>' + esc(t.cells[c.key]) + '</b><span>' + Math.round(c.percent) + '%</span></div>' +
-      '<ul>' + qs2.map(function (q) { return '<li class="is-' + q.color + '">' + esc(edQuestionText(t, q)) + (q.zone === 0 ? ' <em>· ' + esc(t.noAnswer) + '</em>' : '') + '</li>'; }).join('') + '</ul></div>';
-  }).join('');
-  var email = '<b>' + esc(s.contact && s.contact.email || '') + '</b>';
-  var pdfStatus = s.pdf === 'sent' ? fill(esc(R.pdfSent), { email: email }) : s.pdf === 'error' ? esc(R.pdfError) : fill(esc(R.pdfSending), { email: email });
-
-  this.root.innerHTML =
-    '<div class="adz-results">' +
-      '<div class="adz-top">' + this.logo() + this.langSwitch() + '</div>' +
-      '<header class="adz-hero">' +
-        '<div class="adz-eyebrow">' + esc(R.eyebrow) + '</div>' +
-        '<h1 class="adz-h1">' + esc(s.contact.company || '') + '</h1>' +
-        '<p class="adz-lead">' + esc(R.lead) + '</p>' +
-        '<div class="adz-counts">' + ['red', 'yellow', 'green'].map(function (c) {
-          return '<div class="adz-countbox is-' + c + '"><b>' + counts[c] + '</b><span>' + esc(R.count[c]) + '</span></div>';
-        }).join('') + '</div>' +
-      '</header>' +
-      '<section class="adz-sec"><h2>' + esc(R.diagramTitle) + '</h2><p class="adz-help">' + esc(R.diagramHelp) + '</p>' + edDiagramHtml(t, r) +
-        '<div class="adz-legend">' + ['green', 'yellow', 'red'].map(function (c) { return '<span class="is-' + c + '"><i></i>' + esc(t.colors[c]) + '</span>'; }).join('') + '</div></section>' +
-      '<section class="adz-sec"><h2>' + esc(R.radarTitle) + '</h2><p class="adz-help">' + esc(R.radarHelp) + '</p>' +
-        '<div class="adz-radars">' + edRadarSvg(t, r, ED.RADARS[0], t.radar.title1) + edRadarSvg(t, r, ED.RADARS[1], t.radar.title2) + '</div>' +
-        '<div class="adz-legend adz-legend--lines"><span class="is-ok"><i></i>' + esc(t.radar.normal) + '</span><span class="is-bad"><i></i>' + esc(t.radar.abnormal) + '</span><span class="is-you"><i></i>' + esc(t.radar.yours) + '</span></div></section>' +
-      '<section class="adz-sec"><h2>' + esc(R.focusTitle) + '</h2><p class="adz-help">' + esc(focusNote || R.focusHelp) + '</p>' + focusHtml + '</section>' +
-      '<section class="adz-sec adz-sec--pdf">' +
-        '<h2>' + esc(R.pdfTitle) + '</h2><p class="adz-status" data-pdf-status>' + pdfStatus + '</p>' +
-        '<button type="button" class="adz-btn" data-act="download">' + esc(R.download) + '</button>' +
-      '</section>' +
-      '<div class="adz-foot"><button type="button" data-act="retake">' + esc(R.retake) + '</button></div>' +
-    '</div>';
-  this.bindLang(); this.scrollTop();
-  this.root.querySelector('[data-act="download"]').addEventListener('click', function (e) { self.download(e.currentTarget); });
-  this.root.querySelector('[data-act="retake"]').addEventListener('click', function () { store(self.cfg.storageKey, null); self.state = self.fresh(); self.dir = 1; self.renderIntro(); });
-  if (s.pdf === 'pending' && !this.delivering) this.deliver();
-};
-App.prototype.event = function (type) { if (this.state.id) api(this.cfg.endpoint, { action: 'ed_event', id: this.state.id, type: type }, 15000).catch(function () {}); };
-App.prototype.setPdfStatus = function (kind) {
-  var R = this.t().results, el = this.root.querySelector('[data-pdf-status]'), email = '<b>' + esc(this.state.contact.email) + '</b>';
-  if (el) el.innerHTML = kind === 'sent' ? fill(esc(R.pdfSent), { email: email }) : kind === 'error' ? esc(R.pdfError) : fill(esc(R.pdfSending), { email: email });
-};
-App.prototype.pdfData = function () {
-  var c = this.state.contact || {};
-  return { result: this.result(), company: c.company, participants: [c.name], dateIso: this.state.submittedAt };
-};
-App.prototype.buildPdf = function (lang) {
-  var self = this;
-  return getPdfAssets(this.cfg.assetsBase).then(function (A) { return renderEdPdf(A, lang, self.pdfData()); });
-};
-App.prototype.fileName = function () {
-  var n = (this.state.contact.company || '').replace(/[^\wÀ-ſ ]+/g, '').trim().replace(/\s+/g, '-');
-  return (this.lang === 'es' ? 'Diagnostico-Expres' : 'Express-Diagnostics') + (n ? '-' + n : '') + '.pdf';
-};
-App.prototype.deliver = function () {
-  var self = this, s = this.state, lang = this.lang;
-  this.delivering = true;
-  this.buildPdf(lang).then(function (doc) {
-    return api(self.cfg.endpoint, { action: 'ed_deliver', id: s.id, lang: lang, fileName: self.fileName(), pdf: doc.output('datauristring').split(',')[1] }, 60000);
-  }).then(function () { s.pdf = 'sent'; self.save(); self.setPdfStatus('sent'); })
-    .catch(function (e) { if (window.console) console.warn('[ED] deliver', e); s.pdf = 'error'; self.save(); self.setPdfStatus('error'); })
-    .then(function () { self.delivering = false; });
-};
-App.prototype.download = function (btn) {
-  var self = this, R = this.t().results, label = btn.textContent;
-  btn.disabled = true; btn.textContent = R.preparing;
-  this.buildPdf(this.lang).then(function (doc) { doc.save(self.fileName()); self.event('pdf_download'); })
-    .catch(function (e) { if (window.console) console.error(e); alert(self.t().ui.errorGeneric); })
-    .then(function () { btn.disabled = false; btn.textContent = label; });
+App.prototype.renderThanks = function () {
+  var t = this.t(), v = this.vars();
+  this.view = 'thanks';
+  this.frame('<div class="adz-msg adz-msg--done"><div class="adz-check" aria-hidden="true"></div>' +
+    '<h1 class="adz-h1 adz-h1--sm">' + fill(esc(t.thanks.title), v).replace(/,\s*$/, '') + '</h1>' +
+    '<p class="adz-lead">' + fill(esc(t.thanks.body), v) + '</p></div>');
 };
 
 /* ---------- boot ---------- */
@@ -1381,15 +890,7 @@ function boot() {
   if (!el.id) el.id = 'ed-assessment';
   injectStyle('adz-style-' + el.id, CSS, '#' + el.id);
   if (cfg.loadFont) loadFontCss();
-  window.EDA = {
-    app: new App(el, cfg), version: VERSION, score: ED.score,
-    // Team report (used by the admin): responses = [[67 raw answers], ...]
-    teamPdf: function (responses, company, names, lang, dateIso) {
-      return getPdfAssets(cfg.assetsBase).then(function (A) {
-        return renderEdPdf(A, lang || 'en', { result: ED.score(responses), company: company, participants: names || [], dateIso: dateIso });
-      });
-    },
-  };
+  window.EDA = { app: new App(el, cfg), version: VERSION };
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 

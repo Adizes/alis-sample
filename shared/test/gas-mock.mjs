@@ -93,11 +93,12 @@ export function loadGas(opts = {}) {
     Utilities: {
       base64Decode: (b64) => Array.from(Buffer.from(b64, 'base64')).map(x => (x > 127 ? x - 256 : x)),
       newBlob: (bytes, type, name) => blob(bytes, type, name),
-      formatDate: (d) => d.toISOString().slice(2, 10).replace(/-/g, ''),
+      formatDate: (d, tz, f) => (f === 'yyyy-MM-dd' ? d.toISOString().slice(0, 10) : d.toISOString().slice(2, 10).replace(/-/g, '')),
     },
     DriveApp: {
       createFolder: (n) => { const f = folder('F' + state.folders.length, n); state.folders.push(f); return f; },
       getFolderById: (id) => state.folders.find(f => f.id === id) || (() => { throw new Error('no folder ' + id); })(),
+      getFileById: (id) => { const f = state.files.find(x => x.id === id); if (!f) throw new Error('no file ' + id); return { getBlob: () => f.blob.copyBlob() }; },
     },
     GmailApp: {
       getAliases: () => ['info@adizes.com'],
@@ -107,16 +108,25 @@ export function loadGas(opts = {}) {
     ScriptApp: {
       getProjectTriggers: () => state.triggers,
       deleteTrigger: (t) => { state.triggers.splice(state.triggers.indexOf(t), 1); },
-      newTrigger: (fn) => ({ timeBased: () => ({ everyMinutes: (m) => ({ create: () => state.triggers.push({ fn, m, getHandlerFunction: () => fn }) }) }) }),
+      newTrigger: (fn) => ({ timeBased: () => ({
+        everyMinutes: (m) => ({ create: () => state.triggers.push({ fn, m, getHandlerFunction: () => fn }) }),
+        everyHours: (h) => ({ create: () => state.triggers.push({ fn, h, getHandlerFunction: () => fn }) }),
+      }) }),
+      getService: () => ({ getUrl: () => 'https://script.google.com/a/macros/adizes.com/s/ADMIN/exec' }),
+    },
+    HtmlService: {
+      createHtmlOutput: (html) => { const o = { html, title: '', metas: [], setTitle(t) { o.title = t; return o; }, addMetaTag(n, c) { o.metas.push([n, c]); return o; }, getContent: () => html }; return o; },
     },
     Session: { getActiveUser: () => ({ getEmail: () => state.activeUser }) },
     Date, Math, JSON, String, Number, Array, Object, Error, RegExp, Infinity, encodeURIComponent, parseInt, isFinite,
   };
   vm.createContext(ctx);
   const code = readFileSync(CODE_PATH, 'utf8');
-  vm.runInContext(code + '\n;globalThis.__gas = { doPost, doGet, backupDeliver, setup, testEmailToMe, CONFIG, ED, ED_TABLE };', ctx);
+  vm.runInContext(code + '\n;globalThis.__gas = { doPost, doGet, adminApi, tick, setup, CONFIG, ED };', ctx);
   const gas = ctx.__gas;
   const post = (obj) => JSON.parse(gas.doPost({ postData: { contents: JSON.stringify(obj) } }).getContent());
+  // admin call as the current active user (state.activeUser)
+  const admin = (action, payload) => JSON.parse(gas.adminApi(action, payload));
   if (opts.setup !== false) gas.setup();
-  return { gas, state, post, sheet: (n) => state.sheets[n] };
+  return { gas, state, post, admin, sheet: (n) => state.sheets[n] };
 }

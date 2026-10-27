@@ -10,6 +10,7 @@ import { existsSync, readdirSync } from 'node:fs';
 const here = dirname(fileURLToPath(import.meta.url));
 export const ROOT = join(here, '..', '..');
 export const CDN = 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@v-test/';
+const CDN_RE = /^https:\/\/cdn\.jsdelivr\.net\/gh\/Adizes\/alis-sample@[^/]+\//;
 
 export async function startServers() {
   const S = { gas: null, pending: {}, seq: 0, netErrors: [], failNext: false, html: '' };
@@ -32,7 +33,17 @@ export async function startServers() {
     }
     res.writeHead(404); res.end();
   });
-  S.pageServer = http.createServer((req, res) => { res.writeHead(200, { 'content-type': 'text/html' }); res.end(S.html); });
+  S.pageServer = http.createServer((req, res) => {
+    // Admin bridge: what google.script.run.adminApi does in production (runs as S.gas.state.activeUser)
+    if (req.url === '/admin-api' && req.method === 'POST') {
+      let body = ''; req.on('data', c => (body += c)); req.on('end', () => {
+        const { a, p } = JSON.parse(body);
+        res.writeHead(200, { 'content-type': 'text/plain' }); res.end(S.gas.gas.adminApi(a, p));
+      });
+      return;
+    }
+    res.writeHead(200, { 'content-type': 'text/html' }); res.end(S.html);
+  });
   await new Promise(r => S.gasServer.listen(0, '127.0.0.1', r));
   await new Promise(r => S.pageServer.listen(0, '127.0.0.1', r));
   S.ENDPOINT = 'http://127.0.0.1:' + S.gasServer.address().port + '/macros/s/TEST/exec';
@@ -70,15 +81,16 @@ const fontCss = ['Light:300', 'Regular:400', 'SemiBold:600', 'Bold:700', 'Bold:8
   return `@font-face{font-family:'Montserrat';font-weight:${w};src:url(${CDN}shared/assets/fonts/Montserrat-${n}.ttf) format('truetype')}`;
 }).join('\n');
 
-export async function newPage(S, browser, device, html, gasOpts) {
+export async function newPage(S, browser, device, html, gasOpts, reuseGas) {
   const ctx = await browser.newContext(device);
-  S.gas = loadGas(gasOpts); S.html = html; S.netErrors.length = 0;
+  if (!reuseGas || !S.gas) S.gas = loadGas(gasOpts);
+  S.html = html; S.netErrors.length = 0;
   const errors = S.netErrors;
   await ctx.route('**/*', async (route) => {
     const url = route.request().url();
     if (url.startsWith('http://127.0.0.1')) return route.fallback();
-    if (url.startsWith(CDN)) {
-      const rel = url.slice(CDN.length).split('?')[0];
+    if (CDN_RE.test(url)) {
+      const rel = url.replace(CDN_RE, '').split('?')[0];
       const type = rel.endsWith('.js') ? 'application/javascript' : rel.endsWith('.png') ? 'image/png' : 'font/ttf';
       return route.fulfill({ contentType: type, body: readFileSync(join(ROOT, rel)), headers: { 'access-control-allow-origin': '*' } });
     }
@@ -112,4 +124,13 @@ export async function launchBrowser(chromium) {
     }
     throw e;
   }
+}
+
+// The admin page exactly as Apps Script serves it, plus a google.script.run shim that calls the real Code.gs.
+export function adminPage() {
+  const html = readFileSync(join(ROOT, 'admin/dist/admin.html'), 'utf8');
+  const shim = `<script>(function(){function runner(ok,fail){return{withSuccessHandler:function(f){return runner(f,fail)},withFailureHandler:function(f){return runner(ok,f)},
+adminApi:function(a,p){fetch('/admin-api',{method:'POST',body:JSON.stringify({a:a,p:p})}).then(function(r){return r.text()}).then(function(t){setTimeout(function(){ok(t)},30)},function(e){fail(e)})}}}
+window.google={script:{run:runner(function(){},function(){})}};})();</script>`;
+  return html.replace('<script>', shim + '<script>');
 }

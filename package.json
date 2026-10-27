@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "test": "node express-diagnostics/test/engine.test.mjs && node express-diagnostics/test/gas.test.mjs && node express-diagnostics/test/e2e.test.mjs"
+    "test": "node express-diagnostics/test/engine.test.mjs && node apps-script/test/gas.test.mjs && node admin/test/e2e.test.mjs"
   },
   "devDependencies": {
     "jspdf": "2.5.1",

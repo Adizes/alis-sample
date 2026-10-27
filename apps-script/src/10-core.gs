@@ -2,9 +2,8 @@
  *  ENTRY POINTS
  * ================================================================================= */
 const ACTIONS = {
-  ed_submit: (b) => edSubmit_(b),
-  ed_deliver: (b) => edDeliver_(b),
-  ed_event: (b) => edEvent_(b),
+  p_load: (b) => pLoad_(b),
+  p_submit: (b) => pSubmit_(b),
 };
 
 function doPost(e) {
@@ -22,10 +21,6 @@ function doPost(e) {
     console.error(body.action, err && err.stack || err);
     return json_({ ok: false, error: String(err && err.message || err) });
   }
-}
-
-function doGet() {
-  return json_({ ok: true, service: 'adizes-assessments', version: VERSION, time: new Date().toISOString() });
 }
 
 function json_(obj) {
@@ -173,20 +168,21 @@ function clean_(v, max) { return String(v == null ? '' : v).replace(/[\u0000-\u0
 function esc_(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function fill_(tpl, map) { return String(tpl).replace(/\{(\w+)\}/g, (m, k) => map[k] != null ? map[k] : m); }
 function validEmail_(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e); }
+function randStr_(n) {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789';
+  let r = ''; for (let i = 0; i < n; i++) r += chars[Math.floor(Math.random() * chars.length)];
+  return r;
+}
 function newId_(prefix) {
-  const d = Utilities.formatDate(new Date(), 'UTC', 'yyMMdd');
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
   let r = ''; for (let i = 0; i < 6; i++) r += chars[Math.floor(Math.random() * chars.length)];
-  return prefix + '-' + d + '-' + r;
+  return prefix + '-' + r;
 }
-function splitName_(name) { const p = name.split(/\s+/); return { first: p[0], last: p.slice(1).join(' ') }; }
-function meta_(m) {
-  m = m || {};
-  return {
-    'Page': clean_(m.page, 500), 'Referrer': clean_(m.referrer, 500),
-    'UTM Source': clean_(m.utm_source, 120), 'UTM Medium': clean_(m.utm_medium, 120), 'UTM Campaign': clean_(m.utm_campaign, 200),
-    'UTM Content': clean_(m.utm_content, 200), 'UTM Term': clean_(m.utm_term, 200),
-    'Started At': clean_(m.startedAt, 40), 'Time Zone': clean_(m.tz, 60),
-  };
+function today_() { return Utilities.formatDate(new Date(), 'America/Mexico_City', 'yyyy-MM-dd'); }
+function dateStr_(v) {
+  if (!v) return '';
+  if (v instanceof Date) return Utilities.formatDate(v, 'America/Mexico_City', 'yyyy-MM-dd');
+  return String(v).slice(0, 10);
 }
-const META_COLS = ['Page', 'Referrer', 'UTM Source', 'UTM Medium', 'UTM Campaign', 'UTM Content', 'UTM Term', 'Started At', 'Time Zone'];
+function iso_(v) { return v instanceof Date ? v.toISOString() : (v ? String(v) : ''); }
+function firstName_(name) { return String(name || '').trim().split(/\s+/)[0] || ''; }

@@ -1,0 +1,1630 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adizes · Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>:root {
+--ink: #111111; --ink-2: #3a3a3a; --muted: #6b6f76; --soft: #9aa0a6; --line: #e6e6e6; --line-2: #f0f0f0;
+--paper: #f6f6f6; --white: #ffffff; --red: #d7141a; --red-dark: #b10f14; --red-tint: #fdecec;
+--green: #1e8e4e; --green-t: #e3f4ea; --yellow: #a87b00; --yellow-t: #fff4cf; --blue: #2457c5; --blue-t: #e8eefb;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--paper); }
+body { font: 14px/1.5 Montserrat, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+a { color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid rgba(215, 20, 26, .3); outline-offset: 2px; }
+.adm-top { position: sticky; top: 0; z-index: 20; background: var(--white); border-bottom: 1px solid var(--line); }
+.adm-top-in { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: 24px; padding: 12px 24px; }
+.adm-logo { height: 30px; width: auto; display: block; }
+.adm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.adm-brand span { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-left: 1px solid var(--line); padding-left: 10px; }
+.adm-nav { display: flex; gap: 4px; flex: 1; }
+.adm-nav a { text-decoration: none; padding: 8px 12px; border-radius: 6px; font-weight: 600; color: var(--muted); }
+.adm-nav a:hover { color: var(--ink); background: var(--paper); }
+.adm-nav a.is-on { color: var(--ink); background: var(--paper); box-shadow: inset 0 -2px 0 var(--red); }
+.adm-me { font-size: 12px; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+.adm-main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 80px; }
+.adm-boot { min-height: 60vh; display: grid; place-items: center; }
+.adm-spinner { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.adm-crumbs { font-size: 12.5px; color: var(--muted); margin-bottom: 6px; }
+.adm-crumbs a { text-decoration: none; font-weight: 600; }
+.adm-crumbs a:hover { color: var(--red); }
+.adm-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+.adm-h1 { font-size: 26px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; }
+.adm-sub { color: var(--muted); margin-top: 4px; }
+.adm-h2 { font-size: 16px; font-weight: 700; }
+.adm-sec { margin-top: 28px; }
+.adm-sec-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.adm-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+.adm-btns { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 38px; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 13.5px; white-space: nowrap; text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+.btn-red { background: var(--red); color: var(--white); }
+.btn-red:hover { background: var(--red-dark); }
+.btn-dark { background: var(--ink); color: var(--white); }
+.btn-dark:hover { background: #000; }
+.btn-line { border: 1px solid #cfcfcf; background: var(--white); }
+.btn-line:hover { border-color: var(--ink); }
+.btn-ghost { color: var(--muted); padding: 8px 10px; }
+.btn-ghost:hover { color: var(--ink); background: var(--paper); }
+.btn-danger { color: var(--red); }
+.btn-danger:hover { background: var(--red-tint); }
+.btn-sm { min-height: 30px; padding: 5px 10px; font-size: 12.5px; }
+.btn[disabled] { opacity: .45; cursor: default; pointer-events: none; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; }
+.card-pad { padding: 20px; }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.co-card { display: block; text-decoration: none; padding: 18px 20px; transition: border-color .15s, box-shadow .15s; }
+.co-card:hover { border-color: var(--ink); }
+.co-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+.co-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+.co-meta b { color: var(--ink); }
+.empty { padding: 34px 20px; text-align: center; color: var(--muted); }
+.empty b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+.input, .select, .textarea { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid #cfcfcf; border-radius: 6px; background: var(--white); }
+.input:focus, .select:focus, .textarea:focus { border-color: var(--ink); outline: none; }
+.textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+.toolbar .input { max-width: 300px; }
+.toolbar .select { width: auto; }
+.chk { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); cursor: pointer; }
+.chk input { accent-color: var(--red); width: 16px; height: 16px; }
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--line); background: #fafafa; }
+.tbl td { padding: 11px 14px; border-bottom: 1px solid var(--line-2); vertical-align: middle; }
+.tbl tr:last-child td { border-bottom: 0; }
+.tbl tr.is-click { cursor: pointer; }
+.tbl tr.is-click:hover td { background: #fafafa; }
+.tbl .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tbl .act { text-align: right; white-space: nowrap; }
+.muted { color: var(--muted); }
+.small { font-size: 12.5px; }
+.strong { font-weight: 600; }
+.nowrap { white-space: nowrap; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px; border-radius: 20px; font-size: 11.5px; font-weight: 700; white-space: nowrap; background: var(--paper); color: var(--ink-2); }
+.chip::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .8; }
+.chip-Draft { color: var(--muted); }
+.chip-Open { background: var(--blue-t); color: var(--blue); }
+.chip-Ready { background: var(--yellow-t); color: var(--yellow); }
+.chip-Reportsent { background: var(--green-t); color: var(--green); }
+.chip-Closed { color: var(--soft); }
+.chip-Pending { color: var(--muted); }
+.chip-Sent { background: var(--blue-t); color: var(--blue); }
+.chip-Completed { background: var(--green-t); color: var(--green); }
+.chip-Archived { color: var(--soft); }
+.type { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: .06em; padding: 2px 7px; border-radius: 4px; border: 1px solid var(--ink); }
+.type-ES { border-color: var(--red); color: var(--red); }
+.prog { display: flex; align-items: center; gap: 10px; min-width: 150px; }
+.prog-bar { flex: 1; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; position: relative; }
+.prog-bar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); border-radius: 3px; }
+.prog-bar.is-ok i { background: var(--green); }
+.prog-bar b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--red); }
+.prog span { font-size: 12.5px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.kpi { padding: 16px 18px; }
+.kpi small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kpi b { display: block; font-size: 22px; font-weight: 700; margin-top: 4px; }
+.kpi .prog { margin-top: 10px; }
+.kpi .prog span { display: none; }
+.notice { border-left: 4px solid var(--red); background: var(--red-tint); padding: 12px 16px; border-radius: 4px; margin-bottom: 16px; font-size: 13.5px; }
+.notice.is-info { border-color: var(--ink); background: var(--paper); }
+.report { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; }
+.report > div { padding: 20px; }
+.report > div + div { border-left: 1px solid var(--line); }
+.field { display: grid; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 12.5px; font-weight: 600; }
+.field .hint { font-size: 12px; color: var(--soft); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pdf-ok { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; margin: 10px 0 14px; }
+.pdf-ok i { width: 34px; height: 40px; border-radius: 4px; background: var(--red); position: relative; flex: none; }
+.pdf-ok i::after { content: 'PDF'; position: absolute; bottom: 5px; left: 0; right: 0; text-align: center; color: #fff; font: 800 9px Montserrat, Arial; }
+.modal-bg { position: fixed; inset: 0; background: rgba(17, 17, 17, .45); z-index: 50; display: flex; align-items: flex-start; justify-content: center; padding: 6vh 16px 16px; overflow-y: auto; animation: fade .15s ease; }
+.modal { background: var(--white); border-radius: 12px; width: 100%; max-width: 560px; box-shadow: 0 20px 60px rgba(0, 0, 0, .25); }
+.modal.is-wide { max-width: 760px; }
+.modal-h { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-bottom: 1px solid var(--line); }
+.modal-h h3 { font-size: 17px; font-weight: 700; }
+.modal-b { padding: 20px 22px; max-height: 66vh; overflow-y: auto; }
+.modal-f { display: flex; justify-content: flex-end; gap: 8px; padding: 14px 22px; border-top: 1px solid var(--line); background: #fafafa; border-radius: 0 0 12px 12px; }
+.x { width: 32px; height: 32px; border-radius: 6px; font-size: 20px; line-height: 1; color: var(--muted); }
+.x:hover { background: var(--paper); color: var(--ink); }
+@keyframes fade { from { opacity: 0; } }
+.pick { border: 1px solid var(--line); border-radius: 8px; max-height: 320px; overflow-y: auto; }
+.pick label { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-bottom: 1px solid var(--line-2); cursor: pointer; }
+.pick label:last-child { border-bottom: 0; }
+.pick label:hover { background: #fafafa; }
+.pick input { accent-color: var(--red); width: 16px; height: 16px; flex: none; }
+.pick .small { margin-left: auto; text-align: right; }
+.err { color: var(--red); font-size: 12.5px; }
+.types { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.types label { border: 1px solid #cfcfcf; border-radius: 8px; padding: 12px 14px; cursor: pointer; display: block; }
+.types label:has(input:checked) { border-color: var(--red); box-shadow: inset 0 0 0 1px var(--red); background: var(--red-tint); }
+.types input { accent-color: var(--red); margin-right: 6px; }
+.types small { display: block; color: var(--muted); margin-top: 4px; }
+.linkbox { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
+.adm-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 30px); opacity: 0; background: var(--ink); color: var(--white); padding: 11px 18px; border-radius: 8px; font-weight: 600; font-size: 13.5px; z-index: 60; transition: all .2s ease; pointer-events: none; max-width: calc(100vw - 32px); }
+.adm-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+.adm-toast.is-err { background: var(--red); }
+.busy { position: fixed; inset: 0; z-index: 70; background: rgba(255, 255, 255, .55); display: grid; place-items: center; }
+@media (max-width: 760px) {
+.adm-top-in { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
+.adm-me { display: none; }
+.adm-nav { order: 3; width: 100%; flex: none; }
+.adm-main { padding: 20px 14px 70px; }
+.adm-h1 { font-size: 22px; }
+.kpis { grid-template-columns: 1fr 1fr; }
+.report { grid-template-columns: 1fr; }
+.report > div + div { border-left: 0; border-top: 1px solid var(--line); }
+.row2 { grid-template-columns: 1fr; }
+.toolbar .input { max-width: none; }
+.tbl thead { display: none; }
+.tbl, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
+.tbl tr { padding: 10px 14px; border-bottom: 1px solid var(--line-2); }
+.tbl td { padding: 2px 0; border: 0; }
+.tbl td[data-l]::before { content: attr(data-l) ': '; color: var(--soft); font-size: 11.5px; }
+.tbl .num, .tbl .act { text-align: left; }
+.tbl .act { padding-top: 8px; }
+.types { grid-template-columns: 1fr; }
+}</style>
+</head>
+<body>
+<div id="app" class="adm">
+  <div class="adm-boot"><div class="adm-spinner"></div></div>
+</div>
+<div id="modal-root"></div>
+<div id="toast" class="adm-toast" role="status" aria-live="polite"></div>
+<script>
+  window.ADM_CONFIG = {
+    version: '1.0.0',
+    assetsBase: 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@v1.0.0/shared/assets/'
+  };
+</script>
+<script>(function(){
+'use strict';
+var ED_I18N = {};
+/* Express Diagnostics — English
+ * To add a language: copy this file (e.g. pt.js), change `ED_I18N.en` to `ED_I18N.pt`, translate every
+ * string and keep the keys. The order of `questions` must not change (it is the scoring order).
+ * Answer values (1–5) are never translated: they are what is stored and scored.
+ */
+ED_I18N.en = {
+  code: 'en',
+  langName: 'English',
+  locale: 'en-US',
+
+  ui: {
+    start: 'Start',
+    back: 'Back',
+    next: 'Next',
+    pressEnter: 'press Enter ↵',
+    keyboardHint: 'Keys 1–4 · 0 = I cannot answer',
+    of: 'of',
+    section: 'Area',
+    language: 'Language',
+    resume: 'Welcome back. Your answers so far are saved.',
+    resumeYes: 'Continue where I left off',
+    resumeNo: 'Start over',
+    loading: 'Loading…',
+    sending: 'Sending your answers…',
+    errorGeneric: 'Something went wrong. Please check your connection and try again.',
+    retry: 'Try again',
+  },
+
+  intro: {
+    eyebrow: 'Express Diagnostics',
+    hello: 'Hi, {first}',
+    title: '{company} wants your view of the organization',
+    body: '{company} is running an organizational diagnostic with the Adizes Institute. You will rate 67 statements about how the company works today, across the 16 factors of the Adizes methodology.',
+    bullets: [
+      'It takes about 10 minutes. You can pause and come back later with the same link.',
+      'Your answers are combined with those of the other participants in a group report.',
+      'Answer for how things actually work today, not how they are supposed to work.',
+    ],
+    note: 'If you have no basis to judge a statement, choose “I cannot answer”.',
+    deadline: 'Open until {date}',
+    meta: '67 statements · about 10 minutes',
+  },
+
+  // Raw values 2–5 (1 = cannot answer). Shown top to bottom.
+  scale: [
+    { value: 2, label: 'Never', sub: 'Totally disagree' },
+    { value: 3, label: 'Sometimes', sub: 'Partially disagree' },
+    { value: 4, label: 'Often', sub: 'Partially agree' },
+    { value: 5, label: 'Always', sub: 'Totally agree' },
+  ],
+  cannot: 'I cannot answer',
+
+  cells: {
+    values: 'Values', climate: 'Climate', responsibility: 'Responsibility Structure', authority: 'Authority Structure',
+    reward: 'Reward Structure', planning: 'Planning', information: 'Information flow', corrective: 'Corrective Actions',
+    client: 'Client interface', transformation: 'Transformation', human: 'Human factors', financial: 'Financial factors',
+    behaviour: 'Behaviour', changes: 'Changes', inefficiency: 'Inefficiency', ineffectiveness: 'Ineffectiveness',
+  },
+
+  diagram: {
+    title: 'Causal factors of systemic organizational problems',
+    external: 'External Factors',
+    internal: 'Internal Factors',
+    causes: 'Systemic Organizational Causes',
+    culture: 'Organizational Culture',
+    subsystems: 'Subsystems Symptoms',
+    manifestations: 'Systemic Manifestations',
+    labels: {
+      values: 'Values', climate: 'Climate', planning: 'Strategic Planning', responsibility: 'Organizational Structure',
+      authority: 'Authority', information: 'Information Flow', corrective: 'Corrective Actions', reward: 'Rewards',
+      client: 'Client Interface', transformation: 'Transformation', human: 'Human Resources', financial: 'Finance',
+      inefficiency: 'Inefficiency', behaviour: 'Behavior', changes: 'Change', ineffectiveness: 'Ineffectiveness',
+    },
+  },
+
+  radar: {
+    title1: 'Systemic organizational problems',
+    title2: 'Operational problems and systemic manifestations (consequences)',
+    normal: 'Normal situation',
+    abnormal: 'Abnormal situation',
+    yours: 'The company',
+  },
+
+  colors: {
+    green: 'The process is healthy',
+    yellow: 'There are some areas for improvement',
+    red: 'Key focus zone',
+  },
+  colorShort: { green: 'Healthy', yellow: 'Needs improvement', red: 'Key focus zone' },
+  frames: {
+    title: 'Type of frame',
+    sub: 'Depending on how much the participants’ opinions vary, a different frame is displayed',
+    dotted: 'Dotted frame — participants’ opinions largely coincide',
+    thin: 'Thin frame — noticeable divergence of opinion',
+    thick: 'Thick frame — the participants’ opinions do not coincide at all',
+  },
+  noAnswer: 'no answer',
+
+  review: {
+    eyebrow: 'Last step',
+    title: 'Ready to send',
+    body: 'You rated all 67 statements.',
+    cannot: '{n} marked as “I cannot answer”.',
+    warn: 'Once sent, your answers can’t be changed.',
+    submit: 'Send my answers',
+    edit: 'Review my answers',
+  },
+  thanks: {
+    title: 'Thank you, {first}',
+    body: 'Your answers have been recorded. {company} will receive the group report through the Adizes Institute. You can close this window.',
+  },
+  states: {
+    noToken: { title: 'You need your personal link', body: 'To answer, open the link you received in your invitation email.' },
+    invalid_link: { title: 'This link isn’t valid', body: 'Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com.' },
+    completed: { title: 'You have already answered', body: 'Your answers were recorded. Thank you for participating.' },
+    closed: { title: 'This diagnostic is closed', body: 'Answers are no longer being collected. If you think this is a mistake, contact the person who invited you.' },
+    not_open: { title: 'This diagnostic isn’t open yet', body: 'Please try again later from the same link.' },
+  },
+
+  pdf: {
+    title: 'Express Diagnostics',
+    subtitle: 'Report',
+    company: 'Company',
+    date: 'Date of the report',
+    design: 'Survey design: distance survey of top management',
+    participants: 'Participants',
+    participantsCount: 'Participants surveyed',
+    howTitle: 'How to read this report',
+    howBody: 'Each of the 16 factors is rated from the participants’ answers on a 4-point scale (“I cannot answer” is not counted as an answer and lowers the factor’s score). The causal map shows where problems originate, the radar charts compare the company with a normal and an abnormal situation, and the last section lists every statement with its rating.',
+    summary: 'At a glance',
+    keyFactors: 'Key organizational factors',
+    keyFactorsHelp: 'Each statement is shown in the wording that matches its rating.',
+    colorsTitle: 'Colour decoding',
+    footer: 'Adizes Institute · Express Diagnostics',
+    page: 'Page',
+    cont: 'cont.',
+  },
+
+  questions: [
+    { t: "Our value system is clearly articulated in a few words / phrases", z2: "Our value system is not clearly articulated", z3: "Our value system is not articulated" },
+    { t: "Our value system is respected in our daily business practice, the declared values correspond to the demonstrated ones", z2: "Our value system is not always respected in everyday business practice, the declared values do not always correspond to the demonstrated ones", z3: "Our value system is often not adhered to in our daily business practice, the declared values often do not correspond to the demonstrated ones" },
+    { t: "Our value system is the same across all divisions", z2: "Our value system is not the same in some departments", z3: "Our value system is not the same for many departments" },
+    { t: "Our corporate culture is very similar in most departments", z2: "Our corporate culture is not similar enough in most departments", z3: "Our corporate culture is not the same in most departments" },
+    { t: "Our corporate culture is characterized by a high level of collaboration between divisions", z2: "Our corporate culture is characterized by a lack of cooperation between departments", z3: "Our corporate culture is characterized by a low level of cooperation between divisions" },
+    { t: "Our corporate culture is characterized by a high level of performance discipline", z2: "Our corporate culture is characterized by a lack of performance discipline", z3: "Our corporate culture is characterized by a low level of performance discipline" },
+    { t: "Our corporate culture is characterized by the ability to fearlessly express our own opinions", z2: "Our corporate culture is not always characterized by the ability to fearlessly express our own opinions", z3: "Our corporate culture is not characterized by the ability to fearlessly express our own opinions" },
+    { t: "Our corporate culture is characterized by high employee initiative", z2: "Our corporate culture is characterized by insufficiently high employee initiative", z3: "Our corporate culture is characterized by low employee initiative" },
+    { t: "Our corporate culture is characterized by a low level of conflict", z2: "Our corporate culture is not always characterized by low levels of conflict", z3: "Our corporate culture is not characterized by a low level of conflict" },
+    { t: "Our organizational structure supports the current business model well", z2: "Our organizational structure does not support the current business model well enough", z3: "Our organizational structure does not fully support the current business model" },
+    { t: "Our organizational structure supports the long-term goals of the company well", z2: "Our organizational structure does not support the long-term goals of the company well enough", z3: "Our organizational structure has little support for the long-term goals of the company" },
+    { t: "Our organizational structure contains all the necessary functions", z2: "Our organizational structure does not contain all the necessary functions", z3: "Our organizational structure lacks many essential functions" },
+    { t: "There are no unclear/overlapping areas of responsibility in our organizational structure", z2: "There are sometimes unclear/overlapping areas of responsibility in our organizational structure", z3: "There are many unclear/overlapping areas of responsibility in our organizational structure" },
+    { t: "Our organizational structure is highly “around functions” rather than “around people”", z2: "Our organizational structure is somewhat “around functions” rather than “around people”", z3: "Our organizational structure is highly “around people” rather than “around functions”" },
+    { t: "Most of our leaders have enough authority to handle the challenges they face", z2: "Some of our leaders lack the authority to meet the challenges they face", z3: "Many of our leaders lack the authority to meet the challenges they face" },
+    { t: "In our company, the biggest authority is held by commercial divisions", z2: "In our company, only part of the authority is held by commercial divisions", z3: "In our company, a small part of the authority is held by commercial divisions" },
+    { t: "Our authority structure allows for quick decision making", z2: "Our authority structure does not always allow for quick decision making", z3: "Our authority structure does not allow for quick decision making" },
+    { t: "Our structure of authority does not cause conflicts in the decision-making process", z2: "Our structure of authority sometimes causes conflicts in the decision-making process", z3: "Our structure of authority often causes conflicts in the decision-making process" },
+    { t: "Our reward system contributes to the achievement of our goals", z2: "Our reward system does not fully contribute to the achievement of our goals", z3: "Our reward system rarely helps us achieve our goals" },
+    { t: "Our employees are satisfied with the existing motivation system", z2: "Our employees are not always satisfied with the existing motivation system", z3: "Our employees are often not satisfied with the existing motivation system" },
+    { t: "Our long term goals / strategy are clearly defined", z2: "Our long term goals / strategy are not well defined", z3: "Our long term goals / strategy are not defined" },
+    { t: "Our long term goals / strategy are documented", z2: "Our long term goals / strategy are not fully documented", z3: "Our long term goals / strategy are not documented" },
+    { t: "Our long-term goals / strategy are known to management", z2: "Not all of our long-term goals / strategy are known to management", z3: "Our long-term goals / strategy are not known to management" },
+    { t: "Our long-term goals / strategy were developed with the participation of management", z2: "Our long-term goals / strategy were developed with insufficient management involvement", z3: "Our long-term goals / strategy were developed without management involvement" },
+    { t: "Our long term goals / strategy are supported by management", z2: "Our long-term goals / strategy are not fully supported by management", z3: "Our long-term goals / strategy are not supported by management" },
+    { t: "Our long term goals / strategy are backed up by a detailed action plan", z2: "Our long term goals / strategy are not fully backed by a detailed action plan", z3: "Our long term goals / strategy are not backed up by a specific action plan" },
+    { t: "Our long-term goals / strategy are backed by the necessary resources", z2: "Our long-term goals / strategy are not fully resourced", z3: "Our long-term goals / strategy are not resourced" },
+    { t: "We regularly evaluate the implementation of long-term goals / strategies", z2: "We do not regularly evaluate the implementation of long-term goals / strategies", z3: "We rarely evaluate the implementation of long-term goals / strategies" },
+    { t: "Our long-term goals / strategy are regularly / if necessary revised", z2: "Our long-term goals / strategy are not reviewed regularly enough", z3: "Our long-term goals / strategy are rarely revised" },
+    { t: "We base our annual plans on our long-term objectives / strategies", z2: "We do not always base our annual plans on our long-term objectives / strategies", z3: "We do not base our annual plans on our long-term objectives / strategies" },
+    { t: "I have enough information to make key regular management decisions", z2: "I do not always have enough information to make key regular management decisions", z3: "I often do not have enough information to make key regular management decisions" },
+    { t: "Information for taking management decisions usually contains reliable information", z2: "Information for taking management decisions does not always contain reliable information", z3: "Information for taking management decisions often does not contain reliable information" },
+    { t: "Information for taking management decisions is usually collected in a timely manner", z2: "Information for taking management decisions is not always collected in a timely manner", z3: "Information for taking management decisions is usually not collected in a timely manner" },
+    { t: "Information for taking management decisions does not contain redundant unnecessary information", z2: "Information for taking management decisions sometimes contains redundant unnecessary information", z3: "Information for taking management decisions often contains redundant unnecessary information" },
+    { t: "The collection of information for taking management decisions is automated in our company", z2: "The collection of information for taking management decisions is not fully automated in our company", z3: "The collection of information for taking management decisions is not automated in our company" },
+    { t: "We carry out control / analysis of our company's performance at least once a month", z2: "We do not always carry out control / analysis of our company's performance at least once a month", z3: "We rarely monitor / analyze our company's performance" },
+    { t: "We carry out control / analysis of our company's performance in a team of key managers", z2: "We do not always monitor / analyze our company's performance in a team of key managers", z3: "We do not monitor / analyze the performance of the company in a team of key managers" },
+    { t: "We control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures", z2: "We do not always control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures", z3: "We do not control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures" },
+    { t: "We control and analyse the performance of our company with the identification and fixation of systemic problems", z2: "We do not always control and analyse the performance of our company with the identification and fixation of systemic problems", z3: "We do not control and analyse the performance of our company with the identification and fixation of systemic problems" },
+    { t: "We know our target customers and their needs well", z2: "We do not always know the target customers and their needs well", z3: "We do not know the target customers and their needs well" },
+    { t: "Our selling proposition and our promotion and sales models are highly responsive to the needs of our customers", z2: "Our selling proposition and our promotion and sales models do not fully meet the needs of our customers", z3: "Our selling proposition and our promotion and sales models meet the needs of our customers only to a small extent" },
+    { t: "Our selling proposition and promotion and sales models are competitive", z2: "Our selling proposition and promotion and sales models are not always competitive", z3: "Our selling proposition and promotion and sales models are not fully competitive" },
+    { t: "Our annual / quarterly production / operating unit plans are based on the sales plan", z2: "Our annual / quarterly production / operating unit plans are partially based on the sales plan", z3: "Our annual / quarterly production / operating unit plans are not based on sales plans" },
+    { t: "The activities of commercial and operational (production) functions are well coordinated with each other", z2: "The actions of commercial and operational (production) functions are not always well coordinated with each other", z3: "The actions of commercial and operational (production) functions are poorly coordinated with each other" },
+    { t: "Most of our standard processes and procedures are documented", z2: "Not all of our standard processes and procedures are documented", z3: "Most of our standard processes and procedures are not documented" },
+    { t: "We follow most of our standard processes and procedures", z2: "We follow some of our standard processes and procedures", z3: "We rarely follow our standard processes and procedures" },
+    { t: "Most of our standard processes and procedures are subject to periodic adjustments", z2: "Only a subset of our standard processes and procedures are subject to periodic adjustments", z3: "A small part of our standard processes and procedures are subject to periodic adjustments" },
+    { t: "Most of our standard processes and procedures are automated", z2: "Only part of our standard processes and procedures are automated", z3: "A small part of our standard processes and procedures are automated" },
+    { t: "Our work on the development and release of new products is effective", z2: "Our activity in developing and launching new products is not effective enough", z3: "Our activity on the development and release of new products is ineffective" },
+    { t: "We take a systematic approach to training and development", z2: "Our approach to training and development is not systematic enough", z3: "We do not approach training and development systematically" },
+    { t: "We handle hiring challenges", z2: "We do not fully cope with the tasks of hiring", z3: "We are bad at hiring tasks" },
+    { t: "We do not experience a shortage of qualified personnel", z2: "Sometimes we experience a shortage of qualified personnel", z3: "We are experiencing a shortage of qualified personnel" },
+    { t: "We know the break-even point", z2: "We roughly know the break-even point", z3: "We don't know the break-even point" },
+    { t: "We have implemented a budgeting process and follow it", z2: "Our budgeting process is not fully implemented", z3: "We do not have a budgeting process implemented" },
+    { t: "We have implemented management accounting and it operates", z2: "We have partially implemented management accounting", z3: "We have not implemented management accounting" },
+    { t: "Payment requests (to suppliers / contractors) in most cases are paid quickly / within a specified time frame", z2: "Payment requests (to suppliers / contractors) are not always paid quickly / within a specified time frame", z3: "Payment requests (to suppliers / contractors) are rarely paid quickly / within a stipulated time frame" },
+    { t: "We have a low level of key personnel turnover", z2: "We have an average level of key personnel turnover", z3: "We have a high level of key personnel turnover" },
+    { t: "Our employees recommend the company to their friends", z2: "Not all of our employees recommend the company to their friends", z3: "Our employees do not recommend the company to their friends" },
+    { t: "Our product line is changing rapidly", z2: "Our product line is not changing fast enough", z3: "Our product line is slowly changing" },
+    { t: "Changes in our company are not met with resistance", z2: "Changes in our company are sometimes met with resistance", z3: "Changes in our company are often resisted" },
+    { t: "Our development budget has been growing for the past three years", z2: "Our development budget has slightly grown for the past three years", z3: "Our development budget has not been growing for the last three years" },
+    { t: "The share of our income from new areas of activity (markets, products) has been growing over the past three years", z2: "The share of our income from new areas of activity (markets, products) has slightly grown over the past three years", z3: "The share of our income from new areas of activity (markets, products) has not been growing for the last three years" },
+    { t: "Our profits have been growing for the last three years", z2: "Our profits have slightly grown over the past three years", z3: "Our profits have not grown for the last three years" },
+    { t: "Our profitability has been growing for the past three years", z2: "Our profitability has slightly increased over the past three years", z3: "Our profitability has not increased for the past three years" },
+    { t: "Our market share has been growing for the past three years", z2: "Our market share has grown little over the past three years", z3: "Our market share has not been growing for the last three years" },
+    { t: "Our sales volume has been growing for the last three years", z2: "Our sales volume has grown little for the last three years", z3: "Our sales volume has not grown for the last three years" },
+    { t: "Our clients recommend us", z2: "Our clients do not always recommend us", z3: "Our clients rarely recommend us" },
+  ],
+};
+
+/* Express Diagnostics — Español
+ * Para agregar un idioma: copia en.js (por ejemplo pt.js), cambia `ED_I18N.en` por `ED_I18N.pt`,
+ * traduce cada texto y conserva las claves. No cambies el orden de `questions` (es el orden del cálculo).
+ */
+ED_I18N.es = {
+  code: 'es',
+  langName: 'Español',
+  locale: 'es-MX',
+
+  ui: {
+    start: 'Comenzar',
+    back: 'Atrás',
+    next: 'Siguiente',
+    pressEnter: 'presiona Enter ↵',
+    keyboardHint: 'Teclas 1–4 · 0 = No puedo responder',
+    of: 'de',
+    section: 'Área',
+    language: 'Idioma',
+    resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
+    resumeYes: 'Continuar donde me quedé',
+    resumeNo: 'Empezar de nuevo',
+    loading: 'Cargando…',
+    sending: 'Enviando tus respuestas…',
+    errorGeneric: 'Algo salió mal. Revisa tu conexión e inténtalo de nuevo.',
+    retry: 'Intentar de nuevo',
+  },
+
+  intro: {
+    eyebrow: 'Diagnóstico Exprés',
+    hello: 'Hola, {first}',
+    title: '{company} quiere conocer tu visión de la organización',
+    body: '{company} está realizando un diagnóstico organizacional con el Instituto Adizes. Calificarás 67 afirmaciones sobre cómo funciona hoy la empresa, en los 16 factores de la metodología Adizes.',
+    bullets: [
+      'Toma alrededor de 10 minutos. Puedes pausar y continuar después con el mismo enlace.',
+      'Tus respuestas se combinan con las de los demás participantes en un reporte grupal.',
+      'Responde según cómo funcionan las cosas hoy, no cómo deberían funcionar.',
+    ],
+    note: 'Si no tienes elementos para juzgar una afirmación, elige “No puedo responder”.',
+    deadline: 'Disponible hasta el {date}',
+    meta: '67 afirmaciones · alrededor de 10 minutos',
+  },
+
+  scale: [
+    { value: 2, label: 'Nunca', sub: 'Totalmente en desacuerdo' },
+    { value: 3, label: 'A veces', sub: 'Parcialmente en desacuerdo' },
+    { value: 4, label: 'A menudo', sub: 'Parcialmente de acuerdo' },
+    { value: 5, label: 'Siempre', sub: 'Totalmente de acuerdo' },
+  ],
+  cannot: 'No puedo responder',
+
+  cells: {
+    values: 'Valores', climate: 'Clima', responsibility: 'Estructura de responsabilidad', authority: 'Estructura de autoridad',
+    reward: 'Estructura de recompensas', planning: 'Planificación', information: 'Flujo de información', corrective: 'Acciones correctivas',
+    client: 'Interfaz con el cliente', transformation: 'Transformación', human: 'Factores humanos', financial: 'Factores financieros',
+    behaviour: 'Comportamiento', changes: 'Cambios', inefficiency: 'Ineficiencia', ineffectiveness: 'Inefectividad',
+  },
+
+  diagram: {
+    title: 'Factores causales de los problemas organizacionales sistémicos',
+    external: 'Factores externos',
+    internal: 'Factores internos',
+    causes: 'Causas organizacionales sistémicas',
+    culture: 'Cultura organizacional',
+    subsystems: 'Síntomas en los subsistemas',
+    manifestations: 'Manifestaciones sistémicas',
+    labels: {
+      values: 'Valores', climate: 'Clima', planning: 'Planeación estratégica', responsibility: 'Estructura organizacional',
+      authority: 'Autoridad', information: 'Flujo de información', corrective: 'Acciones correctivas', reward: 'Recompensas',
+      client: 'Interfaz con el cliente', transformation: 'Transformación', human: 'Recursos humanos', financial: 'Finanzas',
+      inefficiency: 'Ineficiencia', behaviour: 'Comportamiento', changes: 'Cambio', ineffectiveness: 'Inefectividad',
+    },
+  },
+
+  radar: {
+    title1: 'Problemas organizacionales sistémicos',
+    title2: 'Problemas operativos y manifestaciones sistémicas (consecuencias)',
+    normal: 'Situación normal',
+    abnormal: 'Situación anormal',
+    yours: 'La empresa',
+  },
+
+  colors: {
+    green: 'El proceso está sano',
+    yellow: 'Hay áreas de mejora',
+    red: 'Zona de enfoque clave',
+  },
+  colorShort: { green: 'Sano', yellow: 'Por mejorar', red: 'Zona de enfoque clave' },
+  frames: {
+    title: 'Tipo de marco',
+    sub: 'Según cuánto varían las opiniones de los participantes, se muestra un marco distinto',
+    dotted: 'Marco punteado: las opiniones de los participantes coinciden en gran medida',
+    thin: 'Marco delgado: hay una divergencia de opinión notable',
+    thick: 'Marco grueso: las opiniones de los participantes no coinciden en absoluto',
+  },
+  noAnswer: 'sin respuesta',
+
+  review: {
+    eyebrow: 'Último paso',
+    title: 'Listo para enviar',
+    body: 'Calificaste las 67 afirmaciones.',
+    cannot: '{n} como “No puedo responder”.',
+    warn: 'Una vez enviadas, tus respuestas ya no se pueden cambiar.',
+    submit: 'Enviar mis respuestas',
+    edit: 'Revisar mis respuestas',
+  },
+  thanks: {
+    title: 'Gracias, {first}',
+    body: 'Tus respuestas quedaron registradas. {company} recibirá el reporte grupal a través del Instituto Adizes. Ya puedes cerrar esta ventana.',
+  },
+  states: {
+    noToken: { title: 'Necesitas tu enlace personal', body: 'Para responder, abre el enlace que recibiste en tu correo de invitación.' },
+    invalid_link: { title: 'Este enlace no es válido', body: 'Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com.' },
+    completed: { title: 'Ya respondiste', body: 'Tus respuestas quedaron registradas. Gracias por participar.' },
+    closed: { title: 'Este diagnóstico ya cerró', body: 'Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó.' },
+    not_open: { title: 'Este diagnóstico aún no está abierto', body: 'Inténtalo más tarde con el mismo enlace.' },
+  },
+
+  pdf: {
+    title: 'Diagnóstico Exprés',
+    subtitle: 'Reporte',
+    company: 'Empresa',
+    date: 'Fecha del reporte',
+    design: 'Diseño del estudio: encuesta a distancia a la alta dirección',
+    participants: 'Participantes',
+    participantsCount: 'Participantes encuestados',
+    howTitle: 'Cómo leer este reporte',
+    howBody: 'Cada uno de los 16 factores se califica con las respuestas de los participantes en una escala de 4 puntos (“No puedo responder” no cuenta como respuesta y baja la calificación del factor). El mapa causal muestra dónde se originan los problemas, las gráficas de radar comparan la empresa con una situación normal y una anormal, y la última sección presenta cada afirmación con su calificación.',
+    summary: 'En resumen',
+    keyFactors: 'Factores organizacionales clave',
+    keyFactorsHelp: 'Cada afirmación aparece con la redacción que corresponde a su calificación.',
+    colorsTitle: 'Significado de los colores',
+    footer: 'Instituto Adizes · Diagnóstico Exprés',
+    page: 'Página',
+    cont: 'cont.',
+  },
+
+  questions: [
+    { t: "Nuestro sistema de valores está claramente articulado en unas pocas palabras/frases", z2: "Nuestro sistema de valores no está claramente articulado", z3: "Nuestro sistema de valores no está articulado" },
+    { t: "Nuestro sistema de valores es respetado en nuestra práctica empresarial diaria, los valores declarados corresponden a los demostrados", z2: "Nuestro sistema de valores no siempre es respetado en nuestra práctica empresarial diaria, los valores declarados no siempre corresponden a los demostrados", z3: "Nuestro sistema de valores a menudo no se cumple en nuestra práctica empresarial diaria, los valores declarados a menudo no corresponden con los demostrados" },
+    { t: "Nuestro sistema de valores es el mismo en todas las divisiones", z2: "Nuestro sistema de valores no es el mismo en algunos departamentos", z3: "Nuestro sistema de valores no es el mismo en muchos departamentos" },
+    { t: "Nuestra cultura corporativa es muy similar en la mayoría de los departamentos", z2: "Nuestra cultura corporativa no es lo suficientemente similar en la mayoría de los departamentos", z3: "Nuestra cultura corporativa no es la misma en la mayoría de los departamentos" },
+    { t: "Nuestra cultura corporativa se caracteriza por un alto nivel de colaboración entre las divisiones", z2: "Nuestra cultura corporativa se caracteriza por la falta de cooperación entre departamentos", z3: "Nuestra cultura corporativa se caracteriza por un bajo nivel de cooperación entre las divisiones" },
+    { t: "Nuestra cultura corporativa se caracteriza por un alto nivel de disciplina en el desempeño", z2: "Nuestra cultura corporativa se caracteriza por la falta de disciplina en el desempeño", z3: "Nuestra cultura corporativa se caracteriza por un bajo nivel de disciplina en el desempeño" },
+    { t: "Nuestra cultura corporativa se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones", z2: "Nuestra cultura corporativa no siempre se caracteriza por la capacidad de expresar sin miedo nuestras propias opiniones", z3: "Nuestra cultura corporativa no se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones" },
+    { t: "Nuestra cultura corporativa se caracteriza por una alta iniciativa de los empleados", z2: "Nuestra cultura corporativa se caracteriza por una iniciativa insuficiente de los empleados", z3: "Nuestra cultura corporativa se caracteriza por la baja iniciativa de los empleados" },
+    { t: "Nuestra cultura corporativa se caracteriza por un bajo nivel de conflictividad", z2: "Nuestra cultura corporativa no siempre se caracteriza por bajos niveles de conflicto", z3: "Nuestra cultura corporativa no se caracteriza por un bajo nivel de conflictividad" },
+    { t: "Nuestra estructura organizativa es compatible con el modelo de negocio actual", z2: "Nuestra estructura organizativa no es lo suficientemente compatible con el modelo de negocio actual", z3: "Nuestra estructura organizativa no es totalmente compatible con el modelo de negocio actual" },
+    { t: "Nuestra estructura organizacional apoya bien los objetivos a largo plazo de la empresa", z2: "Nuestra estructura organizacional no respalda suficientemente los objetivos a largo plazo de la empresa", z3: "Nuestra estructura organizacional tiene poco apoyo para los objetivos a largo plazo de la empresa" },
+    { t: "Nuestra estructura organizacional contiene todas las funciones necesarias", z2: "Nuestra estructura organizacional no contiene todas las funciones necesarias", z3: "Nuestra estructura organizacional carece de muchas funciones esenciales" },
+    { t: "No hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional", z2: "A veces hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional", z3: "Hay muchas áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional" },
+    { t: "Nuestra estructura organizacional se basa en gran medida “en torno a las funciones” en lugar de “en torno a las personas”", z2: "Nuestra estructura organizacional es un poco “alrededor de funciones” en lugar de “alrededor de personas”", z3: "Nuestra estructura organizacional está más “en torno a las personas” que “en torno a las funciones”" },
+    { t: "La mayoría de nuestros líderes tienen suficiente autoridad para manejar los desafíos que enfrentan", z2: "Algunos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan", z3: "Muchos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan" },
+    { t: "En nuestra empresa, la mayor autoridad la tienen las divisiones comerciales", z2: "En nuestra empresa, solo una parte de la autoridad está en manos de las divisiones comerciales", z3: "En nuestra empresa, una pequeña parte de la autoridad la tienen las divisiones comerciales" },
+    { t: "Nuestra estructura de autoridad permite una rápida toma de decisiones", z2: "Nuestra estructura de autoridad no siempre permite una rápida toma de decisiones", z3: "Nuestra estructura de autoridad no permite una toma de decisiones rápida" },
+    { t: "Nuestra estructura de autoridad no genera conflictos en el proceso de toma de decisiones", z2: "Nuestra estructura de autoridad a veces provoca conflictos en el proceso de toma de decisiones", z3: "Nuestra estructura de autoridad a menudo causa conflictos en el proceso de toma de decisiones" },
+    { t: "Nuestro sistema de recompensas contribuye al logro de nuestros objetivos", z2: "Nuestro sistema de recompensas no contribuye completamente al logro de nuestros objetivos", z3: "Nuestro sistema de recompensas rara vez nos ayuda a alcanzar nuestros objetivos" },
+    { t: "Nuestros empleados están satisfechos con el sistema de motivación existente", z2: "Nuestros empleados no siempre están satisfechos con el sistema de motivación existente", z3: "Nuestros empleados a menudo no están satisfechos con el sistema de motivación existente" },
+    { t: "Nuestros objetivos/estrategia a largo plazo están claramente definidos", z2: "Nuestros objetivos/estrategia a largo plazo no están bien definidos", z3: "Nuestros objetivos/estrategia a largo plazo no están definidos" },
+    { t: "Nuestros objetivos/estrategia a largo plazo están documentados", z2: "Nuestros objetivos/estrategia a largo plazo no están completamente documentados", z3: "Nuestros objetivos/estrategia a largo plazo no están documentados" },
+    { t: "Nuestros objetivos/estrategia a largo plazo son conocidos por la gerencia", z2: "No todos nuestros objetivos/estrategias a largo plazo son conocidos por la gerencia", z3: "Nuestros objetivos/estrategia a largo plazo no son conocidos por la gerencia" },
+    { t: "Nuestras metas/estrategia a largo plazo fueron desarrolladas con la participación de la gerencia", z2: "Nuestras metas/estrategia a largo plazo se desarrollaron con una participación gerencial insuficiente", z3: "Nuestros objetivos/estrategia a largo plazo se desarrollaron sin la participación de la gerencia" },
+    { t: "Nuestros objetivos/estrategia a largo plazo están respaldados por la dirección", z2: "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por la dirección", z3: "Nuestros objetivos/estrategia a largo plazo no están respaldados por la dirección" },
+    { t: "Nuestros objetivos/estrategia a largo plazo están respaldados por un plan de acción detallado", z2: "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por un plan de acción detallado", z3: "Nuestros objetivos/estrategia a largo plazo no están respaldados por un plan de acción específico" },
+    { t: "Nuestros objetivos/estrategia a largo plazo están respaldados por los recursos necesarios", z2: "Nuestros objetivos/estrategia a largo plazo no cuentan con todos los recursos", z3: "Nuestros objetivos/estrategia a largo plazo no cuentan con recursos" },
+    { t: "Evaluamos regularmente la implementación de objetivos/estrategias a largo plazo", z2: "No evaluamos regularmente la implementación de objetivos/estrategias a largo plazo", z3: "Rara vez evaluamos la implementación de objetivos/estrategias a largo plazo" },
+    { t: "Nuestros objetivos/estrategia a largo plazo se revisan regularmente/si es necesario", z2: "Nuestros objetivos/estrategia a largo plazo no se revisan con la suficiente regularidad", z3: "Nuestras metas/estrategia a largo plazo rara vez se revisan" },
+    { t: "Basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo", z2: "No siempre basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo", z3: "No basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo" },
+    { t: "Tengo suficiente información para tomar decisiones gerenciales clave de manera habitual", z2: "No siempre tengo suficiente información para tomar decisiones gerenciales clave de manera habitual", z3: "A menudo no tengo suficiente información para tomar decisiones gerenciales clave de manera habitual" },
+    { t: "La información para la toma de decisiones gerenciales suele contener información fiable", z2: "La información para la toma de decisiones gerenciales no siempre contiene información confiable", z3: "La información para la toma de decisiones gerenciales a menudo no contiene información fiable" },
+    { t: "La información para la toma de decisiones gerenciales suele recopilarse en el momento oportuno", z2: "La información para la toma de decisiones gerenciales no siempre se recopila de manera oportuna", z3: "La información para la toma de decisiones gerenciales generalmente no se recopila de manera oportuna" },
+    { t: "La información para la toma de decisiones gerenciales no contiene información redundante innecesaria", z2: "La información para la toma de decisiones gerenciales a veces contiene información innecesaria y redundante", z3: "La información para la toma de decisiones gerenciales a menudo contiene información innecesaria y redundante" },
+    { t: "La recolección de información para la toma de decisiones gerenciales está automatizada en nuestra empresa", z2: "La recolección de información para la toma de decisiones de gestión no está totalmente automatizada en nuestra empresa", z3: "La recolección de información para la toma de decisiones de gestión no está automatizada en nuestra empresa" },
+    { t: "Realizamos control/análisis del desempeño de nuestra empresa al menos una vez al mes", z2: "No siempre llevamos a cabo un control/análisis del rendimiento de la empresa al menos una vez al mes", z3: "Raramente monitoreamos/analizamos el desempeño de nuestra empresa" },
+    { t: "Realizamos control/análisis del desempeño de nuestra empresa en un equipo de directivos clave", z2: "No siempre monitoreamos/analizamos el desempeño de nuestra empresa en un equipo de directores clave", z3: "No monitoreamos/analizamos el desempeño de la empresa en un equipo de directores clave" },
+    { t: "Controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas", z2: "No siempre controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas", z3: "No controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas" },
+    { t: "Controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos", z2: "No siempre controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos", z3: "No controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos" },
+    { t: "Conocemos bien a nuestros clientes objetivo y sus necesidades", z2: "No siempre conocemos bien a los clientes objetivo y sus necesidades", z3: "No conocemos bien a los clientes objetivo y sus necesidades" },
+    { t: "Nuestra propuesta de venta y nuestros modelos de promoción y venta responden en gran medida a las necesidades de nuestros clientes", z2: "Nuestra propuesta de venta y nuestros modelos de promoción y venta no satisfacen plenamente las necesidades de nuestros clientes", z3: "Nuestra propuesta de venta y nuestros modelos de promoción y venta satisfacen en pequeña medida las necesidades de nuestros clientes" },
+    { t: "Nuestra propuesta de valor y modelos de promoción y venta son competitivos", z2: "Nuestra propuesta de valor y modelos de promoción y venta no siempre son competitivos", z3: "Nuestra propuesta de valor y modelos de promoción y venta no son totalmente competitivos" },
+    { t: "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan en el plan de ventas", z2: "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan parcialmente en el plan de ventas", z3: "Nuestros planes anuales/trimestrales de producción/unidades operativas no se basan en planes de ventas" },
+    { t: "Las actividades de las funciones comerciales y operativas (producción) están bien coordinadas entre sí", z2: "Las acciones de las funciones comercial y operativa (producción) no siempre están bien coordinadas entre sí", z3: "Las acciones de las funciones comerciales y operativas (producción) están mal coordinadas entre sí" },
+    { t: "La mayoría de nuestros procesos y procedimientos estándar están documentados", z2: "No todos nuestros procesos y procedimientos estándar están documentados", z3: "La mayoría de nuestros procesos y procedimientos estándar no están documentados" },
+    { t: "Seguimos la mayoría de nuestros procesos y procedimientos estándar", z2: "Seguimos algunos de nuestros procesos y procedimientos estándar", z3: "Rara vez seguimos nuestros procesos y procedimientos estándar" },
+    { t: "La mayoría de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos", z2: "Solo un subconjunto de nuestros procesos y procedimientos estándar está sujeto a ajustes periódicos", z3: "Una pequeña parte de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos" },
+    { t: "La mayoría de nuestros procesos y procedimientos estándar están automatizados", z2: "Solo una parte de nuestros procesos y procedimientos estándar están automatizados", z3: "Una pequeña parte de nuestros procesos y procedimientos estándar están automatizados" },
+    { t: "Nuestro trabajo en el desarrollo y lanzamiento de nuevos productos es efectivo", z2: "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos no es lo suficientemente eficaz", z3: "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos es ineficaz" },
+    { t: "Adoptamos un enfoque sistemático para la capacitación y el desarrollo", z2: "Nuestro enfoque de capacitación y desarrollo no es lo suficientemente sistemático", z3: "No abordamos la capacitación y el desarrollo de forma sistemática" },
+    { t: "Manejamos desafíos de contratación", z2: "No hacemos frente completamente a las tareas de contratación", z3: "Somos malos en las tareas de contratación" },
+    { t: "No experimentamos escasez de personal calificado", z2: "A veces experimentamos escasez de personal cualificado", z3: "Estamos experimentando una escasez de personal calificado" },
+    { t: "Conocemos el punto de equilibrio", z2: "Aproximadamente conocemos el punto de equilibrio", z3: "No conocemos el punto de equilibrio" },
+    { t: "Hemos implementado un proceso de presupuestación y lo seguimos", z2: "Nuestro proceso de presupuestación no está completamente implementado", z3: "No tenemos un proceso de presupuestación implementado" },
+    { t: "Hemos implementado una contabilidad de gestión y funciona", z2: "Hemos implementado parcialmente una contabilidad de gestión", z3: "No hemos implementado una contabilidad de gestión" },
+    { t: "Las solicitudes de pago (a proveedores/contratistas) en la mayoría de los casos se pagan rápidamente/dentro de un plazo específico", z2: "Las solicitudes de pago (a proveedores/contratistas) no siempre se pagan rápidamente/dentro de un plazo específico", z3: "Las solicitudes de pago (a proveedores/contratistas) rara vez se pagan rápidamente/dentro de un plazo estipulado" },
+    { t: "Tenemos un bajo nivel de rotación de personal clave", z2: "Tenemos un nivel medio de rotación de personal clave", z3: "Tenemos un alto nivel de rotación de personal clave" },
+    { t: "Nuestros empleados recomiendan la empresa a sus amigos", z2: "No todos nuestros empleados recomiendan la empresa a sus amigos", z3: "Nuestros empleados no recomiendan la empresa a sus amigos" },
+    { t: "Nuestra línea de productos está cambiando rápidamente", z2: "Nuestra línea de productos no está cambiando lo suficientemente rápido", z3: "Nuestra línea de productos está cambiando lentamente" },
+    { t: "Los cambios en nuestra empresa no encuentran resistencia", z2: "Los cambios en nuestra empresa a veces encuentran resistencia", z3: "Los cambios en nuestra empresa a menudo encuentran resistencia" },
+    { t: "Nuestro presupuesto de desarrollo ha estado creciendo durante los últimos tres años", z2: "Nuestro presupuesto de desarrollo ha crecido ligeramente durante los últimos tres años", z3: "Nuestro presupuesto de desarrollo no ha estado creciendo durante los últimos tres años" },
+    { t: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha ido creciendo en los últimos tres años", z2: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha crecido ligeramente en los últimos tres años", z3: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) no ha estado creciendo durante los últimos tres años" },
+    { t: "Nuestras ganancias han estado creciendo durante los últimos tres años", z2: "Nuestras ganancias han crecido ligeramente en los últimos tres años", z3: "Nuestras ganancias no han crecido en los últimos tres años" },
+    { t: "Nuestra rentabilidad ha estado creciendo durante los últimos tres años", z2: "Nuestra rentabilidad ha aumentado ligeramente en los últimos tres años", z3: "Nuestra rentabilidad no ha aumentado en los últimos tres años" },
+    { t: "Nuestra participación de mercado ha estado creciendo durante los últimos tres años", z2: "Nuestra participación de mercado ha crecido poco en los últimos tres años", z3: "Nuestra participación de mercado no ha estado creciendo durante los últimos tres años" },
+    { t: "Nuestro volumen de ventas ha estado creciendo durante los últimos tres años", z2: "Nuestro volumen de ventas ha crecido poco en los últimos tres años", z3: "Nuestro volumen de ventas no ha crecido en los últimos tres años" },
+    { t: "Nuestros clientes nos recomiendan", z2: "Nuestros clientes no siempre nos recomiendan", z3: "Nuestros clientes raramente nos recomiendan" },
+  ],
+};
+
+/* Shared browser utilities (bundled inside each widget's private scope). */
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+function md(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); }
+function fill(s, map) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return map[k] != null ? map[k] : m; }); }
+function store(key, val) { try { if (val === null) localStorage.removeItem(key); else localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+function load(key) { try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+function qs(name) { try { return new URLSearchParams(location.search).get(name); } catch (e) { return null; } }
+
+var SCRIPT_SRC = (document.currentScript && document.currentScript.src) || '';
+// .../<tool>/dist/<file>.js  →  .../shared/assets/
+function detectAssets() { return SCRIPT_SRC ? SCRIPT_SRC.replace(/\/[^\/]+\/dist\/[^\/]*$/, '/shared/assets/') : ''; }
+
+function loadScript(src) {
+  return new Promise(function (res, rej) {
+    var s = document.createElement('script');
+    s.src = src; s.async = true; s.onload = res; s.onerror = function () { rej(new Error('load ' + src)); };
+    document.head.appendChild(s);
+  });
+}
+function fetchB64(url) {
+  return fetch(url).then(function (r) { if (!r.ok) throw new Error(url + ' ' + r.status); return r.arrayBuffer(); }).then(function (buf) {
+    var bytes = new Uint8Array(buf), bin = '', chunk = 0x8000;
+    for (var i = 0; i < bytes.length; i += chunk) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+    return btoa(bin);
+  });
+}
+
+// POST to the Apps Script web app. text/plain avoids the CORS preflight.
+function api(endpoint, payload, timeoutMs) {
+  if (!endpoint) return Promise.resolve({ ok: true, demo: true, id: 'DEMO-' + Date.now().toString(36).toUpperCase() });
+  var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  var t = ctrl ? setTimeout(function () { ctrl.abort(); }, timeoutMs || 30000) : null;
+  return fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload),
+    redirect: 'follow',
+    signal: ctrl ? ctrl.signal : undefined,
+  }).then(function (r) { return r.json(); }).then(function (j) {
+    if (t) clearTimeout(t);
+    if (!j || !j.ok) { var e = new Error((j && j.error) || 'server'); e.code = j && j.error; throw e; }
+    return j;
+  }, function (e) { if (t) clearTimeout(t); throw e; });
+}
+
+function injectStyle(id, css, rootSel) {
+  if (document.getElementById(id)) return;
+  var st = document.createElement('style');
+  st.id = id;
+  st.textContent = css.split('__ROOT__').join(rootSel);
+  document.head.appendChild(st);
+}
+function loadFontCss() {
+  if (document.querySelector('link[data-adz-font]')) return;
+  var l = document.createElement('link');
+  l.rel = 'stylesheet'; l.setAttribute('data-adz-font', '1');
+  l.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap';
+  document.head.appendChild(l);
+}
+function utmMeta(startedAt) {
+  return {
+    page: location.href.split('#')[0], referrer: document.referrer || '',
+    utm_source: qs('utm_source') || '', utm_medium: qs('utm_medium') || '', utm_campaign: qs('utm_campaign') || '',
+    utm_content: qs('utm_content') || '', utm_term: qs('utm_term') || '',
+    startedAt: startedAt || '', tz: (Intl.DateTimeFormat().resolvedOptions().timeZone || ''),
+  };
+}
+function formatDate(iso, locale) {
+  try { return new Date(iso || Date.now()).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' }); }
+  catch (e) { return String(iso || '').slice(0, 10); }
+}
+
+/* Express Diagnostics — scoring engine (exact port of the legacy s.adizes.com algorithm).
+ * Plain ES5 so the SAME file runs in the browser widget, in the admin and in Apps Script.
+ *
+ * Legacy rules (see express-diagnostics/LEGACY.md):
+ *  - Raw answers 1..5. 1 = "cannot answer" → excluded. 2..5 → 1..4.
+ *  - Per question: dispersion = sample std dev (n-1); n<=1 → 0.
+ *    middle = the mode if exactly one value is the most frequent; otherwise mean − dispersion/2.
+ *    No valid answers (n = 0) → middle 0, dispersion 0, and the report shows the base statement.
+ *  - Text: middle ≥ 3 → zone 1 (base), < 2 → zone 3, else zone 2.
+ *  - Colour: ≥ 3 green, ≥ 2 yellow, else red. Border: 1 participant → dotted;
+ *    dispersion ≥ 1 → thick; ≥ 0.7 → thin; else dotted.
+ *  - Category (cell): mean of its questions' middles (n=0 questions count as 0), mean of dispersions,
+ *    percent = middle / 4 * 100, participants = the minimum n of its questions.
+ */
+var ED = (function () {
+  var NORMS = { upperMiddle: 3, lowerMiddle: 2, upperDispersion: 1, lowerDispersion: 0.7, scale: 4 };
+
+  // The 16 matrix cells, in report order (categoryID ascending). `key` is used by the language files.
+  var CELLS = [
+    { id: 17, code: '1.1 V', key: 'values' },
+    { id: 18, code: '1.2 C', key: 'climate' },
+    { id: 20, code: '2.1 H', key: 'responsibility' },
+    { id: 21, code: '2.2 V', key: 'authority' },
+    { id: 22, code: '2.3 R', key: 'reward' },
+    { id: 23, code: '3.1 P', key: 'planning' },
+    { id: 24, code: '3.2 I', key: 'information' },
+    { id: 25, code: '3.3 CA', key: 'corrective' },
+    { id: 26, code: '4/5 1 CI', key: 'client' },
+    { id: 27, code: '4/5 2 T', key: 'transformation' },
+    { id: 28, code: '4/5 3 HR', key: 'human' },
+    { id: 29, code: '4/5 4 F', key: 'financial' },
+    { id: 30, code: '6.1 I', key: 'behaviour' },
+    { id: 31, code: '6.2 E', key: 'changes' },
+    { id: 32, code: '6.3 A', key: 'inefficiency' },
+    { id: 33, code: '6.4 P', key: 'ineffectiveness' },
+  ];
+
+  // Category of each of the 67 questions (questions 68–72 were blank in production and are not used).
+  var QUESTION_CATS = [].concat(
+    rep(17, 3), rep(18, 6), rep(20, 5), rep(21, 4), rep(22, 2), rep(23, 10), rep(24, 5), rep(25, 4),
+    rep(26, 5), rep(27, 5), rep(28, 3), rep(29, 4), rep(30, 2), rep(31, 4), rep(32, 2), rep(33, 3)
+  );
+
+  // Radar charts (8 axes each, clockwise from the top) and the causal-factors diagram.
+  var RADARS = [[17, 18, 20, 21, 22, 23, 24, 25], [26, 27, 28, 29, 30, 31, 32, 33]];
+
+  function rep(v, n) { var a = []; for (var i = 0; i < n; i++) a.push(v); return a; }
+
+  function questionStats(raws) {
+    var xs = [];
+    for (var i = 0; i < raws.length; i++) { var r = Number(raws[i]); if (r > 1 && r <= 5) xs.push(r - 1); }
+    var n = xs.length;
+    if (!n) return { n: 0, middle: 0, dispersion: 0, mean: 0, mode: null };
+    var sum = 0; for (var j = 0; j < n; j++) sum += xs[j];
+    var mean = sum / n;
+    var sq = 0; for (var k = 0; k < n; k++) sq += (xs[k] - mean) * (xs[k] - mean);
+    var dispersion = n > 1 ? Math.sqrt(sq / (n - 1)) : 0;
+    var freq = {}, max = 0;
+    for (var m = 0; m < n; m++) { freq[xs[m]] = (freq[xs[m]] || 0) + 1; if (freq[xs[m]] > max) max = freq[xs[m]]; }
+    var tops = []; for (var v in freq) if (freq[v] === max) tops.push(Number(v));
+    var mode = tops.length === 1 ? tops[0] : null;
+    return { n: n, middle: mode !== null ? mode : mean - dispersion / 2, dispersion: dispersion, mean: mean, mode: mode };
+  }
+
+  function colorOf(middle) { return middle >= NORMS.upperMiddle ? 'green' : middle >= NORMS.lowerMiddle ? 'yellow' : 'red'; }
+  function borderOf(n, dispersion) {
+    if (n === 1) return 'dotted';
+    if (dispersion >= NORMS.upperDispersion) return 'thick';
+    if (dispersion >= NORMS.lowerDispersion) return 'thin';
+    return 'dotted';
+  }
+  function zoneOf(st) {
+    if (!st.n) return 0; // no valid answers: legacy shows the base statement
+    return st.middle >= NORMS.upperMiddle ? 1 : st.middle < NORMS.lowerMiddle ? 3 : 2;
+  }
+  function pct(middle) { return middle / NORMS.scale * 100; }
+
+  /**
+   * responses: array of respondents, each an array of raw answers (1..5) in question order.
+   * opts.cats: optional per-question category list (defaults to the 67-question bank).
+   */
+  function score(responses, opts) {
+    opts = opts || {};
+    var cats = opts.cats || QUESTION_CATS;
+    var questions = [];
+    for (var q = 0; q < cats.length; q++) {
+      var raws = [];
+      for (var r = 0; r < responses.length; r++) raws.push(responses[r][q]);
+      var st = questionStats(raws);
+      questions.push({
+        i: q, cat: cats[q], n: st.n, middle: st.middle, dispersion: st.dispersion,
+        color: colorOf(st.middle), border: borderOf(st.n, st.dispersion), zone: zoneOf(st),
+      });
+    }
+    var cells = [];
+    for (var c = 0; c < CELLS.length; c++) {
+      var qs = questions.filter(function (x) { return x.cat === CELLS[c].id; });
+      if (!qs.length) continue;
+      var mid = 0, disp = 0, n = Infinity;
+      qs.forEach(function (x) { mid += x.middle; disp += x.dispersion; if (x.n < n) n = x.n; });
+      mid /= qs.length; disp /= qs.length;
+      cells.push({
+        id: CELLS[c].id, code: CELLS[c].code, key: CELLS[c].key,
+        middle: mid, dispersion: disp, percent: pct(mid), n: n,
+        color: colorOf(mid), border: borderOf(n, disp),
+        questions: qs.map(function (x) { return x.i; }),
+      });
+    }
+    return {
+      participants: responses.length,
+      questions: questions,
+      cells: cells,
+      norms: { upperMiddle: NORMS.upperMiddle, lowerMiddle: NORMS.lowerMiddle, upperPercent: pct(NORMS.upperMiddle), lowerPercent: pct(NORMS.lowerMiddle) },
+    };
+  }
+
+  function validAnswers(a) {
+    if (!a || a.length !== QUESTION_CATS.length) return false;
+    for (var i = 0; i < a.length; i++) { var v = Number(a[i]); if (!(v >= 1 && v <= 5 && Math.floor(v) === v)) return false; }
+    return true;
+  }
+  function cellById(result, id) { for (var i = 0; i < result.cells.length; i++) if (result.cells[i].id === id) return result.cells[i]; return null; }
+
+  return {
+    NORMS: NORMS, CELLS: CELLS, QUESTION_CATS: QUESTION_CATS, RADARS: RADARS, COUNT: QUESTION_CATS.length,
+    questionStats: questionStats, score: score, validAnswers: validAnswers, cellById: cellById,
+    colorOf: colorOf, borderOf: borderOf,
+  };
+})();
+
+/* Shared PDF helpers (jsPDF + Montserrat). Bundled inside each widget and the admin. */
+var JSPDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+var PDF_ASSETS = {};
+function getPdfAssets(base) {
+  if (PDF_ASSETS[base]) return PDF_ASSETS[base];
+  var jsp = (window.jspdf && window.jspdf.jsPDF) ? Promise.resolve() : loadScript(JSPDF_URL);
+  var f = function (n) { return fetchB64(base + 'fonts/Montserrat-' + n + '.ttf'); };
+  var img = function (n) { return fetchB64(base + n).then(function (b) { return 'data:image/png;base64,' + b; }).catch(function () { return null; }); };
+  var p = Promise.all([jsp, f('Light'), f('Regular'), f('SemiBold'), f('Bold'), img('adizes-logo-color.png'), img('adizes-logo-color-white.png'), img('arrow-red.png'), img('arrow-white.png')])
+    .then(function (a) { return { fonts: { Light: a[1], Regular: a[2], SemiBold: a[3], Bold: a[4] }, logo: a[5], logoWhite: a[6], arrowRed: a[7], arrowWhite: a[8] }; });
+  p.catch(function () { delete PDF_ASSETS[base]; });
+  PDF_ASSETS[base] = p;
+  return p;
+}
+
+function hexRgb(hex) { var n = parseInt(hex.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+
+var PDF_C = {
+  INK: '#111111', MUTED: '#5f6368', SOFT: '#8a8f96', LINE: '#e4e4e4', PAPER: '#f5f5f5', RED: '#d7141a', WHITE: '#ffffff',
+  green: '#1e8e4e', yellow: '#d9a400', red: '#d7141a', yellowText: '#9a7200',
+  greenT: '#dcf2e5', yellowT: '#fff0bf', redT: '#fbd6d7',
+};
+
+// New letter-size document with Montserrat registered as family 'M' (light/regular/semibold/bold).
+function newPdf(A) {
+  var doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter', compress: true });
+  ['Light', 'Regular', 'SemiBold', 'Bold'].forEach(function (w) {
+    doc.addFileToVFS('M-' + w + '.ttf', A.fonts[w]);
+    doc.addFont('M-' + w + '.ttf', 'M', w.toLowerCase());
+  });
+  return doc;
+}
+
+function pdfKit(doc) {
+  var K = {};
+  K.font = function (w, size, color) { doc.setFont('M', w); doc.setFontSize(size); doc.setTextColor.apply(doc, hexRgb(color || PDF_C.INK)); };
+  K.fill = function (c) { doc.setFillColor.apply(doc, hexRgb(c)); };
+  K.stroke = function (c, w) { doc.setDrawColor.apply(doc, hexRgb(c)); if (w != null) doc.setLineWidth(w); };
+  K.dash = function (arr) { if (doc.setLineDashPattern) doc.setLineDashPattern(arr || [], 0); };
+  K.alpha = function (a) { if (doc.setGState) doc.setGState(new doc.GState({ opacity: a })); };
+  K.split = function (text, width, w, size) { doc.setFont('M', w); doc.setFontSize(size); return doc.splitTextToSize(String(text), width); };
+  // Wrapped text with **bold** spans. Returns the y after the last line.
+  K.rich = function (text, x, y, width, size, opts) {
+    opts = opts || {};
+    var lh = size * (opts.lh || 1.5), color = opts.color || PDF_C.INK, bcolor = opts.bold || color;
+    var reg = opts.weight || 'regular', bw = opts.boldWeight || 'bold';
+    var tokens = [];
+    String(text).split(/(\*\*.+?\*\*)/).forEach(function (part) {
+      if (!part) return;
+      var b = /^\*\*.+\*\*$/.test(part); if (b) part = part.slice(2, -2);
+      part.split(/(\s+)/).forEach(function (w) { if (w) tokens.push({ w: w, b: b }); });
+    });
+    var lines = [[]], lw = 0;
+    tokens.forEach(function (tk) {
+      doc.setFont('M', tk.b ? bw : reg); doc.setFontSize(size);
+      var tw = doc.getTextWidth(tk.w), space = /^\s+$/.test(tk.w);
+      if (!space && lw + tw > width && lines[lines.length - 1].length) { lines.push([]); lw = 0; }
+      if (space && !lines[lines.length - 1].length) return;
+      lines[lines.length - 1].push({ w: tk.w, b: tk.b, tw: tw }); lw += tw;
+    });
+    lines.forEach(function (ln) {
+      while (ln.length && /^\s+$/.test(ln[ln.length - 1].w)) ln.pop();
+      var cx = x;
+      if (opts.align === 'center') { var tot = ln.reduce(function (a, b) { return a + b.tw; }, 0); cx = x + (width - tot) / 2; }
+      ln.forEach(function (tk) {
+        K.font(tk.b ? bw : reg, size, tk.b ? bcolor : color);
+        if (!/^\s+$/.test(tk.w)) doc.text(tk.w, cx, y);
+        cx += tk.tw;
+      });
+      y += lh;
+    });
+    return y;
+  };
+  K.richHeight = function (text, width, size, opts) {
+    opts = opts || {};
+    return K.split(String(text).replace(/\*\*/g, ''), width, opts.weight || 'regular', size).length * size * (opts.lh || 1.5);
+  };
+  // Down arrow (line + head)
+  K.arrowDown = function (x, y1, y2, color, w) {
+    K.stroke(color || PDF_C.INK, w || 1.4); K.dash([]); doc.line(x, y1, x, y2 - 4);
+    K.fill(color || PDF_C.INK); doc.triangle(x - 4, y2 - 5, x + 4, y2 - 5, x, y2, 'F');
+  };
+  return K;
+}
+
+/* Radar chart: values in 0–100 (%), labels per axis, clockwise from the top. */
+function pdfRadar(doc, K, cx, cy, R, values, labels, opts) {
+  opts = opts || {};
+  var n = values.length;
+  function pt(i, pct) { var a = (-90 + i * 360 / n) * Math.PI / 180; return [cx + R * pct / 100 * Math.cos(a), cy + R * pct / 100 * Math.sin(a)]; }
+  function poly(pct) { var p = []; for (var i = 0; i < n; i++) p.push(pt(i, pct)); return p; }
+  function path(points, style) {
+    var rel = []; for (var i = 1; i < points.length; i++) rel.push([points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]]);
+    doc.lines(rel, points[0][0], points[0][1], [1, 1], style, true);
+  }
+  // grid
+  K.dash([]);
+  [25, 50, 75, 100].forEach(function (g) { K.stroke(PDF_C.LINE, 0.7); path(poly(g), 'S'); });
+  for (var i = 0; i < n; i++) { var e = pt(i, 100); K.stroke(PDF_C.LINE, 0.7); doc.line(cx, cy, e[0], e[1]); }
+  K.font('regular', 6.5, PDF_C.SOFT);
+  [25, 50, 75, 100].forEach(function (g) { doc.text(g + '%', cx + 3, cy - R * g / 100 + 8); });
+  // reference rings
+  [[opts.normal || 75, PDF_C.green], [opts.abnormal || 50, PDF_C.red]].forEach(function (rf) {
+    K.stroke(rf[1], 1); K.dash([2.5, 2]); path(poly(rf[0]), 'S'); K.dash([]);
+    poly(rf[0]).forEach(function (p) { K.fill(rf[1]); doc.circle(p[0], p[1], 1.6, 'F'); });
+  });
+  // company
+  var pts = values.map(function (v, k) { return pt(k, Math.max(0, Math.min(100, v))); });
+  K.alpha(0.12); K.fill(PDF_C.INK); path(pts, 'F'); K.alpha(1);
+  K.stroke(PDF_C.INK, 1.6); path(pts, 'S');
+  pts.forEach(function (p, k) { K.fill(PDF_C.WHITE); K.stroke(PDF_C.INK, 1.2); doc.circle(p[0], p[1], 2.8, 'FD'); });
+  // labels + values
+  for (var j = 0; j < n; j++) {
+    var a = (-90 + j * 360 / n) * Math.PI / 180, lx = cx + (R + 14) * Math.cos(a), ly = cy + (R + 14) * Math.sin(a);
+    var align = Math.abs(Math.cos(a)) < 0.2 ? 'center' : Math.cos(a) > 0 ? 'left' : 'right';
+    var lines = K.split(labels[j], 104, 'semibold', 8);
+    var top = Math.sin(a) < -0.2 ? ly - (lines.length - 1) * 10 - 9 : Math.sin(a) > 0.2 ? ly + 6 : ly - (lines.length * 10) / 2 + 3;
+    K.font('semibold', 8, PDF_C.INK);
+    lines.forEach(function (l, k) { doc.text(l, lx, top + k * 10, { align: align }); });
+    K.font('bold', 8, (opts.colors && opts.colors[j]) || PDF_C.RED);
+    doc.text(Math.round(values[j]) + '%', lx, top + lines.length * 10, { align: align });
+  }
+}
+
+/* Express Diagnostics — PDF report (jsPDF). Used by the widget (one person) and the admin (team).
+ * d = { result: ED.score(...), company, participants: [names], dateIso }
+ */
+var ED_DIAGRAM = {
+  culture: ['values', 'climate'],
+  causes: [['planning', 'responsibility', 'authority'], ['information', 'corrective', 'reward']],
+  subsystems: [['client', 'transformation'], ['human', 'financial']],
+  manifestations: [['inefficiency', 'behaviour'], ['changes', 'ineffectiveness']],
+};
+function edCellByKey(result, key) { for (var i = 0; i < result.cells.length; i++) if (result.cells[i].key === key) return result.cells[i]; return null; }
+function edQuestionText(t, q) { var x = t.questions[q.i]; return q.zone === 2 ? (x.z2 || x.t) : q.zone === 3 ? (x.z3 || x.t) : x.t; }
+function edCounts(result) { var c = { red: 0, yellow: 0, green: 0 }; result.cells.forEach(function (x) { c[x.color]++; }); return c; }
+
+function renderEdPdf(A, lang, d) {
+  var t = ED_I18N[lang] || ED_I18N.en, r = d.result, team = r.participants > 1;
+  var doc = newPdf(A), K = pdfKit(doc), C = PDF_C;
+  var W = 612, H = 792, M = 54, CW = W - 2 * M;
+  var dateStr = formatDate(d.dateIso, t.locale);
+  var page = 1;
+  var textColor = { green: C.green, yellow: C.yellowText, red: C.red };
+
+  function footer() {
+    K.font('regular', 7.5, C.SOFT);
+    doc.text(t.pdf.footer + (d.company ? '  ·  ' + d.company : ''), M, H - 30);
+    doc.text(t.pdf.page + ' ' + page, W - M, H - 30, { align: 'right' });
+    K.stroke(C.LINE, 0.6); K.dash([]); doc.line(M, H - 44, W - M, H - 44);
+  }
+  function newPage() { footer(); doc.addPage(); page++; }
+  function heading(text, y, size) {
+    K.fill(C.RED); doc.rect(M, y - (size || 20) + 2, 3, (size || 20) + 2, 'F');
+    K.font('bold', size || 20, C.INK); doc.text(text, M + 12, y);
+    return y;
+  }
+  // Coloured box with frame style
+  function swatch(x, y, w, h, color, border, n) {
+    K.fill(C[color + 'T']); doc.rect(x, y, w, h, 'F');
+    K.dash([]);
+    if (!team) { K.stroke(C[color], 0.8); doc.rect(x, y, w, h, 'S'); return; }
+    if (border === 'thick') { K.stroke(C.INK, 2.2); doc.rect(x + 1.1, y + 1.1, w - 2.2, h - 2.2, 'S'); }
+    else if (border === 'thin') { K.stroke(C.INK, 0.8); doc.rect(x, y, w, h, 'S'); }
+    else { K.stroke(C.INK, 0.8); K.dash([1, 1.6]); doc.rect(x, y, w, h, 'S'); K.dash([]); }
+  }
+  function legend(y) {
+    K.font('bold', 9.5, C.INK); doc.text(t.pdf.colorsTitle, M, y); y += 16;
+    ['green', 'yellow', 'red'].forEach(function (c, i) {
+      var x = M + i * (CW / 3);
+      swatch(x, y - 9, 18, 12, c, 'dotted');
+      K.font('regular', 8.5, C.INK); doc.text(K.split(t.colors[c], CW / 3 - 30, 'regular', 8.5), x + 24, y);
+    });
+    y += 24;
+    if (team) {
+      K.font('bold', 9.5, C.INK); doc.text(t.frames.title, M, y);
+      var ftw = doc.getTextWidth(t.frames.title);
+      K.font('regular', 8, C.MUTED); doc.text('  ·  ' + t.frames.sub, M + ftw, y);
+      y += 16;
+      ['dotted', 'thin', 'thick'].forEach(function (b, i) {
+        var x = M + i * (CW / 3);
+        swatch(x, y - 9, 18, 13, 'green', b);
+        K.font('regular', 8, C.INK); doc.text(K.split(t.frames[b], CW / 3 - 30, 'regular', 8), x + 24, y);
+      });
+      y += 30;
+    }
+    return y;
+  }
+
+  /* ---------------- Page 1: cover ---------------- */
+  if (A.logo) doc.addImage(A.logo, 'PNG', M, 50, 150, 50);
+  var y = 200;
+  K.font('bold', 38, C.INK); doc.text(t.pdf.title, M, y);
+  K.font('light', 38, C.INK); doc.text(t.pdf.subtitle, M, y + 44);
+  K.fill(C.RED); doc.rect(M, y + 64, 60, 4, 'F');
+  y += 110;
+  function meta(label, value) {
+    K.font('semibold', 8, C.RED); doc.text(label.toUpperCase(), M, y);
+    K.font('bold', 15, C.INK); doc.text(K.split(value, CW, 'bold', 15)[0] || '', M, y + 19);
+    y += 44;
+  }
+  meta(t.pdf.company, d.company || '');
+  meta(t.pdf.date, dateStr);
+  K.font('semibold', 8, C.RED); doc.text((team ? t.pdf.participantsCount + ': ' + r.participants : t.pdf.participants).toUpperCase(), M, y);
+  y += 17;
+  var names = (d.participants || []).slice(0, 14);
+  K.font('regular', 10.5, C.INK);
+  names.forEach(function (nm, i) { doc.text((i + 1) + '.  ' + nm, M, y); y += 15; });
+  if ((d.participants || []).length > names.length) { K.font('regular', 9.5, C.MUTED); doc.text('+ ' + (d.participants.length - names.length), M, y); y += 15; }
+  K.font('regular', 9, C.MUTED); doc.text(t.pdf.design, M, y + 6);
+  // at a glance
+  var counts = edCounts(r), by = Math.max(y + 48, 470), bw = (CW - 16) / 3;
+  K.font('bold', 9.5, C.INK); doc.text(t.pdf.summary, M, by - 10);
+  ['red', 'yellow', 'green'].forEach(function (c, i) {
+    var bx = M + i * (bw + 8);
+    K.fill(C.PAPER); doc.rect(bx, by, bw, 62, 'F');
+    K.fill(C[c]); doc.rect(bx, by, 4, 62, 'F');
+    K.font('bold', 26, C.INK); doc.text(String(counts[c]), bx + 16, by + 34);
+    K.font('semibold', 8.5, C.MUTED); doc.text(K.split(t.colorShort[c], bw - 60, 'semibold', 8.5), bx + 52, by + 25);
+  });
+  y = by + 90;
+  K.font('bold', 9.5, C.INK); doc.text(t.pdf.howTitle, M, y);
+  K.rich(t.pdf.howBody, M, y + 15, CW, 8.5, { color: C.MUTED, lh: 1.5 });
+
+  /* ---------------- Page 2: causal diagram ---------------- */
+  newPage();
+  heading(t.diagram.title, 74, 15);
+  y = 104;
+  var bh = 32, gap = 6;
+  function cellBox(key, x, yy, w) {
+    var c = edCellByKey(r, key);
+    swatch(x, yy, w, bh, c ? c.color : 'yellow', c ? c.border : 'dotted');
+    var label = t.diagram.labels[key];
+    var lines = K.split(label, w - 12, 'semibold', 8.5);
+    K.font('semibold', 8.5, C.INK);
+    var ty = yy + bh / 2 - (lines.length - 1) * 5 - 1;
+    lines.forEach(function (l, i) { doc.text(l, x + w / 2, ty + i * 10, { align: 'center' }); });
+    if (c) { K.font('bold', 7.5, textColor[c.color]); doc.text(Math.round(c.percent) + '%', x + w / 2, ty + lines.length * 10 - 0.5, { align: 'center' }); }
+  }
+  function frame(x, yy, w, h, title, fillc, dotted) {
+    if (fillc) { K.fill(fillc); doc.rect(x, yy, w, h, 'F'); }
+    K.stroke(dotted ? C.SOFT : C.INK, dotted ? 0.6 : 0.9); K.dash(dotted ? [1, 1.6] : []); doc.rect(x, yy, w, h, 'S'); K.dash([]);
+    if (title) { K.font('bold', 9.5, C.INK); doc.text(title, x + w / 2, yy + 15, { align: 'center' }); }
+  }
+  // External
+  frame(M, y, CW, 28, '', C.PAPER); K.font('bold', 10.5, C.INK); doc.text(t.diagram.external, W / 2, y + 18, { align: 'center' });
+  K.arrowDown(W / 2, y + 28, y + 42);
+  // Internal container
+  var iy = y + 42, ih = 482;
+  frame(M, iy, CW, ih, '', C.PAPER); K.font('bold', 10.5, C.INK); doc.text(t.diagram.internal, W / 2, iy + 18, { align: 'center' });
+  var ix = M + 18, iw = CW - 36;
+  // Systemic causes
+  var sy = iy + 30, sh = 192;
+  frame(ix, sy, iw, sh, t.diagram.causes, C.WHITE);
+  var cx0 = ix + 12, cw0 = iw - 24;
+  frame(cx0, sy + 24, cw0, 64, t.diagram.culture, null, true);
+  var half = (cw0 - 12 - gap) / 2;
+  cellBox('values', cx0 + 6, sy + 46, half);
+  cellBox('climate', cx0 + 6 + half + gap, sy + 46, half);
+  var third = (cw0 - 2 * gap) / 3;
+  [0, 1, 2].forEach(function (k) { K.arrowDown(cx0 + third * k + gap * k + third / 2, sy + 92, sy + 106, C.SOFT, 1.2); });
+  ED_DIAGRAM.causes.forEach(function (row, ri) {
+    row.forEach(function (key, k) { cellBox(key, cx0 + k * (third + gap), sy + 110 + ri * (bh + gap), third); });
+  });
+  K.arrowDown(W / 2, sy + sh, sy + sh + 14);
+  function block(title, rows, yy) {
+    var hh = 30 + rows.length * (bh + gap) + 6;
+    frame(ix, yy, iw, hh, title, C.WHITE);
+    var w2 = (cw0 - gap) / 2;
+    rows.forEach(function (row, ri) { row.forEach(function (key, k) { cellBox(key, cx0 + k * (w2 + gap), yy + 26 + ri * (bh + gap), w2); }); });
+    return yy + hh;
+  }
+  var ny = block(t.diagram.subsystems, ED_DIAGRAM.subsystems, sy + sh + 14);
+  K.arrowDown(W / 2, ny, ny + 14);
+  block(t.diagram.manifestations, ED_DIAGRAM.manifestations, ny + 14);
+  legend(iy + ih + 26);
+
+  /* ---------------- Page 3: radars ---------------- */
+  newPage();
+  var titles = [t.radar.title1, t.radar.title2];
+  ED.RADARS.forEach(function (ids, k) {
+    var top = k === 0 ? 74 : 392;
+    K.font('bold', 13, C.INK);
+    var tl = K.split(titles[k], CW, 'bold', 13);
+    tl.forEach(function (l, i) { doc.text(l, W / 2, top + i * 16, { align: 'center' }); });
+    var cells = ids.map(function (id) { return ED.cellById(r, id); });
+    pdfRadar(doc, K, W / 2, top + 150, 100, cells.map(function (c) { return c.percent; }), cells.map(function (c) { return t.cells[c.key]; }),
+      { normal: r.norms.upperPercent, abnormal: r.norms.lowerPercent, colors: cells.map(function (c) { return textColor[c.color]; }) });
+  });
+  var ly = 722, items = [[C.green, t.radar.normal, true], [C.red, t.radar.abnormal, true], [C.INK, t.radar.yours, false]];
+  items.forEach(function (it, i) {
+    var lx = M + 30 + i * (CW / 3);
+    K.stroke(it[0], it[2] ? 1 : 1.6); K.dash(it[2] ? [2.5, 2] : []); doc.line(lx, ly - 3, lx + 22, ly - 3); K.dash([]);
+    K.font('regular', 9, C.INK); doc.text(it[1], lx + 30, ly);
+  });
+
+  /* ---------------- Pages 4+: key organizational factors ---------------- */
+  newPage();
+  heading(t.pdf.keyFactors, 74, 18);
+  K.font('regular', 9, C.MUTED); doc.text(t.pdf.keyFactorsHelp, M, 96);
+  y = legend(122) + 6;
+  var textW = CW - 40;
+  r.cells.forEach(function (c, ci) {
+    var rows = c.questions.map(function (qi) {
+      var q = r.questions[qi], txt = edQuestionText(t, q);
+      var lines = K.split(txt, textW, 'regular', 9.5), extra = 0;
+      if (q.zone === 0) {
+        K.font('regular', 9.5, C.INK); var lw = doc.getTextWidth(lines[lines.length - 1]);
+        K.font('regular', 8, C.SOFT); if (lw + doc.getTextWidth('  ·  ' + t.noAnswer) > textW) extra = 12;
+      }
+      return { q: q, lines: lines, h: Math.max(20, lines.length * 12.5 + 7 + extra) };
+    });
+    if (y + 30 + rows[0].h > H - 60) { newPage(); y = 70; }
+    K.font('bold', 11.5, C.INK); doc.text((ci + 1) + '. ' + t.cells[c.key], M, y);
+    var pct = Math.round(c.percent) + '%  ·  ' + t.colorShort[c.color];
+    K.font('semibold', 8.5, textColor[c.color]); doc.text(pct, W - M, y, { align: 'right' });
+    y += 10;
+    rows.forEach(function (row) {
+      if (y + row.h > H - 60) {
+        newPage(); y = 70;
+        K.font('bold', 11.5, C.SOFT); doc.text((ci + 1) + '. ' + t.cells[c.key] + ' (' + t.pdf.cont + ')', M, y); y += 10;
+      }
+      swatch(M, y + 2, 24, 16, row.q.color, row.q.border);
+      K.font('regular', 9.5, C.INK);
+      var ty = y + 13;
+      row.lines.forEach(function (l, i) { doc.text(l, M + 36, ty + i * 12.5); });
+      if (row.q.zone === 0) {
+        K.font('regular', 9.5, C.INK);
+        var lw = doc.getTextWidth(row.lines[row.lines.length - 1]), sfx = '  ·  ' + t.noAnswer;
+        K.font('regular', 8, C.SOFT);
+        if (lw + doc.getTextWidth(sfx) > textW) doc.text(t.noAnswer, M + 36, ty + row.lines.length * 12.5);
+        else doc.text(sfx, M + 36 + lw, ty + (row.lines.length - 1) * 12.5);
+      }
+      y += row.h + 3;
+    });
+    y += 16;
+  });
+
+  footer();
+
+  doc.setProperties({ title: t.pdf.title + ' — ' + (d.company || ''), author: 'Adizes Institute', creator: 'Adizes Institute' });
+  return doc;
+}
+
+/* Adizes Admin — single-page app served by Apps Script (HtmlService).
+ * Talks to the server only through google.script.run.adminApi(action, payload) → JSON string.
+ * Bundled with: express-diagnostics i18n, shared/core.js, ed-engine.js, pdfkit.js, ed-report.js.
+ */
+var CFG = window.ADM_CONFIG || {};
+var S = null;          // last state from the server
+var APP = document.getElementById('app');
+var MODAL = document.getElementById('modal-root');
+
+var ST = { Draft: 'Borrador', Open: 'Abierto', Ready: 'Listo', 'Report sent': 'Reporte enviado', Closed: 'Cerrado' };
+var IST = { Pending: 'Sin enviar', Sent: 'Invitado', Completed: 'Respondió' };
+var TYPES = { ED: 'Diagnóstico Exprés', ES: 'Encuesta de Compromiso' };
+var LANGS = { es: 'Español', en: 'English' };
+var ERR = {
+  forbidden: 'No tienes acceso. Entra con una cuenta autorizada.',
+  name_required: 'Falta el nombre.', invalid_email: 'Revisa el correo.', duplicate_email: 'Ya existe un empleado con ese correo en esta empresa.',
+  invalid_recipients: 'Revisa los correos de los destinatarios.', invalid_date: 'Revisa la fecha.', below_minimum: 'Aún no se alcanza el mínimo de respuestas.',
+  no_participants: 'Agrega al menos un participante.', not_draft: 'El lanzamiento ya no es borrador.', not_open: 'El lanzamiento no está abierto.',
+  no_report: 'Primero genera el reporte.', no_recipients: 'Agrega al menos un destinatario.', only_drafts: 'Solo se pueden eliminar borradores.',
+  launch_not_editable: 'Este lanzamiento ya no admite cambios de participantes.', company_not_found: 'No se encontró la empresa.', not_found: 'No se encontró el registro.',
+  not_setup: 'Falta ejecutar setup() en Apps Script.', not_reopenable: 'Este lanzamiento no se puede reabrir.', invalid_type: 'Tipo de test inválido.',
+};
+
+/* ------------------------------------------------------------------ server */
+function call(action, payload) {
+  return new Promise(function (resolve, reject) {
+    if (!window.google || !google.script || !google.script.run) return reject(new Error('Sin conexión con Apps Script'));
+    google.script.run
+      .withSuccessHandler(function (txt) {
+        var r; try { r = JSON.parse(txt); } catch (e) { return reject(new Error('Respuesta inválida')); }
+        if (!r.ok) { var e2 = new Error(ERR[r.error] || r.error || 'Error'); e2.code = r.error; return reject(e2); }
+        resolve(r);
+      })
+      .withFailureHandler(function (e) { reject(new Error((e && e.message) || 'Error de conexión')); })
+      .adminApi(action, payload || {});
+  });
+}
+var busyEl = null;
+function busy(on) {
+  if (on && !busyEl) { busyEl = document.createElement('div'); busyEl.className = 'busy'; busyEl.innerHTML = '<div class="adm-spinner"></div>'; document.body.appendChild(busyEl); }
+  if (!on && busyEl) { busyEl.remove(); busyEl = null; }
+}
+// Mutating call: shows a spinner, refreshes the state and re-renders.
+function run(action, payload, okMsg) {
+  busy(true);
+  return call(action, payload).then(function (r) {
+    if (r.companies) S = r;
+    busy(false); render();
+    if (okMsg) toast(typeof okMsg === 'function' ? okMsg(r) : okMsg);
+    return r;
+  }, function (e) { busy(false); toast(e.message, true); throw e; });
+}
+var toastT = null;
+function toast(msg, isErr) {
+  var el = document.getElementById('toast');
+  el.textContent = msg; el.className = 'adm-toast is-on' + (isErr ? ' is-err' : '');
+  clearTimeout(toastT); toastT = setTimeout(function () { el.className = 'adm-toast' + (isErr ? ' is-err' : ''); }, isErr ? 5000 : 2600);
+}
+
+/* ------------------------------------------------------------------ helpers */
+function h(s) { return esc(s); }
+function byId(list, id) { for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i]; return null; }
+function company(id) { return byId(S.companies, id) || { name: '—' }; }
+function launchesOf(cid) { return S.launches.filter(function (l) { return l.companyId === cid; }); }
+function employeesOf(cid, all) { return S.employees.filter(function (e) { return e.companyId === cid && (all || e.status !== 'Archived'); }); }
+function invitesOf(lid) { return S.invites.filter(function (i) { return i.launchId === lid; }); }
+function chip(status, map) { return '<span class="chip chip-' + String(status).replace(/\s/g, '') + '">' + h((map || ST)[status] || status) + '</span>'; }
+function typeTag(t) { return '<span class="type type-' + t + '">' + t + '</span>'; }
+function fdate(iso, withTime) {
+  if (!iso) return '';
+  var d = new Date(String(iso).length === 10 ? iso + 'T12:00:00' : iso);
+  if (isNaN(d)) return String(iso);
+  var o = { day: 'numeric', month: 'short', year: 'numeric' };
+  if (withTime) { o.hour = '2-digit'; o.minute = '2-digit'; }
+  return d.toLocaleDateString('es-MX', o);
+}
+function progress(l) {
+  var pct = l.total ? Math.round(l.done / l.total * 100) : 0, minPct = l.total ? Math.min(100, l.minResponses / l.total * 100) : 0;
+  return '<div class="prog"><div class="prog-bar' + (l.done >= l.minResponses ? ' is-ok' : '') + '"><i style="width:' + pct + '%"></i>' +
+    (l.minResponses > 1 && minPct < 100 ? '<b style="left:' + minPct + '%" title="Mínimo"></b>' : '') + '</div><span>' + l.done + ' de ' + l.total + '</span></div>';
+}
+function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
+function copyText(text) {
+  function fallback() {
+    var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove();
+    return ok;
+  }
+  var p = (navigator.clipboard && navigator.clipboard.writeText) ? navigator.clipboard.writeText(text).then(function () { return true; }, fallback) : Promise.resolve(fallback());
+  return p.then(function (ok) {
+    if (ok) toast('Copiado');
+    else modal({ title: 'Copia el texto', body: '<textarea class="textarea linkbox" rows="8" readonly>' + h(text) + '</textarea>', ok: null });
+  });
+}
+
+/* ------------------------------------------------------------------ modal */
+function modal(o) {
+  MODAL.innerHTML = '<div class="modal-bg"><div class="modal' + (o.wide ? ' is-wide' : '') + '" role="dialog" aria-modal="true">' +
+    '<div class="modal-h"><h3>' + h(o.title) + '</h3><button type="button" class="x" data-x aria-label="Cerrar">×</button></div>' +
+    '<form class="modal-form" novalidate><div class="modal-b">' + o.body + '<div class="err" data-err></div></div>' +
+    '<div class="modal-f"><button type="button" class="btn btn-ghost" data-x>' + (o.ok === null ? 'Cerrar' : 'Cancelar') + '</button>' +
+    (o.ok === null ? '' : '<button type="submit" class="btn ' + (o.danger ? 'btn-red' : 'btn-dark') + '">' + h(o.ok || 'Guardar') + '</button>') + '</div></form></div></div>';
+  var bg = MODAL.firstChild, form = MODAL.querySelector('form');
+  function close() { MODAL.innerHTML = ''; document.removeEventListener('keydown', onEsc); }
+  function onEsc(e) { if (e.key === 'Escape') close(); }
+  document.addEventListener('keydown', onEsc);
+  MODAL.querySelectorAll('[data-x]').forEach(function (b) { b.addEventListener('click', close); });
+  bg.addEventListener('mousedown', function (e) { if (e.target === bg) close(); });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = form.querySelector('[data-err]'); err.textContent = '';
+    var res = o.onOk && o.onOk(form, close);
+    if (res && res.then) res.then(function () { close(); }, function (ex) { err.textContent = ex.message; });
+    else if (typeof res === 'string') err.textContent = res;
+    else if (res !== false) close();
+  });
+  if (o.onOpen) o.onOpen(form);
+  var first = form.querySelector('input:not([type=checkbox]):not([type=radio]),textarea,select'); if (first) first.focus();
+  return form;
+}
+function confirmBox(title, text, okLabel, fn, danger) {
+  modal({ title: title, body: '<p>' + text + '</p>', ok: okLabel, danger: danger, onOk: function () { return fn(); } });
+}
+function field(label, inner, hint) { return '<div class="field"><label>' + h(label) + '</label>' + inner + (hint ? '<div class="hint">' + h(hint) + '</div>' : '') + '</div>'; }
+function inp(name, val, type, ph) { return '<input class="input" name="' + name + '" type="' + (type || 'text') + '" value="' + h(val || '') + '"' + (ph ? ' placeholder="' + h(ph) + '"' : '') + '>'; }
+function sel(name, val, opts) { return '<select class="select" name="' + name + '">' + Object.keys(opts).map(function (k) { return '<option value="' + h(k) + '"' + (k === val ? ' selected' : '') + '>' + h(opts[k]) + '</option>'; }).join('') + '</select>'; }
+function vals(form) { var o = {}; Array.prototype.forEach.call(form.elements, function (el) { if (el.name && el.type !== 'checkbox' && el.type !== 'radio') o[el.name] = el.value.trim(); if (el.type === 'radio' && el.checked) o[el.name] = el.value; }); return o; }
+
+/* ------------------------------------------------------------------ layout */
+function shell(active, inner) {
+  return '<header class="adm-top"><div class="adm-top-in">' +
+    '<a class="adm-brand" href="#/"><img class="adm-logo" alt="Adizes" src="' + h(CFG.assetsBase + 'adizes-logo-color.png') + '"><span>Admin</span></a>' +
+    '<nav class="adm-nav"><a href="#/" class="' + (active === 'companies' ? 'is-on' : '') + '">Empresas</a>' +
+    '<a href="#/launches" class="' + (active === 'launches' ? 'is-on' : '') + '">Lanzamientos</a></nav>' +
+    '<div class="adm-me" title="' + h(S.me) + '">' + h(S.me) + '</div></div></header>' +
+    '<main class="adm-main">' + inner + '</main>';
+}
+var UI = { showArchived: false, q: '', lq: '', lstatus: 'active', ltype: '' };
+
+function render() {
+  if (!S) return;
+  var parts = location.hash.replace(/^#\/?/, '').split('/');
+  var view = parts[0] || '', id = parts[1];
+  if (view === 'company' && byId(S.companies, id)) return renderCompany(id);
+  if (view === 'launch' && byId(S.launches, id)) return renderLaunch(id);
+  if (view === 'launches') return renderLaunches();
+  return renderCompanies();
+}
+window.addEventListener('hashchange', function () { MODAL.innerHTML = ''; render(); window.scrollTo(0, 0); });
+
+/* ------------------------------------------------------------------ companies */
+function renderCompanies() {
+  var q = UI.q.toLowerCase();
+  var list = S.companies.filter(function (c) { return (UI.showArchived || c.status !== 'Archived') && (!q || c.name.toLowerCase().indexOf(q) >= 0 || String(c.country || '').toLowerCase().indexOf(q) >= 0); })
+    .sort(function (a, b) { return a.name.localeCompare(b.name, 'es'); });
+  var cards = list.map(function (c) {
+    var ls = launchesOf(c.id), open = ls.filter(function (l) { return l.status === 'Open'; }).length, ready = ls.filter(function (l) { return l.status === 'Ready'; }).length;
+    return '<a class="card co-card" href="#/company/' + h(c.id) + '"><h3>' + h(c.name) + '</h3><div class="muted small">' + h(c.country || '') + (c.contactName ? ' · ' + h(c.contactName) : '') + '</div>' +
+      '<div class="co-meta"><span><b>' + employeesOf(c.id).length + '</b> empleados</span><span><b>' + ls.length + '</b> lanzamientos</span>' +
+      (open ? '<span>' + chip('Open') + ' ' + open + '</span>' : '') + (ready ? '<span>' + chip('Ready') + ' ' + ready + '</span>' : '') +
+      (c.status === 'Archived' ? chip('Archived', { Archived: 'Archivada' }) : '') + '</div></a>';
+  }).join('');
+  APP.innerHTML = shell('companies',
+    '<div class="adm-head"><div><div class="adm-eyebrow">Adizes Assessments</div><h1 class="adm-h1">Empresas</h1></div>' +
+    '<div class="adm-btns"><button class="btn btn-red" data-act="new-company">+ Nueva empresa</button></div></div>' +
+    '<div class="toolbar"><input class="input" type="search" placeholder="Buscar empresa…" value="' + h(UI.q) + '" data-q>' +
+    '<label class="chk"><input type="checkbox" data-arch' + (UI.showArchived ? ' checked' : '') + '> Ver archivadas</label></div>' +
+    (cards ? '<div class="grid">' + cards + '</div>' : '<div class="card empty"><b>' + (S.companies.length ? 'Sin resultados' : 'Aún no hay empresas') + '</b>' + (S.companies.length ? '' : 'Crea la primera para agregar sus empleados y lanzar un test.') + '</div>'));
+  APP.querySelector('[data-act="new-company"]').addEventListener('click', function () { companyForm(); });
+  var qEl = APP.querySelector('[data-q]');
+  qEl.addEventListener('input', function () { UI.q = qEl.value; renderCompanies(); var n = APP.querySelector('[data-q]'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
+  APP.querySelector('[data-arch]').addEventListener('change', function (e) { UI.showArchived = e.target.checked; renderCompanies(); });
+}
+function companyForm(c) {
+  c = c || {};
+  modal({
+    title: c.id ? 'Editar empresa' : 'Nueva empresa', ok: c.id ? 'Guardar' : 'Crear empresa',
+    body: field('Nombre', inp('name', c.name)) +
+      '<div class="row2">' + field('País', inp('country', c.country)) + field('Idioma de los tests', sel('language', c.language || 'es', LANGS)) + '</div>' +
+      '<div class="row2">' + field('Contacto', inp('contactName', c.contactName)) + field('Correo del contacto', inp('contactEmail', c.contactEmail, 'email'), 'Se propone como destinatario del reporte.') + '</div>' +
+      field('Notas', '<textarea class="textarea" name="notes" rows="3">' + h(c.notes || '') + '</textarea>'),
+    onOk: function (form) {
+      var v = vals(form); v.id = c.id;
+      if (!v.name) return 'Falta el nombre.';
+      return run('saveCompany', v, c.id ? 'Empresa actualizada' : 'Empresa creada').then(function (r) {
+        if (!c.id) { var nw = r.companies.filter(function (x) { return x.name === v.name; }).pop(); if (nw) go('#/company/' + nw.id); }
+      });
+    },
+  });
+}
+
+/* ------------------------------------------------------------------ company */
+function renderCompany(cid) {
+  var c = company(cid), ls = launchesOf(cid).sort(function (a, b) { return String(b.createdAt).localeCompare(String(a.createdAt)); });
+  var emps = employeesOf(cid, UI.showArchived).sort(function (a, b) { return a.name.localeCompare(b.name, 'es'); });
+  var lRows = ls.map(function (l) {
+    return '<tr class="is-click" data-go="#/launch/' + h(l.id) + '"><td>' + typeTag(l.type) + '</td><td class="strong">' + h(l.name) + '</td><td>' + chip(l.status) + '</td>' +
+      '<td data-l="Avance">' + progress(l) + '</td><td class="nowrap muted small" data-l="Cierre">' + h(fdate(l.closeDate) || '—') + '</td></tr>';
+  }).join('');
+  var eRows = emps.map(function (e) {
+    var n = S.invites.filter(function (i) { return i.employeeId === e.id; }).length;
+    return '<tr><td class="strong">' + h(e.name) + (e.status === 'Archived' ? ' ' + chip('Archived', { Archived: 'Archivado' }) : '') + '</td><td data-l="Correo">' + h(e.email) + '</td>' +
+      '<td data-l="Área">' + h(e.area || '—') + '</td><td data-l="Puesto">' + h(e.position || '—') + '</td><td class="num muted small" data-l="Tests">' + n + '</td>' +
+      '<td class="act"><button class="btn btn-ghost btn-sm" data-edit-emp="' + h(e.id) + '">Editar</button>' +
+      '<button class="btn btn-ghost btn-sm" data-arch-emp="' + h(e.id) + '">' + (e.status === 'Archived' ? 'Restaurar' : 'Archivar') + '</button></td></tr>';
+  }).join('');
+  APP.innerHTML = shell('companies',
+    '<div class="adm-crumbs"><a href="#/">Empresas</a> ›</div>' +
+    '<div class="adm-head"><div><h1 class="adm-h1">' + h(c.name) + (c.status === 'Archived' ? ' ' + chip('Archived', { Archived: 'Archivada' }) : '') + '</h1>' +
+    '<div class="adm-sub">' + [c.country, LANGS[c.language], c.contactName && (c.contactName + (c.contactEmail ? ' · ' + c.contactEmail : ''))].filter(Boolean).map(h).join(' · ') + '</div></div>' +
+    '<div class="adm-btns"><button class="btn btn-line" data-act="edit">Editar</button><button class="btn btn-ghost" data-act="archive">' + (c.status === 'Archived' ? 'Restaurar' : 'Archivar') + '</button></div></div>' +
+    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Lanzamientos</h2><button class="btn btn-red" data-act="new-launch">+ Nuevo lanzamiento</button></div>' +
+    '<div class="card">' + (lRows ? '<table class="tbl"><thead><tr><th>Tipo</th><th>Nombre</th><th>Estado</th><th>Avance</th><th>Cierre</th></tr></thead><tbody>' + lRows + '</tbody></table>'
+      : '<div class="empty"><b>Sin lanzamientos</b>Crea uno para invitar a los empleados a un test.</div>') + '</div></section>' +
+    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Empleados <span class="muted">(' + employeesOf(cid).length + ')</span></h2>' +
+    '<div class="adm-btns"><label class="chk"><input type="checkbox" data-arch' + (UI.showArchived ? ' checked' : '') + '> Ver archivados</label>' +
+    '<button class="btn btn-line" data-act="import">Importar lista</button><button class="btn btn-dark" data-act="new-emp">+ Agregar empleado</button></div></div>' +
+    '<div class="card">' + (eRows ? '<table class="tbl"><thead><tr><th>Nombre</th><th>Correo</th><th>Área</th><th>Puesto</th><th class="num">Tests</th><th></th></tr></thead><tbody>' + eRows + '</tbody></table>'
+      : '<div class="empty"><b>Sin empleados</b>Agrégalos uno por uno o pega una lista desde Excel.</div>') + '</div></section>');
+  APP.querySelector('[data-act="edit"]').addEventListener('click', function () { companyForm(c); });
+  APP.querySelector('[data-act="archive"]').addEventListener('click', function () { run('archiveCompany', { id: cid, archived: c.status !== 'Archived' }, c.status === 'Archived' ? 'Empresa restaurada' : 'Empresa archivada'); });
+  APP.querySelector('[data-act="new-launch"]').addEventListener('click', function () { launchForm(cid); });
+  APP.querySelector('[data-act="new-emp"]').addEventListener('click', function () { employeeForm(cid); });
+  APP.querySelector('[data-act="import"]').addEventListener('click', function () { importForm(cid); });
+  APP.querySelector('[data-arch]').addEventListener('change', function (e) { UI.showArchived = e.target.checked; renderCompany(cid); });
+  APP.querySelectorAll('[data-go]').forEach(function (tr) { tr.addEventListener('click', function () { go(tr.getAttribute('data-go')); }); });
+  APP.querySelectorAll('[data-edit-emp]').forEach(function (b) { b.addEventListener('click', function () { employeeForm(cid, byId(S.employees, b.getAttribute('data-edit-emp'))); }); });
+  APP.querySelectorAll('[data-arch-emp]').forEach(function (b) {
+    b.addEventListener('click', function () { var e = byId(S.employees, b.getAttribute('data-arch-emp')); run('archiveEmployee', { id: e.id, archived: e.status !== 'Archived' }, e.status === 'Archived' ? 'Empleado restaurado' : 'Empleado archivado'); });
+  });
+}
+function areasOf(cid) {
+  var seen = {}; employeesOf(cid, true).forEach(function (e) { if (e.area) seen[e.area] = 1; });
+  return '<datalist id="areas">' + Object.keys(seen).sort().map(function (a) { return '<option value="' + h(a) + '">'; }).join('') + '</datalist>';
+}
+function employeeForm(cid, e) {
+  e = e || {};
+  modal({
+    title: e.id ? 'Editar empleado' : 'Agregar empleado', ok: e.id ? 'Guardar' : 'Agregar',
+    body: field('Nombre completo', inp('name', e.name)) + field('Correo', inp('email', e.email, 'email')) +
+      '<div class="row2">' + field('Área', '<input class="input" name="area" list="areas" value="' + h(e.area || '') + '">', 'Se usa para los resultados por área de la Encuesta de Compromiso.') + field('Puesto', inp('position', e.position)) + '</div>' + areasOf(cid),
+    onOk: function (form) { var v = vals(form); v.id = e.id; v.companyId = cid; return run('saveEmployee', v, e.id ? 'Empleado actualizado' : 'Empleado agregado'); },
+  });
+}
+// Accepts rows pasted from Excel/Sheets (tabs) or typed with commas: Name, email, area, position
+function parseRows(text) {
+  return String(text || '').split(/\r?\n/).map(function (line) {
+    var cells = line.indexOf('\t') >= 0 ? line.split('\t') : line.split(/[,;]/);
+    cells = cells.map(function (c) { return c.trim(); });
+    var ei = -1; cells.forEach(function (c, i) { if (ei < 0 && /@/.test(c)) ei = i; });
+    if (ei < 0) return null;
+    var rest = cells.filter(function (c, i) { return i !== ei; });
+    return { name: rest[0] || '', email: cells[ei], area: rest[1] || '', position: rest[2] || '' };
+  }).filter(function (r) { return r && r.name; });
+}
+function importForm(cid) {
+  modal({
+    title: 'Importar empleados', ok: 'Importar', wide: true,
+    body: '<p class="muted small" style="margin-bottom:10px">Pega una fila por persona, copiada de Excel o separada por comas: <b>Nombre, correo, área, puesto</b>. Se omiten los correos que ya existen en la empresa.</p>' +
+      '<textarea class="textarea linkbox" name="rows" rows="10" placeholder="Ana López, ana@empresa.com, Ventas, Directora&#10;Bruno Díaz, bruno@empresa.com, Operaciones, Gerente"></textarea><p class="small muted" data-count style="margin-top:8px"></p>',
+    onOpen: function (form) {
+      var ta = form.rows, out = form.querySelector('[data-count]');
+      ta.addEventListener('input', function () { var n = parseRows(ta.value).length; out.textContent = n ? n + ' fila(s) reconocida(s)' : ''; });
+    },
+    onOk: function (form) {
+      var rows = parseRows(form.rows.value);
+      if (!rows.length) return 'No se reconoció ninguna fila (cada fila necesita nombre y correo).';
+      return run('importEmployees', { companyId: cid, rows: rows }, function (r) { return r.imported + ' empleado(s) importado(s)'; });
+    },
+  });
+}
+
+/* ------------------------------------------------------------------ launches list */
+function renderLaunches() {
+  var q = UI.lq.toLowerCase();
+  var list = S.launches.filter(function (l) {
+    if (UI.ltype && l.type !== UI.ltype) return false;
+    if (UI.lstatus === 'active' && (l.status === 'Closed' || l.status === 'Report sent')) return false;
+    if (UI.lstatus !== 'active' && UI.lstatus !== 'all' && l.status !== UI.lstatus) return false;
+    return !q || l.name.toLowerCase().indexOf(q) >= 0 || company(l.companyId).name.toLowerCase().indexOf(q) >= 0;
+  }).sort(function (a, b) { return String(b.createdAt).localeCompare(String(a.createdAt)); });
+  var rows = list.map(function (l) {
+    return '<tr class="is-click" data-go="#/launch/' + h(l.id) + '"><td class="strong">' + h(company(l.companyId).name) + '</td><td>' + typeTag(l.type) + ' ' + h(l.name) + '</td>' +
+      '<td>' + chip(l.status) + '</td><td data-l="Avance">' + progress(l) + '</td><td class="nowrap muted small" data-l="Cierre">' + h(fdate(l.closeDate) || '—') + '</td></tr>';
+  }).join('');
+  var stOpts = { active: 'En curso', all: 'Todos', Draft: 'Borrador', Open: 'Abierto', Ready: 'Listo', 'Report sent': 'Reporte enviado', Closed: 'Cerrado' };
+  APP.innerHTML = shell('launches',
+    '<div class="adm-head"><div><div class="adm-eyebrow">Adizes Assessments</div><h1 class="adm-h1">Lanzamientos</h1></div></div>' +
+    '<div class="toolbar"><input class="input" type="search" placeholder="Buscar por empresa o nombre…" value="' + h(UI.lq) + '" data-q>' +
+    sel('st', UI.lstatus, stOpts).replace('class="select"', 'class="select" data-st') + sel('ty', UI.ltype, { '': 'Todos los tipos', ED: TYPES.ED, ES: TYPES.ES }).replace('class="select"', 'class="select" data-ty') + '</div>' +
+    '<div class="card">' + (rows ? '<table class="tbl"><thead><tr><th>Empresa</th><th>Lanzamiento</th><th>Estado</th><th>Avance</th><th>Cierre</th></tr></thead><tbody>' + rows + '</tbody></table>'
+      : '<div class="empty"><b>Sin lanzamientos</b>Los lanzamientos se crean desde cada empresa.</div>') + '</div>');
+  var qEl = APP.querySelector('[data-q]');
+  qEl.addEventListener('input', function () { UI.lq = qEl.value; renderLaunches(); var n = APP.querySelector('[data-q]'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
+  APP.querySelector('[data-st]').addEventListener('change', function (e) { UI.lstatus = e.target.value; renderLaunches(); });
+  APP.querySelector('[data-ty]').addEventListener('change', function (e) { UI.ltype = e.target.value; renderLaunches(); });
+  APP.querySelectorAll('[data-go]').forEach(function (tr) { tr.addEventListener('click', function () { go(tr.getAttribute('data-go')); }); });
+}
+
+/* ------------------------------------------------------------------ launch form */
+function pickerHtml(cid, selected, locked) {
+  var emps = employeesOf(cid).sort(function (a, b) { return (a.area || '').localeCompare(b.area || '', 'es') || a.name.localeCompare(b.name, 'es'); });
+  if (!emps.length) return '<div class="notice is-info">Esta empresa aún no tiene empleados. Agrégalos primero.</div>';
+  return '<div class="toolbar" style="margin-bottom:8px"><input class="input" type="search" placeholder="Filtrar…" data-pf>' +
+    '<button type="button" class="btn btn-line btn-sm" data-all>Todos</button><button type="button" class="btn btn-ghost btn-sm" data-none>Ninguno</button>' +
+    '<span class="small muted" data-pc></span></div><div class="pick">' + emps.map(function (e) {
+      var on = selected[e.id], lock = locked[e.id];
+      return '<label data-txt="' + h((e.name + ' ' + e.email + ' ' + (e.area || '')).toLowerCase()) + '"><input type="checkbox" name="emp" value="' + h(e.id) + '"' + (on ? ' checked' : '') + (lock ? ' disabled' : '') + '>' +
+        '<span><b>' + h(e.name) + '</b><br><span class="small muted">' + h(e.email) + '</span></span><span class="small muted">' + h(e.area || '') + (lock ? '<br>Ya respondió' : '') + '</span></label>';
+    }).join('') + '</div>';
+}
+function bindPicker(form) {
+  var boxes = form.querySelectorAll('input[name="emp"]'), pc = form.querySelector('[data-pc]');
+  function count() { if (pc) pc.textContent = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).length + ' seleccionados'; }
+  boxes.forEach(function (b) { b.addEventListener('change', count); });
+  var pf = form.querySelector('[data-pf]');
+  if (pf) pf.addEventListener('input', function () { var q = pf.value.toLowerCase(); form.querySelectorAll('.pick label').forEach(function (l) { l.hidden = q && l.getAttribute('data-txt').indexOf(q) < 0; }); });
+  var all = form.querySelector('[data-all]'), none = form.querySelector('[data-none]');
+  if (all) all.addEventListener('click', function () { boxes.forEach(function (b) { if (!b.closest('label').hidden && !b.disabled) b.checked = true; }); count(); });
+  if (none) none.addEventListener('click', function () { boxes.forEach(function (b) { if (!b.disabled) b.checked = false; }); count(); });
+  count();
+}
+function picked(form) { return Array.prototype.filter.call(form.querySelectorAll('input[name="emp"]'), function (b) { return b.checked; }).map(function (b) { return b.value; }); }
+
+function launchForm(cid, l) {
+  var c = company(cid), isNew = !l;
+  l = l || { type: 'ED', language: c.language || 'es', recipients: c.contactEmail || '' };
+  var sel0 = {}; if (isNew) employeesOf(cid).forEach(function (e) { sel0[e.id] = true; });
+  var typeHtml = isNew ? field('Test', '<div class="types">' +
+    '<label><input type="radio" name="type" value="ED" checked><b>' + TYPES.ED + '</b><small>67 afirmaciones · reporte grupal con nombres · mínimo 1 respuesta</small></label>' +
+    '<label style="opacity:.55;cursor:default"><input type="radio" name="type" value="ES" disabled><b>' + TYPES.ES + '</b><small>50 preguntas · anónima · mínimo 5 · por área. Disponible en la siguiente versión.</small></label></div>') : '';
+  modal({
+    title: isNew ? 'Nuevo lanzamiento · ' + c.name : 'Editar lanzamiento', ok: isNew ? 'Crear borrador' : 'Guardar', wide: isNew,
+    body: typeHtml + field('Nombre', inp('name', l.name, 'text', 'p. ej. Equipo directivo · Nov 2026')) +
+      '<div class="row2">' + field('Idioma', sel('language', l.language, LANGS)) + field('Fecha de cierre', inp('closeDate', l.closeDate, 'date'), 'Opcional. Al pasar esta fecha, si hay el mínimo, queda listo para reporte.') + '</div>' +
+      '<div class="row2">' + field('Mínimo de respuestas', inp('minResponses', l.minResponses || '', 'number'), 'Express: 1 o más · Encuesta: 5 o más.') +
+      field('Destinatarios del reporte', inp('recipients', l.recipients, 'text', 'correo@empresa.com, otro@empresa.com')) + '</div>' +
+      field('Notas internas', '<textarea class="textarea" name="notes" rows="2">' + h(l.notes || '') + '</textarea>') +
+      (isNew ? field('Participantes', pickerHtml(cid, sel0, {})) : ''),
+    onOpen: function (form) { if (isNew) bindPicker(form); },
+    onOk: function (form) {
+      var v = vals(form);
+      if (!v.name) return 'Falta el nombre.';
+      var p = { id: l.id, companyId: cid, type: v.type || l.type, name: v.name, language: v.language, closeDate: v.closeDate, minResponses: v.minResponses, recipients: v.recipients, notes: v.notes };
+      if (isNew) { p.employeeIds = picked(form); if (!p.employeeIds.length) return 'Elige al menos un participante.'; }
+      return run('saveLaunch', p, isNew ? 'Borrador creado' : 'Lanzamiento actualizado').then(function (r) { if (isNew && r.savedId) go('#/launch/' + r.savedId); });
+    },
+  });
+}
+function participantsForm(l) {
+  var inv = invitesOf(l.id), selected = {}, locked = {};
+  inv.forEach(function (i) { selected[i.employeeId] = true; if (i.status === 'Completed') locked[i.employeeId] = true; });
+  modal({
+    title: 'Participantes · ' + l.name, ok: 'Guardar participantes', wide: true,
+    body: (l.status === 'Open' ? '<div class="notice is-info">A los nuevos participantes envíales la invitación después de guardar.</div>' : '') + pickerHtml(l.companyId, selected, locked),
+    onOpen: bindPicker,
+    onOk: function (form) {
+      var ids = picked(form).concat(Object.keys(locked).filter(function (id) { return picked(form).indexOf(id) < 0; }));
+      if (!ids.length) return 'Elige al menos un participante.';
+      return run('setParticipants', { launchId: l.id, employeeIds: ids }, 'Participantes actualizados');
+    },
+  });
+}
+
+/* ------------------------------------------------------------------ launch page */
+function renderLaunch(lid) {
+  var l = byId(S.launches, lid), c = company(l.companyId), inv = invitesOf(lid);
+  var emp = {}; S.employees.forEach(function (e) { emp[e.id] = e; });
+  var pend = inv.filter(function (i) { return i.status === 'Pending'; }).length, sent = inv.filter(function (i) { return i.status === 'Sent'; }).length;
+  var canReport = l.done >= l.minResponses && l.status !== 'Draft';
+  var rows = inv.slice().sort(function (a, b) { return ((emp[a.employeeId] || {}).name || '').localeCompare((emp[b.employeeId] || {}).name || '', 'es'); }).map(function (i) {
+    var e = emp[i.employeeId] || {};
+    var when = i.status === 'Completed' ? fdate(i.completedOn, l.type === 'ED') : i.sentAt ? 'Invitado ' + fdate(i.sentAt) + (i.reminders ? ' · ' + i.reminders + ' recordatorio(s)' : '') : '';
+    return '<tr><td class="strong">' + h(e.name || '—') + '<div class="small muted">' + h(e.email || '') + '</div></td><td data-l="Área">' + h(e.area || '—') + '</td>' +
+      '<td>' + chip(i.status, IST) + '</td><td class="small muted" data-l="Fecha">' + h(when) + '</td>' +
+      '<td class="act">' + (i.status !== 'Completed' ? '<button class="btn btn-ghost btn-sm" data-copy="' + h(i.link) + '">Copiar enlace</button>' +
+        (l.status === 'Open' ? '<button class="btn btn-ghost btn-sm" data-send="' + h(i.id) + '">' + (i.status === 'Pending' ? 'Enviar' : 'Reenviar') + '</button>' : '') : '') + '</td></tr>';
+  }).join('');
+
+  var actions = [];
+  if (l.status === 'Draft') {
+    actions.push('<button class="btn btn-red" data-act="open-send">Abrir y enviar invitaciones</button>', '<button class="btn btn-line" data-act="open">Abrir sin enviar</button>',
+      '<button class="btn btn-line" data-act="participants">Participantes</button>', '<button class="btn btn-ghost" data-act="edit">Editar</button>', '<button class="btn btn-ghost btn-danger" data-act="delete">Eliminar</button>');
+  } else if (l.status === 'Open') {
+    if (pend) actions.push('<button class="btn btn-red" data-act="invite">Enviar invitaciones (' + pend + ')</button>');
+    if (sent) actions.push('<button class="btn btn-line" data-act="remind">Recordatorio (' + sent + ')</button>');
+    actions.push('<button class="btn btn-line" data-act="copy-all">Copiar enlaces</button>', '<button class="btn btn-line" data-act="participants">Participantes</button>');
+    if (l.done >= l.minResponses) actions.push('<button class="btn btn-dark" data-act="finish">Cerrar y marcar listo</button>');
+    actions.push('<button class="btn btn-ghost" data-act="edit">Editar</button>');
+  } else {
+    actions.push('<button class="btn btn-line" data-act="reopen">Reabrir</button>', '<button class="btn btn-ghost" data-act="edit">Editar</button>');
+    if (l.status !== 'Closed') actions.push('<button class="btn btn-ghost" data-act="close">Archivar</button>');
+  }
+  var notice = '';
+  if (l.status === 'Draft') notice = '<div class="notice is-info">Borrador: revisa los participantes y ábrelo para que puedan responder. Puedes enviar las invitaciones desde info@ o copiar los enlaces para repartirlos tú.</div>';
+  if (l.notice === 'expired' && l.status === 'Open') notice = '<div class="notice">La fecha de cierre pasó sin alcanzar el mínimo (' + l.done + ' de ' + l.minResponses + '). Envía un recordatorio o cambia la fecha en “Editar”.</div>';
+  if (l.type === 'ES' && l.status !== 'Draft') notice += '<div class="notice is-info">La Encuesta de Compromiso (formulario y reporte) se activa en la siguiente versión.</div>';
+
+  var report = '';
+  if (l.status !== 'Draft') {
+    report = '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Reporte grupal</h2></div><div class="card report">' +
+      '<div><div class="adm-eyebrow">1 · Generar</div>' +
+      (canReport ? '<p class="small muted" style="margin:6px 0 12px">Se genera en tu navegador con las ' + l.done + ' respuestas actuales y se guarda en Drive.</p>' : '<p class="small muted" style="margin:6px 0 12px">Disponible al llegar al mínimo de ' + l.minResponses + ' respuesta(s). Hoy: ' + l.done + '.</p>') +
+      (l.reportUrl ? '<div class="pdf-ok"><i></i><div><a href="' + h(l.reportUrl) + '" target="_blank" rel="noopener" class="strong">Ver PDF en Drive</a><div class="small muted">Generado ' + h(fdate(l.reportGeneratedAt, true)) + '</div></div></div>' : '') +
+      '<button class="btn ' + (l.reportUrl ? 'btn-line' : 'btn-dark') + '" data-act="generate"' + (canReport && l.type === 'ED' ? '' : ' disabled') + '>' + (l.reportUrl ? 'Volver a generar' : 'Generar reporte') + '</button></div>' +
+      '<div><div class="adm-eyebrow">2 · Enviar</div>' +
+      '<form data-send-form style="margin-top:10px">' + field('Para', inp('to', l.recipients || c.contactEmail || '', 'text', 'correo@empresa.com, otro@empresa.com'), 'Separa varios correos con comas.') +
+      field('Mensaje (opcional)', '<textarea class="textarea" name="note" rows="3" placeholder="Se agrega al correo con el PDF adjunto."></textarea>') +
+      '<div class="adm-btns"><button type="submit" class="btn btn-red"' + (l.reportUrl ? '' : ' disabled') + '>Enviar reporte</button>' +
+      (l.reportSentAt ? '<span class="small muted">Enviado ' + h(fdate(l.reportSentAt, true)) + ' a ' + h(l.reportSentTo) + '</span>' : '') + '</div></form></div></div></section>';
+  }
+
+  APP.innerHTML = shell('companies',
+    '<div class="adm-crumbs"><a href="#/">Empresas</a> › <a href="#/company/' + h(c.id) + '">' + h(c.name) + '</a> ›</div>' +
+    '<div class="adm-head"><div><h1 class="adm-h1">' + typeTag(l.type) + ' ' + h(l.name) + '</h1>' +
+    '<div class="adm-sub">' + h(TYPES[l.type]) + ' · ' + h(LANGS[l.language] || l.language) + ' · ' + chip(l.status) + '</div></div>' +
+    '<div class="adm-btns">' + actions.join('') + '</div></div>' + notice +
+    '<div class="kpis">' +
+      '<div class="card kpi"><small>Respuestas</small><b>' + l.done + ' <span class="muted" style="font-size:15px">de ' + l.total + '</span></b>' + progress(l) + '</div>' +
+      '<div class="card kpi"><small>Mínimo</small><b>' + l.minResponses + '</b><div class="small muted">' + (l.done >= l.minResponses ? 'Alcanzado' : 'Faltan ' + (l.minResponses - l.done)) + '</div></div>' +
+      '<div class="card kpi"><small>Cierre</small><b style="font-size:17px">' + h(fdate(l.closeDate) || 'Sin fecha') + '</b></div>' +
+      '<div class="card kpi"><small>' + (l.readyAt ? 'Listo desde' : 'Abierto desde') + '</small><b style="font-size:17px">' + h(fdate(l.readyAt || l.openedAt) || '—') + '</b></div>' +
+    '</div>' + report +
+    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Participantes</h2>' +
+    (l.type === 'ES' ? '<span class="small muted">Las respuestas son anónimas: aquí solo se ve quién ya respondió.</span>' : '') + '</div>' +
+    '<div class="card">' + (rows ? '<table class="tbl"><thead><tr><th>Nombre</th><th>Área</th><th>Estado</th><th>Fecha</th><th></th></tr></thead><tbody>' + rows + '</tbody></table>' : '<div class="empty"><b>Sin participantes</b></div>') + '</div></section>');
+
+  function on(act, fn) { var b = APP.querySelector('[data-act="' + act + '"]'); if (b) b.addEventListener('click', fn); }
+  on('edit', function () { launchForm(l.companyId, l); });
+  on('participants', function () { participantsForm(l); });
+  on('delete', function () { confirmBox('Eliminar borrador', '¿Eliminar “' + h(l.name) + '”? No se puede deshacer.', 'Eliminar', function () { return run('deleteLaunch', { id: l.id }, 'Borrador eliminado').then(function () { go('#/company/' + l.companyId); }); }, true); });
+  on('open-send', function () { confirmBox('Abrir y enviar', 'Se enviará la invitación desde info@adizes.com a ' + l.total + ' participante(s), cada uno con su enlace personal.', 'Abrir y enviar', function () { return run('openLaunch', { launchId: l.id, send: true }, function (r) { return 'Abierto · ' + r.sent + ' invitación(es) enviada(s)'; }); }); });
+  on('open', function () { run('openLaunch', { launchId: l.id, send: false }, 'Abierto. Copia los enlaces para repartirlos.'); });
+  on('invite', function () { confirmBox('Enviar invitaciones', 'Se enviará la invitación a ' + pend + ' participante(s) que aún no la tienen.', 'Enviar', function () { return run('sendInvites', { launchId: l.id }, function (r) { return r.sent + ' invitación(es) enviada(s)'; }); }); });
+  on('remind', function () { confirmBox('Enviar recordatorio', 'Se enviará un recordatorio a ' + sent + ' participante(s) invitados que aún no responden.', 'Enviar recordatorio', function () { return run('remind', { launchId: l.id }, function (r) { return r.sent + ' recordatorio(s) enviado(s)'; }); }); });
+  on('copy-all', function () {
+    copyText(inv.filter(function (i) { return i.status !== 'Completed'; }).map(function (i) { var e = emp[i.employeeId] || {}; return e.name + '\t' + e.email + '\t' + i.link; }).join('\n'));
+  });
+  on('finish', function () { confirmBox('Cerrar y marcar listo', 'Ya hay ' + l.done + ' de ' + l.total + ' respuestas. Al cerrar, los enlaces dejan de aceptar respuestas (puedes reabrir después).', 'Cerrar y marcar listo', function () { return run('finish', { launchId: l.id }, 'Listo para reporte'); }); });
+  on('reopen', function () {
+    modal({ title: 'Reabrir lanzamiento', ok: 'Reabrir', body: '<p style="margin-bottom:12px">Los participantes que no han respondido podrán hacerlo de nuevo con su enlace.</p>' + field('Nueva fecha de cierre (opcional)', inp('closeDate', '', 'date')),
+      onOk: function (form) { return run('reopen', { launchId: l.id, closeDate: form.closeDate.value }, 'Lanzamiento reabierto'); } });
+  });
+  on('close', function () { confirmBox('Archivar lanzamiento', 'Quedará como cerrado. El reporte y las respuestas se conservan.', 'Archivar', function () { return run('close', { launchId: l.id }, 'Lanzamiento archivado'); }); });
+  on('generate', function () { generateReport(l); });
+  APP.querySelectorAll('[data-copy]').forEach(function (b) { b.addEventListener('click', function () { copyText(b.getAttribute('data-copy')); }); });
+  APP.querySelectorAll('[data-send]').forEach(function (b) { b.addEventListener('click', function () { run('sendInvites', { launchId: l.id, inviteIds: [b.getAttribute('data-send')] }, 'Invitación enviada'); }); });
+  var sf = APP.querySelector('[data-send-form]');
+  if (sf) sf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var to = sf.to.value.trim(), note = sf.note.value.trim();
+    if (!to) return toast('Agrega al menos un destinatario.', true);
+    confirmBox('Enviar reporte', 'Se enviará el PDF desde info@adizes.com a: <b>' + h(to) + '</b>', 'Enviar reporte', function () { return run('sendReport', { launchId: l.id, to: to, note: note }, 'Reporte enviado'); });
+  });
+}
+
+/* ------------------------------------------------------------------ reports (generated here, saved in Drive) */
+function slug(s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''); }
+function generateReport(l) {
+  busy(true);
+  call('reportData', { launchId: l.id }).then(function (d) {
+    if (d.type !== 'ED') throw new Error('Este tipo de reporte aún no está disponible.');
+    return getPdfAssets(CFG.assetsBase).then(function (A) {
+      var doc = renderEdPdf(A, d.lang, { result: ED.score(d.responses), company: d.company, participants: d.names, dateIso: d.dateIso });
+      var name = (d.lang === 'es' ? 'Diagnostico-Expres' : 'Express-Diagnostics') + '-' + slug(d.company) + '-' + d.dateIso.slice(0, 10) + '.pdf';
+      return call('saveReport', { launchId: l.id, pdf: doc.output('datauristring').split(',')[1], fileName: name });
+    });
+  }).then(function (r) { S = r; busy(false); render(); toast('Reporte generado y guardado en Drive'); },
+    function (e) { busy(false); toast(e.message || 'No se pudo generar el reporte', true); if (window.console) console.error(e); });
+}
+
+/* ------------------------------------------------------------------ boot */
+call('state').then(function (r) { S = r; render(); }, function (e) {
+  APP.innerHTML = '<div class="adm-boot"><div class="card card-pad" style="max-width:420px;text-align:center"><b>No se pudo cargar el admin</b><p class="muted" style="margin-top:6px">' + h(e.message) + '</p></div></div>';
+});
+
+})();</script>
+</body>
+</html>

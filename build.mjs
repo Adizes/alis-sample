@@ -34,15 +34,30 @@ async function widget({ name, title, dir, i18nVar, shared }) {
 
 await widget({
   name: 'express-diagnostics', title: 'Express Diagnostics', dir: 'express-diagnostics', i18nVar: 'ED_I18N',
-  shared: ['shared/core.js', 'shared/ed-engine.js', 'shared/pdfkit.js', 'shared/ed-report.js', 'shared/ed-visuals.js'],
+  shared: ['shared/core.js', 'shared/ed-engine.js'],
 });
 
-// Apps Script: config + shared engine + the rest of src/*.gs, in file-name order.
+// Admin page: one HTML document (CSS + JS + report renderers inlined), embedded in Code.gs.
+function adminHtml() {
+  const shell = read('admin/src/admin.html');
+  const styles = css(read('admin/src/admin.css'));
+  const reports = ['shared/core.js', 'shared/ed-engine.js', 'shared/pdfkit.js', 'shared/ed-report.js'].map(read).join('\n');
+  const i18n = langs('express-diagnostics/src/i18n').map(f => read('express-diagnostics/src/i18n/' + f)).join('\n');
+  const js = `(function(){\n'use strict';\nvar ED_I18N = {};\n${i18n}\n${reports}\n${read('admin/src/admin.js')}\n})();`;
+  return shell.replace('/*__CSS__*/', () => styles).replace('/*__JS__*/', () => js.replace(/<\/script/gi, '<\\/script'))
+    .replace(/__VERSION__/g, VERSION).replace(/__RELEASE__/g, 'v' + VERSION);
+}
+
+// Apps Script: config + shared engine + the rest of src/*.gs (file-name order) + the admin page.
 {
   const files = readdirSync(join(root, 'apps-script/src')).filter(f => f.endsWith('.gs')).sort();
-  const parts = [read('apps-script/src/' + files[0]), '/* ===== shared/ed-engine.js (same file the widget uses) ===== */\n' + read('shared/ed-engine.js')]
+  const parts = [read('apps-script/src/' + files[0]), '/* ===== shared/ed-engine.js (same file the widgets and the admin use) ===== */\n' + read('shared/ed-engine.js')]
     .concat(files.slice(1).map(f => read('apps-script/src/' + f)));
+  const html = adminHtml();
+  parts.push('/* ===== Admin page (generated from admin/src) ===== */\nconst ADMIN_HTML = ' + JSON.stringify(html) + ';');
   const code = parts.join('\n\n').replace(/__RELEASE__/g, 'v' + VERSION).replace(/'__VERSION__'/g, JSON.stringify(VERSION));
   writeFileSync(join(root, 'apps-script/Code.gs'), code);
-  console.log(`apps-script/Code.gs v${VERSION}: ${files.join(', ')} · ${(code.length / 1024).toFixed(1)} KB`);
+  mkdirSync(join(root, 'admin/dist'), { recursive: true });
+  writeFileSync(join(root, 'admin/dist/admin.html'), html); // same page, for local preview/tests
+  console.log(`apps-script/Code.gs v${VERSION}: ${files.join(', ')} + admin (${(html.length / 1024).toFixed(1)} KB) · ${(code.length / 1024).toFixed(1)} KB`);
 }
