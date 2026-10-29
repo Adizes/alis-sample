@@ -2,8 +2,9 @@
  *  EMAILS — invitations / reminders (participants), report (recipients), notices (admins)
  * ================================================================================= */
 function fmtDate_(d, lang) {
-  if (!d) return '';
-  const p = String(d).slice(0, 10).split('-');
+  d = dateStr_(d);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return '';
+  const p = d.split('-');
   const months = {
     es: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
     en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -70,7 +71,7 @@ function sendReportEmail_(l, to, note, pdf, n) {
 
 // Internal notices (Spanish) to the admins + it@adizes.com
 function notifyAdmins_(kind, l, c) {
-  const to = adminList_().concat(CONFIG.EMAIL.NOTIFY_TO ? [CONFIG.EMAIL.NOTIFY_TO] : []).filter((x, i, a) => x && a.indexOf(x) === i);
+  const to = noticeList_().concat(CONFIG.EMAIL.NOTIFY_TO ? [CONFIG.EMAIL.NOTIFY_TO] : []).filter((x, i, a) => x && a.indexOf(x) === i);
   if (!to.length) return;
   const company = launchCompany_(l)['Name'] || '';
   const test = LABELS.es.tests[l['Type']];

@@ -39,6 +39,7 @@ function pSubmit_(b) {
     if (l.rec['Status'] !== L_STATUS.OPEN) throw new Error('closed');
     const type = l.rec['Type'];
     if (type === 'ED') saveEdAnswers_(inv.rec, l.rec, b);
+    else if (type === 'ES') saveEsAnswers_(inv.rec, l.rec, b);
     else throw new Error('unknown_type');
     setCells_(inv.sh, inv.rowNum, inv.map, { 'Status': I_STATUS.DONE, 'Completed On': type === 'ES' ? today_() : new Date().toISOString() });
     checkReady_(l.rec['ID']);
@@ -58,4 +59,21 @@ function saveEdAnswers_(inv, launch, b) {
   r.cells.forEach((x, i) => { row[ED_CELL_COLS[i]] = Math.round(x.percent * 10) / 10; });
   answers.forEach((v, i) => { row[ED_Q_COLS[i]] = v; });
   appendRecord_(ED_ANSWERS, row);
+}
+
+function saveEsAnswers_(inv, launch, b) {
+  const answers = (b.answers || []).map(Number), importance = (b.importance || []).map(Number);
+  const bad = ES.validResponse(answers, importance);
+  if (bad) throw new Error(bad);
+  const e = byId_(EMPLOYEES, inv['Employee ID']);
+  const comments = (b.comments || []).slice(0, ES.COUNT).map(c => clean_(String(c || '').replace(/\s*\n\s*/g, ' '), 1000));
+  const row = {
+    'Response ID': newId_('R'), 'Launch ID': launch['ID'], 'Submitted On': today_(),
+    'Language': LABELS[b.lang] ? b.lang : launch['Language'], 'Area': e ? clean_(e.rec['Area'], 80) : '',
+    'Result': ES.classify(answers, importance).level,
+  };
+  answers.forEach((v, i) => { row[ES_Q_COLS[i]] = v; });
+  importance.forEach((v, i) => { row[ES_I_COLS[i]] = v; });
+  comments.forEach((v, i) => { if (v) row[ES_C_COLS[i]] = v; });
+  insertRandom_(ES_ANSWERS, row);
 }

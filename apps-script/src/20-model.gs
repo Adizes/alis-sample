@@ -31,6 +31,16 @@ const ED_ANSWERS = {
   text: ['Response ID', 'Launch ID', 'Invitation ID', 'Employee ID', 'Full Name'],
 };
 
+const ES_Q_COLS = ES.QUESTION_CATS.map((c, i) => 'Q' + (i + 1));
+const ES_I_COLS = ES.QUESTION_CATS.map((c, i) => 'I' + (i + 1));
+const ES_C_COLS = ES.QUESTION_CATS.map((c, i) => 'C' + (i + 1));
+// Anonymous: no invitation/employee link, only the day; rows are inserted in random order.
+const ES_ANSWERS = {
+  name: 'ES Answers',
+  cols: ['Response ID', 'Launch ID', 'Submitted On', 'Language', 'Area', 'Result'].concat(ES_Q_COLS, ES_I_COLS, ES_C_COLS),
+  text: ['Response ID', 'Launch ID', 'Submitted On', 'Area', 'Result'].concat(ES_C_COLS),
+};
+
 const L_STATUS = { DRAFT: 'Draft', OPEN: 'Open', READY: 'Ready', SENT: 'Report sent', CLOSED: 'Closed' };
 const I_STATUS = { PENDING: 'Pending', SENT: 'Sent', DONE: 'Completed', REMOVED: 'Removed' };
 

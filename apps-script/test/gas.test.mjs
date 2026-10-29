@@ -38,31 +38,67 @@ t('setup: spreadsheet, tabs, report folders, admin list, one hourly trigger (ide
   const { gas, state } = loadGas();
   assert.equal(state.props.DATA_SPREADSHEET_ID, 'SS1');
   assert.equal(state.props.ADMIN_EMAILS, 'dario@adizes.com');
-  assert.deepEqual(Object.keys(state.sheets).sort(), ['Companies', 'ED Answers', 'Employees', 'Invitations', 'Launches']);
+  assert.deepEqual(Object.keys(state.sheets).sort(), ['Companies', 'ED Answers', 'ES Answers', 'Employees', 'Invitations', 'Launches']);
   assert.ok(state.props.PDF_FOLDER_ED && state.props.PDF_FOLDER_ES);
   assert.equal(state.triggers.length, 1); assert.equal(state.triggers[0].fn, 'tick'); assert.equal(state.triggers[0].h, 1);
   gas.setup();
   assert.equal(state.spreadsheets, 1); assert.equal(state.triggers.length, 1);
 });
 
-t('admin access: only ADMIN_EMAILS, checked on every call; others get plain text, never the page', () => {
+t('admin access: everyone gets the sign-in page; every call needs an admin session', () => {
   const g = loadGas();
   const page = g.gas.doGet({ parameter: {} });
   assert.equal(page.title, 'Adizes · Admin'); assert.match(page.getContent(), /<html/i);
+  assert.doesNotMatch(page.getContent(), /__AUTO_SESSION__/, 'Google-recognized admin gets an automatic session');
   g.state.activeUser = 'intruso@adizes.com';
-  const denied = g.gas.doGet({ parameter: {} });
-  assert.equal(denied.title, undefined); assert.match(denied.getContent(), /Acceso restringido/);
+  assert.match(g.gas.doGet({ parameter: {} }).getContent(), /autoSession: ''/);
   assert.equal(g.admin('state').error, 'forbidden');
   assert.equal(g.admin('saveCompany', { name: 'X' }).error, 'forbidden');
+  assert.equal(JSON.parse(g.gas.adminApi('state', {}, 'forged.token')).error, 'forbidden');
   g.state.activeUser = '';
   assert.equal(g.admin('state').error, 'forbidden');
   assert.throws(() => g.gas.setup(), /forbidden/);
   g.state.activeUser = 'DARIO@adizes.com';
   assert.equal(g.admin('state').ok, true);
-  g.state.props.ADMIN_EMAILS = 'dario@adizes.com, ana@adizes.com';
-  g.state.activeUser = 'ana@adizes.com';
-  assert.equal(g.admin('state').ok, true);
   assert.equal(JSON.parse(g.gas.doGet({ parameter: { health: '1' } }).getContent()).ok, true);
+});
+
+t('sign-in with an emailed code: whitelisted emails and domains (@nuclea.solutions), 7-day session', () => {
+  const g = loadGas();
+  g.state.activeUser = '';   // e.g. an account from another domain: Google doesn't share the email
+  const api = (a, p, tk) => JSON.parse(g.gas.adminApi(a, p, tk));
+  // not allowed → same answer, but no email is sent
+  assert.equal(api('loginStart', { email: 'random@gmail.com' }).ok, true);
+  assert.equal(g.state.emails.length, 0);
+  assert.equal(api('loginStart', { email: 'nope' }).error, 'invalid_email');
+  // whitelisted domain
+  assert.equal(api('loginStart', { email: 'Ana@Nuclea.Solutions' }).ok, true);
+  const mail = g.state.emails[0];
+  assert.equal(mail.to, 'ana@nuclea.solutions'); assert.equal(mail.options.from, 'info@adizes.com');
+  const code = mail.subject.match(/(\d{6})$/)[1];
+  assert.equal(api('loginStart', { email: 'ana@nuclea.solutions' }).wait, true, '30 s between codes');
+  assert.equal(api('loginVerify', { email: 'ana@nuclea.solutions', code: '000000' === code ? '111111' : '000000' }).error, 'invalid_code');
+  const ok = api('loginVerify', { email: 'ana@nuclea.solutions', code });
+  assert.equal(ok.ok, true); assert.equal(ok.me, 'ana@nuclea.solutions');
+  assert.equal(api('loginVerify', { email: 'ana@nuclea.solutions', code }).error, 'invalid_code', 'codes work once');
+  const st = api('state', {}, ok.token);
+  assert.equal(st.ok, true); assert.equal(st.me, 'ana@nuclea.solutions');
+  // tampered token
+  const [b, sig] = ok.token.split('.');
+  assert.equal(api('state', {}, b + '.' + sig.slice(0, -2) + 'xx').error, 'forbidden');
+  // removing the domain revokes existing sessions
+  g.gas.CONFIG.ADMIN_DOMAINS = [];
+  assert.equal(api('state', {}, ok.token).error, 'forbidden');
+  // single emails and "@domain" entries in ADMIN_EMAILS
+  g.state.props.ADMIN_EMAILS = 'dario@adizes.com, @partner.com';
+  api('loginStart', { email: 'lu@partner.com' });
+  const c2 = g.state.emails[g.state.emails.length - 1].subject.match(/(\d{6})$/)[1];
+  assert.equal(api('loginVerify', { email: 'lu@partner.com', code: c2 }).ok, true);
+  // 5 wrong attempts burn the code
+  api('loginStart', { email: 'dario@adizes.com' });
+  const c3 = g.state.emails[g.state.emails.length - 1].subject.match(/(\d{6})$/)[1];
+  for (let i = 0; i < 5; i++) api('loginVerify', { email: 'dario@adizes.com', code: c3 === '999999' ? '888888' : '999999' });
+  assert.equal(api('loginVerify', { email: 'dario@adizes.com', code: c3 }).error, 'too_many_attempts');
 });
 
 t('companies + employees: create, edit, import (dedupe by email), validation, archive', () => {
@@ -136,7 +172,7 @@ t('ready: last participant → Ready + notice to admins and it@; report data, Dr
   s = admin('state');
   assert.equal(s.launches[0].status, 'Ready'); assert.equal(s.launches[0].done, 3); assert.ok(s.launches[0].readyAt);
   const notice = state.emails.find(m => /^\[Listo para reporte\]/.test(m.subject));
-  assert.equal(notice.to, 'dario@adizes.com,it@adizes.com');
+  assert.equal(notice.to, 'dario@adizes.com,it@adizes.com');  // whole domains never get internal notices
   assert.match(notice.subject, /Grupo Ñandú · Diagnóstico Exprés · Dirección 2026/);
   assert.match(notice.options.htmlBody, /3 de 3 respuestas/);
   // closed for anyone else
@@ -158,6 +194,25 @@ t('ready: last participant → Ready + notice to admins and it@; report data, Dr
   assert.match(mail.options.htmlBody, /con base en 3 respuestas/);
   assert.match(mail.options.htmlBody, /sesión del jueves/);
   assert.equal(s.launches[0].status, 'Report sent'); assert.equal(s.launches[0].reportSentTo, 'laura@nandu.mx');
+});
+
+t('dates that Sheets turned into Date objects still format correctly (no "NaN" in emails)', () => {
+  const g = world();
+  const sh = g.sheet('Launches'); const col = sh.heads().indexOf('Close Date') + 1;
+  sh.set(2, col, new Date(2026, 10, 19));            // what Sheets returned in production
+  const s = g.admin('openLaunch', { launchId: g.launchId, send: true });
+  assert.equal(s.launches[0].closeDate, '2026-11-19');
+  assert.match(g.state.emails[0].options.htmlBody, /antes del 19 de noviembre de 2026/);
+  assert.doesNotMatch(g.state.emails[0].options.htmlBody, /NaN|undefined/);
+});
+
+t('a report can be sent while the launch is still open (status stays Open)', () => {
+  const g = world();
+  let s = g.admin('openLaunch', { launchId: g.launchId, send: false });
+  g.post({ action: 'p_submit', t: tokenOf(s.invites[0].link), answers: GOLDEN });
+  g.admin('saveReport', { launchId: g.launchId, pdf: fakePdf, fileName: 'r.pdf' });
+  s = g.admin('sendReport', { launchId: g.launchId, to: 'laura@nandu.mx' });
+  assert.equal(s.ok, true); assert.equal(s.launches[0].status, 'Open'); assert.ok(s.launches[0].reportSentAt);
 });
 
 t('participants can be added/removed while open; completed ones are kept', () => {
@@ -228,6 +283,66 @@ t('email failure while inviting → error returned, nothing marked as sent', () 
   const s = g.admin('openLaunch', { launchId: g.launchId, send: true });
   assert.equal(s.ok, false); assert.match(s.error, /mail down/);
   assert.ok(g.admin('state').invites.every(i => i.status === 'Pending'));
+});
+
+/* ---------------- Engagement Survey ---------------- */
+function esWorld(n = 6) {
+  const g = loadGas();
+  let s = g.admin('saveCompany', { name: 'Acme', language: 'en', contactEmail: 'hr@acme.com' });
+  const cid = s.companies[0].id;
+  const areas = ['Sales', 'Sales', 'Sales', 'Sales', 'Sales', 'Ops', 'Ops', 'Finance'];
+  s = g.admin('importEmployees', { companyId: cid, rows: areas.slice(0, n).map((a, i) => ({ name: 'Person ' + i, email: 'p' + i + '@acme.com', area: a })) });
+  s = g.admin('saveLaunch', { companyId: cid, type: 'ES', name: 'Engagement 2026', language: 'en', employeeIds: s.employees.map(e => e.id) });
+  const launchId = s.savedId;
+  s = g.admin('openLaunch', { launchId, send: true });
+  return Object.assign(g, { launchId, invites: s.invites });
+}
+const esAnswers = (v) => { const a = Array(50).fill(v); a[49] = 4; return a; };
+const esImp = (k) => Array.from({ length: 50 }, (_, i) => (i < k ? 3 : i % 2 ? 2 : 1));
+
+t('ES: minimum 5, invitation in the launch language with anonymity text, link to /engagement-survey', () => {
+  const g = esWorld();
+  const s = g.admin('state');
+  assert.equal(s.launches[0].minResponses, 5);
+  assert.match(g.invites[0].link, /^https:\/\/www\.adizes\.com\/engagement-survey\?t=/);
+  const m = g.state.emails[0];
+  assert.equal(m.subject, 'Acme: Engagement Survey');
+  assert.match(m.options.htmlBody, /The survey is anonymous/);
+  const info = g.post({ action: 'p_load', t: tokenOf(g.invites[0].link) });
+  assert.equal(info.type, 'ES'); assert.equal(info.lang, 'en'); assert.equal(info.firstName, undefined, 'no name for an anonymous survey');
+});
+
+t('ES: answers validated (importance 1–15 "most important"), stored without names, area kept, random order', () => {
+  const g = esWorld();
+  const tk = tokenOf(g.invites[0].link);
+  assert.equal(g.post({ action: 'p_submit', t: tk, answers: esAnswers(5), importance: esImp(0) }).error, 'invalid_importance');
+  assert.equal(g.post({ action: 'p_submit', t: tk, answers: esAnswers(5), importance: esImp(16) }).error, 'invalid_importance');
+  assert.equal(g.post({ action: 'p_submit', t: tk, answers: esAnswers(7), importance: esImp(3) }).error, 'invalid_answers');
+  const com = Array(50).fill(''); com[3] = '=Better coffee\nplease';
+  assert.equal(g.post({ action: 'p_submit', t: tk, answers: esAnswers(5), importance: esImp(3), comments: com }).ok, true);
+  const sh = g.sheet('ES Answers'); const row = sh.obj(2);
+  assert.equal(row['Area'], 'Sales'); assert.equal(row['Result'], 'fully');
+  assert.match(row['Submitted On'], /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(row['C4'], "'=Better coffee please");
+  assert.ok(!sh.heads().some(h => /Employee|Invitation|Name/.test(h)), 'no identifying columns');
+  const inv = g.sheet('Invitations').obj(2);
+  assert.match(inv['Completed On'], /^\d{4}-\d{2}-\d{2}$/, 'only the day, not the time');
+  for (let i = 1; i < 6; i++) g.post({ action: 'p_submit', t: tokenOf(g.invites[i].link), answers: esAnswers(i % 2 ? 2 : 4), importance: esImp(2) });
+  assert.equal(sh.rows.length, 7);
+  assert.equal(g.admin('state').launches[0].status, 'Ready');
+  const d = g.admin('reportData', { launchId: g.launchId });
+  assert.equal(d.type, 'ES'); assert.equal(d.responses.length, 6); assert.equal(d.total, 6);
+  assert.deepEqual(d.responses.map(r => r.area).sort(), ['Ops', 'Sales', 'Sales', 'Sales', 'Sales', 'Sales']);
+  assert.ok(d.responses.some(r => r.comments[3] === "'=Better coffee please" || r.comments[3] === '=Better coffee please'));
+});
+
+t('ES: below 5 answers no report, even if everybody invited answered', () => {
+  const g = esWorld(4);
+  g.invites.forEach(i => g.post({ action: 'p_submit', t: tokenOf(i.link), answers: esAnswers(4), importance: esImp(1) }));
+  const s = g.admin('state');
+  assert.equal(s.launches[0].done, 4); assert.equal(s.launches[0].status, 'Open');
+  assert.equal(g.admin('reportData', { launchId: g.launchId }).error, 'below_minimum');
+  assert.equal(g.admin('finish', { launchId: g.launchId }).error, 'below_minimum');
 });
 
 console.log(`\n${n} backend tests passed`);

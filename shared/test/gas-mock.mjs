@@ -1,6 +1,7 @@
 // Runs the REAL apps-script/Code.gs inside Node with in-memory fakes of the Google services it uses.
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -32,6 +33,7 @@ export class FakeSheet {
   }
   getRange(r, c, nr, nc) { return colRange(this, r, c, nr, nc); }
   appendRow(vals) { this.rows.push([]); vals.forEach((v, j) => this.set(this.rows.length, j + 1, v)); }
+  insertRowBefore(r) { this.rows.splice(r - 1, 0, []); }
   getLastRow() { return this.rows.length; }
   getLastColumn() { return Math.max(0, ...this.rows.map(r => r.length)); }
   getMaxRows() { return this.maxRows; }
@@ -44,6 +46,7 @@ export class FakeSheet {
 function blob(bytes, type, name) {
   return {
     bytes, type, name,
+    getDataAsString() { return Buffer.from(this.bytes.map(b => (b < 0 ? b + 256 : b))).toString('utf8'); },
     setName(n) { this.name = n; return this; }, getName() { return this.name; }, getBytes() { return this.bytes; },
     copyBlob() { return blob(this.bytes, this.type, this.name); },
   };
@@ -54,7 +57,11 @@ export function loadGas(opts = {}) {
     sheets: {}, files: [], folders: [], emails: [], fetches: [], triggers: [], props: { ...(opts.props || {}) },
     emailFail: !!opts.emailFail, activeUser: opts.activeUser ?? 'dario@adizes.com', spreadsheets: 0,
   };
+  const toBuf = (x) => (typeof x === 'string' ? Buffer.from(x, 'utf8') : Buffer.from(x.map(b => (b < 0 ? b + 256 : b))));
+  const toBytes = (buf) => Array.from(buf).map(x => (x > 127 ? x - 256 : x));
+  const cache = {};
   const ss = {
+    getSpreadsheetTimeZone: () => 'America/Mexico_City',
     getId: () => 'SS1', getUrl: () => 'https://docs.google.com/spreadsheets/d/SS1',
     getSheetByName: (n) => state.sheets[n] || null,
     insertSheet: (n) => (state.sheets[n] = new FakeSheet(n)),
@@ -86,6 +93,7 @@ export function loadGas(opts = {}) {
       }),
     },
     LockService: { getScriptLock: lock },
+    CacheService: { getScriptCache: () => ({ get: (k) => cache[k] ?? null, put: (k, v) => { cache[k] = v; }, remove: (k) => { delete cache[k]; } }) },
     ContentService: {
       MimeType: { JSON: 'json' },
       createTextOutput: (s) => ({ _s: s, setMimeType() { return this; }, getContent() { return this._s; } }),
@@ -93,6 +101,12 @@ export function loadGas(opts = {}) {
     Utilities: {
       base64Decode: (b64) => Array.from(Buffer.from(b64, 'base64')).map(x => (x > 127 ? x - 256 : x)),
       newBlob: (bytes, type, name) => blob(bytes, type, name),
+      computeHmacSha256Signature: (value, key) => toBytes(crypto.createHmac('sha256', key).update(value).digest()),
+      computeDigest: (alg, value) => toBytes(crypto.createHash('sha256').update(value).digest()),
+      DigestAlgorithm: { SHA_256: 'SHA_256' },
+      base64EncodeWebSafe: (x) => toBuf(x).toString('base64').replace(/\+/g, '-').replace(/\//g, '_'),
+      base64DecodeWebSafe: (s) => toBytes(Buffer.from(String(s).replace(/-/g, '+').replace(/_/g, '/'), 'base64')),
+      getUuid: () => crypto.randomUUID(),
       formatDate: (d, tz, f) => (f === 'yyyy-MM-dd' ? d.toISOString().slice(0, 10) : d.toISOString().slice(2, 10).replace(/-/g, '')),
     },
     DriveApp: {

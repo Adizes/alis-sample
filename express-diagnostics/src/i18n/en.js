@@ -16,7 +16,6 @@ ED_I18N.en = {
     keyboardHint: 'Keys 1–4 · 0 = I cannot answer',
     of: 'of',
     section: 'Area',
-    language: 'Language',
     resume: 'Welcome back. Your answers so far are saved.',
     resumeYes: 'Continue where I left off',
     resumeNo: 'Start over',
@@ -98,12 +97,16 @@ ED_I18N.en = {
 
   review: {
     eyebrow: 'Last step',
-    title: 'Ready to send',
-    body: 'You rated all 67 statements.',
+    title: 'Review your answers',
+    body: 'You rated all {n} statements.',
     cannot: '{n} marked as “I cannot answer”.',
-    warn: 'Once sent, your answers can’t be changed.',
+    missingN: '{n} statements still need an answer.',
+    missingHelp: 'Click any statement to answer or change it.',
+    missing: 'Not answered',
+    warn: 'Click any statement to change your answer. Once sent, your answers can’t be changed.',
     submit: 'Send my answers',
-    edit: 'Review my answers',
+    hint: 'You can also send from the bottom of the list.',
+    back: 'Back to review',
   },
   thanks: {
     title: 'Thank you, {first}',

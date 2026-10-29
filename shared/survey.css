@@ -1,0 +1,90 @@
+/* Participant survey (shared by Express Diagnostics and Engagement Survey), on top of shared/ui.css. */
+
+/* ---------- Statement screen ---------- */
+__ROOT__ .adz-qhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+__ROOT__ .adz-count { font-size: 13px; font-weight: 600; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+__ROOT__ .adz-q { font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 600; margin: 16px 0 26px; min-height: 2.6em; }
+__ROOT__ .adz-scale { display: grid; gap: 10px; }
+__ROOT__ .adz-opt {
+  display: flex; align-items: center; gap: 16px; width: 100%; padding: 13px 16px; text-align: left;
+  border: 1px solid #d6d6d6; border-radius: 8px; background: var(--white); transition: border-color .15s, background .15s;
+}
+__ROOT__ .adz-opt:hover { border-color: var(--ink); }
+__ROOT__ .adz-opt[aria-checked="true"] { border-color: var(--red); background: var(--red-tint); box-shadow: inset 0 0 0 1px var(--red); }
+__ROOT__ .adz-key {
+  flex: none; width: 28px; height: 28px; border-radius: 6px; border: 1px solid #d6d6d6; display: grid; place-items: center;
+  font-size: 12.5px; font-weight: 700; color: var(--muted);
+}
+__ROOT__ .adz-opt[aria-checked="true"] .adz-key { background: var(--red); border-color: var(--red); color: var(--white); }
+__ROOT__ .adz-opt-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+__ROOT__ .adz-opt-t b { font-size: 16px; font-weight: 600; }
+__ROOT__ .adz-opt-t small { font-size: 13px; color: var(--muted); }
+__ROOT__ .adz-opt.is-pop { animation: adzPop .28s ease; }
+@keyframes adzPop { 50% { transform: scale(.985); } }
+__ROOT__ .adz-cannot {
+  margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 6px 2px;
+  border-bottom: 1px dashed #c4c4c4;
+}
+__ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink); }
+__ROOT__ .adz-cannot[aria-pressed="true"] { color: var(--red); border-bottom-color: var(--red); }
+__ROOT__ .adz-cannot[aria-pressed="true"]::before { content: '● '; }
+
+
+/* ---------- Importance + comment (Engagement Survey) ---------- */
+__ROOT__ .adz-imp { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); }
+__ROOT__ .adz-imp-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 14px; margin-bottom: 10px; }
+__ROOT__ .adz-imp-h b { font-size: 15px; font-weight: 600; }
+__ROOT__ .adz-imp-c { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+__ROOT__ .adz-imp-c.is-full { color: var(--red); font-weight: 600; }
+__ROOT__ .adz-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #d6d6d6; border-radius: 8px; overflow: hidden; }
+__ROOT__ .adz-seg button { padding: 11px 8px; font-size: 14px; font-weight: 600; color: var(--muted); border-left: 1px solid #d6d6d6; background: var(--white); }
+__ROOT__ .adz-seg button:first-child { border-left: 0; }
+__ROOT__ .adz-seg button:hover { color: var(--ink); }
+__ROOT__ .adz-seg button[aria-checked="true"] { background: var(--ink); color: var(--white); }
+__ROOT__ .adz-seg button[data-imp="3"][aria-checked="true"] { background: var(--red); }
+__ROOT__ .adz-seg button:disabled { opacity: .4; cursor: not-allowed; }
+__ROOT__ .adz-imp-note { font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+__ROOT__ .adz-com { margin-top: 18px; }
+__ROOT__ .adz-com-btn { font-size: 14px; font-weight: 600; color: var(--muted); padding: 4px 0; }
+__ROOT__ .adz-com-btn:hover { color: var(--ink); }
+__ROOT__ .adz-com-ta { display: block; width: 100%; min-height: 84px; padding: 11px 13px; border: 1px solid #cfcfcf; border-radius: 8px; font-size: 15px; line-height: 1.5; resize: vertical; background: var(--white); }
+__ROOT__ .adz-com-ta:focus { outline: none; border-color: var(--ink); }
+
+/* ---------- Review (all answers) ---------- */
+__ROOT__ .adz-screen.is-wide { max-width: 860px; }
+__ROOT__ .adz-body.is-top { align-items: flex-start; }
+__ROOT__ .adz-warn { margin-top: 10px; font-size: 14.5px; color: var(--red); font-weight: 600; }
+__ROOT__ .adz-rv-actions { margin-top: 20px; }
+__ROOT__ .adz-rv { margin-top: 26px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+__ROOT__ .adz-rv-h { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--red); padding: 14px 16px 8px; background: #fafafa; border-bottom: 1px solid var(--line); }
+__ROOT__ .adz-rv-sec + .adz-rv-sec .adz-rv-h { border-top: 1px solid var(--line); }
+__ROOT__ .adz-rv-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) minmax(120px, auto); gap: 12px; align-items: center; width: 100%; padding: 11px 16px; text-align: left; border-bottom: 1px solid #f0f0f0; background: var(--white); }
+__ROOT__ .adz-rv-row:last-child { border-bottom: 0; }
+__ROOT__ .adz-rv-row:hover { background: #fafafa; }
+__ROOT__ .adz-rv-row:hover .adz-rv-a { text-decoration: underline; }
+__ROOT__ .adz-rv-n { font-size: 12px; font-weight: 700; color: var(--soft); font-variant-numeric: tabular-nums; }
+__ROOT__ .adz-rv-t { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+__ROOT__ .adz-rv-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+__ROOT__ .adz-tag { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 10px; background: var(--paper); color: var(--muted); }
+__ROOT__ .adz-tag.is-most { background: var(--red-tint); color: var(--red); }
+__ROOT__ .adz-rv-a { font-size: 13.5px; font-weight: 700; text-align: right; color: var(--ink); }
+__ROOT__ .adz-rv-a.is-cannot { color: var(--muted); font-weight: 600; }
+__ROOT__ .adz-rv-row.is-missing .adz-rv-a { color: var(--red); }
+
+/* ---------- Messages ---------- */
+__ROOT__ .adz-hello { font-size: 18px; font-weight: 600; margin-top: 14px; }
+__ROOT__ .adz-hello + .adz-h1 { margin-top: 4px; }
+__ROOT__ .adz-msg { max-width: 640px; }
+__ROOT__ .adz-msg--done { text-align: center; margin: 0 auto; }
+__ROOT__ .adz-msg--done .adz-lead { margin: 0 auto; }
+__ROOT__ .adz-check { width: 56px; height: 56px; border-radius: 50%; background: var(--red); margin: 0 auto 8px; position: relative; }
+__ROOT__ .adz-check::after { content: ''; position: absolute; left: 20px; top: 14px; width: 12px; height: 22px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }
+
+@media (max-width: 640px) {
+  __ROOT__ .adz-hint--keys { display: none; }
+  __ROOT__ .adz-q { min-height: 0; }
+  __ROOT__ .adz-opt { padding: 12px 14px; }
+  __ROOT__ .adz-rv-row { grid-template-columns: 26px minmax(0, 1fr); padding: 11px 12px; }
+  __ROOT__ .adz-rv-a { grid-column: 2; text-align: left; }
+  __ROOT__ .adz-seg button { font-size: 12.5px; padding: 11px 4px; }
+}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@ a { color: inherit; }
 .adm-nav a { text-decoration: none; padding: 8px 12px; border-radius: 6px; font-weight: 600; color: var(--muted); }
 .adm-nav a:hover { color: var(--ink); background: var(--paper); }
 .adm-nav a.is-on { color: var(--ink); background: var(--paper); box-shadow: inset 0 -2px 0 var(--red); }
-.adm-me { font-size: 12px; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+.adm-me { font-size: 12px; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; margin-left: auto; }
 .adm-main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 80px; }
 .adm-boot { min-height: 60vh; display: grid; place-items: center; }
 .adm-spinner { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: spin .8s linear infinite; }
@@ -68,7 +68,11 @@ a { color: inherit; }
 .empty { padding: 34px 20px; text-align: center; color: var(--muted); }
 .empty b { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
 .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
-.input, .select, .textarea { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid #cfcfcf; border-radius: 6px; background: var(--white); }
+.input, .select, .textarea { display: block; width: 100%; padding: 0 12px; border: 1px solid #cfcfcf; border-radius: 6px; background: var(--white); font-size: 14px; }
+.input, .select { height: 42px; }
+.select { padding-right: 30px; -webkit-appearance: none; appearance: none; background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236b6f76' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 12px center; }
+.textarea { padding: 10px 12px; }
+.input::placeholder, .textarea::placeholder { color: #a8a8a8; }
 .input:focus, .select:focus, .textarea:focus { border-color: var(--ink); outline: none; }
 .textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
 .toolbar .input { max-width: 300px; }
@@ -117,16 +121,22 @@ a { color: inherit; }
 .report { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; }
 .report > div { padding: 20px; }
 .report > div + div { border-left: 1px solid var(--line); }
-.field { display: grid; gap: 6px; margin-bottom: 14px; }
-.field label { font-size: 12.5px; font-weight: 600; }
-.field .hint { font-size: 12px; color: var(--soft); }
+.field { display: grid; gap: 6px; margin-bottom: 16px; align-content: start; min-width: 0; }
+.field label { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.field .hint, .hint { font-size: 12px; line-height: 1.45; color: var(--muted); }
+.hint-row { margin: -6px 0 16px; }
+.fgrid { display: grid; gap: 0 14px; align-items: start; }
+.fgrid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fgrid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fgrid .field { margin-bottom: 16px; }
+.lead-p { font-size: 14px; line-height: 1.55; color: var(--ink-2); margin-bottom: 14px; }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .pdf-ok { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; margin: 10px 0 14px; }
 .pdf-ok i { width: 34px; height: 40px; border-radius: 4px; background: var(--red); position: relative; flex: none; }
 .pdf-ok i::after { content: 'PDF'; position: absolute; bottom: 5px; left: 0; right: 0; text-align: center; color: #fff; font: 800 9px Montserrat, Arial; }
 .modal-bg { position: fixed; inset: 0; background: rgba(17, 17, 17, .45); z-index: 50; display: flex; align-items: flex-start; justify-content: center; padding: 6vh 16px 16px; overflow-y: auto; animation: fade .15s ease; }
-.modal { background: var(--white); border-radius: 12px; width: 100%; max-width: 560px; box-shadow: 0 20px 60px rgba(0, 0, 0, .25); }
-.modal.is-wide { max-width: 760px; }
+.modal { background: var(--white); border-radius: 12px; width: 100%; max-width: 600px; box-shadow: 0 20px 60px rgba(0, 0, 0, .25); }
+.modal.is-wide { max-width: 800px; }
 .modal-h { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; border-bottom: 1px solid var(--line); }
 .modal-h h3 { font-size: 17px; font-weight: 700; }
 .modal-b { padding: 20px 22px; max-height: 66vh; overflow-y: auto; }
@@ -142,10 +152,36 @@ a { color: inherit; }
 .pick .small { margin-left: auto; text-align: right; }
 .err { color: var(--red); font-size: 12.5px; }
 .types { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.types label { border: 1px solid #cfcfcf; border-radius: 8px; padding: 12px 14px; cursor: pointer; display: block; }
+.types label { border: 1px solid #cfcfcf; border-radius: 8px; padding: 14px; cursor: pointer; display: flex; gap: 10px; align-items: flex-start; font-weight: 400; }
 .types label:has(input:checked) { border-color: var(--red); box-shadow: inset 0 0 0 1px var(--red); background: var(--red-tint); }
-.types input { accent-color: var(--red); margin-right: 6px; }
-.types small { display: block; color: var(--muted); margin-top: 4px; }
+.types input { accent-color: var(--red); margin-top: 3px; flex: none; width: 16px; height: 16px; }
+.types b { display: block; font-size: 14px; }
+.types small { display: block; color: var(--muted); margin-top: 4px; font-size: 12px; line-height: 1.45; }
+.pick-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+.pick-tools .input { flex: 1 1 240px; width: auto; }
+.pick .pick-n { display: grid; min-width: 0; }
+.pick .pick-n b { font-weight: 600; }
+.pick .pick-a { margin-left: auto; text-align: right; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.login { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; }
+.login-card { width: 100%; max-width: 400px; padding: 30px 28px; }
+.login-logo { height: 34px; display: block; margin-bottom: 22px; }
+.login-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.login-card p { margin-bottom: 18px; font-size: 13.5px; }
+.login-card input[name="code"] { font-size: 22px; letter-spacing: .3em; text-align: center; font-weight: 700; }
+.login-card .err { margin: -6px 0 10px; min-height: 0; }
+.btn-block { width: 100%; margin-top: 4px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.tab { padding: 10px 14px; font-weight: 600; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; display: inline-flex; align-items: center; gap: 6px; }
+.tab:hover { color: var(--ink); }
+.tab.is-on { color: var(--ink); border-bottom-color: var(--red); }
+.tab-n { font-size: 11px; font-weight: 700; background: var(--paper); border-radius: 10px; padding: 1px 7px; color: var(--muted); }
+.tsecs { display: grid; gap: 14px; }
+.tsec-h { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.tsec-h b { font-size: 15px; margin: 0 4px; }
+.empty-sm { padding: 18px; font-size: 13px; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px; }
+.pill { font-size: 12px; padding: 3px 10px; border-radius: 14px; background: var(--white); border: 1px solid var(--line); }
+.pill b { color: var(--muted); margin-left: 3px; }
 .linkbox { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; }
 .adm-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 30px); opacity: 0; background: var(--ink); color: var(--white); padding: 11px 18px; border-radius: 8px; font-weight: 600; font-size: 13.5px; z-index: 60; transition: all .2s ease; pointer-events: none; max-width: calc(100vw - 32px); }
 .adm-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
@@ -160,7 +196,7 @@ a { color: inherit; }
 .kpis { grid-template-columns: 1fr 1fr; }
 .report { grid-template-columns: 1fr; }
 .report > div + div { border-left: 0; border-top: 1px solid var(--line); }
-.row2 { grid-template-columns: 1fr; }
+.row2, .fgrid-2, .fgrid-3 { grid-template-columns: 1fr; }
 .toolbar .input { max-width: none; }
 .tbl thead { display: none; }
 .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
@@ -180,13 +216,14 @@ a { color: inherit; }
 <div id="toast" class="adm-toast" role="status" aria-live="polite"></div>
 <script>
   window.ADM_CONFIG = {
-    version: '1.0.0',
-    assetsBase: 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@v1.0.0/shared/assets/'
+    version: '1.1.0',
+    autoSession: '__AUTO_SESSION__',
+    assetsBase: 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@v1.1.0/shared/assets/'
   };
 </script>
 <script>(function(){
 'use strict';
-var ED_I18N = {};
+var ED_I18N = {}, ES_I18N = {};
 /* Express Diagnostics — English
  * To add a language: copy this file (e.g. pt.js), change `ED_I18N.en` to `ED_I18N.pt`, translate every
  * string and keep the keys. The order of `questions` must not change (it is the scoring order).
@@ -205,7 +242,6 @@ ED_I18N.en = {
     keyboardHint: 'Keys 1–4 · 0 = I cannot answer',
     of: 'of',
     section: 'Area',
-    language: 'Language',
     resume: 'Welcome back. Your answers so far are saved.',
     resumeYes: 'Continue where I left off',
     resumeNo: 'Start over',
@@ -287,12 +323,16 @@ ED_I18N.en = {
 
   review: {
     eyebrow: 'Last step',
-    title: 'Ready to send',
-    body: 'You rated all 67 statements.',
+    title: 'Review your answers',
+    body: 'You rated all {n} statements.',
     cannot: '{n} marked as “I cannot answer”.',
-    warn: 'Once sent, your answers can’t be changed.',
+    missingN: '{n} statements still need an answer.',
+    missingHelp: 'Click any statement to answer or change it.',
+    missing: 'Not answered',
+    warn: 'Click any statement to change your answer. Once sent, your answers can’t be changed.',
     submit: 'Send my answers',
-    edit: 'Review my answers',
+    hint: 'You can also send from the bottom of the list.',
+    back: 'Back to review',
   },
   thanks: {
     title: 'Thank you, {first}',
@@ -413,7 +453,6 @@ ED_I18N.es = {
     keyboardHint: 'Teclas 1–4 · 0 = No puedo responder',
     of: 'de',
     section: 'Área',
-    language: 'Idioma',
     resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
     resumeYes: 'Continuar donde me quedé',
     resumeNo: 'Empezar de nuevo',
@@ -494,12 +533,16 @@ ED_I18N.es = {
 
   review: {
     eyebrow: 'Último paso',
-    title: 'Listo para enviar',
-    body: 'Calificaste las 67 afirmaciones.',
+    title: 'Revisa tus respuestas',
+    body: 'Calificaste las {n} afirmaciones.',
     cannot: '{n} como “No puedo responder”.',
-    warn: 'Una vez enviadas, tus respuestas ya no se pueden cambiar.',
+    missingN: 'Faltan {n} afirmaciones por responder.',
+    missingHelp: 'Haz clic en cualquier afirmación para responderla o cambiarla.',
+    missing: 'Sin responder',
+    warn: 'Haz clic en cualquier afirmación para cambiar tu respuesta. Una vez enviadas, ya no se pueden cambiar.',
     submit: 'Enviar mis respuestas',
-    edit: 'Revisar mis respuestas',
+    hint: 'También puedes enviarlas al final de la lista.',
+    back: 'Volver a la revisión',
   },
   thanks: {
     title: 'Gracias, {first}',
@@ -600,6 +643,396 @@ ED_I18N.es = {
     { t: "Nuestra participación de mercado ha estado creciendo durante los últimos tres años", z2: "Nuestra participación de mercado ha crecido poco en los últimos tres años", z3: "Nuestra participación de mercado no ha estado creciendo durante los últimos tres años" },
     { t: "Nuestro volumen de ventas ha estado creciendo durante los últimos tres años", z2: "Nuestro volumen de ventas ha crecido poco en los últimos tres años", z3: "Nuestro volumen de ventas no ha crecido en los últimos tres años" },
     { t: "Nuestros clientes nos recomiendan", z2: "Nuestros clientes no siempre nos recomiendan", z3: "Nuestros clientes raramente nos recomiendan" },
+  ],
+};
+
+/* Engagement Survey — English
+ * To add a language: copy this file (e.g. pt.js), change `ES_I18N.en` to `ES_I18N.pt`, translate every
+ * string and keep the keys. Never change the order of `questions` or the `value`s of the scales
+ * (they are what is stored and scored; 5 is always the most positive answer).
+ */
+ES_I18N.en = {
+  code: 'en',
+  langName: 'English',
+  locale: 'en-US',
+
+  ui: {
+    start: 'Start',
+    back: 'Back',
+    next: 'Next',
+    pressEnter: 'press Enter ↵',
+    keyboardHint: 'Keys 1–{n} · 0 = Don’t know',
+    of: 'of',
+    section: 'Area',
+    resume: 'Welcome back. Your answers so far are saved.',
+    resumeYes: 'Continue where I left off',
+    resumeNo: 'Start over',
+    loading: 'Loading…',
+    sending: 'Sending your answers…',
+    errorGeneric: 'Something went wrong. Please check your connection and try again.',
+    retry: 'Try again',
+    importance: 'How important is this question for you?',
+    imp: ['Less important', 'Medium', 'Most important'],
+    mostCount: 'Most important: {n} of {max}',
+    mostFull: 'You already chose 15 questions as most important. Change one of them to use it here.',
+    comment: 'Add a comment (optional)',
+    commentPh: 'Your comment… It is shared anonymously, word for word.',
+  },
+
+  intro: {
+    eyebrow: 'Engagement Survey',
+    title: '{company} wants to hear from you',
+    body: '{company} is running an engagement survey together with the Adizes Institute. You will answer {n} questions about your daily work and the organization.',
+    bullets: [
+      'The survey is anonymous: answers are combined, and {company} never sees anyone’s individual answers.',
+      'For each question, say how important it is to you. Mark up to 15 as “Most important” (at least one).',
+      'You can add a comment to any question. Comments are shared word for word without your name, so avoid details that identify you.',
+      'It takes about 10–15 minutes. You can pause and continue later with the same link.',
+    ],
+    note: 'Answer for how things actually are today. If you have no basis to answer, choose “Don’t know”.',
+    deadline: 'Open until {date}',
+    meta: '{n} questions · about 10–15 minutes · anonymous',
+  },
+
+  review: {
+    eyebrow: 'Last step',
+    title: 'Review your answers',
+    body: 'You answered all {n} questions.',
+    cannot: '{n} as “Don’t know”.',
+    most: 'Most important: {n} of {max}.',
+    needMost: 'Mark at least {min} question as “Most important” before sending (open any question to change it).',
+    missingN: '{n} questions still need an answer.',
+    missingHelp: 'Click any question to answer or change it.',
+    missing: 'Not answered',
+    commented: 'Comment',
+    warn: 'Click any question to change your answer, its importance or your comment. Once sent, your answers can’t be changed.',
+    submit: 'Send my answers',
+    hint: 'You can also send from the bottom of the list.',
+    back: 'Back to review',
+  },
+  thanks: {
+    title: 'Thank you',
+    body: 'Your answers have been recorded anonymously. Thank you for taking the time to participate. You can close this window.',
+  },
+  states: {
+    noToken: { title: 'You need your personal link', body: 'To answer, open the link you received in your invitation email.' },
+    invalid_link: { title: 'This link isn’t valid', body: 'Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com.' },
+    completed: { title: 'You have already answered', body: 'Your answers were recorded. Thank you for participating.' },
+    closed: { title: 'This survey is closed', body: 'Answers are no longer being collected. If you think this is a mistake, contact the person who invited you.' },
+    not_open: { title: 'This survey isn’t open yet', body: 'Please try again later from the same link.' },
+  },
+
+  dontKnow: 'Don’t know',
+  // value = raw number stored (5 = most positive). Q5 and Q45 are negative statements: their labels run backwards.
+  scales: {
+    F: [{ value: 2, label: 'Never', sub: 'Absolutely disagree' }, { value: 3, label: 'Sometimes', sub: 'Mostly disagree' }, { value: 4, label: 'Often', sub: 'Mostly agree' }, { value: 5, label: 'Always', sub: 'Absolutely agree' }],
+    A: [{ value: 2, label: 'Absolutely disagree', sub: 'Never' }, { value: 3, label: 'Mostly disagree', sub: 'Sometimes' }, { value: 4, label: 'Mostly agree', sub: 'Often' }, { value: 5, label: 'Absolutely agree', sub: 'Always' }],
+    FR: [{ value: 5, label: 'Never', sub: 'Absolutely disagree' }, { value: 4, label: 'Sometimes', sub: 'Mostly disagree' }, { value: 3, label: 'Often', sub: 'Mostly agree' }, { value: 2, label: 'Always', sub: 'Absolutely agree' }],
+    AR: [{ value: 5, label: 'Absolutely disagree', sub: 'Never' }, { value: 4, label: 'Mostly disagree', sub: 'Sometimes' }, { value: 3, label: 'Mostly agree', sub: 'Often' }, { value: 2, label: 'Absolutely agree', sub: 'Always' }],
+    S: [{ value: 2, label: 'Absolutely dissatisfied' }, { value: 3, label: 'Mostly dissatisfied' }, { value: 4, label: 'Mostly satisfied' }, { value: 5, label: 'Absolutely satisfied' }],
+    C: [{ value: 1, label: 'Significantly deteriorated' }, { value: 2, label: 'Slightly deteriorated' }, { value: 3, label: 'No tangible changes' }, { value: 4, label: 'Slightly improved' }, { value: 5, label: 'Significantly improved' }],
+  },
+
+  cells: {
+    values: 'Values', climate: 'Climate', styles: 'Styles', responsibility: 'Responsibility Structure', authority: 'Authority Structure',
+    reward: 'Reward Structure', supervisor: 'Supervisor', planning: 'Planning', information: 'Information flow', client: 'Client interface',
+    transformation: 'Transformation', human: 'Human factors', behaviour: 'Behaviour', changes: 'Changes', inefficiency: 'Inefficiency',
+  },
+
+  levels: {
+    fully: { name: 'Fully engaged', desc: ['passionate about their work and the organization', 'will do whatever it takes to deliver results', 'deliver consistent high quality results', 'find non-standard and innovative solutions to the toughest problems', 'seen as a leader and a role model'] },
+    engaged: { name: 'Engaged', desc: ['focused on achieving results, projects, individual responsibilities', 'deliver good, solid performance', 'always do their fair share of work', 'work well with others and help others when asked'] },
+    somewhat: { name: 'Somewhat engaged', desc: ['selective about where they put their energy', 'spend a lot of time doing things that are not helping clients and/or the organization', 'deliver when they have to or when you are watching them', 'have a negative influence on others'] },
+    disengaged: { name: 'Disengaged', desc: ['work only when they have to', 'would like to be doing something else', 'results are not meeting the standards', 'have a “we and they” perspective', 'are negative about the organization, and in their interactions with clients and colleagues'] },
+  },
+
+  pdf: {
+    title: 'Engagement Survey',
+    subtitle: 'Report',
+    company: 'Company',
+    launch: 'Survey',
+    date: 'Date of the report',
+    responses: 'Responses',
+    of: 'of',
+    invited: 'invited',
+    anon: 'The survey is anonymous. Results are only shown in aggregate, and groups with fewer than 5 answers are never shown on their own.',
+    contents: 'Contents',
+    toc: ['Distribution by engagement level', 'Engagement by area', 'Organizational factors', 'What matters most to employees', 'All questions', 'Comments'],
+    levelsTitle: 'Distribution by engagement level',
+    levelsHelp: 'Each participant is classified from all their answers and from the questions they marked as most important.',
+    positive: 'Fully engaged + Engaged',
+    people: 'people',
+    byAreaTitle: 'Engagement by area',
+    byAreaHelp: 'Only areas with 5 or more answers are shown. Smaller areas are combined into “Other areas” when together they reach 5.',
+    company_col: 'Company',
+    other: 'Other areas',
+    hidden: '{n} answers from areas with fewer than 5 people are counted only in the company total.',
+    noAreas: 'No area has 5 or more answers yet, so results by area are not shown.',
+    respondents: 'Respondents',
+    factorsTitle: 'Organizational factors',
+    factorsHelp: 'Score of each factor from the answers (“Don’t know” not counted), with the same method as the Adizes diagnostic matrix. 75% or more is healthy; under 50% is an anomaly.',
+    groups: { culture: 'Organizational culture', structure: 'Structure', process: 'Process', functions: 'Organizational functions', effects: 'Effects' },
+    colors: { green: 'All OK', yellow: 'Attention zone', red: 'Anomaly zone' },
+    topTitle: 'What matters most to employees',
+    topHelp: 'The questions most often marked as “Most important”, and how they were answered.',
+    mostPct: 'most important',
+    distTitle: 'All questions',
+    distHelp: 'Distribution of answers (%) and, in red on the right, the share of respondents who marked each question as most important.',
+    legend: { 5: 'Always / Absolutely agree', 4: 'Often / Mostly agree', 3: 'Sometimes / Mostly disagree', 2: 'Never / Absolutely disagree', 1: 'Don’t know' },
+    q50: 'Green is always the most positive answer: for the negative statements 5 and 45 that is “Never” / “Absolutely disagree”. Question 50 uses its own scale (significantly improved → significantly deteriorated).',
+    commentsTitle: 'Comments',
+    commentsHelp: 'Written by participants, anonymous and word for word.',
+    noComments: 'No comments were left.',
+    footer: 'Adizes Institute · Engagement Survey',
+    page: 'Page',
+    cont: 'cont.',
+  },
+
+  questions: [
+    "Our leaders follow the values declared in the Organization",
+    "Our Organization fully fulfils its obligations to employees",
+    "The Organization values and supports new ideas",
+    "I feel comfortable with the atmosphere in the Organization",
+    "We have an “every man for himself” culture",
+    "I am praised and appreciated when I do good work",
+    "We respect each other",
+    "The behavior shown by the supervisors in our organization contributes to a healthy working environment, the achievement of goals and the development of the organization",
+    "I clearly understand my work tasks and understand my role in the activities of my department",
+    "I understand what should guide me in carrying out my work: policies, regulations, rules, professional standards, etc",
+    "I know who I can go to with questions",
+    "I understand what decisions I have the right to make",
+    "Decision-making on issues that affect me takes place in a timely and predictable way",
+    "I have enough authority to be responsible for the results of my work",
+    "I believe that the level of income that I get in the Organization is competitive",
+    "I understand what the variable part of my income depends on",
+    "I believe that I am able to influence both my fixed and variable income to a rather high degree",
+    "My benefits package is competitive in the market",
+    "I can discuss personal issues with my supervisor",
+    "My supervisor treats me as an individual",
+    "My supervisor encourages my professional development",
+    "My supervisor talks to me about my progress on a regular basis",
+    "My supervisor gives quality and motivating feedback - I always know what he thinks about me and my work",
+    "The tasks that the supervisor sets for me are clear and realistic",
+    "I feel comfortable asking clarifying questions to my supervisor",
+    "I believe that the decisions made by my supervisor are correct and useful to the Organization",
+    "My supervisor carefully listens to me and takes into account my point of view",
+    "I know and understand the long-term goals of the Organization",
+    "I am inspired by the goals of our Organization. We are engaged in important and useful work",
+    "I understand how the results of my work affect the overall result of the Organization",
+    "I have the opportunity to be heard",
+    "I have enough information about what is happening in the Organization to do my work",
+    "I know who the target market is (internal or external customer). I know what needs we can satisfy with what products or services",
+    "We know our market (internal or external customers) well, we monitor trends and needs and we constantly think about how we can serve our market (internal or external customers) better",
+    "I have a comfortable working environment",
+    "I have all the necessary technical resources to do my job well",
+    "The work processes which I participate in are systematized and well organized",
+    "We are committed to improving our work processes and applied technologies",
+    "I am satisfied with the quality of the work that other units provide",
+    "My work over the past 12 months has allowed me to improve/develop my knowledge, skills and abilities",
+    "I know under what conditions (what to do, what to learn, what to achieve), I can “grow” in the Organization",
+    "Does your work, within this Organization, satisfy you?",
+    "I feel valued and appreciated in the Organization",
+    "The work that I actually do is interesting and enjoyable for me",
+    "I plan on leaving the Organization within the next year",
+    "I recommend our Organization to my friends and acquaintances as a good employer",
+    "I am proud to work in the Organization",
+    "Our Organization moves with the times (products, technologies, processes)",
+    "I believe that the potential of employees, their skills, knowledge and abilities are effectively used in the Organization",
+    "Based on your overall previous answers, do you think the situation in the Organization as a whole has changed over the last year?",
+  ],
+};
+
+/* Engagement Survey — Español
+ * Para agregar un idioma: copia en.js (por ejemplo pt.js), cambia `ES_I18N.en` por `ES_I18N.pt`, traduce
+ * cada texto y conserva las claves. No cambies el orden de `questions` ni los `value` de las escalas.
+ */
+ES_I18N.es = {
+  code: 'es',
+  langName: 'Español',
+  locale: 'es-MX',
+
+  ui: {
+    start: 'Comenzar',
+    back: 'Atrás',
+    next: 'Siguiente',
+    pressEnter: 'presiona Enter ↵',
+    keyboardHint: 'Teclas 1–{n} · 0 = No sé',
+    of: 'de',
+    section: 'Área',
+    resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
+    resumeYes: 'Continuar donde me quedé',
+    resumeNo: 'Empezar de nuevo',
+    loading: 'Cargando…',
+    sending: 'Enviando tus respuestas…',
+    errorGeneric: 'Algo salió mal. Revisa tu conexión e inténtalo de nuevo.',
+    retry: 'Intentar de nuevo',
+    importance: '¿Qué tan importante es esta pregunta para ti?',
+    imp: ['Poco importante', 'Importante', 'Lo más importante'],
+    mostCount: 'Lo más importante: {n} de {max}',
+    mostFull: 'Ya elegiste 15 preguntas como lo más importante. Cambia una de ellas para usarla aquí.',
+    comment: 'Agregar un comentario (opcional)',
+    commentPh: 'Tu comentario… Se comparte de forma anónima, tal cual lo escribas.',
+  },
+
+  intro: {
+    eyebrow: 'Encuesta de Compromiso',
+    title: '{company} quiere escucharte',
+    body: '{company} está realizando una encuesta de compromiso junto con el Instituto Adizes. Responderás {n} preguntas sobre tu trabajo diario y la organización.',
+    bullets: [
+      'La encuesta es anónima: las respuestas se combinan y {company} nunca ve las respuestas individuales.',
+      'En cada pregunta indica qué tan importante es para ti. Marca hasta 15 como “Lo más importante” (al menos una).',
+      'Puedes dejar un comentario en cualquier pregunta. Los comentarios se comparten tal cual, sin tu nombre; evita detalles que te identifiquen.',
+      'Toma de 10 a 15 minutos. Puedes pausar y continuar después con el mismo enlace.',
+    ],
+    note: 'Responde según cómo son las cosas hoy. Si no tienes elementos para responder, elige “No sé”.',
+    deadline: 'Disponible hasta el {date}',
+    meta: '{n} preguntas · 10 a 15 minutos · anónima',
+  },
+
+  review: {
+    eyebrow: 'Último paso',
+    title: 'Revisa tus respuestas',
+    body: 'Respondiste las {n} preguntas.',
+    cannot: '{n} como “No sé”.',
+    most: 'Lo más importante: {n} de {max}.',
+    needMost: 'Marca al menos {min} pregunta como “Lo más importante” antes de enviar (abre cualquier pregunta para cambiarlo).',
+    missingN: 'Faltan {n} preguntas por responder.',
+    missingHelp: 'Haz clic en cualquier pregunta para responderla o cambiarla.',
+    missing: 'Sin responder',
+    commented: 'Comentario',
+    warn: 'Haz clic en cualquier pregunta para cambiar tu respuesta, su importancia o tu comentario. Una vez enviadas, ya no se pueden cambiar.',
+    submit: 'Enviar mis respuestas',
+    hint: 'También puedes enviarlas al final de la lista.',
+    back: 'Volver a la revisión',
+  },
+  thanks: {
+    title: 'Gracias',
+    body: 'Tus respuestas quedaron registradas de forma anónima. Gracias por tomarte el tiempo de participar. Ya puedes cerrar esta ventana.',
+  },
+  states: {
+    noToken: { title: 'Necesitas tu enlace personal', body: 'Para responder, abre el enlace que recibiste en tu correo de invitación.' },
+    invalid_link: { title: 'Este enlace no es válido', body: 'Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com.' },
+    completed: { title: 'Ya respondiste', body: 'Tus respuestas quedaron registradas. Gracias por participar.' },
+    closed: { title: 'Esta encuesta ya cerró', body: 'Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó.' },
+    not_open: { title: 'Esta encuesta aún no está abierta', body: 'Inténtalo más tarde con el mismo enlace.' },
+  },
+
+  dontKnow: 'No sé',
+  scales: {
+    F: [{ value: 2, label: 'Nunca', sub: 'Totalmente en desacuerdo' }, { value: 3, label: 'A veces', sub: 'Mayormente en desacuerdo' }, { value: 4, label: 'A menudo', sub: 'Mayormente de acuerdo' }, { value: 5, label: 'Siempre', sub: 'Totalmente de acuerdo' }],
+    A: [{ value: 2, label: 'Totalmente en desacuerdo', sub: 'Nunca' }, { value: 3, label: 'Mayormente en desacuerdo', sub: 'A veces' }, { value: 4, label: 'Mayormente de acuerdo', sub: 'A menudo' }, { value: 5, label: 'Totalmente de acuerdo', sub: 'Siempre' }],
+    FR: [{ value: 5, label: 'Nunca', sub: 'Totalmente en desacuerdo' }, { value: 4, label: 'A veces', sub: 'Mayormente en desacuerdo' }, { value: 3, label: 'A menudo', sub: 'Mayormente de acuerdo' }, { value: 2, label: 'Siempre', sub: 'Totalmente de acuerdo' }],
+    AR: [{ value: 5, label: 'Totalmente en desacuerdo', sub: 'Nunca' }, { value: 4, label: 'Mayormente en desacuerdo', sub: 'A veces' }, { value: 3, label: 'Mayormente de acuerdo', sub: 'A menudo' }, { value: 2, label: 'Totalmente de acuerdo', sub: 'Siempre' }],
+    S: [{ value: 2, label: 'Totalmente insatisfecho' }, { value: 3, label: 'Mayormente insatisfecho' }, { value: 4, label: 'Mayormente satisfecho' }, { value: 5, label: 'Totalmente satisfecho' }],
+    C: [{ value: 1, label: 'Empeoró significativamente' }, { value: 2, label: 'Empeoró ligeramente' }, { value: 3, label: 'Sin cambios tangibles' }, { value: 4, label: 'Mejoró ligeramente' }, { value: 5, label: 'Mejoró significativamente' }],
+  },
+
+  cells: {
+    values: 'Valores', climate: 'Clima', styles: 'Estilos', responsibility: 'Estructura de responsabilidad', authority: 'Estructura de autoridad',
+    reward: 'Estructura de recompensas', supervisor: 'Supervisor', planning: 'Planificación', information: 'Flujo de información', client: 'Interfaz con el cliente',
+    transformation: 'Transformación', human: 'Factores humanos', behaviour: 'Comportamiento', changes: 'Cambios', inefficiency: 'Ineficiencia',
+  },
+
+  levels: {
+    fully: { name: 'Totalmente comprometido', desc: ['apasionados por su trabajo y por la organización', 'hacen lo que sea necesario para lograr resultados', 'entregan resultados consistentes y de alta calidad', 'encuentran soluciones innovadoras a los problemas más difíciles', 'son vistos como líderes y modelos a seguir'] },
+    engaged: { name: 'Comprometido', desc: ['enfocados en lograr resultados, proyectos y responsabilidades individuales', 'tienen un desempeño bueno y sólido', 'siempre hacen la parte que les corresponde', 'trabajan bien con otros y ayudan cuando se les pide'] },
+    somewhat: { name: 'Algo comprometido', desc: ['selectivos sobre dónde ponen su energía', 'dedican mucho tiempo a cosas que no ayudan a los clientes ni a la organización', 'cumplen cuando tienen que hacerlo o cuando se les supervisa', 'tienen una influencia negativa en otros'] },
+    disengaged: { name: 'No comprometido', desc: ['trabajan solo cuando tienen que hacerlo', 'preferirían estar haciendo otra cosa', 'sus resultados no cumplen los estándares', 'tienen una perspectiva de “nosotros contra ellos”', 'son negativos con la organización y en su trato con clientes y colegas'] },
+  },
+
+  pdf: {
+    title: 'Encuesta de Compromiso',
+    subtitle: 'Reporte',
+    company: 'Empresa',
+    launch: 'Encuesta',
+    date: 'Fecha del reporte',
+    responses: 'Respuestas',
+    of: 'de',
+    invited: 'invitados',
+    anon: 'La encuesta es anónima. Los resultados solo se muestran en conjunto y los grupos con menos de 5 respuestas nunca se muestran por separado.',
+    contents: 'Contenido',
+    toc: ['Distribución por nivel de compromiso', 'Compromiso por área', 'Factores organizacionales', 'Lo más importante para los colaboradores', 'Todas las preguntas', 'Comentarios'],
+    levelsTitle: 'Distribución por nivel de compromiso',
+    levelsHelp: 'Cada participante se clasifica con todas sus respuestas y con las preguntas que marcó como lo más importante.',
+    positive: 'Totalmente comprometido + Comprometido',
+    people: 'personas',
+    byAreaTitle: 'Compromiso por área',
+    byAreaHelp: 'Solo se muestran las áreas con 5 o más respuestas. Las áreas más pequeñas se combinan en “Otras áreas” cuando juntas suman 5.',
+    company_col: 'Empresa',
+    other: 'Otras áreas',
+    hidden: '{n} respuestas de áreas con menos de 5 personas se cuentan solo en el total de la empresa.',
+    noAreas: 'Ninguna área tiene todavía 5 o más respuestas, por eso no se muestran resultados por área.',
+    respondents: 'Respuestas',
+    factorsTitle: 'Factores organizacionales',
+    factorsHelp: 'Calificación de cada factor con base en las respuestas (“No sé” no cuenta), con el mismo método de la matriz de diagnóstico Adizes. 75% o más es sano; menos de 50% es una anomalía.',
+    groups: { culture: 'Cultura organizacional', structure: 'Estructura', process: 'Procesos', functions: 'Funciones organizacionales', effects: 'Efectos' },
+    colors: { green: 'Todo bien', yellow: 'Zona de atención', red: 'Zona de anomalía' },
+    topTitle: 'Lo más importante para los colaboradores',
+    topHelp: 'Las preguntas que más veces se marcaron como “Lo más importante” y cómo se respondieron.',
+    mostPct: 'lo más importante',
+    distTitle: 'Todas las preguntas',
+    distHelp: 'Distribución de respuestas (%) y, en rojo a la derecha, el porcentaje de participantes que marcaron cada pregunta como lo más importante.',
+    legend: { 5: 'Siempre / Totalmente de acuerdo', 4: 'A menudo / Mayormente de acuerdo', 3: 'A veces / Mayormente en desacuerdo', 2: 'Nunca / Totalmente en desacuerdo', 1: 'No sé' },
+    q50: 'El verde siempre es la respuesta más positiva: en las afirmaciones negativas 5 y 45 es “Nunca” / “Totalmente en desacuerdo”. La pregunta 50 usa su propia escala (mejoró significativamente → empeoró significativamente).',
+    commentsTitle: 'Comentarios',
+    commentsHelp: 'Escritos por los participantes, anónimos y tal cual.',
+    noComments: 'No se dejaron comentarios.',
+    footer: 'Instituto Adizes · Encuesta de Compromiso',
+    page: 'Página',
+    cont: 'cont.',
+  },
+
+  questions: [
+    "Nuestros líderes siguen los valores declarados en la empresa",
+    "Nuestra empresa cumple plenamente sus obligaciones con los empleados",
+    "La empresa valora y apoya nuevas ideas",
+    "Me siento cómodo con el ambiente de la empresa",
+    "Tenemos una cultura de “cada quien por su lado”",
+    "Soy elogiado y apreciado cuando hago un buen trabajo",
+    "Nos respetamos entre todos",
+    "El comportamiento mostrado por los supervisores en nuestra organización contribuye a un ambiente de trabajo saludable, el logro de objetivos y el desarrollo de la organización",
+    "Entiendo claramente mis tareas laborales y entiendo mi papel en las actividades de mi departamento",
+    "Entiendo lo que debería guiarme en la realización de mi trabajo: políticas, reglamentos, normas, estándares profesionales, etc",
+    "Sé a quién puedo acudir con preguntas",
+    "Entiendo qué decisiones tengo derecho a tomar",
+    "La toma de decisiones sobre asuntos que me afectan se realiza de manera oportuna y predecible",
+    "Tengo suficiente autoridad para ser responsable de los resultados de mi trabajo",
+    "Creo que el nivel de ingresos que obtengo en la empresa es competitivo",
+    "Entiendo de qué depende la parte variable de mis ingresos",
+    "Creo que soy capaz de influir en mis ingresos fijos y variables en un grado bastante alto",
+    "Mi paquete de beneficios es competitivo en el mercado",
+    "Puedo discutir asuntos personales con mi supervisor",
+    "Mi supervisor me trata como un individuo",
+    "Mi supervisor fomenta mi desarrollo profesional",
+    "Mi supervisor me habla regularmente sobre mi progreso",
+    "Mi supervisor ofrece comentarios motivadores y de calidad: siempre sé lo que piensa sobre mí y mi trabajo",
+    "Las tareas que el supervisor establece para mí son claras y realistas",
+    "Me siento cómodo haciendo preguntas aclaratorias a mi supervisor",
+    "Creo que las decisiones tomadas por mi supervisor son correctas y útiles para la empresa",
+    "Mi supervisor me escucha atentamente y toma en cuenta mi punto de vista",
+    "Conozco y entiendo los objetivos a largo plazo de la empresa",
+    "Me inspiran los objetivos de nuestra empresa. Estamos comprometidos en un trabajo importante y útil",
+    "Entiendo cómo los resultados de mi trabajo afectan el resultado general de la empresa",
+    "Tengo la oportunidad de ser escuchado",
+    "Tengo suficiente información sobre lo que está sucediendo en la empresa para hacer mi trabajo",
+    "Sé quién es el mercado objetivo (cliente interno o externo). Sé qué necesidades podemos satisfacer con qué productos o servicios",
+    "Conocemos bien nuestro mercado (clientes internos o externos), monitoreamos tendencias y necesidades y constantemente pensamos en cómo podemos servir mejor a nuestro mercado (clientes internos o externos)",
+    "Tengo un ambiente de trabajo cómodo",
+    "Tengo todos los recursos técnicos necesarios para hacer bien mi trabajo",
+    "Los procesos de trabajo en los que participo están sistematizados y bien organizados",
+    "Estamos comprometidos a mejorar nuestros procesos de trabajo y tecnologías aplicadas",
+    "Estoy satisfecho con la calidad del trabajo que ofrecen otras unidades",
+    "Mi trabajo durante los últimos 12 meses me ha permitido mejorar / desarrollar mis conocimientos, habilidades y capacidades",
+    "Sé bajo qué condiciones (qué hacer, qué aprender, qué lograr), puedo “crecer” en la empresa",
+    "¿Tu trabajo en esta empresa te satisface?",
+    "Me siento valorado y apreciado en la empresa",
+    "El trabajo que realmente hago es interesante y agradable para mí",
+    "Planeo dejar la empresa dentro del próximo año",
+    "Recomiendo nuestra empresa a mis amigos y conocidos como un buen empleador",
+    "Estoy orgulloso de trabajar en la empresa",
+    "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)",
+    "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa",
+    "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?",
   ],
 };
 
@@ -802,6 +1235,122 @@ var ED = (function () {
     NORMS: NORMS, CELLS: CELLS, QUESTION_CATS: QUESTION_CATS, RADARS: RADARS, COUNT: QUESTION_CATS.length,
     questionStats: questionStats, score: score, validAnswers: validAnswers, cellById: cellById,
     colorOf: colorOf, borderOf: borderOf,
+  };
+})();
+
+/* Engagement Survey — scoring engine (legacy s.adizes.com rules, questionnaire 28 / "AA").
+ * Plain ES5: the SAME file runs in the participant widget, the admin and Apps Script.
+ *
+ * Per respondent (legacy CalculateResult::calculateInvolvement, checked in this exact order):
+ *   all[k]  = share of answers with raw value k (1..5) over every answered question ("Don't know" = 1 counts)
+ *   most[k] = the same, only over the questions marked "most important" (importance level 3)
+ *   all4+all5 ≥ 70 and most4+most5 = 100      → fully engaged
+ *   all4+all5 ≥ 60 and most4+most5 ≥ 70       → engaged
+ *   all2+all3 ≥ 70 and most2+most3 ≥ 70       → disengaged
+ *   otherwise                                  → somewhat engaged
+ * Raw values always mean the same direction (5 = best): Q5 and Q45 are negative statements and their
+ * answer labels are reversed in the data, exactly like the legacy platform (done correctly in every language).
+ */
+var ES = (function () {
+  function rep(v, n) { var a = []; for (var i = 0; i < n; i++) a.push(v); return a; }
+  var QUESTION_CATS = [].concat(rep(17, 3), rep(18, 4), [19], rep(20, 3), rep(21, 3), rep(22, 4), rep(34, 9), rep(23, 3), rep(24, 2), rep(26, 2), rep(27, 4), rep(28, 3), rep(30, 6), [31], [32], [31]);
+  // Scale of each question: F frequency · A agreement · FR/AR reversed (Q5, Q45) · S satisfaction (Q42) · C change (Q50, no "Don't know")
+  var AGREE = [8, 10, 12, 15, 16, 17, 18, 26, 28, 29, 30, 33, 41, 47, 49];
+  var SCALES = QUESTION_CATS.map(function (c, i) {
+    var q = i + 1;
+    return q === 5 ? 'FR' : q === 45 ? 'AR' : q === 42 ? 'S' : q === 50 ? 'C' : AGREE.indexOf(q) >= 0 ? 'A' : 'F';
+  });
+  var CATS = [
+    { id: 17, key: 'values', group: 'culture' }, { id: 18, key: 'climate', group: 'culture' }, { id: 19, key: 'styles', group: 'culture' },
+    { id: 20, key: 'responsibility', group: 'structure' }, { id: 21, key: 'authority', group: 'structure' }, { id: 22, key: 'reward', group: 'structure' },
+    { id: 23, key: 'planning', group: 'process' }, { id: 24, key: 'information', group: 'process' },
+    { id: 26, key: 'client', group: 'functions' }, { id: 27, key: 'transformation', group: 'functions' }, { id: 28, key: 'human', group: 'functions' }, { id: 34, key: 'supervisor', group: 'functions' },
+    { id: 30, key: 'behaviour', group: 'effects' }, { id: 31, key: 'changes', group: 'effects' }, { id: 32, key: 'inefficiency', group: 'effects' },
+  ];
+  var GROUPS = ['culture', 'structure', 'process', 'functions', 'effects'];
+  var LEVELS = ['fully', 'engaged', 'somewhat', 'disengaged'];
+  var COUNT = QUESTION_CATS.length, MAX_MOST = 15, MIN_MOST = 1, MIN_RESPONSES = 5, MIN_GROUP = 5;
+
+  function hasDontKnow(q) { return SCALES[q] !== 'C'; }
+
+  function classify(answers, importance) {
+    var all = [0, 0, 0, 0, 0, 0], most = [0, 0, 0, 0, 0, 0], nAll = 0, nMost = 0;
+    for (var i = 0; i < answers.length; i++) {
+      var v = Number(answers[i]);
+      if (!(v >= 1 && v <= 5)) continue;
+      all[v]++; nAll++;
+      if (Number(importance && importance[i]) === 3) { most[v]++; nMost++; }
+    }
+    function p(arr, n, a, b) { return n ? (arr[a] + arr[b]) / n * 100 : 0; }
+    var a45 = p(all, nAll, 4, 5), a23 = p(all, nAll, 2, 3), m45 = p(most, nMost, 4, 5), m23 = p(most, nMost, 2, 3);
+    var level = (a45 >= 70 && m45 === 100) ? 'fully' : (a45 >= 60 && m45 >= 70) ? 'engaged' : (a23 >= 70 && m23 >= 70) ? 'disengaged' : 'somewhat';
+    return { level: level, all45: a45, all23: a23, most45: m45, most23: m23, mostCount: nMost };
+  }
+
+  function validResponse(answers, importance) {
+    if (!answers || answers.length !== COUNT || !importance || importance.length !== COUNT) return 'invalid_answers';
+    var most = 0;
+    for (var i = 0; i < COUNT; i++) {
+      var v = Number(answers[i]), m = Number(importance[i]);
+      if (!(v >= 1 && v <= 5 && Math.floor(v) === v)) return 'invalid_answers';
+      if ([1, 2, 3].indexOf(m) < 0) return 'invalid_importance';
+      if (m === 3) most++;
+    }
+    if (most < MIN_MOST || most > MAX_MOST) return 'invalid_importance';
+    return '';
+  }
+
+  function levelCounts(list) {
+    var c = { fully: 0, engaged: 0, somewhat: 0, disengaged: 0 }, n = list.length;
+    list.forEach(function (r) { c[r.level]++; });
+    var pct = {}; LEVELS.forEach(function (k) { pct[k] = n ? c[k] / n * 100 : 0; });
+    return { n: n, count: c, pct: pct, positive: n ? (c.fully + c.engaged) / n * 100 : 0 };
+  }
+
+  /**
+   * responses: [{ answers:[50], importance:[50], area:'', comments:[50] }]
+   * Returns everything the report needs. Areas with fewer than 5 responses are never shown on their own:
+   * they are pooled into "other areas" (shown only if that pool has 5 or more).
+   */
+  function aggregate(responses) {
+    var rs = responses.map(function (r) {
+      var c = classify(r.answers, r.importance);
+      return { answers: r.answers.map(Number), importance: r.importance.map(Number), area: String(r.area || '').trim(), comments: r.comments || [], level: c.level };
+    });
+    var overall = levelCounts(rs);
+    // areas
+    var byArea = {};
+    rs.forEach(function (r) { var k = r.area || ''; (byArea[k] = byArea[k] || []).push(r); });
+    var areas = [], other = [];
+    Object.keys(byArea).sort().forEach(function (k) {
+      if (k && byArea[k].length >= MIN_GROUP) areas.push({ name: k, levels: levelCounts(byArea[k]) });
+      else other = other.concat(byArea[k]);
+    });
+    var otherGroup = other.length >= MIN_GROUP && areas.length ? { levels: levelCounts(other), hidden: 0 } : { levels: null, hidden: other.length };
+    // questions
+    var questions = [];
+    for (var q = 0; q < COUNT; q++) {
+      var dist = [0, 0, 0, 0, 0, 0], most = 0, comments = [];
+      rs.forEach(function (r) { dist[r.answers[q]]++; if (r.importance[q] === 3) most++; var cm = String(r.comments[q] || '').trim(); if (cm) comments.push(cm); });
+      var st = q === COUNT - 1 ? null : ED.questionStats(rs.map(function (r) { return r.answers[q]; }));
+      questions.push({ i: q, cat: QUESTION_CATS[q], scale: SCALES[q], dist: dist, n: rs.length, mostPct: rs.length ? most / rs.length * 100 : 0, stats: st, comments: comments });
+    }
+    // factors (same statistics as the Express Diagnostics matrix; Q50 is a meta question and is left out)
+    var cats = CATS.map(function (c) {
+      var qs = questions.filter(function (x) { return x.cat === c.id && x.stats; });
+      var mid = 0, disp = 0; qs.forEach(function (x) { mid += x.stats.middle; disp += x.stats.dispersion; });
+      mid = qs.length ? mid / qs.length : 0; disp = qs.length ? disp / qs.length : 0;
+      return { id: c.id, key: c.key, group: c.group, middle: mid, dispersion: disp, percent: mid / 4 * 100, color: ED.colorOf(mid), questions: qs.map(function (x) { return x.i; }) };
+    });
+    var top = questions.filter(function (x) { return x.mostPct > 0; }).sort(function (a, b) { return b.mostPct - a.mostPct || a.i - b.i; }).slice(0, 10);
+    var nComments = questions.reduce(function (s, x) { return s + x.comments.length; }, 0);
+    return { n: rs.length, overall: overall, areas: areas, other: otherGroup, questions: questions, cats: cats, top: top, nComments: nComments };
+  }
+
+  return {
+    COUNT: COUNT, QUESTION_CATS: QUESTION_CATS, SCALES: SCALES, CATS: CATS, GROUPS: GROUPS, LEVELS: LEVELS,
+    MAX_MOST: MAX_MOST, MIN_MOST: MIN_MOST, MIN_RESPONSES: MIN_RESPONSES, MIN_GROUP: MIN_GROUP,
+    hasDontKnow: hasDontKnow, classify: classify, validResponse: validResponse, aggregate: aggregate, levelCounts: levelCounts,
   };
 })();
 
@@ -1149,41 +1698,275 @@ function renderEdPdf(A, lang, d) {
   return doc;
 }
 
+/* Engagement Survey — group PDF report (jsPDF), rendered in the admin.
+ * d = { agg: ES.aggregate(responses), company, launchName, invited, dateIso, comments: true|false }
+ */
+var ES_LEVEL_C = { fully: '#1e8e4e', engaged: '#2457c5', somewhat: '#d9a400', disengaged: '#d7141a' };
+var ES_LEVEL_T = { fully: '#dcf2e5', engaged: '#e3eafb', somewhat: '#fff0bf', disengaged: '#fbd6d7' };
+var ES_BAR = { 5: '#1e8e4e', 4: '#4f7fe0', 3: '#e8b923', 2: '#d7141a', 1: '#c4c4c4' };
+
+function renderEsPdf(A, lang, d) {
+  var t = ES_I18N[lang] || ES_I18N.en, P = t.pdf, g = d.agg;
+  var doc = newPdf(A), K = pdfKit(doc), C = PDF_C;
+  var W = 612, H = 792, M = 54, CW = W - 2 * M, page = 1;
+  var dateStr = formatDate(d.dateIso, t.locale);
+  function pct(v) { return Math.round(v) + '%'; }
+  function footer() {
+    K.font('regular', 7.5, C.SOFT);
+    doc.text(P.footer + (d.company ? '  ·  ' + d.company : ''), M, H - 30);
+    doc.text(P.page + ' ' + page, W - M, H - 30, { align: 'right' });
+    K.stroke(C.LINE, 0.6); K.dash([]); doc.line(M, H - 44, W - M, H - 44);
+  }
+  function newPage() { footer(); doc.addPage(); page++; return 70; }
+  function heading(text, y, sub) {
+    K.fill(C.RED); doc.rect(M, y - 16, 3, 20, 'F');
+    K.font('bold', 17, C.INK); doc.text(text, M + 12, y);
+    if (sub) return K.rich(sub, M, y + 20, CW, 9, { color: C.MUTED, lh: 1.45 }) + 10;
+    return y + 26;
+  }
+  function bar(x, y, w, h, dist, n, q50) {
+    var cx = x, order = [5, 4, 3, 2, 1];
+    order.forEach(function (v) {
+      var c = dist[v] || 0; if (!c || !n) return;
+      var sw = w * c / n;
+      K.fill(q50 && v === 1 ? '#7a0c10' : ES_BAR[v]); doc.rect(cx, y, sw, h, 'F');
+      if (sw >= 18) { K.font('bold', 6.5, v === 3 || v === 1 && !q50 ? C.INK : C.WHITE); doc.text(String(Math.round(c / n * 100)), cx + sw / 2, y + h / 2 + 2.3, { align: 'center' }); }
+      cx += sw;
+    });
+  }
+  function legend(y) {
+    var x = M;
+    [5, 4, 3, 2, 1].forEach(function (v) {
+      var label = P.legend[v]; K.font('regular', 7.5, C.INK);
+      var w = doc.getTextWidth(label) + 26;
+      if (x + w > W - M) { x = M; y += 13; }
+      K.fill(ES_BAR[v]); doc.rect(x, y - 7, 10, 8, 'F'); doc.text(label, x + 14, y);
+      x += w;
+    });
+    return y + 14;
+  }
+
+  /* ---------------- 1 · cover ---------------- */
+  if (A.logo) doc.addImage(A.logo, 'PNG', M, 50, 150, 50);
+  var y = 196;
+  K.font('bold', 38, C.INK); doc.text(P.title, M, y);
+  K.font('light', 38, C.INK); doc.text(P.subtitle, M, y + 44);
+  K.fill(C.RED); doc.rect(M, y + 64, 60, 4, 'F');
+  y += 108;
+  function meta(label, value) {
+    K.font('semibold', 8, C.RED); doc.text(label.toUpperCase(), M, y);
+    K.font('bold', 14, C.INK); doc.text(K.split(value, CW, 'bold', 14)[0] || '', M, y + 18);
+    y += 40;
+  }
+  meta(P.company, d.company || '');
+  if (d.launchName) meta(P.launch, d.launchName);
+  meta(P.date, dateStr);
+  meta(P.responses, g.n + (d.invited ? ' ' + P.of + ' ' + d.invited + ' ' + P.invited : ''));
+  y = K.rich(P.anon, M, y + 2, CW, 9, { color: C.MUTED, lh: 1.5 }) + 18;
+  // at a glance: 4 levels + KPI
+  var bw = (CW - 24) / 4;
+  ES.LEVELS.forEach(function (k, i) {
+    var bx = M + i * (bw + 8);
+    K.fill(C.PAPER); doc.rect(bx, y, bw, 64, 'F'); K.fill(ES_LEVEL_C[k]); doc.rect(bx, y, bw, 4, 'F');
+    K.font('bold', 22, C.INK); doc.text(pct(g.overall.pct[k]), bx + 12, y + 34);
+    K.font('semibold', 8, C.MUTED); doc.text(K.split(t.levels[k].name, bw - 20, 'semibold', 8), bx + 12, y + 49);
+  });
+  y += 82;
+  K.font('bold', 11, C.INK); doc.text(P.positive + ':  ', M, y);
+  var lw = doc.getTextWidth(P.positive + ':  ');
+  K.font('bold', 11, C.green); doc.text(pct(g.overall.positive), M + lw, y);
+  y += 30;
+  K.font('bold', 9.5, C.INK); doc.text(P.contents, M, y); y += 14;
+  K.font('regular', 9, C.MUTED);
+  P.toc.forEach(function (s, i) { if (i === 5 && !d.comments) return; doc.text((i + 1) + '.  ' + s, M, y); y += 13; });
+
+  /* ---------------- 2 · levels ---------------- */
+  y = newPage();
+  y = heading(P.levelsTitle, y, P.levelsHelp);
+  ES.LEVELS.forEach(function (k) {
+    var L = t.levels[k], v = g.overall.pct[k], c = g.overall.count[k];
+    var desc = L.desc.map(function (x) { return '•  ' + x; });
+    var lines = []; desc.forEach(function (x) { lines = lines.concat(K.split(x, CW - 190, 'regular', 8.5)); });
+    var h = Math.max(70, lines.length * 11.5 + 30);
+    K.fill(ES_LEVEL_T[k]); doc.rect(M, y, CW, h, 'F'); K.fill(ES_LEVEL_C[k]); doc.rect(M, y, 4, h, 'F');
+    K.font('bold', 11, C.INK); doc.text(L.name, M + 16, y + 20);
+    K.font('bold', 26, ES_LEVEL_C[k] === '#d9a400' ? C.yellowText : ES_LEVEL_C[k]); doc.text(pct(v), M + 16, y + 50);
+    K.font('regular', 8.5, C.MUTED); doc.text(c + ' ' + P.people, M + 16, y + 63);
+    // bar
+    K.fill('#ffffff'); doc.rect(M + 90, y + 42, 70, 8, 'F'); K.fill(ES_LEVEL_C[k]); doc.rect(M + 90, y + 42, 70 * v / 100, 8, 'F');
+    K.font('regular', 8.5, C.INK); lines.forEach(function (ln, i) { doc.text(ln, M + 180, y + 20 + i * 11.5); });
+    y += h + 8;
+  });
+  y += 8;
+  K.fill(C.INK); doc.rect(M, y, CW, 42, 'F');
+  K.font('semibold', 10, C.WHITE); doc.text(P.positive, M + 16, y + 26);
+  K.font('bold', 20, C.WHITE); doc.text(pct(g.overall.positive), W - M - 16, y + 28, { align: 'right' });
+
+  /* ---------------- 3 · by area ---------------- */
+  y = newPage();
+  y = heading(P.byAreaTitle, y, P.byAreaHelp);
+  var cols = [{ name: P.company_col, levels: g.overall, bold: true }].concat(g.areas.map(function (a) { return { name: a.name, levels: a.levels }; }));
+  if (g.other.levels) cols.push({ name: P.other, levels: g.other.levels });
+  if (!g.areas.length) { K.rich(P.noAreas, M, y + 6, CW, 10, { color: C.INK }); }
+  else {
+    var per = 5, labelW = 150;
+    for (var start = 0; start < cols.length; start += per) {
+      var chunk = cols.slice(start, start + per);
+      if (start > 0) chunk = [cols[0]].concat(chunk);
+      var cw = (CW - labelW) / chunk.length;
+      var rows = [[P.respondents, function (L) { return String(L.n); }]].concat(ES.LEVELS.map(function (k) { return [t.levels[k].name, function (L) { return pct(L.pct[k]); }, k]; }), [[P.positive, function (L) { return pct(L.positive); }, 'pos']]);
+      var th = 22 + rows.length * 22;
+      if (y + th > H - 70) y = newPage();
+      K.fill('#fafafa'); doc.rect(M, y, CW, 22, 'F');
+      chunk.forEach(function (c, i) { K.font('bold', 8, C.INK); doc.text(K.split(c.name, cw - 8, 'bold', 8)[0], M + labelW + i * cw + cw / 2, y + 14, { align: 'center' }); });
+      var ry = y + 22;
+      rows.forEach(function (r) {
+        K.stroke(C.LINE, 0.5); doc.line(M, ry, W - M, ry);
+        if (r[2] && r[2] !== 'pos') { K.fill(ES_LEVEL_C[r[2]]); doc.rect(M, ry + 7, 8, 8, 'F'); }
+        K.font(r[2] === 'pos' ? 'bold' : 'regular', 8.5, C.INK); doc.text(r[0], M + (r[2] && r[2] !== 'pos' ? 14 : 0), ry + 14);
+        chunk.forEach(function (c, i) { K.font(r[2] === 'pos' || c.bold ? 'bold' : 'regular', 9, C.INK); doc.text(r[1](c.levels), M + labelW + i * cw + cw / 2, ry + 14.5, { align: 'center' }); });
+        ry += 22;
+      });
+      y = ry + 18;
+    }
+  }
+  if (g.other.hidden) { K.rich(fill(P.hidden, { n: g.other.hidden }), M, Math.min(y + 4, H - 70), CW, 8.5, { color: C.MUTED }); }
+
+  /* ---------------- 4 · factors grid ---------------- */
+  y = newPage();
+  y = heading(P.factorsTitle, y, P.factorsHelp);
+  var gw = (CW - 4 * 6) / 5, gy = y;
+  ES.GROUPS.forEach(function (gr, i) {
+    var gx = M + i * (gw + 6), yy = gy;
+    K.fill(C.INK); doc.rect(gx, yy, gw, 30, 'F');
+    K.font('bold', 7.5, C.WHITE);
+    var gl = K.split(P.groups[gr], gw - 10, 'bold', 7.5); gl.forEach(function (l, j) { doc.text(l, gx + gw / 2, yy + 13 + j * 9 - (gl.length - 1) * 4, { align: 'center' }); });
+    yy += 36;
+    g.cats.filter(function (c) { return c.group === gr; }).forEach(function (c) {
+      K.fill(C[c.color + 'T']); doc.rect(gx, yy, gw, 52, 'F'); K.stroke(C[c.color], 0.8); doc.rect(gx, yy, gw, 52, 'S');
+      K.font('semibold', 7.8, C.INK);
+      var ll = K.split(t.cells[c.key], gw - 10, 'semibold', 7.8); ll.forEach(function (l, j) { doc.text(l, gx + gw / 2, yy + 17 + j * 9.5, { align: 'center' }); });
+      K.font('bold', 12, c.color === 'yellow' ? C.yellowText : C[c.color]); doc.text(pct(c.percent), gx + gw / 2, yy + 44, { align: 'center' });
+      yy += 58;
+    });
+  });
+  y = gy + 36 + 4 * 58 + 18;
+  ['green', 'yellow', 'red'].forEach(function (c, i) {
+    var x = M + i * (CW / 3);
+    K.fill(C[c + 'T']); doc.rect(x, y - 8, 16, 11, 'F'); K.stroke(C[c], 0.8); doc.rect(x, y - 8, 16, 11, 'S');
+    K.font('regular', 8.5, C.INK); doc.text(P.colors[c], x + 22, y + 1);
+  });
+
+  /* ---------------- 5 · what matters most ---------------- */
+  y = newPage();
+  y = heading(P.topTitle, y, P.topHelp);
+  y = legend(y) + 8;
+  if (!g.top.length) { K.font('regular', 10, C.MUTED); doc.text('—', M, y + 6); }
+  g.top.forEach(function (q, i) {
+    var lines = K.split((q.i + 1) + '. ' + t.questions[q.i], CW - 245, 'regular', 9);
+    var h = Math.max(36, lines.length * 11.5 + 14);
+    if (y + h > H - 60) y = newPage();
+    K.font('bold', 15, C.RED); doc.text(pct(q.mostPct), M, y + 16);
+    K.font('regular', 6.5, C.MUTED); K.split(P.mostPct, 62, 'regular', 6.5).slice(0, 2).forEach(function (l, j) { doc.text(l, M, y + 25 + j * 7.5); });
+    K.font('regular', 9, C.INK); lines.forEach(function (l, j) { doc.text(l, M + 70, y + 12 + j * 11.5); });
+    bar(W - M - 160, y + 4, 160, 14, q.dist, q.n, q.scale === 'C');
+    K.stroke(C.LINE, 0.5); doc.line(M, y + h, W - M, y + h);
+    y += h + 6;
+  });
+
+  /* ---------------- 6 · all questions ---------------- */
+  y = newPage();
+  y = heading(P.distTitle, y, P.distHelp);
+  y = legend(y) + 4;
+  y = K.rich(P.q50, M, y, CW, 7.5, { color: C.MUTED, lh: 1.4 }) + 6;
+  var lastCat = null;
+  g.questions.forEach(function (q) {
+    var lines = K.split((q.i + 1) + '. ' + t.questions[q.i], CW - 200, 'regular', 8.5);
+    var h = Math.max(20, lines.length * 10.5 + 8);
+    var head = q.cat !== lastCat;
+    if (y + h + (head ? 22 : 0) > H - 60) { y = newPage(); head = true; }
+    if (head) {
+      var cat = ES.CATS.filter(function (c) { return c.id === q.cat; })[0];
+      K.font('bold', 9.5, C.INK); doc.text(t.cells[cat.key], M, y + 10); y += 18; lastCat = q.cat;
+    }
+    K.font('regular', 8.5, C.INK); lines.forEach(function (l, j) { doc.text(l, M, y + 9 + j * 10.5); });
+    bar(W - M - 180, y + 1, 140, 12, q.dist, q.n, q.scale === 'C');
+    K.font('bold', 8, C.RED); doc.text(pct(q.mostPct), W - M, y + 10, { align: 'right' });
+    y += h;
+  });
+
+  /* ---------------- 7 · comments ---------------- */
+  if (d.comments) {
+    y = newPage();
+    y = heading(P.commentsTitle, y, P.commentsHelp);
+    if (!g.nComments) { K.font('regular', 10, C.MUTED); doc.text(P.noComments, M, y + 6); }
+    g.questions.forEach(function (q) {
+      if (!q.comments.length) return;
+      var ql = K.split((q.i + 1) + '. ' + t.questions[q.i], CW, 'bold', 9);
+      if (y + ql.length * 11.5 + 26 > H - 60) y = newPage();
+      K.font('bold', 9, C.INK); ql.forEach(function (l, j) { doc.text(l, M, y + j * 11.5); }); y += ql.length * 11.5 + 4;
+      q.comments.forEach(function (cm) {
+        var cl = K.split('“' + cm + '”', CW - 16, 'regular', 8.5);
+        if (y + cl.length * 11 + 6 > H - 60) { y = newPage(); }
+        K.fill(C.LINE); doc.rect(M, y - 6, 2, cl.length * 11, 'F');
+        K.font('regular', 8.5, C.INK_2 || '#3a3a3a'); cl.forEach(function (l, j) { doc.text(l, M + 10, y + 2 + j * 11); });
+        y += cl.length * 11 + 6;
+      });
+      y += 8;
+    });
+  }
+  footer();
+  doc.setProperties({ title: P.title + ' — ' + (d.company || ''), author: 'Adizes Institute', creator: 'Adizes Institute' });
+  return doc;
+}
+
 /* Adizes Admin — single-page app served by Apps Script (HtmlService).
- * Talks to the server only through google.script.run.adminApi(action, payload) → JSON string.
- * Bundled with: express-diagnostics i18n, shared/core.js, ed-engine.js, pdfkit.js, ed-report.js.
+ * Talks to the server only through google.script.run.adminApi(action, payload, sessionToken) → JSON string.
+ * Bundled with: both tests' i18n, shared/core.js, ed-engine.js, es-engine.js, pdfkit.js, ed-report.js, es-report.js.
  */
 var CFG = window.ADM_CONFIG || {};
 var S = null;          // last state from the server
 var APP = document.getElementById('app');
 var MODAL = document.getElementById('modal-root');
+var SKEY = 'adz-admin-session';
+var TOKEN = (CFG.autoSession && CFG.autoSession.indexOf('__') !== 0) ? CFG.autoSession : (function () { try { return localStorage.getItem(SKEY) || ''; } catch (e) { return ''; } })();
+function saveToken(t) { TOKEN = t || ''; try { if (t) localStorage.setItem(SKEY, t); else localStorage.removeItem(SKEY); } catch (e) {} }
+if (TOKEN) saveToken(TOKEN);
 
-var ST = { Draft: 'Borrador', Open: 'Abierto', Ready: 'Listo', 'Report sent': 'Reporte enviado', Closed: 'Cerrado' };
-var IST = { Pending: 'Sin enviar', Sent: 'Invitado', Completed: 'Respondió' };
-var TYPES = { ED: 'Diagnóstico Exprés', ES: 'Encuesta de Compromiso' };
-var LANGS = { es: 'Español', en: 'English' };
+var ST = { Draft: 'Draft', Open: 'Open', Ready: 'Ready', 'Report sent': 'Report sent', Closed: 'Closed' };
+var IST = { Pending: 'Not sent', Sent: 'Invited', Completed: 'Answered' };
+var TYPES = { ED: 'Express Diagnostics', ES: 'Engagement Survey' };
+var TYPE_INFO = {
+  ED: '67 statements · group report with participants’ names · minimum 1 response',
+  ES: '50 questions · anonymous · minimum 5 responses · results by area',
+};
+var LANGS = { en: 'English', es: 'Español' };
 var ERR = {
-  forbidden: 'No tienes acceso. Entra con una cuenta autorizada.',
-  name_required: 'Falta el nombre.', invalid_email: 'Revisa el correo.', duplicate_email: 'Ya existe un empleado con ese correo en esta empresa.',
-  invalid_recipients: 'Revisa los correos de los destinatarios.', invalid_date: 'Revisa la fecha.', below_minimum: 'Aún no se alcanza el mínimo de respuestas.',
-  no_participants: 'Agrega al menos un participante.', not_draft: 'El lanzamiento ya no es borrador.', not_open: 'El lanzamiento no está abierto.',
-  no_report: 'Primero genera el reporte.', no_recipients: 'Agrega al menos un destinatario.', only_drafts: 'Solo se pueden eliminar borradores.',
-  launch_not_editable: 'Este lanzamiento ya no admite cambios de participantes.', company_not_found: 'No se encontró la empresa.', not_found: 'No se encontró el registro.',
-  not_setup: 'Falta ejecutar setup() en Apps Script.', not_reopenable: 'Este lanzamiento no se puede reabrir.', invalid_type: 'Tipo de test inválido.',
+  forbidden: 'Your session has expired. Please sign in again.', invalid_code: 'That code isn’t valid or has expired.', too_many_attempts: 'Too many attempts. Request a new code.',
+  name_required: 'The name is required.', invalid_email: 'Please check the email address.', duplicate_email: 'There is already an employee with that email in this company.',
+  invalid_recipients: 'Please check the recipients’ emails.', invalid_date: 'Please check the date.', below_minimum: 'The minimum number of responses hasn’t been reached yet.',
+  no_participants: 'Add at least one participant.', not_draft: 'This launch is no longer a draft.', not_open: 'This launch isn’t open.',
+  no_report: 'Generate the report first.', no_recipients: 'Add at least one recipient.', only_drafts: 'Only drafts can be deleted.', not_ready: 'Open the launch first.',
+  launch_not_editable: 'Participants can’t be changed in this launch anymore.', company_not_found: 'Company not found.', not_found: 'Record not found.',
+  not_setup: 'Run setup() in Apps Script first.', not_reopenable: 'This launch can’t be reopened.', invalid_type: 'Invalid test type.',
 };
 
 /* ------------------------------------------------------------------ server */
 function call(action, payload) {
   return new Promise(function (resolve, reject) {
-    if (!window.google || !google.script || !google.script.run) return reject(new Error('Sin conexión con Apps Script'));
+    if (!window.google || !google.script || !google.script.run) return reject(new Error('Not connected to Apps Script'));
     google.script.run
       .withSuccessHandler(function (txt) {
-        var r; try { r = JSON.parse(txt); } catch (e) { return reject(new Error('Respuesta inválida')); }
-        if (!r.ok) { var e2 = new Error(ERR[r.error] || r.error || 'Error'); e2.code = r.error; return reject(e2); }
+        var r; try { r = JSON.parse(txt); } catch (e) { return reject(new Error('Invalid response')); }
+        if (!r.ok) {
+          var e2 = new Error(ERR[r.error] || r.error || 'Error'); e2.code = r.error;
+          if (r.error === 'forbidden') { saveToken(''); S = null; renderLogin(); }
+          return reject(e2);
+        }
         resolve(r);
       })
-      .withFailureHandler(function (e) { reject(new Error((e && e.message) || 'Error de conexión')); })
-      .adminApi(action, payload || {});
+      .withFailureHandler(function (e) { reject(new Error((e && e.message) || 'Connection error')); })
+      .adminApi(action, payload || {}, TOKEN);
   });
 }
 var busyEl = null;
@@ -1199,7 +1982,7 @@ function run(action, payload, okMsg) {
     busy(false); render();
     if (okMsg) toast(typeof okMsg === 'function' ? okMsg(r) : okMsg);
     return r;
-  }, function (e) { busy(false); toast(e.message, true); throw e; });
+  }, function (e) { busy(false); if (e.code !== 'forbidden') toast(e.message, true); throw e; });
 }
 var toastT = null;
 function toast(msg, isErr) {
@@ -1216,22 +1999,22 @@ function launchesOf(cid) { return S.launches.filter(function (l) { return l.comp
 function employeesOf(cid, all) { return S.employees.filter(function (e) { return e.companyId === cid && (all || e.status !== 'Archived'); }); }
 function invitesOf(lid) { return S.invites.filter(function (i) { return i.launchId === lid; }); }
 function chip(status, map) { return '<span class="chip chip-' + String(status).replace(/\s/g, '') + '">' + h((map || ST)[status] || status) + '</span>'; }
-function typeTag(t) { return '<span class="type type-' + t + '">' + t + '</span>'; }
+function typeTag(t) { return '<span class="type type-' + t + '" title="' + h(TYPES[t]) + '">' + t + '</span>'; }
 function fdate(iso, withTime) {
   if (!iso) return '';
   var d = new Date(String(iso).length === 10 ? iso + 'T12:00:00' : iso);
   if (isNaN(d)) return String(iso);
   var o = { day: 'numeric', month: 'short', year: 'numeric' };
-  if (withTime) { o.hour = '2-digit'; o.minute = '2-digit'; }
-  return d.toLocaleDateString('es-MX', o);
+  if (withTime) { o.hour = 'numeric'; o.minute = '2-digit'; }
+  return d.toLocaleDateString('en-US', o);
 }
 function progress(l) {
   var pct = l.total ? Math.round(l.done / l.total * 100) : 0, minPct = l.total ? Math.min(100, l.minResponses / l.total * 100) : 0;
   return '<div class="prog"><div class="prog-bar' + (l.done >= l.minResponses ? ' is-ok' : '') + '"><i style="width:' + pct + '%"></i>' +
-    (l.minResponses > 1 && minPct < 100 ? '<b style="left:' + minPct + '%" title="Mínimo"></b>' : '') + '</div><span>' + l.done + ' de ' + l.total + '</span></div>';
+    (l.minResponses > 1 && minPct < 100 ? '<b style="left:' + minPct + '%" title="Minimum"></b>' : '') + '</div><span>' + l.done + ' of ' + l.total + '</span></div>';
 }
 function go(hash) { if (location.hash === hash) render(); else location.hash = hash; }
-function copyText(text) {
+function copyText(text, label) {
   function fallback() {
     var ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
     document.body.appendChild(ta); ta.select(); var ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove();
@@ -1239,18 +2022,18 @@ function copyText(text) {
   }
   var p = (navigator.clipboard && navigator.clipboard.writeText) ? navigator.clipboard.writeText(text).then(function () { return true; }, fallback) : Promise.resolve(fallback());
   return p.then(function (ok) {
-    if (ok) toast('Copiado');
-    else modal({ title: 'Copia el texto', body: '<textarea class="textarea linkbox" rows="8" readonly>' + h(text) + '</textarea>', ok: null });
+    if (ok) toast(label || 'Copied');
+    else modal({ title: 'Copy this text', body: '<textarea class="textarea linkbox" rows="8" readonly>' + h(text) + '</textarea>', ok: null });
   });
 }
 
-/* ------------------------------------------------------------------ modal */
+/* ------------------------------------------------------------------ modal + form helpers */
 function modal(o) {
   MODAL.innerHTML = '<div class="modal-bg"><div class="modal' + (o.wide ? ' is-wide' : '') + '" role="dialog" aria-modal="true">' +
-    '<div class="modal-h"><h3>' + h(o.title) + '</h3><button type="button" class="x" data-x aria-label="Cerrar">×</button></div>' +
+    '<div class="modal-h"><h3>' + h(o.title) + '</h3><button type="button" class="x" data-x aria-label="Close">×</button></div>' +
     '<form class="modal-form" novalidate><div class="modal-b">' + o.body + '<div class="err" data-err></div></div>' +
-    '<div class="modal-f"><button type="button" class="btn btn-ghost" data-x>' + (o.ok === null ? 'Cerrar' : 'Cancelar') + '</button>' +
-    (o.ok === null ? '' : '<button type="submit" class="btn ' + (o.danger ? 'btn-red' : 'btn-dark') + '">' + h(o.ok || 'Guardar') + '</button>') + '</div></form></div></div>';
+    '<div class="modal-f"><button type="button" class="btn btn-ghost" data-x>' + (o.ok === null ? 'Close' : 'Cancel') + '</button>' +
+    (o.ok === null ? '' : '<button type="submit" class="btn ' + (o.danger ? 'btn-red' : 'btn-dark') + '">' + h(o.ok || 'Save') + '</button>') + '</div></form></div></div>';
   var bg = MODAL.firstChild, form = MODAL.querySelector('form');
   function close() { MODAL.innerHTML = ''; document.removeEventListener('keydown', onEsc); }
   function onEsc(e) { if (e.key === 'Escape') close(); }
@@ -1266,24 +2049,64 @@ function modal(o) {
     else if (res !== false) close();
   });
   if (o.onOpen) o.onOpen(form);
-  var first = form.querySelector('input:not([type=checkbox]):not([type=radio]),textarea,select'); if (first) first.focus();
+  var first = form.querySelector('input:not([type=checkbox]):not([type=radio]):not([type=search]),textarea,select'); if (first) first.focus();
   return form;
 }
-function confirmBox(title, text, okLabel, fn, danger) {
-  modal({ title: title, body: '<p>' + text + '</p>', ok: okLabel, danger: danger, onOk: function () { return fn(); } });
+function confirmBox(title, html, okLabel, fn, danger) {
+  modal({ title: title, body: '<p class="lead-p">' + html + '</p>', ok: okLabel, danger: danger, onOk: function () { return fn(); } });
 }
-function field(label, inner, hint) { return '<div class="field"><label>' + h(label) + '</label>' + inner + (hint ? '<div class="hint">' + h(hint) + '</div>' : '') + '</div>'; }
-function inp(name, val, type, ph) { return '<input class="input" name="' + name + '" type="' + (type || 'text') + '" value="' + h(val || '') + '"' + (ph ? ' placeholder="' + h(ph) + '"' : '') + '>'; }
-function sel(name, val, opts) { return '<select class="select" name="' + name + '">' + Object.keys(opts).map(function (k) { return '<option value="' + h(k) + '"' + (k === val ? ' selected' : '') + '>' + h(opts[k]) + '</option>'; }).join('') + '</select>'; }
-function vals(form) { var o = {}; Array.prototype.forEach.call(form.elements, function (el) { if (el.name && el.type !== 'checkbox' && el.type !== 'radio') o[el.name] = el.value.trim(); if (el.type === 'radio' && el.checked) o[el.name] = el.value; }); return o; }
+// field(label, control, hint, cls) — hints sit under their own control and never stretch the row
+function field(label, inner, hint, cls) { return '<div class="field' + (cls ? ' ' + cls : '') + '"><label>' + h(label) + '</label>' + inner + (hint ? '<div class="hint">' + h(hint) + '</div>' : '') + '</div>'; }
+function grid(cols, inner) { return '<div class="fgrid fgrid-' + cols + '">' + inner + '</div>'; }
+function inp(name, val, type, ph, extra) { return '<input class="input" name="' + name + '" type="' + (type || 'text') + '" value="' + h(val == null ? '' : val) + '"' + (ph ? ' placeholder="' + h(ph) + '"' : '') + (extra || '') + '>'; }
+function sel(name, val, opts, extra) { return '<select class="select" name="' + name + '"' + (extra || '') + '>' + Object.keys(opts).map(function (k) { return '<option value="' + h(k) + '"' + (k === val ? ' selected' : '') + '>' + h(opts[k]) + '</option>'; }).join('') + '</select>'; }
+function vals(form) { var o = {}; Array.prototype.forEach.call(form.elements, function (el) { if (!el.name) return; if (el.type === 'radio') { if (el.checked) o[el.name] = el.value; } else if (el.type === 'checkbox') { if (el.name !== 'emp') o[el.name] = el.checked; } else o[el.name] = el.value.trim(); }); return o; }
+
+/* ------------------------------------------------------------------ sign in */
+function renderLogin(step, email) {
+  MODAL.innerHTML = '';
+  var logo = '<img class="login-logo" alt="Adizes" src="' + h(CFG.assetsBase + 'adizes-logo-color.png') + '">';
+  if (step !== 'code') {
+    APP.innerHTML = '<div class="login"><form class="card login-card" novalidate>' + logo +
+      '<h1>Admin sign-in</h1><p class="muted">Enter your work email. If it’s authorized, we’ll send you a 6-digit code.</p>' +
+      field('Email', inp('email', email || '', 'email', 'you@company.com', ' autocomplete="email" inputmode="email"')) +
+      '<div class="err" data-err></div><button type="submit" class="btn btn-red btn-block">Send code</button></form></div>';
+    var f = APP.querySelector('form');
+    f.email.focus();
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var em = f.email.value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { f.querySelector('[data-err]').textContent = ERR.invalid_email; return; }
+      busy(true);
+      call('loginStart', { email: em }).then(function () { busy(false); renderLogin('code', em); }, function (ex) { busy(false); f.querySelector('[data-err]').textContent = ex.message; });
+    });
+    return;
+  }
+  APP.innerHTML = '<div class="login"><form class="card login-card" novalidate>' + logo +
+    '<h1>Check your email</h1><p class="muted">If <b>' + h(email) + '</b> is authorized, a code is on its way from info@adizes.com. It expires in 10 minutes.</p>' +
+    field('6-digit code', inp('code', '', 'text', '123456', ' autocomplete="one-time-code" inputmode="numeric" maxlength="6"')) +
+    '<div class="err" data-err></div><button type="submit" class="btn btn-red btn-block">Sign in</button>' +
+    '<button type="button" class="btn btn-ghost btn-block" data-act="back">Use another email</button></form></div>';
+  var f2 = APP.querySelector('form');
+  f2.code.focus();
+  f2.querySelector('[data-act="back"]').addEventListener('click', function () { renderLogin('email', email); });
+  f2.addEventListener('submit', function (e) {
+    e.preventDefault();
+    busy(true);
+    call('loginVerify', { email: email, code: f2.code.value }).then(function (r) {
+      saveToken(r.token); return call('state');
+    }).then(function (r) { busy(false); S = r; if (!location.hash) location.hash = '#/'; render(); }, function (ex) { busy(false); f2.querySelector('[data-err]').textContent = ex.message; });
+  });
+}
+function signOut() { saveToken(''); S = null; location.hash = ''; renderLogin(); }
 
 /* ------------------------------------------------------------------ layout */
 function shell(active, inner) {
   return '<header class="adm-top"><div class="adm-top-in">' +
     '<a class="adm-brand" href="#/"><img class="adm-logo" alt="Adizes" src="' + h(CFG.assetsBase + 'adizes-logo-color.png') + '"><span>Admin</span></a>' +
-    '<nav class="adm-nav"><a href="#/" class="' + (active === 'companies' ? 'is-on' : '') + '">Empresas</a>' +
-    '<a href="#/launches" class="' + (active === 'launches' ? 'is-on' : '') + '">Lanzamientos</a></nav>' +
-    '<div class="adm-me" title="' + h(S.me) + '">' + h(S.me) + '</div></div></header>' +
+    '<nav class="adm-nav"><a href="#/" class="' + (active === 'companies' ? 'is-on' : '') + '">Companies</a>' +
+    '<a href="#/launches" class="' + (active === 'launches' ? 'is-on' : '') + '">Launches</a></nav>' +
+    '<div class="adm-me" title="' + h(S.me) + '">' + h(S.me) + '</div><button class="btn btn-ghost btn-sm" data-signout>Sign out</button></div></header>' +
     '<main class="adm-main">' + inner + '</main>';
 }
 var UI = { showArchived: false, q: '', lq: '', lstatus: 'active', ltype: '' };
@@ -1292,10 +2115,11 @@ function render() {
   if (!S) return;
   var parts = location.hash.replace(/^#\/?/, '').split('/');
   var view = parts[0] || '', id = parts[1];
-  if (view === 'company' && byId(S.companies, id)) return renderCompany(id);
-  if (view === 'launch' && byId(S.launches, id)) return renderLaunch(id);
-  if (view === 'launches') return renderLaunches();
-  return renderCompanies();
+  if (view === 'company' && byId(S.companies, id)) renderCompany(id);
+  else if (view === 'launch' && byId(S.launches, id)) renderLaunch(id);
+  else if (view === 'launches') renderLaunches();
+  else renderCompanies();
+  var so = APP.querySelector('[data-signout]'); if (so) so.addEventListener('click', signOut);
 }
 window.addEventListener('hashchange', function () { MODAL.innerHTML = ''; render(); window.scrollTo(0, 0); });
 
@@ -1303,37 +2127,40 @@ window.addEventListener('hashchange', function () { MODAL.innerHTML = ''; render
 function renderCompanies() {
   var q = UI.q.toLowerCase();
   var list = S.companies.filter(function (c) { return (UI.showArchived || c.status !== 'Archived') && (!q || c.name.toLowerCase().indexOf(q) >= 0 || String(c.country || '').toLowerCase().indexOf(q) >= 0); })
-    .sort(function (a, b) { return a.name.localeCompare(b.name, 'es'); });
+    .sort(function (a, b) { return a.name.localeCompare(b.name); });
   var cards = list.map(function (c) {
-    var ls = launchesOf(c.id), open = ls.filter(function (l) { return l.status === 'Open'; }).length, ready = ls.filter(function (l) { return l.status === 'Ready'; }).length;
+    var ls = launchesOf(c.id);
+    var by = function (t) { return ls.filter(function (l) { return l.type === t; }).length; };
+    var open = ls.filter(function (l) { return l.status === 'Open'; }).length, ready = ls.filter(function (l) { return l.status === 'Ready'; }).length;
     return '<a class="card co-card" href="#/company/' + h(c.id) + '"><h3>' + h(c.name) + '</h3><div class="muted small">' + h(c.country || '') + (c.contactName ? ' · ' + h(c.contactName) : '') + '</div>' +
-      '<div class="co-meta"><span><b>' + employeesOf(c.id).length + '</b> empleados</span><span><b>' + ls.length + '</b> lanzamientos</span>' +
+      '<div class="co-meta"><span><b>' + employeesOf(c.id).length + '</b> employees</span><span>' + typeTag('ED') + ' <b>' + by('ED') + '</b></span><span>' + typeTag('ES') + ' <b>' + by('ES') + '</b></span>' +
       (open ? '<span>' + chip('Open') + ' ' + open + '</span>' : '') + (ready ? '<span>' + chip('Ready') + ' ' + ready + '</span>' : '') +
-      (c.status === 'Archived' ? chip('Archived', { Archived: 'Archivada' }) : '') + '</div></a>';
+      (c.status === 'Archived' ? chip('Archived', { Archived: 'Archived' }) : '') + '</div></a>';
   }).join('');
   APP.innerHTML = shell('companies',
-    '<div class="adm-head"><div><div class="adm-eyebrow">Adizes Assessments</div><h1 class="adm-h1">Empresas</h1></div>' +
-    '<div class="adm-btns"><button class="btn btn-red" data-act="new-company">+ Nueva empresa</button></div></div>' +
-    '<div class="toolbar"><input class="input" type="search" placeholder="Buscar empresa…" value="' + h(UI.q) + '" data-q>' +
-    '<label class="chk"><input type="checkbox" data-arch' + (UI.showArchived ? ' checked' : '') + '> Ver archivadas</label></div>' +
-    (cards ? '<div class="grid">' + cards + '</div>' : '<div class="card empty"><b>' + (S.companies.length ? 'Sin resultados' : 'Aún no hay empresas') + '</b>' + (S.companies.length ? '' : 'Crea la primera para agregar sus empleados y lanzar un test.') + '</div>'));
+    '<div class="adm-head"><div><div class="adm-eyebrow">Adizes Assessments</div><h1 class="adm-h1">Companies</h1></div>' +
+    '<div class="adm-btns"><button class="btn btn-red" data-act="new-company">+ New company</button></div></div>' +
+    '<div class="toolbar"><input class="input" type="search" placeholder="Search companies…" value="' + h(UI.q) + '" data-q>' +
+    '<label class="chk"><input type="checkbox" data-arch' + (UI.showArchived ? ' checked' : '') + '> Show archived</label></div>' +
+    (cards ? '<div class="grid">' + cards + '</div>' : '<div class="card empty"><b>' + (S.companies.length ? 'No results' : 'No companies yet') + '</b>' + (S.companies.length ? '' : 'Create the first one, add its employees and launch a test.') + '</div>'));
   APP.querySelector('[data-act="new-company"]').addEventListener('click', function () { companyForm(); });
   var qEl = APP.querySelector('[data-q]');
-  qEl.addEventListener('input', function () { UI.q = qEl.value; renderCompanies(); var n = APP.querySelector('[data-q]'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
-  APP.querySelector('[data-arch]').addEventListener('change', function (e) { UI.showArchived = e.target.checked; renderCompanies(); });
+  qEl.addEventListener('input', function () { UI.q = qEl.value; render(); var n = APP.querySelector('[data-q]'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
+  APP.querySelector('[data-arch]').addEventListener('change', function (e) { UI.showArchived = e.target.checked; render(); });
 }
 function companyForm(c) {
   c = c || {};
   modal({
-    title: c.id ? 'Editar empresa' : 'Nueva empresa', ok: c.id ? 'Guardar' : 'Crear empresa',
-    body: field('Nombre', inp('name', c.name)) +
-      '<div class="row2">' + field('País', inp('country', c.country)) + field('Idioma de los tests', sel('language', c.language || 'es', LANGS)) + '</div>' +
-      '<div class="row2">' + field('Contacto', inp('contactName', c.contactName)) + field('Correo del contacto', inp('contactEmail', c.contactEmail, 'email'), 'Se propone como destinatario del reporte.') + '</div>' +
-      field('Notas', '<textarea class="textarea" name="notes" rows="3">' + h(c.notes || '') + '</textarea>'),
+    title: c.id ? 'Edit company' : 'New company', ok: c.id ? 'Save changes' : 'Create company',
+    body: field('Company name', inp('name', c.name, 'text', 'e.g. Grupo Ñandú')) +
+      grid('2', field('Country', inp('country', c.country, 'text', 'e.g. Mexico')) + field('Default language for tests', sel('language', c.language || 'en', LANGS))) +
+      grid('2', field('Contact name', inp('contactName', c.contactName, 'text', 'Who receives the report')) + field('Contact email', inp('contactEmail', c.contactEmail, 'email', 'name@company.com'))) +
+      '<p class="hint hint-row">The contact email is suggested as the report recipient for new launches.</p>' +
+      field('Notes', '<textarea class="textarea" name="notes" rows="3" placeholder="Internal notes (optional)">' + h(c.notes || '') + '</textarea>'),
     onOk: function (form) {
       var v = vals(form); v.id = c.id;
-      if (!v.name) return 'Falta el nombre.';
-      return run('saveCompany', v, c.id ? 'Empresa actualizada' : 'Empresa creada').then(function (r) {
+      if (!v.name) return ERR.name_required;
+      return run('saveCompany', v, c.id ? 'Company updated' : 'Company created').then(function (r) {
         if (!c.id) { var nw = r.companies.filter(function (x) { return x.name === v.name; }).pop(); if (nw) go('#/company/' + nw.id); }
       });
     },
@@ -1341,56 +2168,67 @@ function companyForm(c) {
 }
 
 /* ------------------------------------------------------------------ company */
+function launchRows(ls) {
+  return ls.map(function (l) {
+    return '<tr class="is-click" data-go="#/launch/' + h(l.id) + '"><td class="strong">' + h(l.name) + '</td><td>' + chip(l.status) + '</td>' +
+      '<td data-l="Progress">' + progress(l) + '</td><td class="nowrap muted small" data-l="Closes">' + h(fdate(l.closeDate) || '—') + '</td><td class="muted small" data-l="Language">' + h(LANGS[l.language] || l.language) + '</td></tr>';
+  }).join('');
+}
 function renderCompany(cid) {
   var c = company(cid), ls = launchesOf(cid).sort(function (a, b) { return String(b.createdAt).localeCompare(String(a.createdAt)); });
-  var emps = employeesOf(cid, UI.showArchived).sort(function (a, b) { return a.name.localeCompare(b.name, 'es'); });
-  var lRows = ls.map(function (l) {
-    return '<tr class="is-click" data-go="#/launch/' + h(l.id) + '"><td>' + typeTag(l.type) + '</td><td class="strong">' + h(l.name) + '</td><td>' + chip(l.status) + '</td>' +
-      '<td data-l="Avance">' + progress(l) + '</td><td class="nowrap muted small" data-l="Cierre">' + h(fdate(l.closeDate) || '—') + '</td></tr>';
+  var emps = employeesOf(cid, UI.showArchived).sort(function (a, b) { return a.name.localeCompare(b.name); });
+  var testSecs = ['ED', 'ES'].map(function (t) {
+    var mine = ls.filter(function (l) { return l.type === t; });
+    return '<div class="card tsec"><div class="tsec-h"><div>' + typeTag(t) + ' <b>' + TYPES[t] + '</b> <span class="muted small">' + mine.length + '</span></div>' +
+      '<button class="btn btn-line btn-sm" data-new-launch="' + t + '">+ New ' + h(TYPES[t]) + '</button></div>' +
+      (mine.length ? '<table class="tbl"><thead><tr><th>Name</th><th>Status</th><th>Progress</th><th>Closes</th><th>Language</th></tr></thead><tbody>' + launchRows(mine) + '</tbody></table>'
+        : '<div class="empty empty-sm">No ' + h(TYPES[t]) + ' launches yet.</div>') + '</div>';
   }).join('');
   var eRows = emps.map(function (e) {
     var n = S.invites.filter(function (i) { return i.employeeId === e.id; }).length;
-    return '<tr><td class="strong">' + h(e.name) + (e.status === 'Archived' ? ' ' + chip('Archived', { Archived: 'Archivado' }) : '') + '</td><td data-l="Correo">' + h(e.email) + '</td>' +
-      '<td data-l="Área">' + h(e.area || '—') + '</td><td data-l="Puesto">' + h(e.position || '—') + '</td><td class="num muted small" data-l="Tests">' + n + '</td>' +
-      '<td class="act"><button class="btn btn-ghost btn-sm" data-edit-emp="' + h(e.id) + '">Editar</button>' +
-      '<button class="btn btn-ghost btn-sm" data-arch-emp="' + h(e.id) + '">' + (e.status === 'Archived' ? 'Restaurar' : 'Archivar') + '</button></td></tr>';
+    return '<tr><td class="strong">' + h(e.name) + (e.status === 'Archived' ? ' ' + chip('Archived', { Archived: 'Archived' }) : '') + '</td><td data-l="Email">' + h(e.email) + '</td>' +
+      '<td data-l="Area">' + h(e.area || '—') + '</td><td data-l="Position">' + h(e.position || '—') + '</td><td class="num muted small" data-l="Launches">' + n + '</td>' +
+      '<td class="act"><button class="btn btn-ghost btn-sm" data-edit-emp="' + h(e.id) + '">Edit</button>' +
+      '<button class="btn btn-ghost btn-sm" data-arch-emp="' + h(e.id) + '">' + (e.status === 'Archived' ? 'Restore' : 'Archive') + '</button></td></tr>';
   }).join('');
+  var areas = {}; employeesOf(cid).forEach(function (e) { if (e.area) areas[e.area] = (areas[e.area] || 0) + 1; });
+  var areaChips = Object.keys(areas).sort().map(function (a) { return '<span class="pill">' + h(a) + ' <b>' + areas[a] + '</b></span>'; }).join('');
   APP.innerHTML = shell('companies',
-    '<div class="adm-crumbs"><a href="#/">Empresas</a> ›</div>' +
-    '<div class="adm-head"><div><h1 class="adm-h1">' + h(c.name) + (c.status === 'Archived' ? ' ' + chip('Archived', { Archived: 'Archivada' }) : '') + '</h1>' +
+    '<div class="adm-crumbs"><a href="#/">Companies</a> ›</div>' +
+    '<div class="adm-head"><div><h1 class="adm-h1">' + h(c.name) + (c.status === 'Archived' ? ' ' + chip('Archived', { Archived: 'Archived' }) : '') + '</h1>' +
     '<div class="adm-sub">' + [c.country, LANGS[c.language], c.contactName && (c.contactName + (c.contactEmail ? ' · ' + c.contactEmail : ''))].filter(Boolean).map(h).join(' · ') + '</div></div>' +
-    '<div class="adm-btns"><button class="btn btn-line" data-act="edit">Editar</button><button class="btn btn-ghost" data-act="archive">' + (c.status === 'Archived' ? 'Restaurar' : 'Archivar') + '</button></div></div>' +
-    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Lanzamientos</h2><button class="btn btn-red" data-act="new-launch">+ Nuevo lanzamiento</button></div>' +
-    '<div class="card">' + (lRows ? '<table class="tbl"><thead><tr><th>Tipo</th><th>Nombre</th><th>Estado</th><th>Avance</th><th>Cierre</th></tr></thead><tbody>' + lRows + '</tbody></table>'
-      : '<div class="empty"><b>Sin lanzamientos</b>Crea uno para invitar a los empleados a un test.</div>') + '</div></section>' +
-    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Empleados <span class="muted">(' + employeesOf(cid).length + ')</span></h2>' +
-    '<div class="adm-btns"><label class="chk"><input type="checkbox" data-arch' + (UI.showArchived ? ' checked' : '') + '> Ver archivados</label>' +
-    '<button class="btn btn-line" data-act="import">Importar lista</button><button class="btn btn-dark" data-act="new-emp">+ Agregar empleado</button></div></div>' +
-    '<div class="card">' + (eRows ? '<table class="tbl"><thead><tr><th>Nombre</th><th>Correo</th><th>Área</th><th>Puesto</th><th class="num">Tests</th><th></th></tr></thead><tbody>' + eRows + '</tbody></table>'
-      : '<div class="empty"><b>Sin empleados</b>Agrégalos uno por uno o pega una lista desde Excel.</div>') + '</div></section>');
+    '<div class="adm-btns"><button class="btn btn-line" data-act="edit">Edit</button><button class="btn btn-ghost" data-act="archive">' + (c.status === 'Archived' ? 'Restore' : 'Archive') + '</button></div></div>' +
+    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Launches</h2></div><div class="tsecs">' + testSecs + '</div></section>' +
+    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Employees <span class="muted">(' + employeesOf(cid).length + ')</span></h2>' +
+    '<div class="adm-btns"><label class="chk"><input type="checkbox" data-arch' + (UI.showArchived ? ' checked' : '') + '> Show archived</label>' +
+    '<button class="btn btn-line" data-act="import">Import list</button><button class="btn btn-dark" data-act="new-emp">+ Add employee</button></div></div>' +
+    (areaChips ? '<div class="pills"><span class="muted small">Areas:</span> ' + areaChips + '</div>' : '') +
+    '<div class="card">' + (eRows ? '<table class="tbl"><thead><tr><th>Name</th><th>Email</th><th>Area</th><th>Position</th><th class="num">Launches</th><th></th></tr></thead><tbody>' + eRows + '</tbody></table>'
+      : '<div class="empty"><b>No employees yet</b>Add them one by one or paste a list from Excel.</div>') + '</div></section>');
   APP.querySelector('[data-act="edit"]').addEventListener('click', function () { companyForm(c); });
-  APP.querySelector('[data-act="archive"]').addEventListener('click', function () { run('archiveCompany', { id: cid, archived: c.status !== 'Archived' }, c.status === 'Archived' ? 'Empresa restaurada' : 'Empresa archivada'); });
-  APP.querySelector('[data-act="new-launch"]').addEventListener('click', function () { launchForm(cid); });
+  APP.querySelector('[data-act="archive"]').addEventListener('click', function () { run('archiveCompany', { id: cid, archived: c.status !== 'Archived' }, c.status === 'Archived' ? 'Company restored' : 'Company archived'); });
+  APP.querySelectorAll('[data-new-launch]').forEach(function (b) { b.addEventListener('click', function () { launchForm(cid, null, b.getAttribute('data-new-launch')); }); });
   APP.querySelector('[data-act="new-emp"]').addEventListener('click', function () { employeeForm(cid); });
   APP.querySelector('[data-act="import"]').addEventListener('click', function () { importForm(cid); });
-  APP.querySelector('[data-arch]').addEventListener('change', function (e) { UI.showArchived = e.target.checked; renderCompany(cid); });
+  APP.querySelector('[data-arch]').addEventListener('change', function (e) { UI.showArchived = e.target.checked; render(); });
   APP.querySelectorAll('[data-go]').forEach(function (tr) { tr.addEventListener('click', function () { go(tr.getAttribute('data-go')); }); });
   APP.querySelectorAll('[data-edit-emp]').forEach(function (b) { b.addEventListener('click', function () { employeeForm(cid, byId(S.employees, b.getAttribute('data-edit-emp'))); }); });
   APP.querySelectorAll('[data-arch-emp]').forEach(function (b) {
-    b.addEventListener('click', function () { var e = byId(S.employees, b.getAttribute('data-arch-emp')); run('archiveEmployee', { id: e.id, archived: e.status !== 'Archived' }, e.status === 'Archived' ? 'Empleado restaurado' : 'Empleado archivado'); });
+    b.addEventListener('click', function () { var e = byId(S.employees, b.getAttribute('data-arch-emp')); run('archiveEmployee', { id: e.id, archived: e.status !== 'Archived' }, e.status === 'Archived' ? 'Employee restored' : 'Employee archived'); });
   });
 }
-function areasOf(cid) {
+function areasList(cid) {
   var seen = {}; employeesOf(cid, true).forEach(function (e) { if (e.area) seen[e.area] = 1; });
   return '<datalist id="areas">' + Object.keys(seen).sort().map(function (a) { return '<option value="' + h(a) + '">'; }).join('') + '</datalist>';
 }
 function employeeForm(cid, e) {
   e = e || {};
   modal({
-    title: e.id ? 'Editar empleado' : 'Agregar empleado', ok: e.id ? 'Guardar' : 'Agregar',
-    body: field('Nombre completo', inp('name', e.name)) + field('Correo', inp('email', e.email, 'email')) +
-      '<div class="row2">' + field('Área', '<input class="input" name="area" list="areas" value="' + h(e.area || '') + '">', 'Se usa para los resultados por área de la Encuesta de Compromiso.') + field('Puesto', inp('position', e.position)) + '</div>' + areasOf(cid),
-    onOk: function (form) { var v = vals(form); v.id = e.id; v.companyId = cid; return run('saveEmployee', v, e.id ? 'Empleado actualizado' : 'Empleado agregado'); },
+    title: e.id ? 'Edit employee' : 'Add employee', ok: e.id ? 'Save changes' : 'Add employee',
+    body: grid('2', field('Full name', inp('name', e.name, 'text', 'e.g. Ana López')) + field('Email', inp('email', e.email, 'email', 'name@company.com'))) +
+      grid('2', field('Area / division', '<input class="input" name="area" list="areas" value="' + h(e.area || '') + '" placeholder="e.g. Sales">') + field('Position', inp('position', e.position, 'text', 'e.g. Sales manager'))) +
+      '<p class="hint hint-row">The area is used for the Engagement Survey results by area (an area is only shown with 5 or more answers). Pick an existing one to keep names consistent.</p>' + areasList(cid),
+    onOk: function (form) { var v = vals(form); v.id = e.id; v.companyId = cid; return run('saveEmployee', v, e.id ? 'Employee updated' : 'Employee added'); },
   });
 }
 // Accepts rows pasted from Excel/Sheets (tabs) or typed with commas: Name, email, area, position
@@ -1406,17 +2244,17 @@ function parseRows(text) {
 }
 function importForm(cid) {
   modal({
-    title: 'Importar empleados', ok: 'Importar', wide: true,
-    body: '<p class="muted small" style="margin-bottom:10px">Pega una fila por persona, copiada de Excel o separada por comas: <b>Nombre, correo, área, puesto</b>. Se omiten los correos que ya existen en la empresa.</p>' +
-      '<textarea class="textarea linkbox" name="rows" rows="10" placeholder="Ana López, ana@empresa.com, Ventas, Directora&#10;Bruno Díaz, bruno@empresa.com, Operaciones, Gerente"></textarea><p class="small muted" data-count style="margin-top:8px"></p>',
+    title: 'Import employees', ok: 'Import', wide: true,
+    body: '<p class="lead-p">Paste one row per person, copied from Excel/Google Sheets or separated by commas, in this order: <b>Name, email, area, position</b>. Emails that already exist in this company are skipped.</p>' +
+      '<textarea class="textarea linkbox" name="rows" rows="10" placeholder="Ana López, ana@company.com, Sales, Director&#10;Bruno Díaz, bruno@company.com, Operations, Manager"></textarea><p class="small muted" data-count style="margin-top:8px"></p>',
     onOpen: function (form) {
       var ta = form.rows, out = form.querySelector('[data-count]');
-      ta.addEventListener('input', function () { var n = parseRows(ta.value).length; out.textContent = n ? n + ' fila(s) reconocida(s)' : ''; });
+      ta.addEventListener('input', function () { var n = parseRows(ta.value).length; out.textContent = n ? n + ' row(s) recognized' : ''; });
     },
     onOk: function (form) {
       var rows = parseRows(form.rows.value);
-      if (!rows.length) return 'No se reconoció ninguna fila (cada fila necesita nombre y correo).';
-      return run('importEmployees', { companyId: cid, rows: rows }, function (r) { return r.imported + ' empleado(s) importado(s)'; });
+      if (!rows.length) return 'No rows recognized (each row needs a name and an email).';
+      return run('importEmployees', { companyId: cid, rows: rows }, function (r) { return r.imported + ' employee(s) imported'; });
     },
   });
 }
@@ -1424,45 +2262,51 @@ function importForm(cid) {
 /* ------------------------------------------------------------------ launches list */
 function renderLaunches() {
   var q = UI.lq.toLowerCase();
-  var list = S.launches.filter(function (l) {
-    if (UI.ltype && l.type !== UI.ltype) return false;
+  function match(l, ignoreType) {
+    if (!ignoreType && UI.ltype && l.type !== UI.ltype) return false;
     if (UI.lstatus === 'active' && (l.status === 'Closed' || l.status === 'Report sent')) return false;
     if (UI.lstatus !== 'active' && UI.lstatus !== 'all' && l.status !== UI.lstatus) return false;
     return !q || l.name.toLowerCase().indexOf(q) >= 0 || company(l.companyId).name.toLowerCase().indexOf(q) >= 0;
-  }).sort(function (a, b) { return String(b.createdAt).localeCompare(String(a.createdAt)); });
+  }
+  var list = S.launches.filter(function (l) { return match(l); }).sort(function (a, b) { return String(b.createdAt).localeCompare(String(a.createdAt)); });
+  var count = function (t) { return S.launches.filter(function (l) { return match(l, true) && (!t || l.type === t); }).length; };
+  var tabs = [['', 'All'], ['ED', TYPES.ED], ['ES', TYPES.ES]].map(function (x) {
+    return '<button class="tab' + (UI.ltype === x[0] ? ' is-on' : '') + '" data-ty="' + x[0] + '">' + (x[0] ? typeTag(x[0]) + ' ' : '') + h(x[1]) + ' <span class="tab-n">' + count(x[0]) + '</span></button>';
+  }).join('');
   var rows = list.map(function (l) {
     return '<tr class="is-click" data-go="#/launch/' + h(l.id) + '"><td class="strong">' + h(company(l.companyId).name) + '</td><td>' + typeTag(l.type) + ' ' + h(l.name) + '</td>' +
-      '<td>' + chip(l.status) + '</td><td data-l="Avance">' + progress(l) + '</td><td class="nowrap muted small" data-l="Cierre">' + h(fdate(l.closeDate) || '—') + '</td></tr>';
+      '<td>' + chip(l.status) + '</td><td data-l="Progress">' + progress(l) + '</td><td class="nowrap muted small" data-l="Closes">' + h(fdate(l.closeDate) || '—') + '</td></tr>';
   }).join('');
-  var stOpts = { active: 'En curso', all: 'Todos', Draft: 'Borrador', Open: 'Abierto', Ready: 'Listo', 'Report sent': 'Reporte enviado', Closed: 'Cerrado' };
+  var stOpts = { active: 'In progress', all: 'All statuses', Draft: 'Draft', Open: 'Open', Ready: 'Ready', 'Report sent': 'Report sent', Closed: 'Closed' };
   APP.innerHTML = shell('launches',
-    '<div class="adm-head"><div><div class="adm-eyebrow">Adizes Assessments</div><h1 class="adm-h1">Lanzamientos</h1></div></div>' +
-    '<div class="toolbar"><input class="input" type="search" placeholder="Buscar por empresa o nombre…" value="' + h(UI.lq) + '" data-q>' +
-    sel('st', UI.lstatus, stOpts).replace('class="select"', 'class="select" data-st') + sel('ty', UI.ltype, { '': 'Todos los tipos', ED: TYPES.ED, ES: TYPES.ES }).replace('class="select"', 'class="select" data-ty') + '</div>' +
-    '<div class="card">' + (rows ? '<table class="tbl"><thead><tr><th>Empresa</th><th>Lanzamiento</th><th>Estado</th><th>Avance</th><th>Cierre</th></tr></thead><tbody>' + rows + '</tbody></table>'
-      : '<div class="empty"><b>Sin lanzamientos</b>Los lanzamientos se crean desde cada empresa.</div>') + '</div>');
+    '<div class="adm-head"><div><div class="adm-eyebrow">Adizes Assessments</div><h1 class="adm-h1">Launches</h1></div></div>' +
+    '<div class="tabs">' + tabs + '</div>' +
+    '<div class="toolbar"><input class="input" type="search" placeholder="Search by company or name…" value="' + h(UI.lq) + '" data-q>' + sel('st', UI.lstatus, stOpts, ' data-st') + '</div>' +
+    '<div class="card">' + (rows ? '<table class="tbl"><thead><tr><th>Company</th><th>Launch</th><th>Status</th><th>Progress</th><th>Closes</th></tr></thead><tbody>' + rows + '</tbody></table>'
+      : '<div class="empty"><b>No launches here</b>Launches are created from each company’s page.</div>') + '</div>');
   var qEl = APP.querySelector('[data-q]');
-  qEl.addEventListener('input', function () { UI.lq = qEl.value; renderLaunches(); var n = APP.querySelector('[data-q]'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
-  APP.querySelector('[data-st]').addEventListener('change', function (e) { UI.lstatus = e.target.value; renderLaunches(); });
-  APP.querySelector('[data-ty]').addEventListener('change', function (e) { UI.ltype = e.target.value; renderLaunches(); });
+  qEl.addEventListener('input', function () { UI.lq = qEl.value; render(); var n = APP.querySelector('[data-q]'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); });
+  APP.querySelector('[data-st]').addEventListener('change', function (e) { UI.lstatus = e.target.value; render(); });
+  APP.querySelectorAll('[data-ty]').forEach(function (b) { b.addEventListener('click', function () { UI.ltype = b.getAttribute('data-ty'); render(); }); });
   APP.querySelectorAll('[data-go]').forEach(function (tr) { tr.addEventListener('click', function () { go(tr.getAttribute('data-go')); }); });
 }
 
 /* ------------------------------------------------------------------ launch form */
 function pickerHtml(cid, selected, locked) {
-  var emps = employeesOf(cid).sort(function (a, b) { return (a.area || '').localeCompare(b.area || '', 'es') || a.name.localeCompare(b.name, 'es'); });
-  if (!emps.length) return '<div class="notice is-info">Esta empresa aún no tiene empleados. Agrégalos primero.</div>';
-  return '<div class="toolbar" style="margin-bottom:8px"><input class="input" type="search" placeholder="Filtrar…" data-pf>' +
-    '<button type="button" class="btn btn-line btn-sm" data-all>Todos</button><button type="button" class="btn btn-ghost btn-sm" data-none>Ninguno</button>' +
-    '<span class="small muted" data-pc></span></div><div class="pick">' + emps.map(function (e) {
+  var emps = employeesOf(cid).sort(function (a, b) { return (a.area || '').localeCompare(b.area || '') || a.name.localeCompare(b.name); });
+  if (!emps.length) return '<div class="notice is-info">This company has no employees yet. Add them first.</div>';
+  var areas = {}; emps.forEach(function (e) { areas[e.area || '—'] = 1; });
+  return '<div class="pick-tools"><input class="input" type="search" placeholder="Filter by name, email or area…" data-pf>' +
+    '<div class="adm-btns"><button type="button" class="btn btn-line btn-sm" data-all>Select all</button><button type="button" class="btn btn-ghost btn-sm" data-none>None</button>' +
+    '<span class="small muted" data-pc></span></div></div><div class="pick">' + emps.map(function (e) {
       var on = selected[e.id], lock = locked[e.id];
       return '<label data-txt="' + h((e.name + ' ' + e.email + ' ' + (e.area || '')).toLowerCase()) + '"><input type="checkbox" name="emp" value="' + h(e.id) + '"' + (on ? ' checked' : '') + (lock ? ' disabled' : '') + '>' +
-        '<span><b>' + h(e.name) + '</b><br><span class="small muted">' + h(e.email) + '</span></span><span class="small muted">' + h(e.area || '') + (lock ? '<br>Ya respondió' : '') + '</span></label>';
+        '<span class="pick-n"><b>' + h(e.name) + '</b><span class="small muted">' + h(e.email) + '</span></span><span class="pick-a">' + h(e.area || '—') + (lock ? '<br><span class="small">Answered</span>' : '') + '</span></label>';
     }).join('') + '</div>';
 }
 function bindPicker(form) {
   var boxes = form.querySelectorAll('input[name="emp"]'), pc = form.querySelector('[data-pc]');
-  function count() { if (pc) pc.textContent = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).length + ' seleccionados'; }
+  function count() { if (pc) pc.textContent = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).length + ' of ' + boxes.length + ' selected'; }
   boxes.forEach(function (b) { b.addEventListener('change', count); });
   var pf = form.querySelector('[data-pf]');
   if (pf) pf.addEventListener('input', function () { var q = pf.value.toLowerCase(); form.querySelectorAll('.pick label').forEach(function (l) { l.hidden = q && l.getAttribute('data-txt').indexOf(q) < 0; }); });
@@ -1473,28 +2317,36 @@ function bindPicker(form) {
 }
 function picked(form) { return Array.prototype.filter.call(form.querySelectorAll('input[name="emp"]'), function (b) { return b.checked; }).map(function (b) { return b.value; }); }
 
-function launchForm(cid, l) {
+function launchForm(cid, l, type) {
   var c = company(cid), isNew = !l;
-  l = l || { type: 'ED', language: c.language || 'es', recipients: c.contactEmail || '' };
+  l = l || { type: type || 'ED', language: c.language || 'en', recipients: c.contactEmail || '' };
   var sel0 = {}; if (isNew) employeesOf(cid).forEach(function (e) { sel0[e.id] = true; });
-  var typeHtml = isNew ? field('Test', '<div class="types">' +
-    '<label><input type="radio" name="type" value="ED" checked><b>' + TYPES.ED + '</b><small>67 afirmaciones · reporte grupal con nombres · mínimo 1 respuesta</small></label>' +
-    '<label style="opacity:.55;cursor:default"><input type="radio" name="type" value="ES" disabled><b>' + TYPES.ES + '</b><small>50 preguntas · anónima · mínimo 5 · por área. Disponible en la siguiente versión.</small></label></div>') : '';
+  var typeHtml = isNew ? field('Test', '<div class="types">' + ['ED', 'ES'].map(function (t) {
+    return '<label><input type="radio" name="type" value="' + t + '"' + (l.type === t ? ' checked' : '') + '><span><b>' + typeTag(t) + ' ' + TYPES[t] + '</b><small>' + TYPE_INFO[t] + '</small></span></label>';
+  }).join('') + '</div>') : '';
   modal({
-    title: isNew ? 'Nuevo lanzamiento · ' + c.name : 'Editar lanzamiento', ok: isNew ? 'Crear borrador' : 'Guardar', wide: isNew,
-    body: typeHtml + field('Nombre', inp('name', l.name, 'text', 'p. ej. Equipo directivo · Nov 2026')) +
-      '<div class="row2">' + field('Idioma', sel('language', l.language, LANGS)) + field('Fecha de cierre', inp('closeDate', l.closeDate, 'date'), 'Opcional. Al pasar esta fecha, si hay el mínimo, queda listo para reporte.') + '</div>' +
-      '<div class="row2">' + field('Mínimo de respuestas', inp('minResponses', l.minResponses || '', 'number'), 'Express: 1 o más · Encuesta: 5 o más.') +
-      field('Destinatarios del reporte', inp('recipients', l.recipients, 'text', 'correo@empresa.com, otro@empresa.com')) + '</div>' +
-      field('Notas internas', '<textarea class="textarea" name="notes" rows="2">' + h(l.notes || '') + '</textarea>') +
-      (isNew ? field('Participantes', pickerHtml(cid, sel0, {})) : ''),
-    onOpen: function (form) { if (isNew) bindPicker(form); },
+    title: isNew ? 'New launch · ' + c.name : 'Edit launch · ' + l.name, ok: isNew ? 'Create draft' : 'Save changes', wide: true,
+    body: typeHtml + field('Launch name', inp('name', l.name, 'text', 'e.g. Leadership team · Nov 2026')) +
+      grid('3', field('Language', sel('language', l.language, LANGS)) + field('Closing date (optional)', inp('closeDate', l.closeDate, 'date')) +
+        field('Minimum responses', inp('minResponses', l.minResponses || '', 'number', '', ' min="1" step="1" data-min'))) +
+      '<p class="hint hint-row">Everything participants see — invitation emails, the survey and the report — uses this language. When the closing date passes with the minimum reached, the launch becomes Ready.</p>' +
+      field('Report recipients', inp('recipients', l.recipients, 'text', 'name@company.com, other@company.com'), 'Separate several emails with commas. You can change them before sending.') +
+      field('Internal notes', '<textarea class="textarea" name="notes" rows="2" placeholder="Only visible here (optional)">' + h(l.notes || '') + '</textarea>') +
+      (isNew ? field('Participants', pickerHtml(cid, sel0, {})) : ''),
+    onOpen: function (form) {
+      if (isNew) bindPicker(form);
+      var minEl = form.querySelector('[data-min]');
+      function upd() { var t = (vals(form).type || l.type); minEl.placeholder = String(S.min[t] || 1); minEl.min = String(S.min[t] || 1); }
+      form.querySelectorAll('input[name="type"]').forEach(function (r) { r.addEventListener('change', upd); });
+      upd();
+    },
     onOk: function (form) {
       var v = vals(form);
-      if (!v.name) return 'Falta el nombre.';
+      if (!v.name) return ERR.name_required;
       var p = { id: l.id, companyId: cid, type: v.type || l.type, name: v.name, language: v.language, closeDate: v.closeDate, minResponses: v.minResponses, recipients: v.recipients, notes: v.notes };
-      if (isNew) { p.employeeIds = picked(form); if (!p.employeeIds.length) return 'Elige al menos un participante.'; }
-      return run('saveLaunch', p, isNew ? 'Borrador creado' : 'Lanzamiento actualizado').then(function (r) { if (isNew && r.savedId) go('#/launch/' + r.savedId); });
+      if (isNew) { p.employeeIds = picked(form); if (!p.employeeIds.length) return ERR.no_participants; }
+      if (isNew && p.type === 'ES' && p.employeeIds.length < S.min.ES) return 'The Engagement Survey needs at least ' + S.min.ES + ' participants (minimum for anonymity).';
+      return run('saveLaunch', p, isNew ? 'Draft created' : 'Launch updated').then(function (r) { if (isNew && r.savedId) go('#/launch/' + r.savedId); });
     },
   });
 }
@@ -1502,13 +2354,13 @@ function participantsForm(l) {
   var inv = invitesOf(l.id), selected = {}, locked = {};
   inv.forEach(function (i) { selected[i.employeeId] = true; if (i.status === 'Completed') locked[i.employeeId] = true; });
   modal({
-    title: 'Participantes · ' + l.name, ok: 'Guardar participantes', wide: true,
-    body: (l.status === 'Open' ? '<div class="notice is-info">A los nuevos participantes envíales la invitación después de guardar.</div>' : '') + pickerHtml(l.companyId, selected, locked),
+    title: 'Participants · ' + l.name, ok: 'Save participants', wide: true,
+    body: (l.status === 'Open' ? '<div class="notice is-info">New participants don’t get the invitation automatically: send it after saving.</div>' : '') + pickerHtml(l.companyId, selected, locked),
     onOpen: bindPicker,
     onOk: function (form) {
       var ids = picked(form).concat(Object.keys(locked).filter(function (id) { return picked(form).indexOf(id) < 0; }));
-      if (!ids.length) return 'Elige al menos un participante.';
-      return run('setParticipants', { launchId: l.id, employeeIds: ids }, 'Participantes actualizados');
+      if (!ids.length) return ERR.no_participants;
+      return run('setParticipants', { launchId: l.id, employeeIds: ids }, 'Participants updated');
     },
   });
 }
@@ -1519,110 +2371,120 @@ function renderLaunch(lid) {
   var emp = {}; S.employees.forEach(function (e) { emp[e.id] = e; });
   var pend = inv.filter(function (i) { return i.status === 'Pending'; }).length, sent = inv.filter(function (i) { return i.status === 'Sent'; }).length;
   var canReport = l.done >= l.minResponses && l.status !== 'Draft';
-  var rows = inv.slice().sort(function (a, b) { return ((emp[a.employeeId] || {}).name || '').localeCompare((emp[b.employeeId] || {}).name || '', 'es'); }).map(function (i) {
+  var rows = inv.slice().sort(function (a, b) { return ((emp[a.employeeId] || {}).name || '').localeCompare((emp[b.employeeId] || {}).name || ''); }).map(function (i) {
     var e = emp[i.employeeId] || {};
-    var when = i.status === 'Completed' ? fdate(i.completedOn, l.type === 'ED') : i.sentAt ? 'Invitado ' + fdate(i.sentAt) + (i.reminders ? ' · ' + i.reminders + ' recordatorio(s)' : '') : '';
-    return '<tr><td class="strong">' + h(e.name || '—') + '<div class="small muted">' + h(e.email || '') + '</div></td><td data-l="Área">' + h(e.area || '—') + '</td>' +
-      '<td>' + chip(i.status, IST) + '</td><td class="small muted" data-l="Fecha">' + h(when) + '</td>' +
-      '<td class="act">' + (i.status !== 'Completed' ? '<button class="btn btn-ghost btn-sm" data-copy="' + h(i.link) + '">Copiar enlace</button>' +
-        (l.status === 'Open' ? '<button class="btn btn-ghost btn-sm" data-send="' + h(i.id) + '">' + (i.status === 'Pending' ? 'Enviar' : 'Reenviar') + '</button>' : '') : '') + '</td></tr>';
+    var when = i.status === 'Completed' ? fdate(i.completedOn, l.type === 'ED') : i.sentAt ? 'Invited ' + fdate(i.sentAt) + (i.reminders ? ' · ' + i.reminders + ' reminder(s)' : '') : '';
+    return '<tr><td class="strong">' + h(e.name || '—') + '<div class="small muted">' + h(e.email || '') + '</div></td><td data-l="Area">' + h(e.area || '—') + '</td>' +
+      '<td>' + chip(i.status, IST) + '</td><td class="small muted" data-l="Date">' + h(when) + '</td>' +
+      '<td class="act">' + (i.status !== 'Completed' ? '<button class="btn btn-ghost btn-sm" data-copy="' + h(i.link) + '">Copy link</button>' +
+        (l.status === 'Open' ? '<button class="btn btn-ghost btn-sm" data-send="' + h(i.id) + '">' + (i.status === 'Pending' ? 'Send' : 'Resend') + '</button>' : '') : '') + '</td></tr>';
   }).join('');
 
   var actions = [];
   if (l.status === 'Draft') {
-    actions.push('<button class="btn btn-red" data-act="open-send">Abrir y enviar invitaciones</button>', '<button class="btn btn-line" data-act="open">Abrir sin enviar</button>',
-      '<button class="btn btn-line" data-act="participants">Participantes</button>', '<button class="btn btn-ghost" data-act="edit">Editar</button>', '<button class="btn btn-ghost btn-danger" data-act="delete">Eliminar</button>');
+    actions.push('<button class="btn btn-red" data-act="open-send">Open & send invitations</button>', '<button class="btn btn-line" data-act="open">Open without sending</button>',
+      '<button class="btn btn-line" data-act="participants">Participants</button>', '<button class="btn btn-ghost" data-act="edit">Edit</button>', '<button class="btn btn-ghost btn-danger" data-act="delete">Delete</button>');
   } else if (l.status === 'Open') {
-    if (pend) actions.push('<button class="btn btn-red" data-act="invite">Enviar invitaciones (' + pend + ')</button>');
-    if (sent) actions.push('<button class="btn btn-line" data-act="remind">Recordatorio (' + sent + ')</button>');
-    actions.push('<button class="btn btn-line" data-act="copy-all">Copiar enlaces</button>', '<button class="btn btn-line" data-act="participants">Participantes</button>');
-    if (l.done >= l.minResponses) actions.push('<button class="btn btn-dark" data-act="finish">Cerrar y marcar listo</button>');
-    actions.push('<button class="btn btn-ghost" data-act="edit">Editar</button>');
+    if (pend) actions.push('<button class="btn btn-red" data-act="invite">Send invitations (' + pend + ')</button>');
+    if (sent) actions.push('<button class="btn btn-line" data-act="remind">Send reminder (' + sent + ')</button>');
+    actions.push('<button class="btn btn-line" data-act="copy-all">Copy links</button>', '<button class="btn btn-line" data-act="participants">Participants</button>');
+    if (l.done >= l.minResponses) actions.push('<button class="btn btn-dark" data-act="finish">Close & mark ready</button>');
+    actions.push('<button class="btn btn-ghost" data-act="edit">Edit</button>');
   } else {
-    actions.push('<button class="btn btn-line" data-act="reopen">Reabrir</button>', '<button class="btn btn-ghost" data-act="edit">Editar</button>');
-    if (l.status !== 'Closed') actions.push('<button class="btn btn-ghost" data-act="close">Archivar</button>');
+    actions.push('<button class="btn btn-line" data-act="reopen">Reopen</button>', '<button class="btn btn-ghost" data-act="edit">Edit</button>');
+    if (l.status !== 'Closed') actions.push('<button class="btn btn-ghost" data-act="close">Archive</button>');
   }
   var notice = '';
-  if (l.status === 'Draft') notice = '<div class="notice is-info">Borrador: revisa los participantes y ábrelo para que puedan responder. Puedes enviar las invitaciones desde info@ o copiar los enlaces para repartirlos tú.</div>';
-  if (l.notice === 'expired' && l.status === 'Open') notice = '<div class="notice">La fecha de cierre pasó sin alcanzar el mínimo (' + l.done + ' de ' + l.minResponses + '). Envía un recordatorio o cambia la fecha en “Editar”.</div>';
-  if (l.type === 'ES' && l.status !== 'Draft') notice += '<div class="notice is-info">La Encuesta de Compromiso (formulario y reporte) se activa en la siguiente versión.</div>';
+  if (l.status === 'Draft') notice = '<div class="notice is-info">Draft: check the participants, then open it so they can answer. Send the invitations from info@adizes.com, or copy the personal links and share them yourself.</div>';
+  if (l.notice === 'expired' && l.status === 'Open') notice = '<div class="notice">The closing date passed without reaching the minimum (' + l.done + ' of ' + l.minResponses + '). Send a reminder or change the date in “Edit”.</div>';
+  if (l.type === 'ES') notice += '<div class="notice is-info">Anonymous survey: you can see who has answered, but answers are stored without names. Areas with fewer than ' + ES.MIN_GROUP + ' answers are never shown on their own in the report.</div>';
 
   var report = '';
   if (l.status !== 'Draft') {
-    report = '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Reporte grupal</h2></div><div class="card report">' +
-      '<div><div class="adm-eyebrow">1 · Generar</div>' +
-      (canReport ? '<p class="small muted" style="margin:6px 0 12px">Se genera en tu navegador con las ' + l.done + ' respuestas actuales y se guarda en Drive.</p>' : '<p class="small muted" style="margin:6px 0 12px">Disponible al llegar al mínimo de ' + l.minResponses + ' respuesta(s). Hoy: ' + l.done + '.</p>') +
-      (l.reportUrl ? '<div class="pdf-ok"><i></i><div><a href="' + h(l.reportUrl) + '" target="_blank" rel="noopener" class="strong">Ver PDF en Drive</a><div class="small muted">Generado ' + h(fdate(l.reportGeneratedAt, true)) + '</div></div></div>' : '') +
-      '<button class="btn ' + (l.reportUrl ? 'btn-line' : 'btn-dark') + '" data-act="generate"' + (canReport && l.type === 'ED' ? '' : ' disabled') + '>' + (l.reportUrl ? 'Volver a generar' : 'Generar reporte') + '</button></div>' +
-      '<div><div class="adm-eyebrow">2 · Enviar</div>' +
-      '<form data-send-form style="margin-top:10px">' + field('Para', inp('to', l.recipients || c.contactEmail || '', 'text', 'correo@empresa.com, otro@empresa.com'), 'Separa varios correos con comas.') +
-      field('Mensaje (opcional)', '<textarea class="textarea" name="note" rows="3" placeholder="Se agrega al correo con el PDF adjunto."></textarea>') +
-      '<div class="adm-btns"><button type="submit" class="btn btn-red"' + (l.reportUrl ? '' : ' disabled') + '>Enviar reporte</button>' +
-      (l.reportSentAt ? '<span class="small muted">Enviado ' + h(fdate(l.reportSentAt, true)) + ' a ' + h(l.reportSentTo) + '</span>' : '') + '</div></form></div></div></section>';
+    report = '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Group report</h2></div><div class="card report">' +
+      '<div><div class="adm-eyebrow">1 · Generate</div>' +
+      (canReport ? '<p class="small muted" style="margin:6px 0 12px">Built in your browser from the ' + l.done + ' current response(s), in ' + h(LANGS[l.language] || l.language) + ', and saved to Drive.</p>'
+        : '<p class="small muted" style="margin:6px 0 12px">Available once the minimum of ' + l.minResponses + ' response(s) is reached. Now: ' + l.done + '.</p>') +
+      (l.type === 'ES' ? '<label class="chk" style="margin-bottom:12px"><input type="checkbox" data-comments checked> Include participants’ comments</label>' : '') +
+      (l.reportUrl ? '<div class="pdf-ok"><i></i><div><a href="' + h(l.reportUrl) + '" target="_blank" rel="noopener" class="strong">Open PDF in Drive</a><div class="small muted">Generated ' + h(fdate(l.reportGeneratedAt, true)) + '</div></div></div>' : '') +
+      '<button class="btn ' + (l.reportUrl ? 'btn-line' : 'btn-dark') + '" data-act="generate"' + (canReport ? '' : ' disabled') + '>' + (l.reportUrl ? 'Generate again' : 'Generate report') + '</button></div>' +
+      '<div><div class="adm-eyebrow">2 · Send</div>' +
+      '<form data-send-form style="margin-top:10px">' + field('To', inp('to', l.recipients || c.contactEmail || '', 'text', 'name@company.com, other@company.com'), 'Separate several emails with commas.') +
+      field('Message (optional)', '<textarea class="textarea" name="note" rows="3" placeholder="Added to the email with the PDF attached."></textarea>') +
+      '<div class="adm-btns"><button type="submit" class="btn btn-red"' + (l.reportUrl ? '' : ' disabled') + '>' + (l.reportSentAt ? 'Send again' : 'Send report') + '</button>' +
+      (l.reportSentAt ? '<span class="small muted">Sent ' + h(fdate(l.reportSentAt, true)) + ' to ' + h(l.reportSentTo) + '</span>' : '') + '</div></form></div></div></section>';
   }
 
-  APP.innerHTML = shell('companies',
-    '<div class="adm-crumbs"><a href="#/">Empresas</a> › <a href="#/company/' + h(c.id) + '">' + h(c.name) + '</a> ›</div>' +
+  APP.innerHTML = shell('launches',
+    '<div class="adm-crumbs"><a href="#/">Companies</a> › <a href="#/company/' + h(c.id) + '">' + h(c.name) + '</a> ›</div>' +
     '<div class="adm-head"><div><h1 class="adm-h1">' + typeTag(l.type) + ' ' + h(l.name) + '</h1>' +
     '<div class="adm-sub">' + h(TYPES[l.type]) + ' · ' + h(LANGS[l.language] || l.language) + ' · ' + chip(l.status) + '</div></div>' +
     '<div class="adm-btns">' + actions.join('') + '</div></div>' + notice +
     '<div class="kpis">' +
-      '<div class="card kpi"><small>Respuestas</small><b>' + l.done + ' <span class="muted" style="font-size:15px">de ' + l.total + '</span></b>' + progress(l) + '</div>' +
-      '<div class="card kpi"><small>Mínimo</small><b>' + l.minResponses + '</b><div class="small muted">' + (l.done >= l.minResponses ? 'Alcanzado' : 'Faltan ' + (l.minResponses - l.done)) + '</div></div>' +
-      '<div class="card kpi"><small>Cierre</small><b style="font-size:17px">' + h(fdate(l.closeDate) || 'Sin fecha') + '</b></div>' +
-      '<div class="card kpi"><small>' + (l.readyAt ? 'Listo desde' : 'Abierto desde') + '</small><b style="font-size:17px">' + h(fdate(l.readyAt || l.openedAt) || '—') + '</b></div>' +
+      '<div class="card kpi"><small>Responses</small><b>' + l.done + ' <span class="muted" style="font-size:15px">of ' + l.total + '</span></b>' + progress(l) + '</div>' +
+      '<div class="card kpi"><small>Minimum</small><b>' + l.minResponses + '</b><div class="small muted">' + (l.done >= l.minResponses ? 'Reached' : (l.minResponses - l.done) + ' to go') + '</div></div>' +
+      '<div class="card kpi"><small>Closes</small><b style="font-size:17px">' + h(fdate(l.closeDate) || 'No date') + '</b></div>' +
+      '<div class="card kpi"><small>' + (l.readyAt ? 'Ready since' : 'Open since') + '</small><b style="font-size:17px">' + h(fdate(l.readyAt || l.openedAt) || '—') + '</b></div>' +
     '</div>' + report +
-    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Participantes</h2>' +
-    (l.type === 'ES' ? '<span class="small muted">Las respuestas son anónimas: aquí solo se ve quién ya respondió.</span>' : '') + '</div>' +
-    '<div class="card">' + (rows ? '<table class="tbl"><thead><tr><th>Nombre</th><th>Área</th><th>Estado</th><th>Fecha</th><th></th></tr></thead><tbody>' + rows + '</tbody></table>' : '<div class="empty"><b>Sin participantes</b></div>') + '</div></section>');
+    '<section class="adm-sec"><div class="adm-sec-h"><h2 class="adm-h2">Participants</h2></div>' +
+    '<div class="card">' + (rows ? '<table class="tbl"><thead><tr><th>Name</th><th>Area</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>' + rows + '</tbody></table>' : '<div class="empty"><b>No participants</b></div>') + '</div></section>');
 
   function on(act, fn) { var b = APP.querySelector('[data-act="' + act + '"]'); if (b) b.addEventListener('click', fn); }
   on('edit', function () { launchForm(l.companyId, l); });
   on('participants', function () { participantsForm(l); });
-  on('delete', function () { confirmBox('Eliminar borrador', '¿Eliminar “' + h(l.name) + '”? No se puede deshacer.', 'Eliminar', function () { return run('deleteLaunch', { id: l.id }, 'Borrador eliminado').then(function () { go('#/company/' + l.companyId); }); }, true); });
-  on('open-send', function () { confirmBox('Abrir y enviar', 'Se enviará la invitación desde info@adizes.com a ' + l.total + ' participante(s), cada uno con su enlace personal.', 'Abrir y enviar', function () { return run('openLaunch', { launchId: l.id, send: true }, function (r) { return 'Abierto · ' + r.sent + ' invitación(es) enviada(s)'; }); }); });
-  on('open', function () { run('openLaunch', { launchId: l.id, send: false }, 'Abierto. Copia los enlaces para repartirlos.'); });
-  on('invite', function () { confirmBox('Enviar invitaciones', 'Se enviará la invitación a ' + pend + ' participante(s) que aún no la tienen.', 'Enviar', function () { return run('sendInvites', { launchId: l.id }, function (r) { return r.sent + ' invitación(es) enviada(s)'; }); }); });
-  on('remind', function () { confirmBox('Enviar recordatorio', 'Se enviará un recordatorio a ' + sent + ' participante(s) invitados que aún no responden.', 'Enviar recordatorio', function () { return run('remind', { launchId: l.id }, function (r) { return r.sent + ' recordatorio(s) enviado(s)'; }); }); });
+  on('delete', function () { confirmBox('Delete draft', 'Delete “' + h(l.name) + '”? This can’t be undone.', 'Delete', function () { return run('deleteLaunch', { id: l.id }, 'Draft deleted').then(function () { go('#/company/' + l.companyId); }); }, true); });
+  on('open-send', function () { confirmBox('Open & send invitations', 'The invitation will be sent from info@adizes.com to ' + l.total + ' participant(s) in <b>' + h(LANGS[l.language]) + '</b>, each with a personal link.', 'Open & send', function () { return run('openLaunch', { launchId: l.id, send: true }, function (r) { return 'Open · ' + r.sent + ' invitation(s) sent'; }); }); });
+  on('open', function () { run('openLaunch', { launchId: l.id, send: false }, 'Open. Copy the links to share them.'); });
+  on('invite', function () { confirmBox('Send invitations', 'The invitation will be sent to the ' + pend + ' participant(s) who don’t have it yet.', 'Send', function () { return run('sendInvites', { launchId: l.id }, function (r) { return r.sent + ' invitation(s) sent'; }); }); });
+  on('remind', function () { confirmBox('Send reminder', 'A reminder will be sent to the ' + sent + ' invited participant(s) who haven’t answered yet.', 'Send reminder', function () { return run('remind', { launchId: l.id }, function (r) { return r.sent + ' reminder(s) sent'; }); }); });
   on('copy-all', function () {
-    copyText(inv.filter(function (i) { return i.status !== 'Completed'; }).map(function (i) { var e = emp[i.employeeId] || {}; return e.name + '\t' + e.email + '\t' + i.link; }).join('\n'));
+    copyText(inv.filter(function (i) { return i.status !== 'Completed'; }).map(function (i) { var e = emp[i.employeeId] || {}; return e.name + '\t' + e.email + '\t' + i.link; }).join('\n'), 'Links copied (name, email, link — paste into Excel)');
   });
-  on('finish', function () { confirmBox('Cerrar y marcar listo', 'Ya hay ' + l.done + ' de ' + l.total + ' respuestas. Al cerrar, los enlaces dejan de aceptar respuestas (puedes reabrir después).', 'Cerrar y marcar listo', function () { return run('finish', { launchId: l.id }, 'Listo para reporte'); }); });
+  on('finish', function () { confirmBox('Close & mark ready', 'There are ' + l.done + ' of ' + l.total + ' responses. Once closed, the links stop accepting answers (you can reopen later).', 'Close & mark ready', function () { return run('finish', { launchId: l.id }, 'Ready for the report'); }); });
   on('reopen', function () {
-    modal({ title: 'Reabrir lanzamiento', ok: 'Reabrir', body: '<p style="margin-bottom:12px">Los participantes que no han respondido podrán hacerlo de nuevo con su enlace.</p>' + field('Nueva fecha de cierre (opcional)', inp('closeDate', '', 'date')),
-      onOk: function (form) { return run('reopen', { launchId: l.id, closeDate: form.closeDate.value }, 'Lanzamiento reabierto'); } });
+    modal({ title: 'Reopen launch', ok: 'Reopen', body: '<p class="lead-p">Participants who haven’t answered will be able to use their link again.</p>' + field('New closing date (optional)', inp('closeDate', '', 'date')),
+      onOk: function (form) { return run('reopen', { launchId: l.id, closeDate: form.closeDate.value }, 'Launch reopened'); } });
   });
-  on('close', function () { confirmBox('Archivar lanzamiento', 'Quedará como cerrado. El reporte y las respuestas se conservan.', 'Archivar', function () { return run('close', { launchId: l.id }, 'Lanzamiento archivado'); }); });
-  on('generate', function () { generateReport(l); });
-  APP.querySelectorAll('[data-copy]').forEach(function (b) { b.addEventListener('click', function () { copyText(b.getAttribute('data-copy')); }); });
-  APP.querySelectorAll('[data-send]').forEach(function (b) { b.addEventListener('click', function () { run('sendInvites', { launchId: l.id, inviteIds: [b.getAttribute('data-send')] }, 'Invitación enviada'); }); });
+  on('close', function () { confirmBox('Archive launch', 'It will be marked as closed. The report and the answers are kept.', 'Archive', function () { return run('close', { launchId: l.id }, 'Launch archived'); }); });
+  on('generate', function () { var cb = APP.querySelector('[data-comments]'); generateReport(l, cb ? cb.checked : false); });
+  APP.querySelectorAll('[data-copy]').forEach(function (b) { b.addEventListener('click', function () { copyText(b.getAttribute('data-copy'), 'Link copied'); }); });
+  APP.querySelectorAll('[data-send]').forEach(function (b) { b.addEventListener('click', function () { run('sendInvites', { launchId: l.id, inviteIds: [b.getAttribute('data-send')] }, 'Invitation sent'); }); });
   var sf = APP.querySelector('[data-send-form]');
   if (sf) sf.addEventListener('submit', function (e) {
     e.preventDefault();
     var to = sf.to.value.trim(), note = sf.note.value.trim();
-    if (!to) return toast('Agrega al menos un destinatario.', true);
-    confirmBox('Enviar reporte', 'Se enviará el PDF desde info@adizes.com a: <b>' + h(to) + '</b>', 'Enviar reporte', function () { return run('sendReport', { launchId: l.id, to: to, note: note }, 'Reporte enviado'); });
+    if (!to) return toast(ERR.no_recipients, true);
+    confirmBox('Send report', 'The PDF will be sent from info@adizes.com to: <b>' + h(to) + '</b>' + (l.status === 'Open' ? '<br><br>The launch is still open: more responses can arrive after you send it.' : ''), 'Send report',
+      function () { return run('sendReport', { launchId: l.id, to: to, note: note }, 'Report sent'); });
   });
 }
 
 /* ------------------------------------------------------------------ reports (generated here, saved in Drive) */
 function slug(s) { return String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\w]+/g, '-').replace(/^-|-$/g, ''); }
-function generateReport(l) {
+function generateReport(l, comments) {
   busy(true);
   call('reportData', { launchId: l.id }).then(function (d) {
-    if (d.type !== 'ED') throw new Error('Este tipo de reporte aún no está disponible.');
     return getPdfAssets(CFG.assetsBase).then(function (A) {
-      var doc = renderEdPdf(A, d.lang, { result: ED.score(d.responses), company: d.company, participants: d.names, dateIso: d.dateIso });
-      var name = (d.lang === 'es' ? 'Diagnostico-Expres' : 'Express-Diagnostics') + '-' + slug(d.company) + '-' + d.dateIso.slice(0, 10) + '.pdf';
+      var doc, base;
+      if (d.type === 'ED') {
+        doc = renderEdPdf(A, d.lang, { result: ED.score(d.responses), company: d.company, participants: d.names, dateIso: d.dateIso });
+        base = d.lang === 'es' ? 'Diagnostico-Expres' : 'Express-Diagnostics';
+      } else {
+        doc = renderEsPdf(A, d.lang, { agg: ES.aggregate(d.responses), company: d.company, launchName: d.launchName, invited: d.total, dateIso: d.dateIso, comments: comments });
+        base = d.lang === 'es' ? 'Encuesta-de-Compromiso' : 'Engagement-Survey';
+      }
+      var name = base + '-' + slug(d.company) + '-' + d.dateIso.slice(0, 10) + '.pdf';
       return call('saveReport', { launchId: l.id, pdf: doc.output('datauristring').split(',')[1], fileName: name });
     });
-  }).then(function (r) { S = r; busy(false); render(); toast('Reporte generado y guardado en Drive'); },
-    function (e) { busy(false); toast(e.message || 'No se pudo generar el reporte', true); if (window.console) console.error(e); });
+  }).then(function (r) { S = r; busy(false); render(); toast('Report generated and saved to Drive'); },
+    function (e) { busy(false); toast(e.message || 'The report couldn’t be generated', true); if (window.console) console.error(e); });
 }
 
 /* ------------------------------------------------------------------ boot */
+// With a valid session (or a Google account the server recognizes) this loads the admin; otherwise → sign-in.
 call('state').then(function (r) { S = r; render(); }, function (e) {
-  APP.innerHTML = '<div class="adm-boot"><div class="card card-pad" style="max-width:420px;text-align:center"><b>No se pudo cargar el admin</b><p class="muted" style="margin-top:6px">' + h(e.message) + '</p></div></div>';
+  if (e.code === 'forbidden') return;
+  APP.innerHTML = '<div class="adm-boot"><div class="card card-pad" style="max-width:420px;text-align:center"><b>The admin couldn’t load</b><p class="muted" style="margin-top:6px">' + h(e.message) + '</p></div></div>';
 });
 
 })();</script>

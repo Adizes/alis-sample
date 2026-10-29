@@ -90,6 +90,20 @@ function appendRecord_(T, row) {
     return sh.getLastRow();
   });
 }
+// Inserts the row at a random position among the existing data rows (so the order reveals nothing).
+function insertRandom_(T, row) {
+  return withLock_(() => {
+    const sh = table_(T);
+    const map = headerMap_(sh, T);
+    const out = new Array(sh.getLastColumn()).fill('');
+    Object.keys(row).forEach(k => { if (map[k] != null) out[map[k]] = safe_(row[k]); });
+    const last = sh.getLastRow();
+    const pos = 2 + Math.floor(Math.random() * last); // 2 … last+1
+    if (pos > last) sh.appendRow(out);
+    else { sh.insertRowBefore(pos); sh.getRange(pos, 1, 1, out.length).setValues([out]); }
+    return pos;
+  });
+}
 function findRecord_(T, key, value) {
   if (!value) return null;
   const sh = table_(T);
@@ -178,11 +192,16 @@ function newId_(prefix) {
   let r = ''; for (let i = 0; i < 6; i++) r += chars[Math.floor(Math.random() * chars.length)];
   return prefix + '-' + r;
 }
-function today_() { return Utilities.formatDate(new Date(), 'America/Mexico_City', 'yyyy-MM-dd'); }
+function tz_() { try { return dataSS_().getSpreadsheetTimeZone() || 'America/Mexico_City'; } catch (err) { return 'America/Mexico_City'; } }
+function today_() { return Utilities.formatDate(new Date(), tz_(), 'yyyy-MM-dd'); }
+// Dates typed as text can come back from Sheets as Date objects: always normalize to yyyy-MM-dd.
 function dateStr_(v) {
   if (!v) return '';
-  if (v instanceof Date) return Utilities.formatDate(v, 'America/Mexico_City', 'yyyy-MM-dd');
-  return String(v).slice(0, 10);
+  if (v instanceof Date) return isNaN(v) ? '' : Utilities.formatDate(v, tz_(), 'yyyy-MM-dd');
+  const s = String(v).trim();
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  const d = new Date(s);
+  return isNaN(d) ? '' : Utilities.formatDate(d, tz_(), 'yyyy-MM-dd');
 }
 function iso_(v) { return v instanceof Date ? v.toISOString() : (v ? String(v) : ''); }
 function firstName_(name) { return String(name || '').trim().split(/\s+/)[0] || ''; }

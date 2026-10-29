@@ -11,24 +11,28 @@ Un solo proyecto de Apps Script, **distinto** al de Founder Dependency. Todo est
 2. Borra lo que trae `Código.gs`, pega todo `Code.gs` y guarda (💾).
 3. Elige la función **`setup`** → **▶ Ejecutar** → acepta los permisos. En el **Registro de ejecución**
    aparecen los enlaces a la hoja **“Adizes Assessments — Data”** y a la carpeta **“Adizes Assessments — Reports”**.
-4. **Implementar → Nueva implementación → Aplicación web**, dos veces:
-   - **Pública** (para Webflow): Ejecutar como **Yo** · Acceso **Cualquier usuario**. Su URL `/exec` va en los embeds.
-   - **Admin**: Ejecutar como **Yo** · Acceso **Cualquier usuario de adizes.com**. Su URL `/exec` es el admin
-     (guárdala en favoritos).
-5. Administradores: **Configuración del proyecto (⚙️) → Propiedades de la secuencia de comandos →
-   `ADMIN_EMAILS`** (empieza con `dario@adizes.com`; para agregar más, sepáralos con comas).
+4. **Implementar → Nueva implementación → Aplicación web**: Ejecutar como **Yo** · Acceso **Cualquier usuario**.
+   Esa URL `/exec` sirve para dos cosas:
+   - Va en los embeds de Webflow (`/express-diagnostics` y `/engagement-survey`).
+   - Abierta en el navegador **es el admin**. Guárdala en favoritos.
+5. Acceso al admin: **sin contraseña**. Escribes tu correo y te llega un código de 6 dígitos desde info@ (dura 10
+   minutos; la sesión dura 7 días en ese navegador). Si Google ya reconoce tu cuenta @adizes.com, entras directo.
+   Quién puede entrar:
+   - `ADMIN_EMAILS` en **Configuración del proyecto (⚙️) → Propiedades de la secuencia de comandos**
+     (separados por comas; `@dominio.com` permite todo un dominio).
+   - `CONFIG.ADMIN_DOMAINS` en el código (hoy: `nuclea.solutions`).
 
 ### Por qué así
-- “Ejecutar como Yo” + “usuarios de adizes.com”: Google obliga a iniciar sesión con una cuenta del dominio y el
-  servidor puede leer de forma confiable el correo de quien entra. Cada acción del admin vuelve a verificarlo
-  contra `ADMIN_EMAILS`; si no está en la lista, no recibe ni la página ni los datos.
+- Con una contraseña compartida no sabríamos quién entró; con el código por correo cada persona entra con su propio
+  correo y se puede quitar el acceso borrándolo de la lista (las sesiones abiertas se invalidan al instante).
 - Todo se ejecuta como dario@adizes.com: la hoja y los reportes viven en su Drive y los correos salen del alias
   **info@adizes.com**.
+- Si tenías una segunda implementación “Admin” (solo adizes.com), puedes seguir usándola o archivarla.
 
 ## Actualizar a una versión nueva
 
 Pega el nuevo `Code.gs` → Guarda → **Implementar → Gestionar implementaciones** → en **cada** implementación
-(Pública y Admin): ✏️ → Versión: **Nueva versión** → Implementar. Las URLs no cambian.
+que tengas: ✏️ → Versión: **Nueva versión** → Implementar. Las URLs no cambian.
 
 ## Qué guarda (pestañas de la hoja)
 
@@ -36,5 +40,12 @@ Pega el nuevo `Code.gs` → Guarda → **Implementar → Gestionar implementacio
 - **Launches**: cada lanzamiento (tipo, estado, fechas, destinatarios, enlace al PDF).
 - **Invitations**: un enlace personal por participante (estado: Pending / Sent / Completed).
 - **ED Answers**: respuestas del Diagnóstico Exprés (con nombre: es un reporte con participantes nominales).
+- **ES Answers**: respuestas de la Encuesta de Compromiso, **anónimas**: sin nombre ni enlace a la invitación, solo
+  el día, el área y el resultado, insertadas en orden aleatorio.
+
+## Correos a grupos de Google (p. ej. it@adizes.com)
+Si un correo a un grupo no llega, casi siempre es la configuración del grupo: en groups.google.com → el grupo →
+**Configuración → Quién puede publicar** debe permitir a la organización (o a cualquiera), y revisa la cola de
+**mensajes pendientes** de moderación.
 - Activador cada hora: los lanzamientos cuya fecha de cierre pasó quedan “Listo” si tienen el mínimo; si no,
   se avisa una vez a los admins y a it@adizes.com.

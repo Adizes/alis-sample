@@ -1,4 +1,4 @@
-/*! Adizes · Express Diagnostics v1.0.0 · github.com/Adizes/alis-sample */
+/*! Adizes · Express Diagnostics v1.1.0 · github.com/Adizes/alis-sample */
 (function(){
 'use strict';
 var ED_I18N = {};
@@ -20,7 +20,6 @@ ED_I18N.en = {
     keyboardHint: 'Keys 1–4 · 0 = I cannot answer',
     of: 'of',
     section: 'Area',
-    language: 'Language',
     resume: 'Welcome back. Your answers so far are saved.',
     resumeYes: 'Continue where I left off',
     resumeNo: 'Start over',
@@ -102,12 +101,16 @@ ED_I18N.en = {
 
   review: {
     eyebrow: 'Last step',
-    title: 'Ready to send',
-    body: 'You rated all 67 statements.',
+    title: 'Review your answers',
+    body: 'You rated all {n} statements.',
     cannot: '{n} marked as “I cannot answer”.',
-    warn: 'Once sent, your answers can’t be changed.',
+    missingN: '{n} statements still need an answer.',
+    missingHelp: 'Click any statement to answer or change it.',
+    missing: 'Not answered',
+    warn: 'Click any statement to change your answer. Once sent, your answers can’t be changed.',
     submit: 'Send my answers',
-    edit: 'Review my answers',
+    hint: 'You can also send from the bottom of the list.',
+    back: 'Back to review',
   },
   thanks: {
     title: 'Thank you, {first}',
@@ -228,7 +231,6 @@ ED_I18N.es = {
     keyboardHint: 'Teclas 1–4 · 0 = No puedo responder',
     of: 'de',
     section: 'Área',
-    language: 'Idioma',
     resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
     resumeYes: 'Continuar donde me quedé',
     resumeNo: 'Empezar de nuevo',
@@ -309,12 +311,16 @@ ED_I18N.es = {
 
   review: {
     eyebrow: 'Último paso',
-    title: 'Listo para enviar',
-    body: 'Calificaste las 67 afirmaciones.',
+    title: 'Revisa tus respuestas',
+    body: 'Calificaste las {n} afirmaciones.',
     cannot: '{n} como “No puedo responder”.',
-    warn: 'Una vez enviadas, tus respuestas ya no se pueden cambiar.',
+    missingN: 'Faltan {n} afirmaciones por responder.',
+    missingHelp: 'Haz clic en cualquier afirmación para responderla o cambiarla.',
+    missing: 'Sin responder',
+    warn: 'Haz clic en cualquier afirmación para cambiar tu respuesta. Una vez enviadas, ya no se pueden cambiar.',
     submit: 'Enviar mis respuestas',
-    edit: 'Revisar mis respuestas',
+    hint: 'También puedes enviarlas al final de la lista.',
+    back: 'Volver a la revisión',
   },
   thanks: {
     title: 'Gracias, {first}',
@@ -620,157 +626,131 @@ var ED = (function () {
   };
 })();
 
-/* Express Diagnostics — participant widget (personal invitation link ?t=TOKEN).
- * The participant answers and only sees a thank-you; the group report is generated in the admin.
- * Embed:
- *   <div id="ed-assessment"></div>
- *   <script>window.ED_CONFIG = { endpoint: 'https://script.google.com/macros/s/XXX/exec' };</script>
- *   <script src="https://cdn.jsdelivr.net/gh/Adizes/alis-sample@vX/express-diagnostics/dist/express-diagnostics.min.js" defer></script>
- * Bundled by build.mjs together with: i18n files, shared/core.js, shared/ed-engine.js.
+/* Participant survey shell shared by Express Diagnostics and Engagement Survey.
+ * Personal link ?t=TOKEN → p_load → intro → one statement per screen → review (all answers, click to edit)
+ * → p_submit → thank-you. The participant never sees results. Language = the launch's language.
+ *
+ * spec = {
+ *   I18N, prefix (storage key), count, autoAdvance,
+ *   section(q) → { index, total, key }       // progress segments + eyebrow
+ *   options(t, q) → [{ value, label, sub }]  // in display order (keys 1..n)
+ *   cannot(t, q) → label | null              // raw value 1 ("I cannot answer" / "Don't know")
+ *   text(t, q) → statement
+ *   importance: { max, min } | null          // Engagement Survey: less / medium / most important
+ *   comments: bool
+ *   payload(state) → extra fields for p_submit
+ * }
  */
-var VERSION = "1.0.0";
-var CSS = "__ROOT__ {\n--ink: #111111;\n--ink-2: #3a3a3a;\n--muted: #6b6f76;\n--soft: #9aa0a6;\n--line: #e6e6e6;\n--paper: #f6f6f6;\n--white: #ffffff;\n--red: #d7141a;\n--red-dark: #b10f14;\n--red-tint: #fdecec;\n--green: #1e8e4e; --green-t: #dcf2e5;\n--yellow: #d9a400; --yellow-ink: #8a6500; --yellow-t: #fff0bf;\n--red-t: #fbd6d7;\ndisplay: block; width: 100%;\nfont-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;\ncolor: var(--ink); line-height: 1.5; text-align: left;\n-webkit-font-smoothing: antialiased;\n}\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after {\nbox-sizing: border-box; margin: 0; padding: 0; border: 0;\nfont: inherit; color: inherit; letter-spacing: normal; text-transform: none;\nbackground: none; box-shadow: none; text-decoration: none; list-style: none;\n}\n__ROOT__ strong, __ROOT__ b { font-weight: 700; }\n__ROOT__ em { font-style: normal; color: var(--soft); }\n__ROOT__ button { cursor: pointer; -webkit-appearance: none; appearance: none; line-height: 1.3; }\n__ROOT__ button:focus-visible, __ROOT__ a:focus-visible, __ROOT__ input:focus-visible, __ROOT__ textarea:focus-visible, __ROOT__ select:focus-visible {\noutline: 3px solid rgba(215, 20, 26, .35); outline-offset: 2px;\n}\n__ROOT__ a { color: inherit; }\n__ROOT__ [hidden] { display: none !important; }\n__ROOT__ .adz-stage {\nbackground: var(--white); border: 1px solid var(--line); border-radius: 10px;\nmin-height: min(720px, 100svh); display: flex; flex-direction: column; overflow: hidden;\n}\n__ROOT__ .adz-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 32px 14px; }\n__ROOT__ .adz-logo { display: block; height: 38px; width: auto; max-width: none; }\n__ROOT__ .adz-logo-txt { font-weight: 800; letter-spacing: .06em; color: var(--red); }\n__ROOT__ .adz-lang { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }\n__ROOT__ .adz-lang button { padding: 6px 11px; font-size: 12px; font-weight: 600; color: var(--muted); }\n__ROOT__ .adz-lang button[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-progress { display: flex; gap: 3px; padding: 4px 32px 0; }\n__ROOT__ .adz-progress span { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }\n__ROOT__ .adz-progress i { display: block; height: 100%; background: var(--red); transition: width .35s ease; }\n__ROOT__ .adz-body { flex: 1; display: flex; align-items: center; padding: 32px 32px 40px; }\n__ROOT__ .adz-screen { width: 100%; max-width: 760px; margin: 0 auto; animation: adzIn .35s ease both; }\n__ROOT__ .adz-screen.is-back { animation-name: adzBack; }\n@keyframes adzIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }\n@keyframes adzBack { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }\n__ROOT__ .adz-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }\n__ROOT__ .adz-h1 { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.12; font-weight: 700; margin: 12px 0 16px; letter-spacing: -.01em; }\n__ROOT__ .adz-h1--sm { font-size: clamp(26px, 3.6vw, 36px); }\n__ROOT__ .adz-lead { font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 640px; }\n__ROOT__ .adz-list { margin: 22px 0; display: grid; gap: 10px; }\n__ROOT__ .adz-list li { position: relative; padding-left: 26px; font-size: 15.5px; color: var(--ink-2); }\n__ROOT__ .adz-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 12px; height: 2px; background: var(--red); }\n__ROOT__ .adz-note { font-size: 14px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--line); padding-left: 14px; }\n__ROOT__ .adz-meta { margin-top: 18px; font-size: 13px; color: var(--soft); }\n__ROOT__ .adz-help { font-size: 14.5px; color: var(--muted); max-width: 680px; margin: 4px 0 18px; }\n__ROOT__ .adz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }\n__ROOT__ .adz-actions--tight { margin-top: 0; }\n__ROOT__ .adz-btn {\ndisplay: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;\npadding: 12px 24px; border-radius: 6px; background: var(--red); color: var(--white);\nfont-size: 15px; font-weight: 600; transition: background .15s ease, transform .15s ease;\n}\n__ROOT__ .adz-btn:hover { background: var(--red-dark); }\n__ROOT__ .adz-btn:active { transform: translateY(1px); }\n__ROOT__ .adz-btn:disabled { opacity: .55; cursor: default; }\n__ROOT__ .adz-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }\n__ROOT__ .adz-btn--ghost:hover { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-btn--dark { background: var(--ink); }\n__ROOT__ .adz-btn--dark:hover { background: #000; }\n__ROOT__ .adz-hint { font-size: 12.5px; color: var(--soft); }\n__ROOT__ .adz-back { font-size: 14px; font-weight: 600; color: var(--muted); padding: 10px 2px; }\n__ROOT__ .adz-back:hover { color: var(--ink); }\n__ROOT__ .adz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }\n__ROOT__ .adz-form { margin-top: 24px; display: grid; gap: 14px; max-width: 520px; }\n__ROOT__ .adz-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }\n__ROOT__ .adz-field input[type=\"text\"], __ROOT__ .adz-field input[type=\"email\"], __ROOT__ .adz-field input:not([type]), __ROOT__ .adz-field select, __ROOT__ .adz-field textarea {\ndisplay: block; width: 100%; height: 48px; padding: 0 14px; border: 1px solid #cfcfcf; border-radius: 6px;\nbackground: var(--white); font-size: 16px; color: var(--ink); margin: 0;\n}\n__ROOT__ .adz-field textarea { height: auto; min-height: 96px; padding: 12px 14px; line-height: 1.5; resize: vertical; }\n__ROOT__ .adz-field input:focus, __ROOT__ .adz-field textarea:focus { border-color: var(--ink); outline: none; }\n__ROOT__ .adz-field input::placeholder, __ROOT__ .adz-field textarea::placeholder { color: #a5a5a5; }\n__ROOT__ .adz-err { display: none; font-size: 12.5px; color: var(--red); margin-top: 5px; }\n__ROOT__ .adz-field.has-error input { border-color: var(--red); }\n__ROOT__ .adz-field.has-error .adz-err { display: block; }\n__ROOT__ .adz-consent { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; font-size: 13.5px !important; color: var(--ink-2) !important; cursor: pointer; }\n__ROOT__ .adz-consent input { width: 18px; height: 18px; margin: 2px 0 0 !important; flex: none; accent-color: var(--red); -webkit-appearance: auto; appearance: auto; }\n__ROOT__ .adz-consent a { text-decoration: underline; }\n__ROOT__ .adz-loading { display: grid; justify-items: center; gap: 18px; text-align: center; padding: 40px 0; }\n__ROOT__ .adz-spinner { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: adzSpin .8s linear infinite; }\n@keyframes adzSpin { to { transform: rotate(360deg); } }\n__ROOT__ .adz-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px; }\n__ROOT__ .adz-card h2 { font-size: 21px; font-weight: 700; line-height: 1.25; margin: 6px 0 10px; }\n__ROOT__ .adz-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; }\n__ROOT__ .adz-card--dark { background: var(--ink); border-color: var(--ink); color: var(--white); }\n__ROOT__ .adz-card--dark p { color: #cfcfcf; }\n@media (max-width: 640px) {\n__ROOT__ .adz-stage { border-radius: 0; border-left: 0; border-right: 0; }\n__ROOT__ .adz-top { padding: 16px 18px 12px; }\n__ROOT__ .adz-logo { height: 30px; }\n__ROOT__ .adz-progress { padding: 0 18px; gap: 2px; }\n__ROOT__ .adz-body { padding: 24px 18px 32px; align-items: flex-start; }\n__ROOT__ .adz-lead { font-size: 16px; }\n__ROOT__ .adz-card { padding: 22px; }\n}\n@media (prefers-reduced-motion: reduce) {\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after { animation: none !important; transition: none !important; }\n}\n__ROOT__ .adz-qhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }\n__ROOT__ .adz-count { font-size: 13px; font-weight: 600; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-q { font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 600; margin: 16px 0 26px; min-height: 2.6em; }\n__ROOT__ .adz-scale { display: grid; gap: 10px; }\n__ROOT__ .adz-opt {\ndisplay: flex; align-items: center; gap: 16px; width: 100%; padding: 13px 16px; text-align: left;\nborder: 1px solid #d6d6d6; border-radius: 8px; background: var(--white); transition: border-color .15s, background .15s;\n}\n__ROOT__ .adz-opt:hover { border-color: var(--ink); }\n__ROOT__ .adz-opt[aria-checked=\"true\"] { border-color: var(--red); background: var(--red-tint); box-shadow: inset 0 0 0 1px var(--red); }\n__ROOT__ .adz-key {\nflex: none; width: 28px; height: 28px; border-radius: 6px; border: 1px solid #d6d6d6; display: grid; place-items: center;\nfont-size: 12.5px; font-weight: 700; color: var(--muted);\n}\n__ROOT__ .adz-opt[aria-checked=\"true\"] .adz-key { background: var(--red); border-color: var(--red); color: var(--white); }\n__ROOT__ .adz-opt-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }\n__ROOT__ .adz-opt-t b { font-size: 16px; font-weight: 600; }\n__ROOT__ .adz-opt-t small { font-size: 13px; color: var(--muted); }\n__ROOT__ .adz-opt.is-pop { animation: adzPop .28s ease; }\n@keyframes adzPop { 50% { transform: scale(.985); } }\n__ROOT__ .adz-cannot {\nmargin-top: 14px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 6px 2px;\nborder-bottom: 1px dashed #c4c4c4;\n}\n__ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"] { color: var(--red); border-bottom-color: var(--red); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"]::before { content: '● '; }\n__ROOT__ .adz-hello { font-size: 18px; font-weight: 600; margin-top: 14px; }\n__ROOT__ .adz-hello + .adz-h1 { margin-top: 4px; }\n__ROOT__ .adz-msg { max-width: 640px; }\n__ROOT__ .adz-msg--done { text-align: center; margin: 0 auto; }\n__ROOT__ .adz-msg--done .adz-lead { margin: 0 auto; }\n__ROOT__ .adz-check { width: 56px; height: 56px; border-radius: 50%; background: var(--red); margin: 0 auto 8px; position: relative; }\n__ROOT__ .adz-check::after { content: ''; position: absolute; left: 20px; top: 14px; width: 12px; height: 22px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }\n@media (max-width: 640px) {\n__ROOT__ .adz-hint--keys { display: none; }\n__ROOT__ .adz-q { min-height: 0; }\n__ROOT__ .adz-opt { padding: 12px 14px; }\n}";
-var I18N = ED_I18N;
-var N = ED.COUNT;
-
-var DEFAULTS = {
-  mount: '#ed-assessment',
-  endpoint: '',            // Apps Script web app URL ('' = demo mode: nothing is saved)
-  lang: 'auto',            // 'auto' = the language chosen for the launch
-  languages: Object.keys(I18N),
-  assetsBase: '',
-  loadFont: true,
-};
-
-function sectionOf(q) { var cat = ED.QUESTION_CATS[q]; for (var i = 0; i < ED.CELLS.length; i++) if (ED.CELLS[i].id === cat) return i; return 0; }
-var FIRST_OF_SECTION = {};
-for (var qi = 0; qi < N; qi++) { var s0 = sectionOf(qi); if (FIRST_OF_SECTION[s0] == null) FIRST_OF_SECTION[s0] = qi; }
-
-function App(el, cfg) {
-  this.el = el; this.cfg = cfg;
+function Survey(el, cfg, spec) {
+  this.el = el; this.cfg = cfg; this.spec = spec; this.I18N = spec.I18N; this.N = spec.count;
   this.token = (qs('t') || '').replace(/[^A-Za-z0-9]/g, '');
-  this.skey = 'adz-ed:' + (this.token || 'demo');
+  this.skey = spec.prefix + (this.token || 'demo');
   this.info = null;
-  this.lang = this.pickLang();
-  this.state = { step: 0, answers: [] };
-  this.busy = false; this.dir = 1;
+  this.lang = this.pickLang(cfg.lang !== 'auto' ? cfg.lang : '');
+  this.state = this.fresh();
+  this.busy = false; this.dir = 1; this.reviewing = false;
   this.root = document.createElement('div');
   this.root.className = 'adz';
   el.innerHTML = ''; el.appendChild(this.root);
   var self = this;
   this.onKey = function (e) { self.key(e); };
   document.addEventListener('keydown', this.onKey);
+  // sections: first question of each, and size
+  this.sec = {};
+  for (var q = 0; q < this.N; q++) { var s = spec.section(q); if (!this.sec[s.index]) this.sec[s.index] = { start: q, len: 0 }; this.sec[s.index].len++; }
   this.boot();
 }
-App.prototype.t = function () { return I18N[this.lang] || I18N.en; };
-App.prototype.pickLang = function (launchLang) {
-  var avail = this.cfg.languages.filter(function (l) { return I18N[l]; });
-  var saved = load(this.skey) || {};
-  var want = qs('lang') || saved.lang || (this.cfg.lang !== 'auto' ? this.cfg.lang : '') || launchLang ||
-    ((navigator.language || 'en').slice(0, 2).toLowerCase());
+var SP = Survey.prototype;
+SP.fresh = function () { var n = this.N; return { step: 0, answers: [], importance: this.spec.importance ? Array.apply(null, Array(n)).map(function () { return 1; }) : null, comments: this.spec.comments ? [] : null }; };
+SP.t = function () { return this.I18N[this.lang] || this.I18N.en; };
+SP.pickLang = function (want) {
+  var avail = Object.keys(this.I18N);
+  if (!want) want = (navigator.language || 'en').slice(0, 2).toLowerCase();
   return avail.indexOf(want) >= 0 ? want : (avail.indexOf('en') >= 0 ? 'en' : avail[0]);
 };
-App.prototype.save = function () { this.state.lang = this.lang; store(this.skey, this.state); };
-App.prototype.vars = function () {
+SP.save = function () { store(this.skey, this.state); };
+SP.vars = function () {
   var i = this.info || {};
-  return { company: esc(i.company || ''), first: esc(i.firstName || ''), date: esc(i.closeDate ? formatDate(i.closeDate + 'T12:00:00', this.t().locale) : '') };
+  return { company: esc(i.company || ''), first: esc(i.firstName || ''), date: esc(i.closeDate ? formatDate(i.closeDate + 'T12:00:00', this.t().locale) : ''), n: this.N, max: this.spec.importance ? this.spec.importance.max : '' };
 };
+SP.mostCount = function () { var c = 0; (this.state.importance || []).forEach(function (v) { if (v === 3) c++; }); return c; };
 
 /* ---------- loading the invitation ---------- */
-App.prototype.boot = function () {
-  var self = this;
+SP.boot = function () {
+  var self = this, t = this.t();
   if (!this.token && this.cfg.endpoint) return this.renderState('noToken');
-  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(this.t().ui.loading) + '</p></div>', { lang: false });
+  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(t.ui.loading) + '</p></div>');
   var req = this.cfg.endpoint ? api(this.cfg.endpoint, { action: 'p_load', t: this.token }, 20000)
-    : Promise.resolve({ ok: true, state: 'open', type: 'ED', lang: this.lang, company: 'Demo Company', firstName: 'Demo', closeDate: '' });
+    : Promise.resolve({ ok: true, state: 'open', lang: this.lang, company: 'Demo Company', firstName: 'Demo', closeDate: '' });
   req.then(function (info) {
     self.info = info;
-    if (!qs('lang') && !(load(self.skey) || {}).lang) self.lang = self.pickLang(info.lang);
+    self.lang = self.pickLang(info.lang);   // the launch decides the language
     if (info.state !== 'open') { store(self.skey, null); return self.renderState(info.state); }
     var saved = load(self.skey);
     if (saved && (saved.answers || []).some(Boolean)) { self.saved = saved; self.renderResume(); }
     else self.renderIntro();
   }).catch(function (e) {
     if (e && e.code === 'invalid_link') return self.renderState('invalid_link');
-    self.frame('<div class="adz-loading"><p class="adz-lead">' + esc(self.t().ui.errorGeneric) + '</p>' +
-      '<button type="button" class="adz-btn" data-act="retry">' + esc(self.t().ui.retry) + '</button></div>', { lang: false });
+    self.frame('<div class="adz-loading"><p class="adz-lead">' + esc(t.ui.errorGeneric) + '</p>' +
+      '<button type="button" class="adz-btn" data-act="retry">' + esc(t.ui.retry) + '</button></div>');
     self.root.querySelector('[data-act="retry"]').addEventListener('click', function () { self.boot(); });
   });
 };
 
 /* ---------- chrome ---------- */
-App.prototype.logo = function () {
+SP.logo = function () {
   var b = this.cfg.assetsBase;
   return b ? '<img class="adz-logo" alt="Adizes Institute" src="' + esc(b + 'adizes-logo-color.png') + '">' : '<span class="adz-logo-txt">ADIZES</span>';
 };
-App.prototype.langSwitch = function () {
-  var self = this, langs = this.cfg.languages.filter(function (l) { return I18N[l]; });
-  if (langs.length < 2) return '';
-  return '<div class="adz-lang" role="group" aria-label="' + esc(this.t().ui.language) + '">' + langs.map(function (l) {
-    return '<button type="button" data-lang="' + l + '" aria-pressed="' + (l === self.lang) + '">' + l.toUpperCase() + '</button>';
+SP.progress = function () {
+  var answered = this.state.step, sec = this.sec;
+  return '<div class="adz-progress" aria-hidden="true">' + Object.keys(sec).map(function (k) {
+    var s = sec[k], f = Math.max(0, Math.min(1, (answered - s.start) / s.len));
+    return '<span style="flex:' + s.len + '"><i style="width:' + (f * 100) + '%"></i></span>';
   }).join('') + '</div>';
 };
-App.prototype.progress = function () {
-  var answered = this.state.step;
-  return '<div class="adz-progress" aria-hidden="true">' + ED.CELLS.map(function (c, i) {
-    var start = FIRST_OF_SECTION[i], len = ED.QUESTION_CATS.filter(function (x) { return x === c.id; }).length;
-    var f = Math.max(0, Math.min(1, (answered - start) / len));
-    return '<span style="flex:' + len + '"><i style="width:' + (f * 100) + '%"></i></span>';
-  }).join('') + '</div>';
-};
-App.prototype.frame = function (inner, opts) {
+SP.frame = function (inner, opts) {
   opts = opts || {};
   this.root.innerHTML =
     '<div class="adz-stage">' +
-      '<div class="adz-top">' + this.logo() + (opts.lang !== false ? this.langSwitch() : '') + '</div>' +
+      '<div class="adz-top">' + this.logo() + (opts.right || '') + '</div>' +
       (opts.progress ? this.progress() : '') +
-      '<div class="adz-body"><div class="adz-screen' + (this.dir < 0 ? ' is-back' : '') + '">' + inner + '</div></div>' +
+      '<div class="adz-body' + (opts.top ? ' is-top' : '') + '"><div class="adz-screen' + (opts.wide ? ' is-wide' : '') + (this.dir < 0 ? ' is-back' : '') + '">' + inner + '</div></div>' +
     '</div>';
-  this.bindLang();
   this.scrollTop();
 };
-App.prototype.scrollTop = function () {
+SP.scrollTop = function () {
   if (!this.mounted) { this.mounted = true; return; }
   var r = this.el.getBoundingClientRect();
   if (r.top < 0 || r.top > window.innerHeight * 0.4) {
     try { window.scrollTo({ top: window.pageYOffset + r.top - 10, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, window.pageYOffset + r.top - 10); }
   }
 };
-App.prototype.bindLang = function () {
-  var self = this;
-  this.root.querySelectorAll('[data-lang]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      self.lang = b.getAttribute('data-lang'); self.save(); self.dir = 1; self.mounted = false;
-      var fn = { intro: 'renderIntro', resume: 'renderResume', step: 'renderStep', review: 'renderReview', state: 'renderState', thanks: 'renderThanks' }[self.view];
-      if (fn) self[fn](self.stateKey);
-    });
-  });
-};
 
 /* ---------- screens ---------- */
-App.prototype.renderState = function (key) {
-  var s = this.t().states[key] || this.t().states.invalid_link;
-  this.view = 'state'; this.stateKey = key;
-  this.frame('<div class="adz-msg"><div class="adz-eyebrow">' + esc(this.t().intro.eyebrow) + '</div>' +
+SP.renderState = function (key) {
+  var t = this.t(), s = t.states[key] || t.states.invalid_link;
+  this.view = 'state';
+  this.frame('<div class="adz-msg"><div class="adz-eyebrow">' + esc(t.intro.eyebrow) + '</div>' +
     '<h1 class="adz-h1 adz-h1--sm">' + esc(s.title) + '</h1><p class="adz-lead">' + esc(s.body) + '</p></div>');
 };
-App.prototype.renderIntro = function () {
+SP.renderIntro = function () {
   var t = this.t(), v = this.vars(), self = this, i = this.info || {};
   this.view = 'intro';
   this.frame(
     '<div class="adz-eyebrow">' + esc(t.intro.eyebrow) + (v.company ? ' · ' + v.company : '') + '</div>' +
-    (v.first ? '<p class="adz-hello">' + fill(esc(t.intro.hello), v) + '</p>' : '') +
+    (v.first && t.intro.hello ? '<p class="adz-hello">' + fill(esc(t.intro.hello), v) + '</p>' : '') +
     '<h1 class="adz-h1">' + fill(esc(t.intro.title), v) + '</h1>' +
     '<p class="adz-lead">' + fill(esc(t.intro.body), v) + '</p>' +
-    '<ul class="adz-list">' + t.intro.bullets.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>' +
-    '<p class="adz-note">' + esc(t.intro.note) + '</p>' +
+    '<ul class="adz-list">' + t.intro.bullets.map(function (b) { return '<li>' + fill(esc(b), v) + '</li>'; }).join('') + '</ul>' +
+    (t.intro.note ? '<p class="adz-note">' + fill(esc(t.intro.note), v) + '</p>' : '') +
     '<div class="adz-actions"><button type="button" class="adz-btn" data-act="start">' + esc(t.ui.start) + ' →</button>' +
     '<span class="adz-hint">' + esc(t.ui.pressEnter) + '</span></div>' +
-    '<p class="adz-meta">' + esc(t.intro.meta) + (i.closeDate ? ' · ' + fill(esc(t.intro.deadline), v) : '') + '</p>');
+    '<p class="adz-meta">' + fill(esc(t.intro.meta), v) + (i.closeDate ? ' · ' + fill(esc(t.intro.deadline), v) : '') + '</p>');
   this.root.querySelector('[data-act="start"]').addEventListener('click', function () { self.start(); });
 };
-App.prototype.start = function () { this.state = { step: 0, answers: [] }; this.dir = 1; this.save(); this.renderStep(); };
-App.prototype.renderResume = function () {
+SP.start = function () { this.state = this.fresh(); this.dir = 1; this.reviewing = false; this.save(); this.renderStep(); };
+SP.renderResume = function () {
   var t = this.t(), self = this;
   this.view = 'resume';
   this.frame(
@@ -778,54 +758,103 @@ App.prototype.renderResume = function () {
     '<h1 class="adz-h1 adz-h1--sm">' + esc(t.ui.resume) + '</h1>' +
     '<div class="adz-actions"><button type="button" class="adz-btn" data-act="yes">' + esc(t.ui.resumeYes) + ' →</button>' +
     '<button type="button" class="adz-btn adz-btn--ghost" data-act="no">' + esc(t.ui.resumeNo) + '</button></div>');
-  this.root.querySelector('[data-act="yes"]').addEventListener('click', function () { self.state = self.saved; self.renderStep(); });
+  this.root.querySelector('[data-act="yes"]').addEventListener('click', function () {
+    self.state = self.saved; var d = self.fresh();
+    if (self.spec.importance && !self.state.importance) self.state.importance = d.importance;
+    if (self.spec.comments && !self.state.comments) self.state.comments = [];
+    if (self.state.step >= self.N) self.renderReview(); else self.renderStep();
+  });
   this.root.querySelector('[data-act="no"]').addEventListener('click', function () { store(self.skey, null); self.renderIntro(); });
 };
 
-/* ---------- statements ---------- */
-App.prototype.renderStep = function () {
-  if (this.state.step >= N) return this.renderReview();
-  var t = this.t(), self = this, q = this.state.step, sec = sectionOf(q), cell = ED.CELLS[sec];
-  var cur = this.state.answers[q];
+/* ---------- one statement per screen ---------- */
+SP.renderStep = function () {
+  if (this.state.step >= this.N) return this.renderReview();
+  var t = this.t(), self = this, sp = this.spec, q = this.state.step, s = sp.section(q);
+  var cur = this.state.answers[q], opts = sp.options(t, q), cannot = sp.cannot(t, q);
   this.view = 'step';
+  var imp = '';
+  if (sp.importance) {
+    var lv = this.state.importance[q], used = this.mostCount(), full = used >= sp.importance.max && lv !== 3;
+    imp = '<div class="adz-imp"><div class="adz-imp-h"><b>' + esc(t.ui.importance) + '</b><span class="adz-imp-c' + (used >= sp.importance.max ? ' is-full' : '') + '">' +
+      fill(esc(t.ui.mostCount), { n: used, max: sp.importance.max }) + '</span></div>' +
+      '<div class="adz-seg" role="radiogroup">' + [1, 2, 3].map(function (k) {
+        return '<button type="button" role="radio" data-imp="' + k + '" aria-checked="' + (lv === k) + '"' + (k === 3 && full ? ' disabled title="' + esc(t.ui.mostFull) + '"' : '') + '>' + esc(t.ui.imp[k - 1]) + '</button>';
+      }).join('') + '</div>' + (full ? '<p class="adz-imp-note">' + esc(t.ui.mostFull) + '</p>' : '') + '</div>';
+  }
+  var com = '';
+  if (sp.comments) {
+    var cv = this.state.comments[q] || '';
+    com = '<div class="adz-com">' + (cv || this.openComment === q ? '' : '<button type="button" class="adz-com-btn" data-act="comment">+ ' + esc(t.ui.comment) + '</button>') +
+      '<textarea class="adz-com-ta" maxlength="1000" placeholder="' + esc(t.ui.commentPh) + '"' + (cv || this.openComment === q ? '' : ' hidden') + '>' + esc(cv) + '</textarea></div>';
+  }
+  var canNext = !!cur;
+  var navRight = this.reviewing
+    ? '<button type="button" class="adz-btn" data-act="toreview"' + (canNext ? '' : ' disabled') + '>' + esc(t.review.back) + ' →</button>'
+    : (canNext ? '<button type="button" class="adz-btn' + (sp.autoAdvance && !sp.importance ? ' adz-btn--ghost' : '') + '" data-act="next">' + esc(t.ui.next) + ' →</button>' : '');
   var html =
-    '<div class="adz-qhead"><div class="adz-eyebrow">' + esc(t.ui.section) + ' ' + (sec + 1) + '/16 · ' + esc(t.cells[cell.key]) + '</div>' +
-    '<span class="adz-count">' + (q + 1) + ' ' + esc(t.ui.of) + ' ' + N + '</span></div>' +
-    '<h2 class="adz-q">' + esc(t.questions[q].t) + '</h2>' +
-    '<div class="adz-scale" role="radiogroup">' + t.scale.map(function (o, i) {
+    '<div class="adz-qhead"><div class="adz-eyebrow">' + esc(t.ui.section) + ' ' + (s.index + 1) + '/' + s.total + ' · ' + esc(t.cells[s.key]) + '</div>' +
+    '<span class="adz-count">' + (q + 1) + ' ' + esc(t.ui.of) + ' ' + this.N + '</span></div>' +
+    '<h2 class="adz-q">' + esc(sp.text(t, q)) + '</h2>' +
+    '<div class="adz-scale" role="radiogroup">' + opts.map(function (o, i) {
       return '<button type="button" role="radio" class="adz-opt" data-v="' + o.value + '" aria-checked="' + (cur === o.value) + '">' +
-        '<span class="adz-key">' + (i + 1) + '</span><span class="adz-opt-t"><b>' + esc(o.label) + '</b><small>' + esc(o.sub) + '</small></span></button>';
+        '<span class="adz-key">' + (i + 1) + '</span><span class="adz-opt-t"><b>' + esc(o.label) + '</b>' + (o.sub ? '<small>' + esc(o.sub) + '</small>' : '') + '</span></button>';
     }).join('') + '</div>' +
-    '<button type="button" class="adz-cannot" data-v="1" aria-pressed="' + (cur === 1) + '">' + esc(t.cannot) + '</button>' +
+    (cannot ? '<button type="button" class="adz-cannot" data-v="1" aria-pressed="' + (cur === 1) + '">' + esc(cannot) + '</button>' : '') +
+    imp + com +
     '<div class="adz-nav">' +
-      '<button type="button" class="adz-back" data-act="back"' + (q === 0 ? ' hidden' : '') + '>← ' + esc(t.ui.back) + '</button>' +
-      '<div class="adz-actions adz-actions--tight"><span class="adz-hint adz-hint--keys">' + esc(t.ui.keyboardHint) + '</span>' +
-      (cur ? '<button type="button" class="adz-btn adz-btn--ghost" data-act="next">' + esc(t.ui.next) + ' →</button>' : '') + '</div>' +
+      '<button type="button" class="adz-back" data-act="back"' + (q === 0 || this.reviewing ? ' hidden' : '') + '>← ' + esc(t.ui.back) + '</button>' +
+      '<div class="adz-actions adz-actions--tight"><span class="adz-hint adz-hint--keys">' + fill(esc(t.ui.keyboardHint), { n: opts.length }) + '</span>' + navRight + '</div>' +
     '</div>';
-  this.frame(html, { progress: true, lang: q === 0 });
+  this.frame(html, { progress: true });
   this.root.querySelectorAll('[data-v]').forEach(function (b) { b.addEventListener('click', function () { self.choose(Number(b.getAttribute('data-v')), b); }); });
-  var back = this.root.querySelector('[data-act="back"]'); if (back) back.addEventListener('click', function () { self.back(); });
-  var nxt = this.root.querySelector('[data-act="next"]'); if (nxt) nxt.addEventListener('click', function () { self.next(); });
+  this.root.querySelectorAll('[data-imp]').forEach(function (b) { b.addEventListener('click', function () { self.setImportance(Number(b.getAttribute('data-imp'))); }); });
+  var cb = this.root.querySelector('[data-act="comment"]');
+  if (cb) cb.addEventListener('click', function () { self.openComment = q; cb.remove(); var ta = self.root.querySelector('.adz-com-ta'); ta.hidden = false; ta.focus(); });
+  var ta = this.root.querySelector('.adz-com-ta');
+  if (ta) ta.addEventListener('input', function () { self.state.comments[q] = ta.value.slice(0, 1000); self.save(); });
+  function on(act, fn) { var b = self.root.querySelector('[data-act="' + act + '"]'); if (b) b.addEventListener('click', fn); }
+  on('back', function () { self.back(); });
+  on('next', function () { self.next(); });
+  on('toreview', function () { self.toReview(); });
 };
-App.prototype.choose = function (v, btn) {
+SP.choose = function (v, btn) {
   if (this.busy) return;
-  this.state.answers[this.state.step] = v;
+  var q = this.state.step;
+  this.state.answers[q] = v;
   this.root.querySelectorAll('.adz-opt').forEach(function (b) { b.setAttribute('aria-checked', String(Number(b.getAttribute('data-v')) === v)); });
   var c = this.root.querySelector('.adz-cannot'); if (c) c.setAttribute('aria-pressed', String(v === 1));
   if (btn) { btn.classList.remove('is-pop'); void btn.offsetWidth; btn.classList.add('is-pop'); }
   this.save();
-  var self = this; this.busy = true;
-  setTimeout(function () { self.busy = false; self.next(); }, 280);
+  var self = this;
+  if (this.spec.autoAdvance && !this.spec.importance) {
+    this.busy = true;
+    setTimeout(function () { self.busy = false; if (self.reviewing) self.toReview(); else self.next(); }, 280);
+  } else {
+    // keep the screen (importance / comment may follow) and just enable Next
+    var nr = this.root.querySelector('[data-act="next"],[data-act="toreview"]');
+    if (nr) nr.disabled = false; else this.renderStepKeepScroll();
+  }
 };
-App.prototype.next = function () {
-  if (this.state.step < N && !this.state.answers[this.state.step]) return;
-  this.state.step = Math.min(this.state.step + 1, N); this.dir = 1; this.save(); this.renderStep();
+SP.renderStepKeepScroll = function () { var y = window.pageYOffset; this.mounted = false; this.renderStep(); window.scrollTo(0, y); };
+SP.setImportance = function (k) {
+  var q = this.state.step, max = this.spec.importance.max;
+  if (k === 3 && this.state.importance[q] !== 3 && this.mostCount() >= max) return;
+  this.state.importance[q] = k; this.save(); this.renderStepKeepScroll();
 };
-App.prototype.back = function () {
+SP.next = function () {
+  if (this.state.step < this.N && !this.state.answers[this.state.step]) return;
+  this.openComment = null;
+  this.state.step = Math.min(this.state.step + 1, this.N); this.dir = 1; this.save(); this.renderStep();
+};
+SP.back = function () {
   if (this.state.step === 0) return;
+  this.openComment = null;
   this.state.step--; this.dir = -1; this.save(); this.renderStep();
 };
-App.prototype.key = function (e) {
+SP.goTo = function (q) { this.reviewing = true; this.openComment = null; this.state.step = q; this.dir = 1; this.save(); this.renderStep(); };
+SP.toReview = function () { this.state.step = this.N; this.dir = -1; this.save(); this.renderReview(); };
+SP.key = function (e) {
   if (!this.root.isConnected) { document.removeEventListener('keydown', this.onKey); return; }
   var tag = (e.target && e.target.tagName) || '';
   if (tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
@@ -835,43 +864,77 @@ App.prototype.key = function (e) {
     return;
   }
   if (this.view !== 'step') return;
-  var t = this.t();
-  if (/^[1-4]$/.test(e.key)) { e.preventDefault(); var v = t.scale[Number(e.key) - 1].value; this.choose(v, this.root.querySelector('.adz-opt[data-v="' + v + '"]')); return; }
-  if (e.key === '0') { e.preventDefault(); this.choose(1, this.root.querySelector('.adz-cannot')); return; }
-  if (e.key === 'Enter') { e.preventDefault(); this.next(); }
-  if (e.key === 'Backspace') { e.preventDefault(); this.back(); }
+  var opts = this.spec.options(this.t(), this.state.step);
+  var k = Number(e.key);
+  if (/^[1-9]$/.test(e.key) && opts[k - 1]) { e.preventDefault(); this.choose(opts[k - 1].value, this.root.querySelector('.adz-opt[data-v="' + opts[k - 1].value + '"]')); return; }
+  if (e.key === '0' && this.spec.cannot(this.t(), this.state.step)) { e.preventDefault(); this.choose(1, this.root.querySelector('.adz-cannot')); return; }
+  if (e.key === 'Enter') { e.preventDefault(); if (this.reviewing) { if (this.state.answers[this.state.step]) this.toReview(); } else this.next(); }
 };
 
-/* ---------- review + submit + thanks ---------- */
-App.prototype.renderReview = function () {
-  var t = this.t(), R = t.review, self = this;
-  var cannot = this.state.answers.slice(0, N).filter(function (v) { return v === 1; }).length;
-  this.view = 'review';
+/* ---------- review: every answer, click to change ---------- */
+SP.answerLabel = function (t, q, v) {
+  if (v === 1 && this.spec.cannot(t, q)) return this.spec.cannot(t, q);
+  var o = this.spec.options(t, q).filter(function (x) { return x.value === v; })[0];
+  return o ? o.label : '';
+};
+SP.renderReview = function () {
+  var t = this.t(), R = t.review, self = this, sp = this.spec, N = this.N;
+  this.view = 'review'; this.reviewing = true;
+  var missing = [], cannot = 0;
+  for (var q = 0; q < N; q++) { var a = this.state.answers[q]; if (!a) missing.push(q); else if (a === 1 && sp.cannot(t, q)) cannot++; }
+  var most = this.mostCount(), needMost = sp.importance && most < sp.importance.min;
+  var groups = {}, order = [];
+  for (var i = 0; i < N; i++) { var s = sp.section(i); if (!groups[s.index]) { groups[s.index] = { s: s, qs: [] }; order.push(s.index); } groups[s.index].qs.push(i); }
+  var list = order.map(function (k) {
+    var g = groups[k];
+    return '<div class="adz-rv-sec"><div class="adz-rv-h">' + (g.s.index + 1) + '. ' + esc(t.cells[g.s.key]) + '</div>' + g.qs.map(function (q) {
+      var a = self.state.answers[q], lbl = a ? self.answerLabel(t, q, a) : R.missing;
+      var tags = '';
+      if (sp.importance && self.state.importance[q] === 3) tags += '<span class="adz-tag is-most">★ ' + esc(t.ui.imp[2]) + '</span>';
+      if (sp.comments && (self.state.comments[q] || '').trim()) tags += '<span class="adz-tag">' + esc(R.commented) + '</span>';
+      return '<button type="button" class="adz-rv-row' + (a ? '' : ' is-missing') + '" data-q="' + q + '"><span class="adz-rv-n">' + (q + 1) + '</span>' +
+        '<span class="adz-rv-t">' + esc(sp.text(t, q)) + (tags ? '<span class="adz-rv-tags">' + tags + '</span>' : '') + '</span>' +
+        '<span class="adz-rv-a' + (a === 1 && sp.cannot(t, q) ? ' is-cannot' : '') + '">' + esc(lbl) + '</span></button>';
+    }).join('') + '</div>';
+  }).join('');
+  var ok = !missing.length && !needMost;
+  var summary = (missing.length ? fill(esc(R.missingN), { n: missing.length }) : fill(esc(R.body), { n: N })) +
+    (cannot ? ' ' + fill(esc(R.cannot), { n: cannot }) : '') +
+    (sp.importance ? ' ' + fill(esc(R.most), { n: most, max: sp.importance.max }) : '');
+  var actions = function (pos) {
+    return '<div class="adz-actions adz-rv-actions"><button type="button" class="adz-btn" data-act="submit"' + (ok ? '' : ' disabled') + '>' + esc(R.submit) + ' →</button>' +
+      (pos === 'top' ? '<span class="adz-hint">' + esc(R.hint) + '</span>' : '') + '</div>';
+  };
   this.frame(
     '<div class="adz-eyebrow">' + esc(R.eyebrow) + '</div>' +
     '<h1 class="adz-h1 adz-h1--sm">' + esc(R.title) + '</h1>' +
-    '<p class="adz-lead">' + esc(R.body) + (cannot ? ' ' + fill(esc(R.cannot), { n: cannot }) : '') + '</p>' +
-    '<p class="adz-note">' + esc(R.warn) + '</p>' +
-    '<div class="adz-actions"><button type="button" class="adz-btn" data-act="submit">' + esc(R.submit) + ' →</button>' +
-    '<button type="button" class="adz-btn adz-btn--ghost" data-act="edit">' + esc(R.edit) + '</button></div>', { progress: true });
-  this.root.querySelector('[data-act="submit"]').addEventListener('click', function () { self.submit(); });
-  this.root.querySelector('[data-act="edit"]').addEventListener('click', function () { self.state.step = 0; self.dir = -1; self.save(); self.renderStep(); });
+    '<p class="adz-lead">' + summary + '</p>' +
+    (needMost ? '<p class="adz-warn">' + fill(esc(R.needMost), { min: sp.importance.min }) + '</p>' : '') +
+    (missing.length ? '<p class="adz-warn">' + esc(R.missingHelp) + '</p>' : '') +
+    '<p class="adz-note">' + esc(R.warn) + '</p>' + actions('top') +
+    '<div class="adz-rv">' + list + '</div>' + actions('bottom'), { progress: true, wide: true, top: true });
+  this.root.querySelectorAll('[data-q]').forEach(function (b) { b.addEventListener('click', function () { self.goTo(Number(b.getAttribute('data-q'))); }); });
+  this.root.querySelectorAll('[data-act="submit"]').forEach(function (b) { b.addEventListener('click', function () { self.submit(); }); });
 };
-App.prototype.submit = function () {
+
+/* ---------- submit + thanks ---------- */
+SP.submit = function () {
   var t = this.t(), self = this;
   this.view = 'sending';
-  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(t.ui.sending) + '</p></div>', { lang: false });
+  this.frame('<div class="adz-loading"><div class="adz-spinner"></div><p class="adz-lead">' + esc(t.ui.sending) + '</p></div>');
   var started = Date.now();
-  api(this.cfg.endpoint, { action: 'p_submit', v: VERSION, t: this.token, lang: this.lang, answers: this.state.answers.slice(0, N) }, 30000).then(function () {
+  var payload = { action: 'p_submit', v: this.cfg.version, t: this.token, lang: this.lang, answers: this.state.answers.slice(0, this.N) };
+  if (this.spec.payload) { var extra = this.spec.payload(this.state); for (var k in extra) payload[k] = extra[k]; }
+  api(this.cfg.endpoint, payload, 30000).then(function () {
     setTimeout(function () { store(self.skey, null); self.renderThanks(); }, Math.max(0, 900 - (Date.now() - started)));
   }).catch(function (e) {
     if (e && (e.code === 'already_completed' || e.code === 'closed' || e.code === 'invalid_link')) { store(self.skey, null); return self.renderState(e.code === 'already_completed' ? 'completed' : e.code); }
     self.frame('<div class="adz-loading"><p class="adz-lead">' + esc(t.ui.errorGeneric) + '</p>' +
-      '<button type="button" class="adz-btn" data-act="retry">' + esc(t.ui.retry) + '</button></div>', { lang: false });
+      '<button type="button" class="adz-btn" data-act="retry">' + esc(t.ui.retry) + '</button></div>');
     self.root.querySelector('[data-act="retry"]').addEventListener('click', function () { self.submit(); });
   });
 };
-App.prototype.renderThanks = function () {
+SP.renderThanks = function () {
   var t = this.t(), v = this.vars();
   this.view = 'thanks';
   this.frame('<div class="adz-msg adz-msg--done"><div class="adz-check" aria-hidden="true"></div>' +
@@ -879,19 +942,52 @@ App.prototype.renderThanks = function () {
     '<p class="adz-lead">' + fill(esc(t.thanks.body), v) + '</p></div>');
 };
 
-/* ---------- boot ---------- */
-function boot() {
-  var cfg = {}, user = window.ED_CONFIG || {};
-  for (var k in DEFAULTS) cfg[k] = DEFAULTS[k];
-  for (var k2 in user) cfg[k2] = user[k2];
-  if (!cfg.assetsBase) cfg.assetsBase = detectAssets();
-  var el = typeof cfg.mount === 'string' ? document.querySelector(cfg.mount) : cfg.mount;
-  if (!el) { if (window.console) console.error('[ED] mount element not found: ' + cfg.mount); return; }
-  if (!el.id) el.id = 'ed-assessment';
-  injectStyle('adz-style-' + el.id, CSS, '#' + el.id);
-  if (cfg.loadFont) loadFontCss();
-  window.EDA = { app: new App(el, cfg), version: VERSION };
+function bootSurvey(configVar, defaults, spec, globalName) {
+  function go() {
+    var cfg = {}, user = window[configVar] || {};
+    for (var k in defaults) cfg[k] = defaults[k];
+    for (var k2 in user) cfg[k2] = user[k2];
+    if (!cfg.assetsBase) cfg.assetsBase = detectAssets();
+    var el = typeof cfg.mount === 'string' ? document.querySelector(cfg.mount) : cfg.mount;
+    if (!el) { if (window.console) console.error('[' + globalName + '] mount element not found: ' + cfg.mount); return; }
+    if (!el.id) el.id = String(cfg.mount).replace(/^#/, '') || 'adz-survey';
+    injectStyle('adz-style-' + el.id, cfg.css, '#' + el.id);
+    if (cfg.loadFont) loadFontCss();
+    window[globalName] = { app: new Survey(el, cfg, spec), version: cfg.version };
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
 }
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+
+/* Express Diagnostics — participant widget (personal invitation link ?t=TOKEN).
+ * The participant answers and only sees a thank-you; the group report is generated in the admin.
+ * Embed (Webflow page /express-diagnostics):
+ *   <div id="ed-assessment"></div>
+ *   <script>window.ED_CONFIG = { endpoint: 'https://script.google.com/macros/s/XXX/exec' };</script>
+ *   <script src="https://cdn.jsdelivr.net/gh/Adizes/alis-sample@vX/express-diagnostics/dist/express-diagnostics.min.js" defer></script>
+ * Bundled by build.mjs with: i18n files, shared/core.js, shared/ed-engine.js, shared/survey.js.
+ */
+var ED_SECTIONS = ED.CELLS.length;
+function edSection(q) {
+  var cat = ED.QUESTION_CATS[q];
+  for (var i = 0; i < ED.CELLS.length; i++) if (ED.CELLS[i].id === cat) return { index: i, total: ED_SECTIONS, key: ED.CELLS[i].key };
+  return { index: 0, total: ED_SECTIONS, key: ED.CELLS[0].key };
+}
+
+bootSurvey('ED_CONFIG', {
+  mount: '#ed-assessment',
+  endpoint: '',              // Apps Script web app URL ('' = demo mode: nothing is saved)
+  lang: 'auto',              // 'auto' = the launch's language
+  assetsBase: '',
+  loadFont: true,
+  css: "__ROOT__ {\n--ink: #111111;\n--ink-2: #3a3a3a;\n--muted: #6b6f76;\n--soft: #9aa0a6;\n--line: #e6e6e6;\n--paper: #f6f6f6;\n--white: #ffffff;\n--red: #d7141a;\n--red-dark: #b10f14;\n--red-tint: #fdecec;\n--green: #1e8e4e; --green-t: #dcf2e5;\n--yellow: #d9a400; --yellow-ink: #8a6500; --yellow-t: #fff0bf;\n--red-t: #fbd6d7;\ndisplay: block; width: 100%;\nfont-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;\ncolor: var(--ink); line-height: 1.5; text-align: left;\n-webkit-font-smoothing: antialiased;\n}\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after {\nbox-sizing: border-box; margin: 0; padding: 0; border: 0;\nfont: inherit; color: inherit; letter-spacing: normal; text-transform: none;\nbackground: none; box-shadow: none; text-decoration: none; list-style: none;\n}\n__ROOT__ strong, __ROOT__ b { font-weight: 700; }\n__ROOT__ em { font-style: normal; color: var(--soft); }\n__ROOT__ button { cursor: pointer; -webkit-appearance: none; appearance: none; line-height: 1.3; }\n__ROOT__ button:focus-visible, __ROOT__ a:focus-visible, __ROOT__ input:focus-visible, __ROOT__ textarea:focus-visible, __ROOT__ select:focus-visible {\noutline: 3px solid rgba(215, 20, 26, .35); outline-offset: 2px;\n}\n__ROOT__ a { color: inherit; }\n__ROOT__ [hidden] { display: none !important; }\n__ROOT__ .adz-stage {\nbackground: var(--white); border: 1px solid var(--line); border-radius: 10px;\nmin-height: min(720px, 100svh); display: flex; flex-direction: column; overflow: hidden;\n}\n__ROOT__ .adz-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 32px 14px; }\n__ROOT__ .adz-logo { display: block; height: 38px; width: auto; max-width: none; }\n__ROOT__ .adz-logo-txt { font-weight: 800; letter-spacing: .06em; color: var(--red); }\n__ROOT__ .adz-lang { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }\n__ROOT__ .adz-lang button { padding: 6px 11px; font-size: 12px; font-weight: 600; color: var(--muted); }\n__ROOT__ .adz-lang button[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-progress { display: flex; gap: 3px; padding: 4px 32px 0; }\n__ROOT__ .adz-progress span { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }\n__ROOT__ .adz-progress i { display: block; height: 100%; background: var(--red); transition: width .35s ease; }\n__ROOT__ .adz-body { flex: 1; display: flex; align-items: center; padding: 32px 32px 40px; }\n__ROOT__ .adz-screen { width: 100%; max-width: 760px; margin: 0 auto; animation: adzIn .35s ease both; }\n__ROOT__ .adz-screen.is-back { animation-name: adzBack; }\n@keyframes adzIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }\n@keyframes adzBack { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }\n__ROOT__ .adz-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }\n__ROOT__ .adz-h1 { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.12; font-weight: 700; margin: 12px 0 16px; letter-spacing: -.01em; }\n__ROOT__ .adz-h1--sm { font-size: clamp(26px, 3.6vw, 36px); }\n__ROOT__ .adz-lead { font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 640px; }\n__ROOT__ .adz-list { margin: 22px 0; display: grid; gap: 10px; }\n__ROOT__ .adz-list li { position: relative; padding-left: 26px; font-size: 15.5px; color: var(--ink-2); }\n__ROOT__ .adz-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 12px; height: 2px; background: var(--red); }\n__ROOT__ .adz-note { font-size: 14px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--line); padding-left: 14px; }\n__ROOT__ .adz-meta { margin-top: 18px; font-size: 13px; color: var(--soft); }\n__ROOT__ .adz-help { font-size: 14.5px; color: var(--muted); max-width: 680px; margin: 4px 0 18px; }\n__ROOT__ .adz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }\n__ROOT__ .adz-actions--tight { margin-top: 0; }\n__ROOT__ .adz-btn {\ndisplay: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;\npadding: 12px 24px; border-radius: 6px; background: var(--red); color: var(--white);\nfont-size: 15px; font-weight: 600; transition: background .15s ease, transform .15s ease;\n}\n__ROOT__ .adz-btn:hover { background: var(--red-dark); }\n__ROOT__ .adz-btn:active { transform: translateY(1px); }\n__ROOT__ .adz-btn:disabled { opacity: .55; cursor: default; }\n__ROOT__ .adz-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }\n__ROOT__ .adz-btn--ghost:hover { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-btn--dark { background: var(--ink); }\n__ROOT__ .adz-btn--dark:hover { background: #000; }\n__ROOT__ .adz-hint { font-size: 12.5px; color: var(--soft); }\n__ROOT__ .adz-back { font-size: 14px; font-weight: 600; color: var(--muted); padding: 10px 2px; }\n__ROOT__ .adz-back:hover { color: var(--ink); }\n__ROOT__ .adz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }\n__ROOT__ .adz-form { margin-top: 24px; display: grid; gap: 14px; max-width: 520px; }\n__ROOT__ .adz-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }\n__ROOT__ .adz-field input[type=\"text\"], __ROOT__ .adz-field input[type=\"email\"], __ROOT__ .adz-field input:not([type]), __ROOT__ .adz-field select, __ROOT__ .adz-field textarea {\ndisplay: block; width: 100%; height: 48px; padding: 0 14px; border: 1px solid #cfcfcf; border-radius: 6px;\nbackground: var(--white); font-size: 16px; color: var(--ink); margin: 0;\n}\n__ROOT__ .adz-field textarea { height: auto; min-height: 96px; padding: 12px 14px; line-height: 1.5; resize: vertical; }\n__ROOT__ .adz-field input:focus, __ROOT__ .adz-field textarea:focus { border-color: var(--ink); outline: none; }\n__ROOT__ .adz-field input::placeholder, __ROOT__ .adz-field textarea::placeholder { color: #a5a5a5; }\n__ROOT__ .adz-err { display: none; font-size: 12.5px; color: var(--red); margin-top: 5px; }\n__ROOT__ .adz-field.has-error input { border-color: var(--red); }\n__ROOT__ .adz-field.has-error .adz-err { display: block; }\n__ROOT__ .adz-consent { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; font-size: 13.5px !important; color: var(--ink-2) !important; cursor: pointer; }\n__ROOT__ .adz-consent input { width: 18px; height: 18px; margin: 2px 0 0 !important; flex: none; accent-color: var(--red); -webkit-appearance: auto; appearance: auto; }\n__ROOT__ .adz-consent a { text-decoration: underline; }\n__ROOT__ .adz-loading { display: grid; justify-items: center; gap: 18px; text-align: center; padding: 40px 0; }\n__ROOT__ .adz-spinner { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: adzSpin .8s linear infinite; }\n@keyframes adzSpin { to { transform: rotate(360deg); } }\n__ROOT__ .adz-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px; }\n__ROOT__ .adz-card h2 { font-size: 21px; font-weight: 700; line-height: 1.25; margin: 6px 0 10px; }\n__ROOT__ .adz-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; }\n__ROOT__ .adz-card--dark { background: var(--ink); border-color: var(--ink); color: var(--white); }\n__ROOT__ .adz-card--dark p { color: #cfcfcf; }\n@media (max-width: 640px) {\n__ROOT__ .adz-stage { border-radius: 0; border-left: 0; border-right: 0; }\n__ROOT__ .adz-top { padding: 16px 18px 12px; }\n__ROOT__ .adz-logo { height: 30px; }\n__ROOT__ .adz-progress { padding: 0 18px; gap: 2px; }\n__ROOT__ .adz-body { padding: 24px 18px 32px; align-items: flex-start; }\n__ROOT__ .adz-lead { font-size: 16px; }\n__ROOT__ .adz-card { padding: 22px; }\n}\n@media (prefers-reduced-motion: reduce) {\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after { animation: none !important; transition: none !important; }\n}\n__ROOT__ .adz-qhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }\n__ROOT__ .adz-count { font-size: 13px; font-weight: 600; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-q { font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 600; margin: 16px 0 26px; min-height: 2.6em; }\n__ROOT__ .adz-scale { display: grid; gap: 10px; }\n__ROOT__ .adz-opt {\ndisplay: flex; align-items: center; gap: 16px; width: 100%; padding: 13px 16px; text-align: left;\nborder: 1px solid #d6d6d6; border-radius: 8px; background: var(--white); transition: border-color .15s, background .15s;\n}\n__ROOT__ .adz-opt:hover { border-color: var(--ink); }\n__ROOT__ .adz-opt[aria-checked=\"true\"] { border-color: var(--red); background: var(--red-tint); box-shadow: inset 0 0 0 1px var(--red); }\n__ROOT__ .adz-key {\nflex: none; width: 28px; height: 28px; border-radius: 6px; border: 1px solid #d6d6d6; display: grid; place-items: center;\nfont-size: 12.5px; font-weight: 700; color: var(--muted);\n}\n__ROOT__ .adz-opt[aria-checked=\"true\"] .adz-key { background: var(--red); border-color: var(--red); color: var(--white); }\n__ROOT__ .adz-opt-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }\n__ROOT__ .adz-opt-t b { font-size: 16px; font-weight: 600; }\n__ROOT__ .adz-opt-t small { font-size: 13px; color: var(--muted); }\n__ROOT__ .adz-opt.is-pop { animation: adzPop .28s ease; }\n@keyframes adzPop { 50% { transform: scale(.985); } }\n__ROOT__ .adz-cannot {\nmargin-top: 14px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 6px 2px;\nborder-bottom: 1px dashed #c4c4c4;\n}\n__ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"] { color: var(--red); border-bottom-color: var(--red); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"]::before { content: '● '; }\n__ROOT__ .adz-imp { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); }\n__ROOT__ .adz-imp-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 14px; margin-bottom: 10px; }\n__ROOT__ .adz-imp-h b { font-size: 15px; font-weight: 600; }\n__ROOT__ .adz-imp-c { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-imp-c.is-full { color: var(--red); font-weight: 600; }\n__ROOT__ .adz-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #d6d6d6; border-radius: 8px; overflow: hidden; }\n__ROOT__ .adz-seg button { padding: 11px 8px; font-size: 14px; font-weight: 600; color: var(--muted); border-left: 1px solid #d6d6d6; background: var(--white); }\n__ROOT__ .adz-seg button:first-child { border-left: 0; }\n__ROOT__ .adz-seg button:hover { color: var(--ink); }\n__ROOT__ .adz-seg button[aria-checked=\"true\"] { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-seg button[data-imp=\"3\"][aria-checked=\"true\"] { background: var(--red); }\n__ROOT__ .adz-seg button:disabled { opacity: .4; cursor: not-allowed; }\n__ROOT__ .adz-imp-note { font-size: 12.5px; color: var(--muted); margin-top: 8px; }\n__ROOT__ .adz-com { margin-top: 18px; }\n__ROOT__ .adz-com-btn { font-size: 14px; font-weight: 600; color: var(--muted); padding: 4px 0; }\n__ROOT__ .adz-com-btn:hover { color: var(--ink); }\n__ROOT__ .adz-com-ta { display: block; width: 100%; min-height: 84px; padding: 11px 13px; border: 1px solid #cfcfcf; border-radius: 8px; font-size: 15px; line-height: 1.5; resize: vertical; background: var(--white); }\n__ROOT__ .adz-com-ta:focus { outline: none; border-color: var(--ink); }\n__ROOT__ .adz-screen.is-wide { max-width: 860px; }\n__ROOT__ .adz-body.is-top { align-items: flex-start; }\n__ROOT__ .adz-warn { margin-top: 10px; font-size: 14.5px; color: var(--red); font-weight: 600; }\n__ROOT__ .adz-rv-actions { margin-top: 20px; }\n__ROOT__ .adz-rv { margin-top: 26px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }\n__ROOT__ .adz-rv-h { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--red); padding: 14px 16px 8px; background: #fafafa; border-bottom: 1px solid var(--line); }\n__ROOT__ .adz-rv-sec + .adz-rv-sec .adz-rv-h { border-top: 1px solid var(--line); }\n__ROOT__ .adz-rv-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) minmax(120px, auto); gap: 12px; align-items: center; width: 100%; padding: 11px 16px; text-align: left; border-bottom: 1px solid #f0f0f0; background: var(--white); }\n__ROOT__ .adz-rv-row:last-child { border-bottom: 0; }\n__ROOT__ .adz-rv-row:hover { background: #fafafa; }\n__ROOT__ .adz-rv-row:hover .adz-rv-a { text-decoration: underline; }\n__ROOT__ .adz-rv-n { font-size: 12px; font-weight: 700; color: var(--soft); font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-rv-t { font-size: 14px; line-height: 1.45; color: var(--ink-2); }\n__ROOT__ .adz-rv-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }\n__ROOT__ .adz-tag { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 10px; background: var(--paper); color: var(--muted); }\n__ROOT__ .adz-tag.is-most { background: var(--red-tint); color: var(--red); }\n__ROOT__ .adz-rv-a { font-size: 13.5px; font-weight: 700; text-align: right; color: var(--ink); }\n__ROOT__ .adz-rv-a.is-cannot { color: var(--muted); font-weight: 600; }\n__ROOT__ .adz-rv-row.is-missing .adz-rv-a { color: var(--red); }\n__ROOT__ .adz-hello { font-size: 18px; font-weight: 600; margin-top: 14px; }\n__ROOT__ .adz-hello + .adz-h1 { margin-top: 4px; }\n__ROOT__ .adz-msg { max-width: 640px; }\n__ROOT__ .adz-msg--done { text-align: center; margin: 0 auto; }\n__ROOT__ .adz-msg--done .adz-lead { margin: 0 auto; }\n__ROOT__ .adz-check { width: 56px; height: 56px; border-radius: 50%; background: var(--red); margin: 0 auto 8px; position: relative; }\n__ROOT__ .adz-check::after { content: ''; position: absolute; left: 20px; top: 14px; width: 12px; height: 22px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }\n@media (max-width: 640px) {\n__ROOT__ .adz-hint--keys { display: none; }\n__ROOT__ .adz-q { min-height: 0; }\n__ROOT__ .adz-opt { padding: 12px 14px; }\n__ROOT__ .adz-rv-row { grid-template-columns: 26px minmax(0, 1fr); padding: 11px 12px; }\n__ROOT__ .adz-rv-a { grid-column: 2; text-align: left; }\n__ROOT__ .adz-seg button { font-size: 12.5px; padding: 11px 4px; }\n}",
+  version: "1.1.0",
+}, {
+  I18N: ED_I18N, prefix: 'adz-ed:', count: ED.COUNT, autoAdvance: true,
+  section: edSection,
+  options: function (t) { return t.scale; },
+  cannot: function (t) { return t.cannot; },
+  text: function (t, q) { return t.questions[q].t; },
+  importance: null, comments: false,
+}, 'EDA');
 
 })();

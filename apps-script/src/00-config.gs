@@ -13,10 +13,11 @@
  *   p_load   → { t }                       → launch info for that invitation
  *   p_submit → { t, answers, ... }         → saves the answers (once per invitation)
  *
- * First time: run setup() once from the editor. Deployments (Deploy → New deployment → Web app):
- *   "Public": Execute as Me · Who has access: Anyone                  → URL for the Webflow embeds
- *   "Admin":  Execute as Me · Who has access: Anyone within adizes.com → URL of the admin
- * Admins: Project Settings → Script Properties → ADMIN_EMAILS (comma separated).
+ * First time: run setup() once from the editor. Deploy → New deployment → Web app:
+ *   Execute as: Me · Who has access: Anyone. The same URL is used by the Webflow embeds (POST)
+ *   and is the admin page (open it in the browser; sign in with a code sent to your email).
+ * Admins: Project Settings → Script Properties → ADMIN_EMAILS (comma separated; "@domain.com" = whole domain)
+ * and CONFIG.ADMIN_DOMAINS below.
  *************************************************************************************/
 
 const CONFIG = {
@@ -35,6 +36,8 @@ const CONFIG = {
   DATA_SPREADSHEET_ID: '',
   PDF_FOLDER_ID: '',
   MIN_RESPONSES: { ED: 1, ES: 5 },
+  // Whole email domains allowed in the admin (besides ADMIN_EMAILS in Script Properties)
+  ADMIN_DOMAINS: ['nuclea.solutions'],
   MAX_PDF_BYTES: 8 * 1024 * 1024,
 };
 const VERSION = '__VERSION__';

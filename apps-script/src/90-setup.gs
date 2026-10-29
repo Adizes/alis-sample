@@ -20,6 +20,7 @@ function tick() {
 function setup() {
   const props = PropertiesService.getScriptProperties();
   if (!props.getProperty('ADMIN_EMAILS')) props.setProperty('ADMIN_EMAILS', 'dario@adizes.com');
+  secret_();
   // From the editor the active user is the owner; from a web page it must be an admin.
   if (!isAdmin_(currentEmail_())) throw new Error('forbidden');
   // 1) Data spreadsheet (share it only with admins)
@@ -30,7 +31,7 @@ function setup() {
   if (!CONFIG.PDF_FOLDER_ID && !props.getProperty('PDF_FOLDER_ID')) {
     props.setProperty('PDF_FOLDER_ID', DriveApp.createFolder('Adizes Assessments — Reports').getId());
   }
-  [COMPANIES, EMPLOYEES, LAUNCHES, INVITES, ED_ANSWERS].forEach(T => headerMap_(table_(T), T));
+  [COMPANIES, EMPLOYEES, LAUNCHES, INVITES, ED_ANSWERS, ES_ANSWERS].forEach(T => headerMap_(table_(T), T));
   TESTS.forEach(t => folder_(t));
   // 3) Trigger
   ScriptApp.getProjectTriggers().forEach(t => { if (['tick', 'backupDeliver'].indexOf(t.getHandlerFunction()) >= 0) ScriptApp.deleteTrigger(t); });
@@ -39,5 +40,5 @@ function setup() {
   GmailApp.getAliases();
   Logger.log('Ready.\nData spreadsheet: ' + dataSS_().getUrl() +
     '\nReports folder: ' + DriveApp.getFolderById(CONFIG.PDF_FOLDER_ID || props.getProperty('PDF_FOLDER_ID')).getUrl() +
-    '\nAdmins: ' + props.getProperty('ADMIN_EMAILS'));
+    '\nAdmins: ' + props.getProperty('ADMIN_EMAILS') + ' + domains: ' + adminDomains_().join(', '));
 }

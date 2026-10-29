@@ -37,8 +37,8 @@ export async function startServers() {
     // Admin bridge: what google.script.run.adminApi does in production (runs as S.gas.state.activeUser)
     if (req.url === '/admin-api' && req.method === 'POST') {
       let body = ''; req.on('data', c => (body += c)); req.on('end', () => {
-        const { a, p } = JSON.parse(body);
-        res.writeHead(200, { 'content-type': 'text/plain' }); res.end(S.gas.gas.adminApi(a, p));
+        const { a, p, t } = JSON.parse(body);
+        res.writeHead(200, { 'content-type': 'text/plain' }); res.end(S.gas.gas.adminApi(a, p, t));
       });
       return;
     }
@@ -130,7 +130,7 @@ export async function launchBrowser(chromium) {
 export function adminPage() {
   const html = readFileSync(join(ROOT, 'admin/dist/admin.html'), 'utf8');
   const shim = `<script>(function(){function runner(ok,fail){return{withSuccessHandler:function(f){return runner(f,fail)},withFailureHandler:function(f){return runner(ok,f)},
-adminApi:function(a,p){fetch('/admin-api',{method:'POST',body:JSON.stringify({a:a,p:p})}).then(function(r){return r.text()}).then(function(t){setTimeout(function(){ok(t)},30)},function(e){fail(e)})}}}
+adminApi:function(a,p,t){fetch('/admin-api',{method:'POST',body:JSON.stringify({a:a,p:p,t:t})}).then(function(r){return r.text()}).then(function(t){setTimeout(function(){ok(t)},30)},function(e){fail(e)})}}}
 window.google={script:{run:runner(function(){},function(){})}};})();</script>`;
   return html.replace('<script>', shim + '<script>');
 }

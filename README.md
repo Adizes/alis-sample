@@ -8,9 +8,9 @@ No Zapier / HubSpot. Founder Dependency is unrelated and lives in [Adizes/assess
 
 | Assessment | Folder | Backend | Status |
 |---|---|---|---|
-| Express Diagnostics | `express-diagnostics/` | `apps-script/Code.gs` | v1.0.0 — 67 statements, group report with names, min. 1 |
-| Engagement Survey | `engagement-survey/` | `apps-script/Code.gs` | next stage — anonymous, min. 5, results by area |
-| Admin | `admin/` | embedded in `apps-script/Code.gs` | v1.0.0 — companies, employees, launches, invitations, reports |
+| Express Diagnostics | `express-diagnostics/` | `apps-script/Code.gs` | v1.1.0 — 67 statements, group report with names, min. 1 |
+| Engagement Survey | `engagement-survey/` | `apps-script/Code.gs` | v1.1.0 — 50 questions, importance + comments, anonymous, min. 5, results by area |
+| Admin | `admin/` | embedded in `apps-script/Code.gs` | v1.1.0 — English, sign-in with emailed code, companies, employees, launches, reports |
 
 Express Diagnostics, Engagement Survey and the admin share one Apps Script project (`apps-script/`)
 and one data spreadsheet, created by `setup()`. Deployment steps: `apps-script/README.md`.
@@ -20,18 +20,22 @@ and one data spreadsheet, created by `setup()`. Deployment steps: `apps-script/R
 ```
 shared/                   ← code used by several tools
   core.js, ui.css         ← browser utilities + base styles (white / black / Adizes red, Montserrat)
-  ed-engine.js            ← Express Diagnostics scoring (same file runs in the widget, admin and Apps Script)
-  pdfkit.js, ed-report.js ← jsPDF helpers + Express Diagnostics group report (rendered in the admin)
+  ed-engine.js, es-engine.js ← scoring of both tests (same files run in the widgets, the admin and Apps Script)
+  survey.js, survey.css   ← participant shell shared by both tests (personal link → questions → review → thanks)
+  pdfkit.js, ed-report.js, es-report.js ← jsPDF helpers + both group reports (rendered in the admin)
   assets/                 ← logos (two-tone), arrows, Montserrat
   test/                   ← Apps Script simulator + browser-test harness
 express-diagnostics/
   src/i18n/en.js, es.js   ← all texts incl. the 67 statements (+ zone wordings)
-  src/app.js, styles.css  ← participant widget (personal link → statements → thank-you)
+  src/app.js              ← participant widget config (uses shared/survey.js)
   dist/                   ← built file that Webflow loads (don't edit by hand)
   LEGACY.md               ← legacy scoring rules, golden case, content changes
   EMBED.html              ← code to paste into Webflow
+engagement-survey/
+  src/i18n/en.js, es.js   ← 50 questions, scales (Q5/Q45 reversed), levels, report texts
+  src/app.js              ← participant widget config · EMBED.html · test/engine.test.mjs
 admin/
-  src/admin.html/.css/.js ← admin single-page app (Spanish), served by Apps Script
+  src/admin.html/.css/.js ← admin single-page app (English), served by Apps Script
   test/e2e.test.mjs       ← full journey: admin → participants → report (desktop + mobile)
 apps-script/
   src/*.gs                ← backend sources (model, participant API, admin API, emails, setup)
@@ -48,9 +52,10 @@ npm test          # engine golden case + backend tests + Playwright desktop/mobi
 ```
 
 ### Add a language
-1. Copy `express-diagnostics/src/i18n/en.js` to e.g. `pt.js`, change `ED_I18N.en` to `ED_I18N.pt` and
-   translate the texts (keep the order of `questions`).
-2. In `apps-script/src/00-config.gs`, copy the `en` block inside `LABELS` as `pt` and translate it (emails).
+1. Copy `express-diagnostics/src/i18n/en.js` and `engagement-survey/src/i18n/en.js` to e.g. `pt.js`, change
+   `ED_I18N.en` / `ES_I18N.en` to `.pt` and translate the texts (keep the order of `questions` and the scale values).
+2. In `apps-script/src/00-config.gs`, copy the `en` block inside `LABELS` as `pt` and translate it (emails), and
+   add the language to `LANGS` in `admin/src/admin.js`.
 3. `npm run build`, commit, create a new release and update the version in the Webflow embed.
 
 ### Publish a new version

@@ -18,10 +18,10 @@ function langs(dir) {
     .sort((a, b) => (a === 'en.js' ? -1 : b === 'en.js' ? 1 : a.localeCompare(b)));
 }
 
-async function widget({ name, title, dir, i18nVar, shared }) {
+async function widget({ name, title, dir, i18nVar, shared, styles: extraCss }) {
   const ls = langs(dir + '/src/i18n');
   const i18n = ls.map(f => read(dir + '/src/i18n/' + f)).join('\n');
-  const styles = css(read('shared/ui.css') + '\n' + read(dir + '/src/styles.css'));
+  const styles = css(read('shared/ui.css') + '\n' + (extraCss || []).map(read).join('\n') + '\n' + read(dir + '/src/styles.css'));
   const app = read(dir + '/src/app.js').replace('__CSS__', JSON.stringify(styles)).replace("'__VERSION__'", JSON.stringify(VERSION));
   const banner = `/*! Adizes · ${title} v${VERSION} · github.com/Adizes/alis-sample */\n`;
   const out = banner + `(function(){\n'use strict';\nvar ${i18nVar} = {};\n${i18n}\n${shared.map(read).join('\n')}\n${app}\n})();\n`;
@@ -34,16 +34,21 @@ async function widget({ name, title, dir, i18nVar, shared }) {
 
 await widget({
   name: 'express-diagnostics', title: 'Express Diagnostics', dir: 'express-diagnostics', i18nVar: 'ED_I18N',
-  shared: ['shared/core.js', 'shared/ed-engine.js'],
+  shared: ['shared/core.js', 'shared/ed-engine.js', 'shared/survey.js'], styles: ['shared/survey.css'],
+});
+await widget({
+  name: 'engagement-survey', title: 'Engagement Survey', dir: 'engagement-survey', i18nVar: 'ES_I18N',
+  shared: ['shared/core.js', 'shared/ed-engine.js', 'shared/es-engine.js', 'shared/survey.js'], styles: ['shared/survey.css'],
 });
 
 // Admin page: one HTML document (CSS + JS + report renderers inlined), embedded in Code.gs.
 function adminHtml() {
   const shell = read('admin/src/admin.html');
   const styles = css(read('admin/src/admin.css'));
-  const reports = ['shared/core.js', 'shared/ed-engine.js', 'shared/pdfkit.js', 'shared/ed-report.js'].map(read).join('\n');
-  const i18n = langs('express-diagnostics/src/i18n').map(f => read('express-diagnostics/src/i18n/' + f)).join('\n');
-  const js = `(function(){\n'use strict';\nvar ED_I18N = {};\n${i18n}\n${reports}\n${read('admin/src/admin.js')}\n})();`;
+  const reports = ['shared/core.js', 'shared/ed-engine.js', 'shared/es-engine.js', 'shared/pdfkit.js', 'shared/ed-report.js', 'shared/es-report.js'].map(read).join('\n');
+  const i18n = langs('express-diagnostics/src/i18n').map(f => read('express-diagnostics/src/i18n/' + f)).join('\n') + '\n' +
+    langs('engagement-survey/src/i18n').map(f => read('engagement-survey/src/i18n/' + f)).join('\n');
+  const js = `(function(){\n'use strict';\nvar ED_I18N = {}, ES_I18N = {};\n${i18n}\n${reports}\n${read('admin/src/admin.js')}\n})();`;
   return shell.replace('/*__CSS__*/', () => styles).replace('/*__JS__*/', () => js.replace(/<\/script/gi, '<\\/script'))
     .replace(/__VERSION__/g, VERSION).replace(/__RELEASE__/g, 'v' + VERSION);
 }
@@ -51,7 +56,8 @@ function adminHtml() {
 // Apps Script: config + shared engine + the rest of src/*.gs (file-name order) + the admin page.
 {
   const files = readdirSync(join(root, 'apps-script/src')).filter(f => f.endsWith('.gs')).sort();
-  const parts = [read('apps-script/src/' + files[0]), '/* ===== shared/ed-engine.js (same file the widgets and the admin use) ===== */\n' + read('shared/ed-engine.js')]
+  const parts = [read('apps-script/src/' + files[0]),
+    '/* ===== shared/ed-engine.js + shared/es-engine.js (same files the widgets and the admin use) ===== */\n' + read('shared/ed-engine.js') + '\n' + read('shared/es-engine.js')]
     .concat(files.slice(1).map(f => read('apps-script/src/' + f)));
   const html = adminHtml();
   parts.push('/* ===== Admin page (generated from admin/src) ===== */\nconst ADMIN_HTML = ' + JSON.stringify(html) + ';');

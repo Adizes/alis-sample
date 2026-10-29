@@ -15,7 +15,6 @@ ED_I18N.es = {
     keyboardHint: 'Teclas 1–4 · 0 = No puedo responder',
     of: 'de',
     section: 'Área',
-    language: 'Idioma',
     resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
     resumeYes: 'Continuar donde me quedé',
     resumeNo: 'Empezar de nuevo',
@@ -96,12 +95,16 @@ ED_I18N.es = {
 
   review: {
     eyebrow: 'Último paso',
-    title: 'Listo para enviar',
-    body: 'Calificaste las 67 afirmaciones.',
+    title: 'Revisa tus respuestas',
+    body: 'Calificaste las {n} afirmaciones.',
     cannot: '{n} como “No puedo responder”.',
-    warn: 'Una vez enviadas, tus respuestas ya no se pueden cambiar.',
+    missingN: 'Faltan {n} afirmaciones por responder.',
+    missingHelp: 'Haz clic en cualquier afirmación para responderla o cambiarla.',
+    missing: 'Sin responder',
+    warn: 'Haz clic en cualquier afirmación para cambiar tu respuesta. Una vez enviadas, ya no se pueden cambiar.',
     submit: 'Enviar mis respuestas',
-    edit: 'Revisar mis respuestas',
+    hint: 'También puedes enviarlas al final de la lista.',
+    back: 'Volver a la revisión',
   },
   thanks: {
     title: 'Gracias, {first}',
