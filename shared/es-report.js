@@ -115,17 +115,21 @@ function renderEsPdf(A, lang, d) {
       if (start > 0) chunk = [cols[0]].concat(chunk);
       var cw = (CW - labelW) / chunk.length;
       var rows = [[P.respondents, function (L) { return String(L.n); }]].concat(ES.LEVELS.map(function (k) { return [t.levels[k].name, function (L) { return pct(L.pct[k]); }, k]; }), [[P.positive, function (L) { return pct(L.positive); }, 'pos']]);
-      var th = 22 + rows.length * 22;
+      // long labels (e.g. "Totalmente comprometido + Comprometido") wrap inside the label column
+      rows.forEach(function (r) { var ind = r[2] && r[2] !== 'pos' ? 14 : 0; r.lines = K.split(r[0], labelW - ind - 8, r[2] === 'pos' ? 'bold' : 'regular', 8.5); r.h = r.lines.length > 1 ? 14 + r.lines.length * 10 : 22; });
+      var th = 22 + rows.reduce(function (s, r) { return s + r.h; }, 0);
       if (y + th > H - 70) y = newPage();
       K.fill('#fafafa'); doc.rect(M, y, CW, 22, 'F');
       chunk.forEach(function (c, i) { K.font('bold', 8, C.INK); doc.text(K.split(c.name, cw - 8, 'bold', 8)[0], M + labelW + i * cw + cw / 2, y + 14, { align: 'center' }); });
       var ry = y + 22;
       rows.forEach(function (r) {
         K.stroke(C.LINE, 0.5); doc.line(M, ry, W - M, ry);
-        if (r[2] && r[2] !== 'pos') { K.fill(ES_LEVEL_C[r[2]]); doc.rect(M, ry + 7, 8, 8, 'F'); }
-        K.font(r[2] === 'pos' ? 'bold' : 'regular', 8.5, C.INK); doc.text(r[0], M + (r[2] && r[2] !== 'pos' ? 14 : 0), ry + 14);
-        chunk.forEach(function (c, i) { K.font(r[2] === 'pos' || c.bold ? 'bold' : 'regular', 9, C.INK); doc.text(r[1](c.levels), M + labelW + i * cw + cw / 2, ry + 14.5, { align: 'center' }); });
-        ry += 22;
+        var mid = ry + r.h / 2;
+        if (r[2] && r[2] !== 'pos') { K.fill(ES_LEVEL_C[r[2]]); doc.rect(M, mid - 4, 8, 8, 'F'); }
+        K.font(r[2] === 'pos' ? 'bold' : 'regular', 8.5, C.INK);
+        r.lines.forEach(function (l, j) { doc.text(l, M + (r[2] && r[2] !== 'pos' ? 14 : 0), mid + 3 + (j - (r.lines.length - 1) / 2) * 10); });
+        chunk.forEach(function (c, i) { K.font(r[2] === 'pos' || c.bold ? 'bold' : 'regular', 9, C.INK); doc.text(r[1](c.levels), M + labelW + i * cw + cw / 2, mid + 3.5, { align: 'center' }); });
+        ry += r.h;
       });
       y = ry + 18;
     }

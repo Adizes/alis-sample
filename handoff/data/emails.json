@@ -1,0 +1,63 @@
+{
+  "note": "Server-side texts: invitations, reminders and the report email, per language. {placeholders} are filled by the server.",
+  "languages": {
+    "en": {
+      "tests": {
+        "ED": "Express Diagnostics",
+        "ES": "Engagement Survey"
+      },
+      "invite": {
+        "subject": "{company}: {test}",
+        "reminderSubject": "Reminder — {company}: {test}",
+        "hi": "Hi {first},",
+        "body": "{company} has invited you to take part in the {test}, conducted together with the Adizes Institute. It takes about 10 minutes.",
+        "reminder": "This is a friendly reminder: your answers to the {test} for {company} are still pending.",
+        "privacy": {
+          "ED": "Your answers are combined with those of the other participants in a group report for {company}.",
+          "ES": "The survey is anonymous: {company} only receives aggregated results, never individual answers."
+        },
+        "deadline": "Please complete it by {date}.",
+        "cta": "Start",
+        "personal": "This link is personal. Please do not share it.",
+        "sign": "The Adizes Institute team",
+        "footer": "You received this email because {company} invited you to participate."
+      },
+      "report": {
+        "subject": "{test} report — {company}",
+        "hi": "Hello,",
+        "body": "Attached is the {test} report for {company} ({launch}), based on {n} responses.",
+        "sign": "The Adizes Institute team",
+        "footer": "Adizes Institute · www.adizes.com"
+      }
+    },
+    "es": {
+      "tests": {
+        "ED": "Diagnóstico Exprés",
+        "ES": "Encuesta de Compromiso"
+      },
+      "invite": {
+        "subject": "{company}: {test}",
+        "reminderSubject": "Recordatorio — {company}: {test}",
+        "hi": "Hola, {first}:",
+        "body": "{company} te invita a participar en el {test}, que realiza junto con el Instituto Adizes. Toma alrededor de 10 minutos.",
+        "reminder": "Te recordamos que tus respuestas al {test} de {company} siguen pendientes.",
+        "privacy": {
+          "ED": "Tus respuestas se combinan con las de los demás participantes en un reporte grupal para {company}.",
+          "ES": "La encuesta es anónima: {company} solo recibe resultados agregados, nunca respuestas individuales."
+        },
+        "deadline": "Por favor respóndela antes del {date}.",
+        "cta": "Comenzar",
+        "personal": "Este enlace es personal. Por favor no lo compartas.",
+        "sign": "El equipo del Instituto Adizes",
+        "footer": "Recibiste este correo porque {company} te invitó a participar."
+      },
+      "report": {
+        "subject": "Reporte de {test} — {company}",
+        "hi": "Hola:",
+        "body": "Adjuntamos el reporte de {test} de {company} ({launch}), con base en {n} respuestas.",
+        "sign": "El equipo del Instituto Adizes",
+        "footer": "Instituto Adizes · www.adizes.com"
+      }
+    }
+  }
+}

@@ -1,0 +1,4306 @@
+{
+  "test": "Engagement Survey",
+  "code": "ES",
+  "version": "1.2.0",
+  "model": {
+    "questionCount": 50,
+    "scales": {
+      "F": "Frequency (Never → Always), labels also show the agreement wording",
+      "A": "Agreement (Absolutely disagree → Absolutely agree), labels also show the frequency wording",
+      "FR": "Frequency, REVERSED: negative statement (Q5). \"Never\" is stored as 5",
+      "AR": "Agreement, REVERSED: negative statement (Q45). \"Absolutely disagree\" is stored as 5",
+      "S": "Satisfaction (Q42)",
+      "C": "Change over the last year (Q50). 5 options, no \"Don't know\"; 1 = significantly deteriorated"
+    },
+    "answerValues": "Stored raw 1–5. 5 is ALWAYS the most positive answer. 1 = \"Don't know\" (except Q50, where 1 = significantly deteriorated).",
+    "importance": {
+      "values": {
+        "1": "Less important",
+        "2": "Medium",
+        "3": "Most important"
+      },
+      "default": 1,
+      "maxMost": 15,
+      "minMost": 1
+    },
+    "factors": [
+      {
+        "id": 17,
+        "key": "values",
+        "group": "culture"
+      },
+      {
+        "id": 18,
+        "key": "climate",
+        "group": "culture"
+      },
+      {
+        "id": 19,
+        "key": "styles",
+        "group": "culture"
+      },
+      {
+        "id": 20,
+        "key": "responsibility",
+        "group": "structure"
+      },
+      {
+        "id": 21,
+        "key": "authority",
+        "group": "structure"
+      },
+      {
+        "id": 22,
+        "key": "reward",
+        "group": "structure"
+      },
+      {
+        "id": 23,
+        "key": "planning",
+        "group": "process"
+      },
+      {
+        "id": 24,
+        "key": "information",
+        "group": "process"
+      },
+      {
+        "id": 26,
+        "key": "client",
+        "group": "functions"
+      },
+      {
+        "id": 27,
+        "key": "transformation",
+        "group": "functions"
+      },
+      {
+        "id": 28,
+        "key": "human",
+        "group": "functions"
+      },
+      {
+        "id": 34,
+        "key": "supervisor",
+        "group": "functions"
+      },
+      {
+        "id": 30,
+        "key": "behaviour",
+        "group": "effects"
+      },
+      {
+        "id": 31,
+        "key": "changes",
+        "group": "effects"
+      },
+      {
+        "id": 32,
+        "key": "inefficiency",
+        "group": "effects"
+      }
+    ],
+    "groups": [
+      "culture",
+      "structure",
+      "process",
+      "functions",
+      "effects"
+    ],
+    "levels": [
+      "fully",
+      "engaged",
+      "somewhat",
+      "disengaged"
+    ],
+    "minimumResponses": 5,
+    "minimumGroupSize": 5,
+    "minimumEmployeesToLaunch": 5
+  },
+  "questions": [
+    {
+      "number": 1,
+      "factorId": 17,
+      "factorKey": "values",
+      "group": "culture",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "Our leaders follow the values declared in the Organization",
+        "es": "Nuestros líderes siguen los valores declarados en la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "factorId": 17,
+      "factorKey": "values",
+      "group": "culture",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "Our Organization fully fulfils its obligations to employees",
+        "es": "Nuestra empresa cumple plenamente sus obligaciones con los empleados"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "factorId": 17,
+      "factorKey": "values",
+      "group": "culture",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "The Organization values and supports new ideas",
+        "es": "La empresa valora y apoya nuevas ideas"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "factorId": 18,
+      "factorKey": "climate",
+      "group": "culture",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I feel comfortable with the atmosphere in the Organization",
+        "es": "Me siento cómodo con el ambiente de la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "factorId": 18,
+      "factorKey": "climate",
+      "group": "culture",
+      "scale": "FR",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "We have an “every man for himself” culture",
+        "es": "Tenemos una cultura de “cada quien por su lado”"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 5,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 4,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 3,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 2,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 5,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 2,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "factorId": 18,
+      "factorKey": "climate",
+      "group": "culture",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I am praised and appreciated when I do good work",
+        "es": "Soy elogiado y apreciado cuando hago un buen trabajo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 7,
+      "factorId": 18,
+      "factorKey": "climate",
+      "group": "culture",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "We respect each other",
+        "es": "Nos respetamos entre todos"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 8,
+      "factorId": 19,
+      "factorKey": "styles",
+      "group": "culture",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "The behavior shown by the supervisors in our organization contributes to a healthy working environment, the achievement of goals and the development of the organization",
+        "es": "El comportamiento mostrado por los supervisores en nuestra organización contribuye a un ambiente de trabajo saludable, el logro de objetivos y el desarrollo de la organización"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 9,
+      "factorId": 20,
+      "factorKey": "responsibility",
+      "group": "structure",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I clearly understand my work tasks and understand my role in the activities of my department",
+        "es": "Entiendo claramente mis tareas laborales y entiendo mi papel en las actividades de mi departamento"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 10,
+      "factorId": 20,
+      "factorKey": "responsibility",
+      "group": "structure",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I understand what should guide me in carrying out my work: policies, regulations, rules, professional standards, etc",
+        "es": "Entiendo lo que debería guiarme en la realización de mi trabajo: políticas, reglamentos, normas, estándares profesionales, etc"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 11,
+      "factorId": 20,
+      "factorKey": "responsibility",
+      "group": "structure",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I know who I can go to with questions",
+        "es": "Sé a quién puedo acudir con preguntas"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 12,
+      "factorId": 21,
+      "factorKey": "authority",
+      "group": "structure",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I understand what decisions I have the right to make",
+        "es": "Entiendo qué decisiones tengo derecho a tomar"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 13,
+      "factorId": 21,
+      "factorKey": "authority",
+      "group": "structure",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "Decision-making on issues that affect me takes place in a timely and predictable way",
+        "es": "La toma de decisiones sobre asuntos que me afectan se realiza de manera oportuna y predecible"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 14,
+      "factorId": 21,
+      "factorKey": "authority",
+      "group": "structure",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I have enough authority to be responsible for the results of my work",
+        "es": "Tengo suficiente autoridad para ser responsable de los resultados de mi trabajo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 15,
+      "factorId": 22,
+      "factorKey": "reward",
+      "group": "structure",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I believe that the level of income that I get in the Organization is competitive",
+        "es": "Creo que el nivel de ingresos que obtengo en la empresa es competitivo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 16,
+      "factorId": 22,
+      "factorKey": "reward",
+      "group": "structure",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I understand what the variable part of my income depends on",
+        "es": "Entiendo de qué depende la parte variable de mis ingresos"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 17,
+      "factorId": 22,
+      "factorKey": "reward",
+      "group": "structure",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I believe that I am able to influence both my fixed and variable income to a rather high degree",
+        "es": "Creo que soy capaz de influir en mis ingresos fijos y variables en un grado bastante alto"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 18,
+      "factorId": 22,
+      "factorKey": "reward",
+      "group": "structure",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My benefits package is competitive in the market",
+        "es": "Mi paquete de beneficios es competitivo en el mercado"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 19,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I can discuss personal issues with my supervisor",
+        "es": "Puedo discutir asuntos personales con mi supervisor"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 20,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My supervisor treats me as an individual",
+        "es": "Mi supervisor me trata como un individuo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 21,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My supervisor encourages my professional development",
+        "es": "Mi supervisor fomenta mi desarrollo profesional"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 22,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My supervisor talks to me about my progress on a regular basis",
+        "es": "Mi supervisor me habla regularmente sobre mi progreso"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 23,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My supervisor gives quality and motivating feedback - I always know what he thinks about me and my work",
+        "es": "Mi supervisor ofrece comentarios motivadores y de calidad: siempre sé lo que piensa sobre mí y mi trabajo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 24,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "The tasks that the supervisor sets for me are clear and realistic",
+        "es": "Las tareas que el supervisor establece para mí son claras y realistas"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 25,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I feel comfortable asking clarifying questions to my supervisor",
+        "es": "Me siento cómodo haciendo preguntas aclaratorias a mi supervisor"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 26,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I believe that the decisions made by my supervisor are correct and useful to the Organization",
+        "es": "Creo que las decisiones tomadas por mi supervisor son correctas y útiles para la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 27,
+      "factorId": 34,
+      "factorKey": "supervisor",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My supervisor carefully listens to me and takes into account my point of view",
+        "es": "Mi supervisor me escucha atentamente y toma en cuenta mi punto de vista"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 28,
+      "factorId": 23,
+      "factorKey": "planning",
+      "group": "process",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I know and understand the long-term goals of the Organization",
+        "es": "Conozco y entiendo los objetivos a largo plazo de la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 29,
+      "factorId": 23,
+      "factorKey": "planning",
+      "group": "process",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I am inspired by the goals of our Organization. We are engaged in important and useful work",
+        "es": "Me inspiran los objetivos de nuestra empresa. Estamos comprometidos en un trabajo importante y útil"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 30,
+      "factorId": 23,
+      "factorKey": "planning",
+      "group": "process",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I understand how the results of my work affect the overall result of the Organization",
+        "es": "Entiendo cómo los resultados de mi trabajo afectan el resultado general de la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 31,
+      "factorId": 24,
+      "factorKey": "information",
+      "group": "process",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I have the opportunity to be heard",
+        "es": "Tengo la oportunidad de ser escuchado"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 32,
+      "factorId": 24,
+      "factorKey": "information",
+      "group": "process",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I have enough information about what is happening in the Organization to do my work",
+        "es": "Tengo suficiente información sobre lo que está sucediendo en la empresa para hacer mi trabajo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 33,
+      "factorId": 26,
+      "factorKey": "client",
+      "group": "functions",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I know who the target market is (internal or external customer). I know what needs we can satisfy with what products or services",
+        "es": "Sé quién es el mercado objetivo (cliente interno o externo). Sé qué necesidades podemos satisfacer con qué productos o servicios"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 34,
+      "factorId": 26,
+      "factorKey": "client",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "We know our market (internal or external customers) well, we monitor trends and needs and we constantly think about how we can serve our market (internal or external customers) better",
+        "es": "Conocemos bien nuestro mercado (clientes internos o externos), monitoreamos tendencias y necesidades y constantemente pensamos en cómo podemos servir mejor a nuestro mercado (clientes internos o externos)"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 35,
+      "factorId": 27,
+      "factorKey": "transformation",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I have a comfortable working environment",
+        "es": "Tengo un ambiente de trabajo cómodo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 36,
+      "factorId": 27,
+      "factorKey": "transformation",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I have all the necessary technical resources to do my job well",
+        "es": "Tengo todos los recursos técnicos necesarios para hacer bien mi trabajo"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 37,
+      "factorId": 27,
+      "factorKey": "transformation",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "The work processes which I participate in are systematized and well organized",
+        "es": "Los procesos de trabajo en los que participo están sistematizados y bien organizados"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 38,
+      "factorId": 27,
+      "factorKey": "transformation",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "We are committed to improving our work processes and applied technologies",
+        "es": "Estamos comprometidos a mejorar nuestros procesos de trabajo y tecnologías aplicadas"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 39,
+      "factorId": 28,
+      "factorKey": "human",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I am satisfied with the quality of the work that other units provide",
+        "es": "Estoy satisfecho con la calidad del trabajo que ofrecen otras unidades"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 40,
+      "factorId": 28,
+      "factorKey": "human",
+      "group": "functions",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "My work over the past 12 months has allowed me to improve/develop my knowledge, skills and abilities",
+        "es": "Mi trabajo durante los últimos 12 meses me ha permitido mejorar / desarrollar mis conocimientos, habilidades y capacidades"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 41,
+      "factorId": 28,
+      "factorKey": "human",
+      "group": "functions",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I know under what conditions (what to do, what to learn, what to achieve), I can “grow” in the Organization",
+        "es": "Sé bajo qué condiciones (qué hacer, qué aprender, qué lograr), puedo “crecer” en la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 42,
+      "factorId": 30,
+      "factorKey": "behaviour",
+      "group": "effects",
+      "scale": "S",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "Does your work, within this Organization, satisfy you?",
+        "es": "¿Tu trabajo en esta empresa te satisface?"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely dissatisfied",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Mostly dissatisfied",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Mostly satisfied",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Absolutely satisfied",
+            "sub": ""
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente insatisfecho",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Mayormente insatisfecho",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Mayormente satisfecho",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Totalmente satisfecho",
+            "sub": ""
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 43,
+      "factorId": 30,
+      "factorKey": "behaviour",
+      "group": "effects",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I feel valued and appreciated in the Organization",
+        "es": "Me siento valorado y apreciado en la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 44,
+      "factorId": 30,
+      "factorKey": "behaviour",
+      "group": "effects",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "The work that I actually do is interesting and enjoyable for me",
+        "es": "El trabajo que realmente hago es interesante y agradable para mí"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 45,
+      "factorId": 30,
+      "factorKey": "behaviour",
+      "group": "effects",
+      "scale": "AR",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I plan on leaving the Organization within the next year",
+        "es": "Planeo dejar la empresa dentro del próximo año"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 5,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 4,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 3,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 2,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 5,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 2,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 46,
+      "factorId": 30,
+      "factorKey": "behaviour",
+      "group": "effects",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I recommend our Organization to my friends and acquaintances as a good employer",
+        "es": "Recomiendo nuestra empresa a mis amigos y conocidos como un buen empleador"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 47,
+      "factorId": 30,
+      "factorKey": "behaviour",
+      "group": "effects",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I am proud to work in the Organization",
+        "es": "Estoy orgulloso de trabajar en la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 48,
+      "factorId": 31,
+      "factorKey": "changes",
+      "group": "effects",
+      "scale": "F",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "Our Organization moves with the times (products, technologies, processes)",
+        "es": "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 49,
+      "factorId": 32,
+      "factorKey": "inefficiency",
+      "group": "effects",
+      "scale": "A",
+      "hasDontKnow": true,
+      "texts": {
+        "en": "I believe that the potential of employees, their skills, knowledge and abilities are effectively used in the Organization",
+        "es": "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          },
+          {
+            "value": 1,
+            "label": "Don’t know",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          },
+          {
+            "value": 1,
+            "label": "No sé",
+            "sub": ""
+          }
+        ]
+      }
+    },
+    {
+      "number": 50,
+      "factorId": 31,
+      "factorKey": "changes",
+      "group": "effects",
+      "scale": "C",
+      "hasDontKnow": false,
+      "texts": {
+        "en": "Based on your overall previous answers, do you think the situation in the Organization as a whole has changed over the last year?",
+        "es": "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?"
+      },
+      "options": {
+        "en": [
+          {
+            "value": 1,
+            "label": "Significantly deteriorated",
+            "sub": ""
+          },
+          {
+            "value": 2,
+            "label": "Slightly deteriorated",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "No tangible changes",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Slightly improved",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Significantly improved",
+            "sub": ""
+          }
+        ],
+        "es": [
+          {
+            "value": 1,
+            "label": "Empeoró significativamente",
+            "sub": ""
+          },
+          {
+            "value": 2,
+            "label": "Empeoró ligeramente",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Sin cambios tangibles",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Mejoró ligeramente",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Mejoró significativamente",
+            "sub": ""
+          }
+        ]
+      }
+    }
+  ],
+  "texts": {
+    "en": {
+      "code": "en",
+      "langName": "English",
+      "locale": "en-US",
+      "ui": {
+        "start": "Start",
+        "back": "Back",
+        "next": "Next",
+        "pressEnter": "press Enter ↵",
+        "keyboardHint": "Keys 1–{n} · 0 = Don’t know",
+        "of": "of",
+        "section": "Area",
+        "resume": "Welcome back. Your answers so far are saved.",
+        "resumeYes": "Continue where I left off",
+        "resumeNo": "Start over",
+        "loading": "Loading…",
+        "sending": "Sending your answers…",
+        "errorGeneric": "Something went wrong. Please check your connection and try again.",
+        "retry": "Try again",
+        "importance": "How important is this question for you?",
+        "imp": [
+          "Less important",
+          "Medium",
+          "Most important"
+        ],
+        "mostCount": "Most important: {n} of {max}",
+        "mostFull": "You already chose 15 questions as most important. Change one of them to use it here.",
+        "comment": "Add a comment (optional)",
+        "commentPh": "Your comment… It is shared anonymously, word for word."
+      },
+      "intro": {
+        "eyebrow": "Engagement Survey",
+        "title": "{company} wants to hear from you",
+        "body": "{company} is running an engagement survey together with the Adizes Institute. You will answer {n} questions about your daily work and the organization.",
+        "bullets": [
+          "The survey is anonymous: answers are combined, and {company} never sees anyone’s individual answers.",
+          "For each question, say how important it is to you. Mark up to 15 as “Most important” (at least one).",
+          "You can add a comment to any question. Comments are shared word for word without your name, so avoid details that identify you.",
+          "It takes about 10–15 minutes. You can pause and continue later with the same link."
+        ],
+        "note": "Answer for how things actually are today. If you have no basis to answer, choose “Don’t know”.",
+        "deadline": "Open until {date}",
+        "meta": "{n} questions · about 10–15 minutes · anonymous"
+      },
+      "review": {
+        "eyebrow": "Last step",
+        "title": "Review your answers",
+        "body": "You answered all {n} questions.",
+        "cannot": "{n} as “Don’t know”.",
+        "most": "Most important: {n} of {max}.",
+        "needMost": "Mark at least {min} question as “Most important” before sending (open any question to change it).",
+        "missingN": "{n} questions still need an answer.",
+        "missingHelp": "Click any question to answer or change it.",
+        "missing": "Not answered",
+        "commented": "Comment",
+        "warn": "Click any question to change your answer, its importance or your comment. Once sent, your answers can’t be changed.",
+        "submit": "Send my answers",
+        "hint": "You can also send from the bottom of the list.",
+        "back": "Back to review"
+      },
+      "thanks": {
+        "title": "Thank you",
+        "body": "Your answers have been recorded anonymously. Thank you for taking the time to participate. You can close this window."
+      },
+      "states": {
+        "noToken": {
+          "title": "You need your personal link",
+          "body": "To answer, open the link you received in your invitation email."
+        },
+        "invalid_link": {
+          "title": "This link isn’t valid",
+          "body": "Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com."
+        },
+        "completed": {
+          "title": "You have already answered",
+          "body": "Your answers were recorded. Thank you for participating."
+        },
+        "closed": {
+          "title": "This survey is closed",
+          "body": "Answers are no longer being collected. If you think this is a mistake, contact the person who invited you."
+        },
+        "not_open": {
+          "title": "This survey isn’t open yet",
+          "body": "Please try again later from the same link."
+        }
+      },
+      "dontKnow": "Don’t know",
+      "scales": {
+        "F": [
+          {
+            "value": 2,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 3,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 4,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 5,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          }
+        ],
+        "A": [
+          {
+            "value": 2,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 3,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 4,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          }
+        ],
+        "FR": [
+          {
+            "value": 5,
+            "label": "Never",
+            "sub": "Absolutely disagree"
+          },
+          {
+            "value": 4,
+            "label": "Sometimes",
+            "sub": "Mostly disagree"
+          },
+          {
+            "value": 3,
+            "label": "Often",
+            "sub": "Mostly agree"
+          },
+          {
+            "value": 2,
+            "label": "Always",
+            "sub": "Absolutely agree"
+          }
+        ],
+        "AR": [
+          {
+            "value": 5,
+            "label": "Absolutely disagree",
+            "sub": "Never"
+          },
+          {
+            "value": 4,
+            "label": "Mostly disagree",
+            "sub": "Sometimes"
+          },
+          {
+            "value": 3,
+            "label": "Mostly agree",
+            "sub": "Often"
+          },
+          {
+            "value": 2,
+            "label": "Absolutely agree",
+            "sub": "Always"
+          }
+        ],
+        "S": [
+          {
+            "value": 2,
+            "label": "Absolutely dissatisfied"
+          },
+          {
+            "value": 3,
+            "label": "Mostly dissatisfied"
+          },
+          {
+            "value": 4,
+            "label": "Mostly satisfied"
+          },
+          {
+            "value": 5,
+            "label": "Absolutely satisfied"
+          }
+        ],
+        "C": [
+          {
+            "value": 1,
+            "label": "Significantly deteriorated"
+          },
+          {
+            "value": 2,
+            "label": "Slightly deteriorated"
+          },
+          {
+            "value": 3,
+            "label": "No tangible changes"
+          },
+          {
+            "value": 4,
+            "label": "Slightly improved"
+          },
+          {
+            "value": 5,
+            "label": "Significantly improved"
+          }
+        ]
+      },
+      "cells": {
+        "values": "Values",
+        "climate": "Climate",
+        "styles": "Styles",
+        "responsibility": "Responsibility Structure",
+        "authority": "Authority Structure",
+        "reward": "Reward Structure",
+        "supervisor": "Supervisor",
+        "planning": "Planning",
+        "information": "Information flow",
+        "client": "Client interface",
+        "transformation": "Transformation",
+        "human": "Human factors",
+        "behaviour": "Behaviour",
+        "changes": "Changes",
+        "inefficiency": "Inefficiency"
+      },
+      "levels": {
+        "fully": {
+          "name": "Fully engaged",
+          "desc": [
+            "passionate about their work and the organization",
+            "will do whatever it takes to deliver results",
+            "deliver consistent high quality results",
+            "find non-standard and innovative solutions to the toughest problems",
+            "seen as a leader and a role model"
+          ]
+        },
+        "engaged": {
+          "name": "Engaged",
+          "desc": [
+            "focused on achieving results, projects, individual responsibilities",
+            "deliver good, solid performance",
+            "always do their fair share of work",
+            "work well with others and help others when asked"
+          ]
+        },
+        "somewhat": {
+          "name": "Somewhat engaged",
+          "desc": [
+            "selective about where they put their energy",
+            "spend a lot of time doing things that are not helping clients and/or the organization",
+            "deliver when they have to or when you are watching them",
+            "have a negative influence on others"
+          ]
+        },
+        "disengaged": {
+          "name": "Disengaged",
+          "desc": [
+            "work only when they have to",
+            "would like to be doing something else",
+            "results are not meeting the standards",
+            "have a “we and they” perspective",
+            "are negative about the organization, and in their interactions with clients and colleagues"
+          ]
+        }
+      },
+      "pdf": {
+        "title": "Engagement Survey",
+        "subtitle": "Report",
+        "company": "Company",
+        "launch": "Survey",
+        "date": "Date of the report",
+        "responses": "Responses",
+        "of": "of",
+        "invited": "invited",
+        "anon": "The survey is anonymous. Results are only shown in aggregate, and groups with fewer than 5 answers are never shown on their own.",
+        "contents": "Contents",
+        "toc": [
+          "Distribution by engagement level",
+          "Engagement by area",
+          "Organizational factors",
+          "What matters most to employees",
+          "All questions",
+          "Comments"
+        ],
+        "levelsTitle": "Distribution by engagement level",
+        "levelsHelp": "Each participant is classified from all their answers and from the questions they marked as most important.",
+        "positive": "Fully engaged + Engaged",
+        "people": "people",
+        "byAreaTitle": "Engagement by area",
+        "byAreaHelp": "Only areas with 5 or more answers are shown. Smaller areas are combined into “Other areas” when together they reach 5.",
+        "company_col": "Company",
+        "other": "Other areas",
+        "hidden": "{n} answers from areas with fewer than 5 people are counted only in the company total.",
+        "noAreas": "No area has 5 or more answers yet, so results by area are not shown.",
+        "respondents": "Respondents",
+        "factorsTitle": "Organizational factors",
+        "factorsHelp": "Score of each factor from the answers (“Don’t know” not counted), with the same method as the Adizes diagnostic matrix. 75% or more is healthy; under 50% is an anomaly.",
+        "groups": {
+          "culture": "Organizational culture",
+          "structure": "Structure",
+          "process": "Process",
+          "functions": "Organizational functions",
+          "effects": "Effects"
+        },
+        "colors": {
+          "green": "All OK",
+          "yellow": "Attention zone",
+          "red": "Anomaly zone"
+        },
+        "topTitle": "What matters most to employees",
+        "topHelp": "The questions most often marked as “Most important”, and how they were answered.",
+        "mostPct": "most important",
+        "distTitle": "All questions",
+        "distHelp": "Distribution of answers (%) and, in red on the right, the share of respondents who marked each question as most important.",
+        "legend": {
+          "1": "Don’t know",
+          "2": "Never / Absolutely disagree",
+          "3": "Sometimes / Mostly disagree",
+          "4": "Often / Mostly agree",
+          "5": "Always / Absolutely agree"
+        },
+        "q50": "Green is always the most positive answer: for the negative statements 5 and 45 that is “Never” / “Absolutely disagree”. Question 50 uses its own scale (significantly improved → significantly deteriorated).",
+        "commentsTitle": "Comments",
+        "commentsHelp": "Written by participants, anonymous and word for word.",
+        "noComments": "No comments were left.",
+        "footer": "Adizes Institute · Engagement Survey",
+        "page": "Page",
+        "cont": "cont."
+      },
+      "questions": [
+        "Our leaders follow the values declared in the Organization",
+        "Our Organization fully fulfils its obligations to employees",
+        "The Organization values and supports new ideas",
+        "I feel comfortable with the atmosphere in the Organization",
+        "We have an “every man for himself” culture",
+        "I am praised and appreciated when I do good work",
+        "We respect each other",
+        "The behavior shown by the supervisors in our organization contributes to a healthy working environment, the achievement of goals and the development of the organization",
+        "I clearly understand my work tasks and understand my role in the activities of my department",
+        "I understand what should guide me in carrying out my work: policies, regulations, rules, professional standards, etc",
+        "I know who I can go to with questions",
+        "I understand what decisions I have the right to make",
+        "Decision-making on issues that affect me takes place in a timely and predictable way",
+        "I have enough authority to be responsible for the results of my work",
+        "I believe that the level of income that I get in the Organization is competitive",
+        "I understand what the variable part of my income depends on",
+        "I believe that I am able to influence both my fixed and variable income to a rather high degree",
+        "My benefits package is competitive in the market",
+        "I can discuss personal issues with my supervisor",
+        "My supervisor treats me as an individual",
+        "My supervisor encourages my professional development",
+        "My supervisor talks to me about my progress on a regular basis",
+        "My supervisor gives quality and motivating feedback - I always know what he thinks about me and my work",
+        "The tasks that the supervisor sets for me are clear and realistic",
+        "I feel comfortable asking clarifying questions to my supervisor",
+        "I believe that the decisions made by my supervisor are correct and useful to the Organization",
+        "My supervisor carefully listens to me and takes into account my point of view",
+        "I know and understand the long-term goals of the Organization",
+        "I am inspired by the goals of our Organization. We are engaged in important and useful work",
+        "I understand how the results of my work affect the overall result of the Organization",
+        "I have the opportunity to be heard",
+        "I have enough information about what is happening in the Organization to do my work",
+        "I know who the target market is (internal or external customer). I know what needs we can satisfy with what products or services",
+        "We know our market (internal or external customers) well, we monitor trends and needs and we constantly think about how we can serve our market (internal or external customers) better",
+        "I have a comfortable working environment",
+        "I have all the necessary technical resources to do my job well",
+        "The work processes which I participate in are systematized and well organized",
+        "We are committed to improving our work processes and applied technologies",
+        "I am satisfied with the quality of the work that other units provide",
+        "My work over the past 12 months has allowed me to improve/develop my knowledge, skills and abilities",
+        "I know under what conditions (what to do, what to learn, what to achieve), I can “grow” in the Organization",
+        "Does your work, within this Organization, satisfy you?",
+        "I feel valued and appreciated in the Organization",
+        "The work that I actually do is interesting and enjoyable for me",
+        "I plan on leaving the Organization within the next year",
+        "I recommend our Organization to my friends and acquaintances as a good employer",
+        "I am proud to work in the Organization",
+        "Our Organization moves with the times (products, technologies, processes)",
+        "I believe that the potential of employees, their skills, knowledge and abilities are effectively used in the Organization",
+        "Based on your overall previous answers, do you think the situation in the Organization as a whole has changed over the last year?"
+      ]
+    },
+    "es": {
+      "code": "es",
+      "langName": "Español",
+      "locale": "es-MX",
+      "ui": {
+        "start": "Comenzar",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "pressEnter": "presiona Enter ↵",
+        "keyboardHint": "Teclas 1–{n} · 0 = No sé",
+        "of": "de",
+        "section": "Área",
+        "resume": "Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.",
+        "resumeYes": "Continuar donde me quedé",
+        "resumeNo": "Empezar de nuevo",
+        "loading": "Cargando…",
+        "sending": "Enviando tus respuestas…",
+        "errorGeneric": "Algo salió mal. Revisa tu conexión e inténtalo de nuevo.",
+        "retry": "Intentar de nuevo",
+        "importance": "¿Qué tan importante es esta pregunta para ti?",
+        "imp": [
+          "Poco importante",
+          "Importante",
+          "Lo más importante"
+        ],
+        "mostCount": "Lo más importante: {n} de {max}",
+        "mostFull": "Ya elegiste 15 preguntas como lo más importante. Cambia una de ellas para usarla aquí.",
+        "comment": "Agregar un comentario (opcional)",
+        "commentPh": "Tu comentario… Se comparte de forma anónima, tal cual lo escribas."
+      },
+      "intro": {
+        "eyebrow": "Encuesta de Compromiso",
+        "title": "{company} quiere escucharte",
+        "body": "{company} está realizando una encuesta de compromiso junto con el Instituto Adizes. Responderás {n} preguntas sobre tu trabajo diario y la organización.",
+        "bullets": [
+          "La encuesta es anónima: las respuestas se combinan y {company} nunca ve las respuestas individuales.",
+          "En cada pregunta indica qué tan importante es para ti. Marca hasta 15 como “Lo más importante” (al menos una).",
+          "Puedes dejar un comentario en cualquier pregunta. Los comentarios se comparten tal cual, sin tu nombre; evita detalles que te identifiquen.",
+          "Toma de 10 a 15 minutos. Puedes pausar y continuar después con el mismo enlace."
+        ],
+        "note": "Responde según cómo son las cosas hoy. Si no tienes elementos para responder, elige “No sé”.",
+        "deadline": "Disponible hasta el {date}",
+        "meta": "{n} preguntas · 10 a 15 minutos · anónima"
+      },
+      "review": {
+        "eyebrow": "Último paso",
+        "title": "Revisa tus respuestas",
+        "body": "Respondiste las {n} preguntas.",
+        "cannot": "{n} como “No sé”.",
+        "most": "Lo más importante: {n} de {max}.",
+        "needMost": "Marca al menos {min} pregunta como “Lo más importante” antes de enviar (abre cualquier pregunta para cambiarlo).",
+        "missingN": "Faltan {n} preguntas por responder.",
+        "missingHelp": "Haz clic en cualquier pregunta para responderla o cambiarla.",
+        "missing": "Sin responder",
+        "commented": "Comentario",
+        "warn": "Haz clic en cualquier pregunta para cambiar tu respuesta, su importancia o tu comentario. Una vez enviadas, ya no se pueden cambiar.",
+        "submit": "Enviar mis respuestas",
+        "hint": "También puedes enviarlas al final de la lista.",
+        "back": "Volver a la revisión"
+      },
+      "thanks": {
+        "title": "Gracias",
+        "body": "Tus respuestas quedaron registradas de forma anónima. Gracias por tomarte el tiempo de participar. Ya puedes cerrar esta ventana."
+      },
+      "states": {
+        "noToken": {
+          "title": "Necesitas tu enlace personal",
+          "body": "Para responder, abre el enlace que recibiste en tu correo de invitación."
+        },
+        "invalid_link": {
+          "title": "Este enlace no es válido",
+          "body": "Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com."
+        },
+        "completed": {
+          "title": "Ya respondiste",
+          "body": "Tus respuestas quedaron registradas. Gracias por participar."
+        },
+        "closed": {
+          "title": "Esta encuesta ya cerró",
+          "body": "Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó."
+        },
+        "not_open": {
+          "title": "Esta encuesta aún no está abierta",
+          "body": "Inténtalo más tarde con el mismo enlace."
+        }
+      },
+      "dontKnow": "No sé",
+      "scales": {
+        "F": [
+          {
+            "value": 2,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 5,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          }
+        ],
+        "A": [
+          {
+            "value": 2,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          }
+        ],
+        "FR": [
+          {
+            "value": 5,
+            "label": "Nunca",
+            "sub": "Totalmente en desacuerdo"
+          },
+          {
+            "value": 4,
+            "label": "A veces",
+            "sub": "Mayormente en desacuerdo"
+          },
+          {
+            "value": 3,
+            "label": "A menudo",
+            "sub": "Mayormente de acuerdo"
+          },
+          {
+            "value": 2,
+            "label": "Siempre",
+            "sub": "Totalmente de acuerdo"
+          }
+        ],
+        "AR": [
+          {
+            "value": 5,
+            "label": "Totalmente en desacuerdo",
+            "sub": "Nunca"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente en desacuerdo",
+            "sub": "A veces"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente de acuerdo",
+            "sub": "A menudo"
+          },
+          {
+            "value": 2,
+            "label": "Totalmente de acuerdo",
+            "sub": "Siempre"
+          }
+        ],
+        "S": [
+          {
+            "value": 2,
+            "label": "Totalmente insatisfecho"
+          },
+          {
+            "value": 3,
+            "label": "Mayormente insatisfecho"
+          },
+          {
+            "value": 4,
+            "label": "Mayormente satisfecho"
+          },
+          {
+            "value": 5,
+            "label": "Totalmente satisfecho"
+          }
+        ],
+        "C": [
+          {
+            "value": 1,
+            "label": "Empeoró significativamente"
+          },
+          {
+            "value": 2,
+            "label": "Empeoró ligeramente"
+          },
+          {
+            "value": 3,
+            "label": "Sin cambios tangibles"
+          },
+          {
+            "value": 4,
+            "label": "Mejoró ligeramente"
+          },
+          {
+            "value": 5,
+            "label": "Mejoró significativamente"
+          }
+        ]
+      },
+      "cells": {
+        "values": "Valores",
+        "climate": "Clima",
+        "styles": "Estilos",
+        "responsibility": "Estructura de responsabilidad",
+        "authority": "Estructura de autoridad",
+        "reward": "Estructura de recompensas",
+        "supervisor": "Supervisor",
+        "planning": "Planificación",
+        "information": "Flujo de información",
+        "client": "Interfaz con el cliente",
+        "transformation": "Transformación",
+        "human": "Factores humanos",
+        "behaviour": "Comportamiento",
+        "changes": "Cambios",
+        "inefficiency": "Ineficiencia"
+      },
+      "levels": {
+        "fully": {
+          "name": "Totalmente comprometido",
+          "desc": [
+            "apasionados por su trabajo y por la organización",
+            "hacen lo que sea necesario para lograr resultados",
+            "entregan resultados consistentes y de alta calidad",
+            "encuentran soluciones innovadoras a los problemas más difíciles",
+            "son vistos como líderes y modelos a seguir"
+          ]
+        },
+        "engaged": {
+          "name": "Comprometido",
+          "desc": [
+            "enfocados en lograr resultados, proyectos y responsabilidades individuales",
+            "tienen un desempeño bueno y sólido",
+            "siempre hacen la parte que les corresponde",
+            "trabajan bien con otros y ayudan cuando se les pide"
+          ]
+        },
+        "somewhat": {
+          "name": "Algo comprometido",
+          "desc": [
+            "selectivos sobre dónde ponen su energía",
+            "dedican mucho tiempo a cosas que no ayudan a los clientes ni a la organización",
+            "cumplen cuando tienen que hacerlo o cuando se les supervisa",
+            "tienen una influencia negativa en otros"
+          ]
+        },
+        "disengaged": {
+          "name": "No comprometido",
+          "desc": [
+            "trabajan solo cuando tienen que hacerlo",
+            "preferirían estar haciendo otra cosa",
+            "sus resultados no cumplen los estándares",
+            "tienen una perspectiva de “nosotros contra ellos”",
+            "son negativos con la organización y en su trato con clientes y colegas"
+          ]
+        }
+      },
+      "pdf": {
+        "title": "Encuesta de Compromiso",
+        "subtitle": "Reporte",
+        "company": "Empresa",
+        "launch": "Encuesta",
+        "date": "Fecha del reporte",
+        "responses": "Respuestas",
+        "of": "de",
+        "invited": "invitados",
+        "anon": "La encuesta es anónima. Los resultados solo se muestran en conjunto y los grupos con menos de 5 respuestas nunca se muestran por separado.",
+        "contents": "Contenido",
+        "toc": [
+          "Distribución por nivel de compromiso",
+          "Compromiso por área",
+          "Factores organizacionales",
+          "Lo más importante para los colaboradores",
+          "Todas las preguntas",
+          "Comentarios"
+        ],
+        "levelsTitle": "Distribución por nivel de compromiso",
+        "levelsHelp": "Cada participante se clasifica con todas sus respuestas y con las preguntas que marcó como lo más importante.",
+        "positive": "Totalmente comprometido + Comprometido",
+        "people": "personas",
+        "byAreaTitle": "Compromiso por área",
+        "byAreaHelp": "Solo se muestran las áreas con 5 o más respuestas. Las áreas más pequeñas se combinan en “Otras áreas” cuando juntas suman 5.",
+        "company_col": "Empresa",
+        "other": "Otras áreas",
+        "hidden": "{n} respuestas de áreas con menos de 5 personas se cuentan solo en el total de la empresa.",
+        "noAreas": "Ninguna área tiene todavía 5 o más respuestas, por eso no se muestran resultados por área.",
+        "respondents": "Respuestas",
+        "factorsTitle": "Factores organizacionales",
+        "factorsHelp": "Calificación de cada factor con base en las respuestas (“No sé” no cuenta), con el mismo método de la matriz de diagnóstico Adizes. 75% o más es sano; menos de 50% es una anomalía.",
+        "groups": {
+          "culture": "Cultura organizacional",
+          "structure": "Estructura",
+          "process": "Procesos",
+          "functions": "Funciones organizacionales",
+          "effects": "Efectos"
+        },
+        "colors": {
+          "green": "Todo bien",
+          "yellow": "Zona de atención",
+          "red": "Zona de anomalía"
+        },
+        "topTitle": "Lo más importante para los colaboradores",
+        "topHelp": "Las preguntas que más veces se marcaron como “Lo más importante” y cómo se respondieron.",
+        "mostPct": "lo más importante",
+        "distTitle": "Todas las preguntas",
+        "distHelp": "Distribución de respuestas (%) y, en rojo a la derecha, el porcentaje de participantes que marcaron cada pregunta como lo más importante.",
+        "legend": {
+          "1": "No sé",
+          "2": "Nunca / Totalmente en desacuerdo",
+          "3": "A veces / Mayormente en desacuerdo",
+          "4": "A menudo / Mayormente de acuerdo",
+          "5": "Siempre / Totalmente de acuerdo"
+        },
+        "q50": "El verde siempre es la respuesta más positiva: en las afirmaciones negativas 5 y 45 es “Nunca” / “Totalmente en desacuerdo”. La pregunta 50 usa su propia escala (mejoró significativamente → empeoró significativamente).",
+        "commentsTitle": "Comentarios",
+        "commentsHelp": "Escritos por los participantes, anónimos y tal cual.",
+        "noComments": "No se dejaron comentarios.",
+        "footer": "Instituto Adizes · Encuesta de Compromiso",
+        "page": "Página",
+        "cont": "cont."
+      },
+      "questions": [
+        "Nuestros líderes siguen los valores declarados en la empresa",
+        "Nuestra empresa cumple plenamente sus obligaciones con los empleados",
+        "La empresa valora y apoya nuevas ideas",
+        "Me siento cómodo con el ambiente de la empresa",
+        "Tenemos una cultura de “cada quien por su lado”",
+        "Soy elogiado y apreciado cuando hago un buen trabajo",
+        "Nos respetamos entre todos",
+        "El comportamiento mostrado por los supervisores en nuestra organización contribuye a un ambiente de trabajo saludable, el logro de objetivos y el desarrollo de la organización",
+        "Entiendo claramente mis tareas laborales y entiendo mi papel en las actividades de mi departamento",
+        "Entiendo lo que debería guiarme en la realización de mi trabajo: políticas, reglamentos, normas, estándares profesionales, etc",
+        "Sé a quién puedo acudir con preguntas",
+        "Entiendo qué decisiones tengo derecho a tomar",
+        "La toma de decisiones sobre asuntos que me afectan se realiza de manera oportuna y predecible",
+        "Tengo suficiente autoridad para ser responsable de los resultados de mi trabajo",
+        "Creo que el nivel de ingresos que obtengo en la empresa es competitivo",
+        "Entiendo de qué depende la parte variable de mis ingresos",
+        "Creo que soy capaz de influir en mis ingresos fijos y variables en un grado bastante alto",
+        "Mi paquete de beneficios es competitivo en el mercado",
+        "Puedo discutir asuntos personales con mi supervisor",
+        "Mi supervisor me trata como un individuo",
+        "Mi supervisor fomenta mi desarrollo profesional",
+        "Mi supervisor me habla regularmente sobre mi progreso",
+        "Mi supervisor ofrece comentarios motivadores y de calidad: siempre sé lo que piensa sobre mí y mi trabajo",
+        "Las tareas que el supervisor establece para mí son claras y realistas",
+        "Me siento cómodo haciendo preguntas aclaratorias a mi supervisor",
+        "Creo que las decisiones tomadas por mi supervisor son correctas y útiles para la empresa",
+        "Mi supervisor me escucha atentamente y toma en cuenta mi punto de vista",
+        "Conozco y entiendo los objetivos a largo plazo de la empresa",
+        "Me inspiran los objetivos de nuestra empresa. Estamos comprometidos en un trabajo importante y útil",
+        "Entiendo cómo los resultados de mi trabajo afectan el resultado general de la empresa",
+        "Tengo la oportunidad de ser escuchado",
+        "Tengo suficiente información sobre lo que está sucediendo en la empresa para hacer mi trabajo",
+        "Sé quién es el mercado objetivo (cliente interno o externo). Sé qué necesidades podemos satisfacer con qué productos o servicios",
+        "Conocemos bien nuestro mercado (clientes internos o externos), monitoreamos tendencias y necesidades y constantemente pensamos en cómo podemos servir mejor a nuestro mercado (clientes internos o externos)",
+        "Tengo un ambiente de trabajo cómodo",
+        "Tengo todos los recursos técnicos necesarios para hacer bien mi trabajo",
+        "Los procesos de trabajo en los que participo están sistematizados y bien organizados",
+        "Estamos comprometidos a mejorar nuestros procesos de trabajo y tecnologías aplicadas",
+        "Estoy satisfecho con la calidad del trabajo que ofrecen otras unidades",
+        "Mi trabajo durante los últimos 12 meses me ha permitido mejorar / desarrollar mis conocimientos, habilidades y capacidades",
+        "Sé bajo qué condiciones (qué hacer, qué aprender, qué lograr), puedo “crecer” en la empresa",
+        "¿Tu trabajo en esta empresa te satisface?",
+        "Me siento valorado y apreciado en la empresa",
+        "El trabajo que realmente hago es interesante y agradable para mí",
+        "Planeo dejar la empresa dentro del próximo año",
+        "Recomiendo nuestra empresa a mis amigos y conocidos como un buen empleador",
+        "Estoy orgulloso de trabajar en la empresa",
+        "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)",
+        "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa",
+        "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?"
+      ]
+    }
+  }
+}

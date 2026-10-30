@@ -1,0 +1,2381 @@
+{
+  "test": "Express Diagnostics",
+  "code": "ED",
+  "version": "1.2.0",
+  "model": {
+    "questionCount": 67,
+    "answerValues": {
+      "1": "I cannot answer (excluded from all statistics)",
+      "2": "Never",
+      "3": "Sometimes",
+      "4": "Often",
+      "5": "Always"
+    },
+    "norms": {
+      "upperMiddle": 3,
+      "lowerMiddle": 2,
+      "upperDispersion": 1,
+      "lowerDispersion": 0.7,
+      "scale": 4
+    },
+    "cells": [
+      {
+        "id": 17,
+        "code": "1.1 V",
+        "key": "values"
+      },
+      {
+        "id": 18,
+        "code": "1.2 C",
+        "key": "climate"
+      },
+      {
+        "id": 20,
+        "code": "2.1 H",
+        "key": "responsibility"
+      },
+      {
+        "id": 21,
+        "code": "2.2 V",
+        "key": "authority"
+      },
+      {
+        "id": 22,
+        "code": "2.3 R",
+        "key": "reward"
+      },
+      {
+        "id": 23,
+        "code": "3.1 P",
+        "key": "planning"
+      },
+      {
+        "id": 24,
+        "code": "3.2 I",
+        "key": "information"
+      },
+      {
+        "id": 25,
+        "code": "3.3 CA",
+        "key": "corrective"
+      },
+      {
+        "id": 26,
+        "code": "4/5 1 CI",
+        "key": "client"
+      },
+      {
+        "id": 27,
+        "code": "4/5 2 T",
+        "key": "transformation"
+      },
+      {
+        "id": 28,
+        "code": "4/5 3 HR",
+        "key": "human"
+      },
+      {
+        "id": 29,
+        "code": "4/5 4 F",
+        "key": "financial"
+      },
+      {
+        "id": 30,
+        "code": "6.1 I",
+        "key": "behaviour"
+      },
+      {
+        "id": 31,
+        "code": "6.2 E",
+        "key": "changes"
+      },
+      {
+        "id": 32,
+        "code": "6.3 A",
+        "key": "inefficiency"
+      },
+      {
+        "id": 33,
+        "code": "6.4 P",
+        "key": "ineffectiveness"
+      }
+    ],
+    "radars": [
+      [
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ]
+    ],
+    "minimumResponses": 1
+  },
+  "questions": [
+    {
+      "number": 1,
+      "cellId": 17,
+      "cellCode": "1.1 V",
+      "cellKey": "values",
+      "texts": {
+        "en": {
+          "statement": "Our value system is clearly articulated in a few words / phrases",
+          "zone2": "Our value system is not clearly articulated",
+          "zone3": "Our value system is not articulated"
+        },
+        "es": {
+          "statement": "Nuestro sistema de valores está claramente articulado en unas pocas palabras/frases",
+          "zone2": "Nuestro sistema de valores no está claramente articulado",
+          "zone3": "Nuestro sistema de valores no está articulado"
+        }
+      }
+    },
+    {
+      "number": 2,
+      "cellId": 17,
+      "cellCode": "1.1 V",
+      "cellKey": "values",
+      "texts": {
+        "en": {
+          "statement": "Our value system is respected in our daily business practice, the declared values correspond to the demonstrated ones",
+          "zone2": "Our value system is not always respected in everyday business practice, the declared values do not always correspond to the demonstrated ones",
+          "zone3": "Our value system is often not adhered to in our daily business practice, the declared values often do not correspond to the demonstrated ones"
+        },
+        "es": {
+          "statement": "Nuestro sistema de valores es respetado en nuestra práctica empresarial diaria, los valores declarados corresponden a los demostrados",
+          "zone2": "Nuestro sistema de valores no siempre es respetado en nuestra práctica empresarial diaria, los valores declarados no siempre corresponden a los demostrados",
+          "zone3": "Nuestro sistema de valores a menudo no se cumple en nuestra práctica empresarial diaria, los valores declarados a menudo no corresponden con los demostrados"
+        }
+      }
+    },
+    {
+      "number": 3,
+      "cellId": 17,
+      "cellCode": "1.1 V",
+      "cellKey": "values",
+      "texts": {
+        "en": {
+          "statement": "Our value system is the same across all divisions",
+          "zone2": "Our value system is not the same in some departments",
+          "zone3": "Our value system is not the same for many departments"
+        },
+        "es": {
+          "statement": "Nuestro sistema de valores es el mismo en todas las divisiones",
+          "zone2": "Nuestro sistema de valores no es el mismo en algunos departamentos",
+          "zone3": "Nuestro sistema de valores no es el mismo en muchos departamentos"
+        }
+      }
+    },
+    {
+      "number": 4,
+      "cellId": 18,
+      "cellCode": "1.2 C",
+      "cellKey": "climate",
+      "texts": {
+        "en": {
+          "statement": "Our corporate culture is very similar in most departments",
+          "zone2": "Our corporate culture is not similar enough in most departments",
+          "zone3": "Our corporate culture is not the same in most departments"
+        },
+        "es": {
+          "statement": "Nuestra cultura corporativa es muy similar en la mayoría de los departamentos",
+          "zone2": "Nuestra cultura corporativa no es lo suficientemente similar en la mayoría de los departamentos",
+          "zone3": "Nuestra cultura corporativa no es la misma en la mayoría de los departamentos"
+        }
+      }
+    },
+    {
+      "number": 5,
+      "cellId": 18,
+      "cellCode": "1.2 C",
+      "cellKey": "climate",
+      "texts": {
+        "en": {
+          "statement": "Our corporate culture is characterized by a high level of collaboration between divisions",
+          "zone2": "Our corporate culture is characterized by a lack of cooperation between departments",
+          "zone3": "Our corporate culture is characterized by a low level of cooperation between divisions"
+        },
+        "es": {
+          "statement": "Nuestra cultura corporativa se caracteriza por un alto nivel de colaboración entre las divisiones",
+          "zone2": "Nuestra cultura corporativa se caracteriza por la falta de cooperación entre departamentos",
+          "zone3": "Nuestra cultura corporativa se caracteriza por un bajo nivel de cooperación entre las divisiones"
+        }
+      }
+    },
+    {
+      "number": 6,
+      "cellId": 18,
+      "cellCode": "1.2 C",
+      "cellKey": "climate",
+      "texts": {
+        "en": {
+          "statement": "Our corporate culture is characterized by a high level of performance discipline",
+          "zone2": "Our corporate culture is characterized by a lack of performance discipline",
+          "zone3": "Our corporate culture is characterized by a low level of performance discipline"
+        },
+        "es": {
+          "statement": "Nuestra cultura corporativa se caracteriza por un alto nivel de disciplina en el desempeño",
+          "zone2": "Nuestra cultura corporativa se caracteriza por la falta de disciplina en el desempeño",
+          "zone3": "Nuestra cultura corporativa se caracteriza por un bajo nivel de disciplina en el desempeño"
+        }
+      }
+    },
+    {
+      "number": 7,
+      "cellId": 18,
+      "cellCode": "1.2 C",
+      "cellKey": "climate",
+      "texts": {
+        "en": {
+          "statement": "Our corporate culture is characterized by the ability to fearlessly express our own opinions",
+          "zone2": "Our corporate culture is not always characterized by the ability to fearlessly express our own opinions",
+          "zone3": "Our corporate culture is not characterized by the ability to fearlessly express our own opinions"
+        },
+        "es": {
+          "statement": "Nuestra cultura corporativa se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones",
+          "zone2": "Nuestra cultura corporativa no siempre se caracteriza por la capacidad de expresar sin miedo nuestras propias opiniones",
+          "zone3": "Nuestra cultura corporativa no se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones"
+        }
+      }
+    },
+    {
+      "number": 8,
+      "cellId": 18,
+      "cellCode": "1.2 C",
+      "cellKey": "climate",
+      "texts": {
+        "en": {
+          "statement": "Our corporate culture is characterized by high employee initiative",
+          "zone2": "Our corporate culture is characterized by insufficiently high employee initiative",
+          "zone3": "Our corporate culture is characterized by low employee initiative"
+        },
+        "es": {
+          "statement": "Nuestra cultura corporativa se caracteriza por una alta iniciativa de los empleados",
+          "zone2": "Nuestra cultura corporativa se caracteriza por una iniciativa insuficiente de los empleados",
+          "zone3": "Nuestra cultura corporativa se caracteriza por la baja iniciativa de los empleados"
+        }
+      }
+    },
+    {
+      "number": 9,
+      "cellId": 18,
+      "cellCode": "1.2 C",
+      "cellKey": "climate",
+      "texts": {
+        "en": {
+          "statement": "Our corporate culture is characterized by a low level of conflict",
+          "zone2": "Our corporate culture is not always characterized by low levels of conflict",
+          "zone3": "Our corporate culture is not characterized by a low level of conflict"
+        },
+        "es": {
+          "statement": "Nuestra cultura corporativa se caracteriza por un bajo nivel de conflictividad",
+          "zone2": "Nuestra cultura corporativa no siempre se caracteriza por bajos niveles de conflicto",
+          "zone3": "Nuestra cultura corporativa no se caracteriza por un bajo nivel de conflictividad"
+        }
+      }
+    },
+    {
+      "number": 10,
+      "cellId": 20,
+      "cellCode": "2.1 H",
+      "cellKey": "responsibility",
+      "texts": {
+        "en": {
+          "statement": "Our organizational structure supports the current business model well",
+          "zone2": "Our organizational structure does not support the current business model well enough",
+          "zone3": "Our organizational structure does not fully support the current business model"
+        },
+        "es": {
+          "statement": "Nuestra estructura organizativa es compatible con el modelo de negocio actual",
+          "zone2": "Nuestra estructura organizativa no es lo suficientemente compatible con el modelo de negocio actual",
+          "zone3": "Nuestra estructura organizativa no es totalmente compatible con el modelo de negocio actual"
+        }
+      }
+    },
+    {
+      "number": 11,
+      "cellId": 20,
+      "cellCode": "2.1 H",
+      "cellKey": "responsibility",
+      "texts": {
+        "en": {
+          "statement": "Our organizational structure supports the long-term goals of the company well",
+          "zone2": "Our organizational structure does not support the long-term goals of the company well enough",
+          "zone3": "Our organizational structure has little support for the long-term goals of the company"
+        },
+        "es": {
+          "statement": "Nuestra estructura organizacional apoya bien los objetivos a largo plazo de la empresa",
+          "zone2": "Nuestra estructura organizacional no respalda suficientemente los objetivos a largo plazo de la empresa",
+          "zone3": "Nuestra estructura organizacional tiene poco apoyo para los objetivos a largo plazo de la empresa"
+        }
+      }
+    },
+    {
+      "number": 12,
+      "cellId": 20,
+      "cellCode": "2.1 H",
+      "cellKey": "responsibility",
+      "texts": {
+        "en": {
+          "statement": "Our organizational structure contains all the necessary functions",
+          "zone2": "Our organizational structure does not contain all the necessary functions",
+          "zone3": "Our organizational structure lacks many essential functions"
+        },
+        "es": {
+          "statement": "Nuestra estructura organizacional contiene todas las funciones necesarias",
+          "zone2": "Nuestra estructura organizacional no contiene todas las funciones necesarias",
+          "zone3": "Nuestra estructura organizacional carece de muchas funciones esenciales"
+        }
+      }
+    },
+    {
+      "number": 13,
+      "cellId": 20,
+      "cellCode": "2.1 H",
+      "cellKey": "responsibility",
+      "texts": {
+        "en": {
+          "statement": "There are no unclear/overlapping areas of responsibility in our organizational structure",
+          "zone2": "There are sometimes unclear/overlapping areas of responsibility in our organizational structure",
+          "zone3": "There are many unclear/overlapping areas of responsibility in our organizational structure"
+        },
+        "es": {
+          "statement": "No hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional",
+          "zone2": "A veces hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional",
+          "zone3": "Hay muchas áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional"
+        }
+      }
+    },
+    {
+      "number": 14,
+      "cellId": 20,
+      "cellCode": "2.1 H",
+      "cellKey": "responsibility",
+      "texts": {
+        "en": {
+          "statement": "Our organizational structure is highly “around functions” rather than “around people”",
+          "zone2": "Our organizational structure is somewhat “around functions” rather than “around people”",
+          "zone3": "Our organizational structure is highly “around people” rather than “around functions”"
+        },
+        "es": {
+          "statement": "Nuestra estructura organizacional se basa en gran medida “en torno a las funciones” en lugar de “en torno a las personas”",
+          "zone2": "Nuestra estructura organizacional es un poco “alrededor de funciones” en lugar de “alrededor de personas”",
+          "zone3": "Nuestra estructura organizacional está más “en torno a las personas” que “en torno a las funciones”"
+        }
+      }
+    },
+    {
+      "number": 15,
+      "cellId": 21,
+      "cellCode": "2.2 V",
+      "cellKey": "authority",
+      "texts": {
+        "en": {
+          "statement": "Most of our leaders have enough authority to handle the challenges they face",
+          "zone2": "Some of our leaders lack the authority to meet the challenges they face",
+          "zone3": "Many of our leaders lack the authority to meet the challenges they face"
+        },
+        "es": {
+          "statement": "La mayoría de nuestros líderes tienen suficiente autoridad para manejar los desafíos que enfrentan",
+          "zone2": "Algunos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan",
+          "zone3": "Muchos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan"
+        }
+      }
+    },
+    {
+      "number": 16,
+      "cellId": 21,
+      "cellCode": "2.2 V",
+      "cellKey": "authority",
+      "texts": {
+        "en": {
+          "statement": "In our company, the biggest authority is held by commercial divisions",
+          "zone2": "In our company, only part of the authority is held by commercial divisions",
+          "zone3": "In our company, a small part of the authority is held by commercial divisions"
+        },
+        "es": {
+          "statement": "En nuestra empresa, la mayor autoridad la tienen las divisiones comerciales",
+          "zone2": "En nuestra empresa, solo una parte de la autoridad está en manos de las divisiones comerciales",
+          "zone3": "En nuestra empresa, una pequeña parte de la autoridad la tienen las divisiones comerciales"
+        }
+      }
+    },
+    {
+      "number": 17,
+      "cellId": 21,
+      "cellCode": "2.2 V",
+      "cellKey": "authority",
+      "texts": {
+        "en": {
+          "statement": "Our authority structure allows for quick decision making",
+          "zone2": "Our authority structure does not always allow for quick decision making",
+          "zone3": "Our authority structure does not allow for quick decision making"
+        },
+        "es": {
+          "statement": "Nuestra estructura de autoridad permite una rápida toma de decisiones",
+          "zone2": "Nuestra estructura de autoridad no siempre permite una rápida toma de decisiones",
+          "zone3": "Nuestra estructura de autoridad no permite una toma de decisiones rápida"
+        }
+      }
+    },
+    {
+      "number": 18,
+      "cellId": 21,
+      "cellCode": "2.2 V",
+      "cellKey": "authority",
+      "texts": {
+        "en": {
+          "statement": "Our structure of authority does not cause conflicts in the decision-making process",
+          "zone2": "Our structure of authority sometimes causes conflicts in the decision-making process",
+          "zone3": "Our structure of authority often causes conflicts in the decision-making process"
+        },
+        "es": {
+          "statement": "Nuestra estructura de autoridad no genera conflictos en el proceso de toma de decisiones",
+          "zone2": "Nuestra estructura de autoridad a veces provoca conflictos en el proceso de toma de decisiones",
+          "zone3": "Nuestra estructura de autoridad a menudo causa conflictos en el proceso de toma de decisiones"
+        }
+      }
+    },
+    {
+      "number": 19,
+      "cellId": 22,
+      "cellCode": "2.3 R",
+      "cellKey": "reward",
+      "texts": {
+        "en": {
+          "statement": "Our reward system contributes to the achievement of our goals",
+          "zone2": "Our reward system does not fully contribute to the achievement of our goals",
+          "zone3": "Our reward system rarely helps us achieve our goals"
+        },
+        "es": {
+          "statement": "Nuestro sistema de recompensas contribuye al logro de nuestros objetivos",
+          "zone2": "Nuestro sistema de recompensas no contribuye completamente al logro de nuestros objetivos",
+          "zone3": "Nuestro sistema de recompensas rara vez nos ayuda a alcanzar nuestros objetivos"
+        }
+      }
+    },
+    {
+      "number": 20,
+      "cellId": 22,
+      "cellCode": "2.3 R",
+      "cellKey": "reward",
+      "texts": {
+        "en": {
+          "statement": "Our employees are satisfied with the existing motivation system",
+          "zone2": "Our employees are not always satisfied with the existing motivation system",
+          "zone3": "Our employees are often not satisfied with the existing motivation system"
+        },
+        "es": {
+          "statement": "Nuestros empleados están satisfechos con el sistema de motivación existente",
+          "zone2": "Nuestros empleados no siempre están satisfechos con el sistema de motivación existente",
+          "zone3": "Nuestros empleados a menudo no están satisfechos con el sistema de motivación existente"
+        }
+      }
+    },
+    {
+      "number": 21,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long term goals / strategy are clearly defined",
+          "zone2": "Our long term goals / strategy are not well defined",
+          "zone3": "Our long term goals / strategy are not defined"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo están claramente definidos",
+          "zone2": "Nuestros objetivos/estrategia a largo plazo no están bien definidos",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo no están definidos"
+        }
+      }
+    },
+    {
+      "number": 22,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long term goals / strategy are documented",
+          "zone2": "Our long term goals / strategy are not fully documented",
+          "zone3": "Our long term goals / strategy are not documented"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo están documentados",
+          "zone2": "Nuestros objetivos/estrategia a largo plazo no están completamente documentados",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo no están documentados"
+        }
+      }
+    },
+    {
+      "number": 23,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long-term goals / strategy are known to management",
+          "zone2": "Not all of our long-term goals / strategy are known to management",
+          "zone3": "Our long-term goals / strategy are not known to management"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo son conocidos por la gerencia",
+          "zone2": "No todos nuestros objetivos/estrategias a largo plazo son conocidos por la gerencia",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo no son conocidos por la gerencia"
+        }
+      }
+    },
+    {
+      "number": 24,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long-term goals / strategy were developed with the participation of management",
+          "zone2": "Our long-term goals / strategy were developed with insufficient management involvement",
+          "zone3": "Our long-term goals / strategy were developed without management involvement"
+        },
+        "es": {
+          "statement": "Nuestras metas/estrategia a largo plazo fueron desarrolladas con la participación de la gerencia",
+          "zone2": "Nuestras metas/estrategia a largo plazo se desarrollaron con una participación gerencial insuficiente",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo se desarrollaron sin la participación de la gerencia"
+        }
+      }
+    },
+    {
+      "number": 25,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long term goals / strategy are supported by management",
+          "zone2": "Our long-term goals / strategy are not fully supported by management",
+          "zone3": "Our long-term goals / strategy are not supported by management"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo están respaldados por la dirección",
+          "zone2": "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por la dirección",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo no están respaldados por la dirección"
+        }
+      }
+    },
+    {
+      "number": 26,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long term goals / strategy are backed up by a detailed action plan",
+          "zone2": "Our long term goals / strategy are not fully backed by a detailed action plan",
+          "zone3": "Our long term goals / strategy are not backed up by a specific action plan"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo están respaldados por un plan de acción detallado",
+          "zone2": "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por un plan de acción detallado",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo no están respaldados por un plan de acción específico"
+        }
+      }
+    },
+    {
+      "number": 27,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long-term goals / strategy are backed by the necessary resources",
+          "zone2": "Our long-term goals / strategy are not fully resourced",
+          "zone3": "Our long-term goals / strategy are not resourced"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo están respaldados por los recursos necesarios",
+          "zone2": "Nuestros objetivos/estrategia a largo plazo no cuentan con todos los recursos",
+          "zone3": "Nuestros objetivos/estrategia a largo plazo no cuentan con recursos"
+        }
+      }
+    },
+    {
+      "number": 28,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "We regularly evaluate the implementation of long-term goals / strategies",
+          "zone2": "We do not regularly evaluate the implementation of long-term goals / strategies",
+          "zone3": "We rarely evaluate the implementation of long-term goals / strategies"
+        },
+        "es": {
+          "statement": "Evaluamos regularmente la implementación de objetivos/estrategias a largo plazo",
+          "zone2": "No evaluamos regularmente la implementación de objetivos/estrategias a largo plazo",
+          "zone3": "Rara vez evaluamos la implementación de objetivos/estrategias a largo plazo"
+        }
+      }
+    },
+    {
+      "number": 29,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "Our long-term goals / strategy are regularly / if necessary revised",
+          "zone2": "Our long-term goals / strategy are not reviewed regularly enough",
+          "zone3": "Our long-term goals / strategy are rarely revised"
+        },
+        "es": {
+          "statement": "Nuestros objetivos/estrategia a largo plazo se revisan regularmente/si es necesario",
+          "zone2": "Nuestros objetivos/estrategia a largo plazo no se revisan con la suficiente regularidad",
+          "zone3": "Nuestras metas/estrategia a largo plazo rara vez se revisan"
+        }
+      }
+    },
+    {
+      "number": 30,
+      "cellId": 23,
+      "cellCode": "3.1 P",
+      "cellKey": "planning",
+      "texts": {
+        "en": {
+          "statement": "We base our annual plans on our long-term objectives / strategies",
+          "zone2": "We do not always base our annual plans on our long-term objectives / strategies",
+          "zone3": "We do not base our annual plans on our long-term objectives / strategies"
+        },
+        "es": {
+          "statement": "Basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo",
+          "zone2": "No siempre basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo",
+          "zone3": "No basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo"
+        }
+      }
+    },
+    {
+      "number": 31,
+      "cellId": 24,
+      "cellCode": "3.2 I",
+      "cellKey": "information",
+      "texts": {
+        "en": {
+          "statement": "I have enough information to make key regular management decisions",
+          "zone2": "I do not always have enough information to make key regular management decisions",
+          "zone3": "I often do not have enough information to make key regular management decisions"
+        },
+        "es": {
+          "statement": "Tengo suficiente información para tomar decisiones gerenciales clave de manera habitual",
+          "zone2": "No siempre tengo suficiente información para tomar decisiones gerenciales clave de manera habitual",
+          "zone3": "A menudo no tengo suficiente información para tomar decisiones gerenciales clave de manera habitual"
+        }
+      }
+    },
+    {
+      "number": 32,
+      "cellId": 24,
+      "cellCode": "3.2 I",
+      "cellKey": "information",
+      "texts": {
+        "en": {
+          "statement": "Information for taking management decisions usually contains reliable information",
+          "zone2": "Information for taking management decisions does not always contain reliable information",
+          "zone3": "Information for taking management decisions often does not contain reliable information"
+        },
+        "es": {
+          "statement": "La información para la toma de decisiones gerenciales suele contener información fiable",
+          "zone2": "La información para la toma de decisiones gerenciales no siempre contiene información confiable",
+          "zone3": "La información para la toma de decisiones gerenciales a menudo no contiene información fiable"
+        }
+      }
+    },
+    {
+      "number": 33,
+      "cellId": 24,
+      "cellCode": "3.2 I",
+      "cellKey": "information",
+      "texts": {
+        "en": {
+          "statement": "Information for taking management decisions is usually collected in a timely manner",
+          "zone2": "Information for taking management decisions is not always collected in a timely manner",
+          "zone3": "Information for taking management decisions is usually not collected in a timely manner"
+        },
+        "es": {
+          "statement": "La información para la toma de decisiones gerenciales suele recopilarse en el momento oportuno",
+          "zone2": "La información para la toma de decisiones gerenciales no siempre se recopila de manera oportuna",
+          "zone3": "La información para la toma de decisiones gerenciales generalmente no se recopila de manera oportuna"
+        }
+      }
+    },
+    {
+      "number": 34,
+      "cellId": 24,
+      "cellCode": "3.2 I",
+      "cellKey": "information",
+      "texts": {
+        "en": {
+          "statement": "Information for taking management decisions does not contain redundant unnecessary information",
+          "zone2": "Information for taking management decisions sometimes contains redundant unnecessary information",
+          "zone3": "Information for taking management decisions often contains redundant unnecessary information"
+        },
+        "es": {
+          "statement": "La información para la toma de decisiones gerenciales no contiene información redundante innecesaria",
+          "zone2": "La información para la toma de decisiones gerenciales a veces contiene información innecesaria y redundante",
+          "zone3": "La información para la toma de decisiones gerenciales a menudo contiene información innecesaria y redundante"
+        }
+      }
+    },
+    {
+      "number": 35,
+      "cellId": 24,
+      "cellCode": "3.2 I",
+      "cellKey": "information",
+      "texts": {
+        "en": {
+          "statement": "The collection of information for taking management decisions is automated in our company",
+          "zone2": "The collection of information for taking management decisions is not fully automated in our company",
+          "zone3": "The collection of information for taking management decisions is not automated in our company"
+        },
+        "es": {
+          "statement": "La recolección de información para la toma de decisiones gerenciales está automatizada en nuestra empresa",
+          "zone2": "La recolección de información para la toma de decisiones de gestión no está totalmente automatizada en nuestra empresa",
+          "zone3": "La recolección de información para la toma de decisiones de gestión no está automatizada en nuestra empresa"
+        }
+      }
+    },
+    {
+      "number": 36,
+      "cellId": 25,
+      "cellCode": "3.3 CA",
+      "cellKey": "corrective",
+      "texts": {
+        "en": {
+          "statement": "We carry out control / analysis of our company's performance at least once a month",
+          "zone2": "We do not always carry out control / analysis of our company's performance at least once a month",
+          "zone3": "We rarely monitor / analyze our company's performance"
+        },
+        "es": {
+          "statement": "Realizamos control/análisis del desempeño de nuestra empresa al menos una vez al mes",
+          "zone2": "No siempre llevamos a cabo un control/análisis del rendimiento de la empresa al menos una vez al mes",
+          "zone3": "Raramente monitoreamos/analizamos el desempeño de nuestra empresa"
+        }
+      }
+    },
+    {
+      "number": 37,
+      "cellId": 25,
+      "cellCode": "3.3 CA",
+      "cellKey": "corrective",
+      "texts": {
+        "en": {
+          "statement": "We carry out control / analysis of our company's performance in a team of key managers",
+          "zone2": "We do not always monitor / analyze our company's performance in a team of key managers",
+          "zone3": "We do not monitor / analyze the performance of the company in a team of key managers"
+        },
+        "es": {
+          "statement": "Realizamos control/análisis del desempeño de nuestra empresa en un equipo de directivos clave",
+          "zone2": "No siempre monitoreamos/analizamos el desempeño de nuestra empresa en un equipo de directores clave",
+          "zone3": "No monitoreamos/analizamos el desempeño de la empresa en un equipo de directores clave"
+        }
+      }
+    },
+    {
+      "number": 38,
+      "cellId": 25,
+      "cellCode": "3.3 CA",
+      "cellKey": "corrective",
+      "texts": {
+        "en": {
+          "statement": "We control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures",
+          "zone2": "We do not always control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures",
+          "zone3": "We do not control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures"
+        },
+        "es": {
+          "statement": "Controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas",
+          "zone2": "No siempre controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas",
+          "zone3": "No controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas"
+        }
+      }
+    },
+    {
+      "number": 39,
+      "cellId": 25,
+      "cellCode": "3.3 CA",
+      "cellKey": "corrective",
+      "texts": {
+        "en": {
+          "statement": "We control and analyse the performance of our company with the identification and fixation of systemic problems",
+          "zone2": "We do not always control and analyse the performance of our company with the identification and fixation of systemic problems",
+          "zone3": "We do not control and analyse the performance of our company with the identification and fixation of systemic problems"
+        },
+        "es": {
+          "statement": "Controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos",
+          "zone2": "No siempre controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos",
+          "zone3": "No controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos"
+        }
+      }
+    },
+    {
+      "number": 40,
+      "cellId": 26,
+      "cellCode": "4/5 1 CI",
+      "cellKey": "client",
+      "texts": {
+        "en": {
+          "statement": "We know our target customers and their needs well",
+          "zone2": "We do not always know the target customers and their needs well",
+          "zone3": "We do not know the target customers and their needs well"
+        },
+        "es": {
+          "statement": "Conocemos bien a nuestros clientes objetivo y sus necesidades",
+          "zone2": "No siempre conocemos bien a los clientes objetivo y sus necesidades",
+          "zone3": "No conocemos bien a los clientes objetivo y sus necesidades"
+        }
+      }
+    },
+    {
+      "number": 41,
+      "cellId": 26,
+      "cellCode": "4/5 1 CI",
+      "cellKey": "client",
+      "texts": {
+        "en": {
+          "statement": "Our selling proposition and our promotion and sales models are highly responsive to the needs of our customers",
+          "zone2": "Our selling proposition and our promotion and sales models do not fully meet the needs of our customers",
+          "zone3": "Our selling proposition and our promotion and sales models meet the needs of our customers only to a small extent"
+        },
+        "es": {
+          "statement": "Nuestra propuesta de venta y nuestros modelos de promoción y venta responden en gran medida a las necesidades de nuestros clientes",
+          "zone2": "Nuestra propuesta de venta y nuestros modelos de promoción y venta no satisfacen plenamente las necesidades de nuestros clientes",
+          "zone3": "Nuestra propuesta de venta y nuestros modelos de promoción y venta satisfacen en pequeña medida las necesidades de nuestros clientes"
+        }
+      }
+    },
+    {
+      "number": 42,
+      "cellId": 26,
+      "cellCode": "4/5 1 CI",
+      "cellKey": "client",
+      "texts": {
+        "en": {
+          "statement": "Our selling proposition and promotion and sales models are competitive",
+          "zone2": "Our selling proposition and promotion and sales models are not always competitive",
+          "zone3": "Our selling proposition and promotion and sales models are not fully competitive"
+        },
+        "es": {
+          "statement": "Nuestra propuesta de valor y modelos de promoción y venta son competitivos",
+          "zone2": "Nuestra propuesta de valor y modelos de promoción y venta no siempre son competitivos",
+          "zone3": "Nuestra propuesta de valor y modelos de promoción y venta no son totalmente competitivos"
+        }
+      }
+    },
+    {
+      "number": 43,
+      "cellId": 26,
+      "cellCode": "4/5 1 CI",
+      "cellKey": "client",
+      "texts": {
+        "en": {
+          "statement": "Our annual / quarterly production / operating unit plans are based on the sales plan",
+          "zone2": "Our annual / quarterly production / operating unit plans are partially based on the sales plan",
+          "zone3": "Our annual / quarterly production / operating unit plans are not based on sales plans"
+        },
+        "es": {
+          "statement": "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan en el plan de ventas",
+          "zone2": "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan parcialmente en el plan de ventas",
+          "zone3": "Nuestros planes anuales/trimestrales de producción/unidades operativas no se basan en planes de ventas"
+        }
+      }
+    },
+    {
+      "number": 44,
+      "cellId": 26,
+      "cellCode": "4/5 1 CI",
+      "cellKey": "client",
+      "texts": {
+        "en": {
+          "statement": "The activities of commercial and operational (production) functions are well coordinated with each other",
+          "zone2": "The actions of commercial and operational (production) functions are not always well coordinated with each other",
+          "zone3": "The actions of commercial and operational (production) functions are poorly coordinated with each other"
+        },
+        "es": {
+          "statement": "Las actividades de las funciones comerciales y operativas (producción) están bien coordinadas entre sí",
+          "zone2": "Las acciones de las funciones comercial y operativa (producción) no siempre están bien coordinadas entre sí",
+          "zone3": "Las acciones de las funciones comerciales y operativas (producción) están mal coordinadas entre sí"
+        }
+      }
+    },
+    {
+      "number": 45,
+      "cellId": 27,
+      "cellCode": "4/5 2 T",
+      "cellKey": "transformation",
+      "texts": {
+        "en": {
+          "statement": "Most of our standard processes and procedures are documented",
+          "zone2": "Not all of our standard processes and procedures are documented",
+          "zone3": "Most of our standard processes and procedures are not documented"
+        },
+        "es": {
+          "statement": "La mayoría de nuestros procesos y procedimientos estándar están documentados",
+          "zone2": "No todos nuestros procesos y procedimientos estándar están documentados",
+          "zone3": "La mayoría de nuestros procesos y procedimientos estándar no están documentados"
+        }
+      }
+    },
+    {
+      "number": 46,
+      "cellId": 27,
+      "cellCode": "4/5 2 T",
+      "cellKey": "transformation",
+      "texts": {
+        "en": {
+          "statement": "We follow most of our standard processes and procedures",
+          "zone2": "We follow some of our standard processes and procedures",
+          "zone3": "We rarely follow our standard processes and procedures"
+        },
+        "es": {
+          "statement": "Seguimos la mayoría de nuestros procesos y procedimientos estándar",
+          "zone2": "Seguimos algunos de nuestros procesos y procedimientos estándar",
+          "zone3": "Rara vez seguimos nuestros procesos y procedimientos estándar"
+        }
+      }
+    },
+    {
+      "number": 47,
+      "cellId": 27,
+      "cellCode": "4/5 2 T",
+      "cellKey": "transformation",
+      "texts": {
+        "en": {
+          "statement": "Most of our standard processes and procedures are subject to periodic adjustments",
+          "zone2": "Only a subset of our standard processes and procedures are subject to periodic adjustments",
+          "zone3": "A small part of our standard processes and procedures are subject to periodic adjustments"
+        },
+        "es": {
+          "statement": "La mayoría de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos",
+          "zone2": "Solo un subconjunto de nuestros procesos y procedimientos estándar está sujeto a ajustes periódicos",
+          "zone3": "Una pequeña parte de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos"
+        }
+      }
+    },
+    {
+      "number": 48,
+      "cellId": 27,
+      "cellCode": "4/5 2 T",
+      "cellKey": "transformation",
+      "texts": {
+        "en": {
+          "statement": "Most of our standard processes and procedures are automated",
+          "zone2": "Only part of our standard processes and procedures are automated",
+          "zone3": "A small part of our standard processes and procedures are automated"
+        },
+        "es": {
+          "statement": "La mayoría de nuestros procesos y procedimientos estándar están automatizados",
+          "zone2": "Solo una parte de nuestros procesos y procedimientos estándar están automatizados",
+          "zone3": "Una pequeña parte de nuestros procesos y procedimientos estándar están automatizados"
+        }
+      }
+    },
+    {
+      "number": 49,
+      "cellId": 27,
+      "cellCode": "4/5 2 T",
+      "cellKey": "transformation",
+      "texts": {
+        "en": {
+          "statement": "Our work on the development and release of new products is effective",
+          "zone2": "Our activity in developing and launching new products is not effective enough",
+          "zone3": "Our activity on the development and release of new products is ineffective"
+        },
+        "es": {
+          "statement": "Nuestro trabajo en el desarrollo y lanzamiento de nuevos productos es efectivo",
+          "zone2": "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos no es lo suficientemente eficaz",
+          "zone3": "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos es ineficaz"
+        }
+      }
+    },
+    {
+      "number": 50,
+      "cellId": 28,
+      "cellCode": "4/5 3 HR",
+      "cellKey": "human",
+      "texts": {
+        "en": {
+          "statement": "We take a systematic approach to training and development",
+          "zone2": "Our approach to training and development is not systematic enough",
+          "zone3": "We do not approach training and development systematically"
+        },
+        "es": {
+          "statement": "Adoptamos un enfoque sistemático para la capacitación y el desarrollo",
+          "zone2": "Nuestro enfoque de capacitación y desarrollo no es lo suficientemente sistemático",
+          "zone3": "No abordamos la capacitación y el desarrollo de forma sistemática"
+        }
+      }
+    },
+    {
+      "number": 51,
+      "cellId": 28,
+      "cellCode": "4/5 3 HR",
+      "cellKey": "human",
+      "texts": {
+        "en": {
+          "statement": "We handle hiring challenges",
+          "zone2": "We do not fully cope with the tasks of hiring",
+          "zone3": "We are bad at hiring tasks"
+        },
+        "es": {
+          "statement": "Manejamos desafíos de contratación",
+          "zone2": "No hacemos frente completamente a las tareas de contratación",
+          "zone3": "Somos malos en las tareas de contratación"
+        }
+      }
+    },
+    {
+      "number": 52,
+      "cellId": 28,
+      "cellCode": "4/5 3 HR",
+      "cellKey": "human",
+      "texts": {
+        "en": {
+          "statement": "We do not experience a shortage of qualified personnel",
+          "zone2": "Sometimes we experience a shortage of qualified personnel",
+          "zone3": "We are experiencing a shortage of qualified personnel"
+        },
+        "es": {
+          "statement": "No experimentamos escasez de personal calificado",
+          "zone2": "A veces experimentamos escasez de personal cualificado",
+          "zone3": "Estamos experimentando una escasez de personal calificado"
+        }
+      }
+    },
+    {
+      "number": 53,
+      "cellId": 29,
+      "cellCode": "4/5 4 F",
+      "cellKey": "financial",
+      "texts": {
+        "en": {
+          "statement": "We know the break-even point",
+          "zone2": "We roughly know the break-even point",
+          "zone3": "We don't know the break-even point"
+        },
+        "es": {
+          "statement": "Conocemos el punto de equilibrio",
+          "zone2": "Aproximadamente conocemos el punto de equilibrio",
+          "zone3": "No conocemos el punto de equilibrio"
+        }
+      }
+    },
+    {
+      "number": 54,
+      "cellId": 29,
+      "cellCode": "4/5 4 F",
+      "cellKey": "financial",
+      "texts": {
+        "en": {
+          "statement": "We have implemented a budgeting process and follow it",
+          "zone2": "Our budgeting process is not fully implemented",
+          "zone3": "We do not have a budgeting process implemented"
+        },
+        "es": {
+          "statement": "Hemos implementado un proceso de presupuestación y lo seguimos",
+          "zone2": "Nuestro proceso de presupuestación no está completamente implementado",
+          "zone3": "No tenemos un proceso de presupuestación implementado"
+        }
+      }
+    },
+    {
+      "number": 55,
+      "cellId": 29,
+      "cellCode": "4/5 4 F",
+      "cellKey": "financial",
+      "texts": {
+        "en": {
+          "statement": "We have implemented management accounting and it operates",
+          "zone2": "We have partially implemented management accounting",
+          "zone3": "We have not implemented management accounting"
+        },
+        "es": {
+          "statement": "Hemos implementado una contabilidad de gestión y funciona",
+          "zone2": "Hemos implementado parcialmente una contabilidad de gestión",
+          "zone3": "No hemos implementado una contabilidad de gestión"
+        }
+      }
+    },
+    {
+      "number": 56,
+      "cellId": 29,
+      "cellCode": "4/5 4 F",
+      "cellKey": "financial",
+      "texts": {
+        "en": {
+          "statement": "Payment requests (to suppliers / contractors) in most cases are paid quickly / within a specified time frame",
+          "zone2": "Payment requests (to suppliers / contractors) are not always paid quickly / within a specified time frame",
+          "zone3": "Payment requests (to suppliers / contractors) are rarely paid quickly / within a stipulated time frame"
+        },
+        "es": {
+          "statement": "Las solicitudes de pago (a proveedores/contratistas) en la mayoría de los casos se pagan rápidamente/dentro de un plazo específico",
+          "zone2": "Las solicitudes de pago (a proveedores/contratistas) no siempre se pagan rápidamente/dentro de un plazo específico",
+          "zone3": "Las solicitudes de pago (a proveedores/contratistas) rara vez se pagan rápidamente/dentro de un plazo estipulado"
+        }
+      }
+    },
+    {
+      "number": 57,
+      "cellId": 30,
+      "cellCode": "6.1 I",
+      "cellKey": "behaviour",
+      "texts": {
+        "en": {
+          "statement": "We have a low level of key personnel turnover",
+          "zone2": "We have an average level of key personnel turnover",
+          "zone3": "We have a high level of key personnel turnover"
+        },
+        "es": {
+          "statement": "Tenemos un bajo nivel de rotación de personal clave",
+          "zone2": "Tenemos un nivel medio de rotación de personal clave",
+          "zone3": "Tenemos un alto nivel de rotación de personal clave"
+        }
+      }
+    },
+    {
+      "number": 58,
+      "cellId": 30,
+      "cellCode": "6.1 I",
+      "cellKey": "behaviour",
+      "texts": {
+        "en": {
+          "statement": "Our employees recommend the company to their friends",
+          "zone2": "Not all of our employees recommend the company to their friends",
+          "zone3": "Our employees do not recommend the company to their friends"
+        },
+        "es": {
+          "statement": "Nuestros empleados recomiendan la empresa a sus amigos",
+          "zone2": "No todos nuestros empleados recomiendan la empresa a sus amigos",
+          "zone3": "Nuestros empleados no recomiendan la empresa a sus amigos"
+        }
+      }
+    },
+    {
+      "number": 59,
+      "cellId": 31,
+      "cellCode": "6.2 E",
+      "cellKey": "changes",
+      "texts": {
+        "en": {
+          "statement": "Our product line is changing rapidly",
+          "zone2": "Our product line is not changing fast enough",
+          "zone3": "Our product line is slowly changing"
+        },
+        "es": {
+          "statement": "Nuestra línea de productos está cambiando rápidamente",
+          "zone2": "Nuestra línea de productos no está cambiando lo suficientemente rápido",
+          "zone3": "Nuestra línea de productos está cambiando lentamente"
+        }
+      }
+    },
+    {
+      "number": 60,
+      "cellId": 31,
+      "cellCode": "6.2 E",
+      "cellKey": "changes",
+      "texts": {
+        "en": {
+          "statement": "Changes in our company are not met with resistance",
+          "zone2": "Changes in our company are sometimes met with resistance",
+          "zone3": "Changes in our company are often resisted"
+        },
+        "es": {
+          "statement": "Los cambios en nuestra empresa no encuentran resistencia",
+          "zone2": "Los cambios en nuestra empresa a veces encuentran resistencia",
+          "zone3": "Los cambios en nuestra empresa a menudo encuentran resistencia"
+        }
+      }
+    },
+    {
+      "number": 61,
+      "cellId": 31,
+      "cellCode": "6.2 E",
+      "cellKey": "changes",
+      "texts": {
+        "en": {
+          "statement": "Our development budget has been growing for the past three years",
+          "zone2": "Our development budget has slightly grown for the past three years",
+          "zone3": "Our development budget has not been growing for the last three years"
+        },
+        "es": {
+          "statement": "Nuestro presupuesto de desarrollo ha estado creciendo durante los últimos tres años",
+          "zone2": "Nuestro presupuesto de desarrollo ha crecido ligeramente durante los últimos tres años",
+          "zone3": "Nuestro presupuesto de desarrollo no ha estado creciendo durante los últimos tres años"
+        }
+      }
+    },
+    {
+      "number": 62,
+      "cellId": 31,
+      "cellCode": "6.2 E",
+      "cellKey": "changes",
+      "texts": {
+        "en": {
+          "statement": "The share of our income from new areas of activity (markets, products) has been growing over the past three years",
+          "zone2": "The share of our income from new areas of activity (markets, products) has slightly grown over the past three years",
+          "zone3": "The share of our income from new areas of activity (markets, products) has not been growing for the last three years"
+        },
+        "es": {
+          "statement": "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha ido creciendo en los últimos tres años",
+          "zone2": "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha crecido ligeramente en los últimos tres años",
+          "zone3": "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) no ha estado creciendo durante los últimos tres años"
+        }
+      }
+    },
+    {
+      "number": 63,
+      "cellId": 32,
+      "cellCode": "6.3 A",
+      "cellKey": "inefficiency",
+      "texts": {
+        "en": {
+          "statement": "Our profits have been growing for the last three years",
+          "zone2": "Our profits have slightly grown over the past three years",
+          "zone3": "Our profits have not grown for the last three years"
+        },
+        "es": {
+          "statement": "Nuestras ganancias han estado creciendo durante los últimos tres años",
+          "zone2": "Nuestras ganancias han crecido ligeramente en los últimos tres años",
+          "zone3": "Nuestras ganancias no han crecido en los últimos tres años"
+        }
+      }
+    },
+    {
+      "number": 64,
+      "cellId": 32,
+      "cellCode": "6.3 A",
+      "cellKey": "inefficiency",
+      "texts": {
+        "en": {
+          "statement": "Our profitability has been growing for the past three years",
+          "zone2": "Our profitability has slightly increased over the past three years",
+          "zone3": "Our profitability has not increased for the past three years"
+        },
+        "es": {
+          "statement": "Nuestra rentabilidad ha estado creciendo durante los últimos tres años",
+          "zone2": "Nuestra rentabilidad ha aumentado ligeramente en los últimos tres años",
+          "zone3": "Nuestra rentabilidad no ha aumentado en los últimos tres años"
+        }
+      }
+    },
+    {
+      "number": 65,
+      "cellId": 33,
+      "cellCode": "6.4 P",
+      "cellKey": "ineffectiveness",
+      "texts": {
+        "en": {
+          "statement": "Our market share has been growing for the past three years",
+          "zone2": "Our market share has grown little over the past three years",
+          "zone3": "Our market share has not been growing for the last three years"
+        },
+        "es": {
+          "statement": "Nuestra participación de mercado ha estado creciendo durante los últimos tres años",
+          "zone2": "Nuestra participación de mercado ha crecido poco en los últimos tres años",
+          "zone3": "Nuestra participación de mercado no ha estado creciendo durante los últimos tres años"
+        }
+      }
+    },
+    {
+      "number": 66,
+      "cellId": 33,
+      "cellCode": "6.4 P",
+      "cellKey": "ineffectiveness",
+      "texts": {
+        "en": {
+          "statement": "Our sales volume has been growing for the last three years",
+          "zone2": "Our sales volume has grown little for the last three years",
+          "zone3": "Our sales volume has not grown for the last three years"
+        },
+        "es": {
+          "statement": "Nuestro volumen de ventas ha estado creciendo durante los últimos tres años",
+          "zone2": "Nuestro volumen de ventas ha crecido poco en los últimos tres años",
+          "zone3": "Nuestro volumen de ventas no ha crecido en los últimos tres años"
+        }
+      }
+    },
+    {
+      "number": 67,
+      "cellId": 33,
+      "cellCode": "6.4 P",
+      "cellKey": "ineffectiveness",
+      "texts": {
+        "en": {
+          "statement": "Our clients recommend us",
+          "zone2": "Our clients do not always recommend us",
+          "zone3": "Our clients rarely recommend us"
+        },
+        "es": {
+          "statement": "Nuestros clientes nos recomiendan",
+          "zone2": "Nuestros clientes no siempre nos recomiendan",
+          "zone3": "Nuestros clientes raramente nos recomiendan"
+        }
+      }
+    }
+  ],
+  "texts": {
+    "en": {
+      "code": "en",
+      "langName": "English",
+      "locale": "en-US",
+      "ui": {
+        "start": "Start",
+        "back": "Back",
+        "next": "Next",
+        "pressEnter": "press Enter ↵",
+        "keyboardHint": "Keys 1–4 · 0 = I cannot answer",
+        "of": "of",
+        "section": "Area",
+        "resume": "Welcome back. Your answers so far are saved.",
+        "resumeYes": "Continue where I left off",
+        "resumeNo": "Start over",
+        "loading": "Loading…",
+        "sending": "Sending your answers…",
+        "errorGeneric": "Something went wrong. Please check your connection and try again.",
+        "retry": "Try again"
+      },
+      "intro": {
+        "eyebrow": "Express Diagnostics",
+        "hello": "Hi, {first}",
+        "title": "{company} wants your view of the organization",
+        "body": "{company} is running an organizational diagnostic with the Adizes Institute. You will rate 67 statements about how the company works today, across the 16 factors of the Adizes methodology.",
+        "bullets": [
+          "It takes about 10 minutes. You can pause and come back later with the same link.",
+          "Your answers are combined with those of the other participants in a group report.",
+          "Answer for how things actually work today, not how they are supposed to work."
+        ],
+        "note": "If you have no basis to judge a statement, choose “I cannot answer”.",
+        "deadline": "Open until {date}",
+        "meta": "67 statements · about 10 minutes"
+      },
+      "scale": [
+        {
+          "value": 2,
+          "label": "Never",
+          "sub": "Totally disagree"
+        },
+        {
+          "value": 3,
+          "label": "Sometimes",
+          "sub": "Partially disagree"
+        },
+        {
+          "value": 4,
+          "label": "Often",
+          "sub": "Partially agree"
+        },
+        {
+          "value": 5,
+          "label": "Always",
+          "sub": "Totally agree"
+        }
+      ],
+      "cannot": "I cannot answer",
+      "cells": {
+        "values": "Values",
+        "climate": "Climate",
+        "responsibility": "Responsibility Structure",
+        "authority": "Authority Structure",
+        "reward": "Reward Structure",
+        "planning": "Planning",
+        "information": "Information flow",
+        "corrective": "Corrective Actions",
+        "client": "Client interface",
+        "transformation": "Transformation",
+        "human": "Human factors",
+        "financial": "Financial factors",
+        "behaviour": "Behaviour",
+        "changes": "Changes",
+        "inefficiency": "Inefficiency",
+        "ineffectiveness": "Ineffectiveness"
+      },
+      "diagram": {
+        "title": "Causal factors of systemic organizational problems",
+        "external": "External Factors",
+        "internal": "Internal Factors",
+        "causes": "Systemic Organizational Causes",
+        "culture": "Organizational Culture",
+        "subsystems": "Subsystems Symptoms",
+        "manifestations": "Systemic Manifestations",
+        "labels": {
+          "values": "Values",
+          "climate": "Climate",
+          "planning": "Strategic Planning",
+          "responsibility": "Organizational Structure",
+          "authority": "Authority",
+          "information": "Information Flow",
+          "corrective": "Corrective Actions",
+          "reward": "Rewards",
+          "client": "Client Interface",
+          "transformation": "Transformation",
+          "human": "Human Resources",
+          "financial": "Finance",
+          "inefficiency": "Inefficiency",
+          "behaviour": "Behavior",
+          "changes": "Change",
+          "ineffectiveness": "Ineffectiveness"
+        }
+      },
+      "radar": {
+        "title1": "Systemic organizational problems",
+        "title2": "Operational problems and systemic manifestations (consequences)",
+        "normal": "Normal situation",
+        "abnormal": "Abnormal situation",
+        "yours": "The company"
+      },
+      "colors": {
+        "green": "The process is healthy",
+        "yellow": "There are some areas for improvement",
+        "red": "Key focus zone"
+      },
+      "colorShort": {
+        "green": "Healthy",
+        "yellow": "Needs improvement",
+        "red": "Key focus zone"
+      },
+      "frames": {
+        "title": "Type of frame",
+        "sub": "Depending on how much the participants’ opinions vary, a different frame is displayed",
+        "dotted": "Dotted frame — participants’ opinions largely coincide",
+        "thin": "Thin frame — noticeable divergence of opinion",
+        "thick": "Thick frame — the participants’ opinions do not coincide at all"
+      },
+      "noAnswer": "no answer",
+      "review": {
+        "eyebrow": "Last step",
+        "title": "Review your answers",
+        "body": "You rated all {n} statements.",
+        "cannot": "{n} marked as “I cannot answer”.",
+        "missingN": "{n} statements still need an answer.",
+        "missingHelp": "Click any statement to answer or change it.",
+        "missing": "Not answered",
+        "warn": "Click any statement to change your answer. Once sent, your answers can’t be changed.",
+        "submit": "Send my answers",
+        "hint": "You can also send from the bottom of the list.",
+        "back": "Back to review"
+      },
+      "thanks": {
+        "title": "Thank you, {first}",
+        "body": "Your answers have been recorded. {company} will receive the group report through the Adizes Institute. You can close this window."
+      },
+      "states": {
+        "noToken": {
+          "title": "You need your personal link",
+          "body": "To answer, open the link you received in your invitation email."
+        },
+        "invalid_link": {
+          "title": "This link isn’t valid",
+          "body": "Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com."
+        },
+        "completed": {
+          "title": "You have already answered",
+          "body": "Your answers were recorded. Thank you for participating."
+        },
+        "closed": {
+          "title": "This diagnostic is closed",
+          "body": "Answers are no longer being collected. If you think this is a mistake, contact the person who invited you."
+        },
+        "not_open": {
+          "title": "This diagnostic isn’t open yet",
+          "body": "Please try again later from the same link."
+        }
+      },
+      "pdf": {
+        "title": "Express Diagnostics",
+        "subtitle": "Report",
+        "company": "Company",
+        "date": "Date of the report",
+        "design": "Survey design: distance survey of top management",
+        "participants": "Participants",
+        "participantsCount": "Participants surveyed",
+        "howTitle": "How to read this report",
+        "howBody": "Each of the 16 factors is rated from the participants’ answers on a 4-point scale (“I cannot answer” is not counted as an answer and lowers the factor’s score). The causal map shows where problems originate, the radar charts compare the company with a normal and an abnormal situation, and the last section lists every statement with its rating.",
+        "summary": "At a glance",
+        "keyFactors": "Key organizational factors",
+        "keyFactorsHelp": "Each statement is shown in the wording that matches its rating.",
+        "colorsTitle": "Colour decoding",
+        "footer": "Adizes Institute · Express Diagnostics",
+        "page": "Page",
+        "cont": "cont."
+      },
+      "questions": [
+        {
+          "t": "Our value system is clearly articulated in a few words / phrases",
+          "z2": "Our value system is not clearly articulated",
+          "z3": "Our value system is not articulated"
+        },
+        {
+          "t": "Our value system is respected in our daily business practice, the declared values correspond to the demonstrated ones",
+          "z2": "Our value system is not always respected in everyday business practice, the declared values do not always correspond to the demonstrated ones",
+          "z3": "Our value system is often not adhered to in our daily business practice, the declared values often do not correspond to the demonstrated ones"
+        },
+        {
+          "t": "Our value system is the same across all divisions",
+          "z2": "Our value system is not the same in some departments",
+          "z3": "Our value system is not the same for many departments"
+        },
+        {
+          "t": "Our corporate culture is very similar in most departments",
+          "z2": "Our corporate culture is not similar enough in most departments",
+          "z3": "Our corporate culture is not the same in most departments"
+        },
+        {
+          "t": "Our corporate culture is characterized by a high level of collaboration between divisions",
+          "z2": "Our corporate culture is characterized by a lack of cooperation between departments",
+          "z3": "Our corporate culture is characterized by a low level of cooperation between divisions"
+        },
+        {
+          "t": "Our corporate culture is characterized by a high level of performance discipline",
+          "z2": "Our corporate culture is characterized by a lack of performance discipline",
+          "z3": "Our corporate culture is characterized by a low level of performance discipline"
+        },
+        {
+          "t": "Our corporate culture is characterized by the ability to fearlessly express our own opinions",
+          "z2": "Our corporate culture is not always characterized by the ability to fearlessly express our own opinions",
+          "z3": "Our corporate culture is not characterized by the ability to fearlessly express our own opinions"
+        },
+        {
+          "t": "Our corporate culture is characterized by high employee initiative",
+          "z2": "Our corporate culture is characterized by insufficiently high employee initiative",
+          "z3": "Our corporate culture is characterized by low employee initiative"
+        },
+        {
+          "t": "Our corporate culture is characterized by a low level of conflict",
+          "z2": "Our corporate culture is not always characterized by low levels of conflict",
+          "z3": "Our corporate culture is not characterized by a low level of conflict"
+        },
+        {
+          "t": "Our organizational structure supports the current business model well",
+          "z2": "Our organizational structure does not support the current business model well enough",
+          "z3": "Our organizational structure does not fully support the current business model"
+        },
+        {
+          "t": "Our organizational structure supports the long-term goals of the company well",
+          "z2": "Our organizational structure does not support the long-term goals of the company well enough",
+          "z3": "Our organizational structure has little support for the long-term goals of the company"
+        },
+        {
+          "t": "Our organizational structure contains all the necessary functions",
+          "z2": "Our organizational structure does not contain all the necessary functions",
+          "z3": "Our organizational structure lacks many essential functions"
+        },
+        {
+          "t": "There are no unclear/overlapping areas of responsibility in our organizational structure",
+          "z2": "There are sometimes unclear/overlapping areas of responsibility in our organizational structure",
+          "z3": "There are many unclear/overlapping areas of responsibility in our organizational structure"
+        },
+        {
+          "t": "Our organizational structure is highly “around functions” rather than “around people”",
+          "z2": "Our organizational structure is somewhat “around functions” rather than “around people”",
+          "z3": "Our organizational structure is highly “around people” rather than “around functions”"
+        },
+        {
+          "t": "Most of our leaders have enough authority to handle the challenges they face",
+          "z2": "Some of our leaders lack the authority to meet the challenges they face",
+          "z3": "Many of our leaders lack the authority to meet the challenges they face"
+        },
+        {
+          "t": "In our company, the biggest authority is held by commercial divisions",
+          "z2": "In our company, only part of the authority is held by commercial divisions",
+          "z3": "In our company, a small part of the authority is held by commercial divisions"
+        },
+        {
+          "t": "Our authority structure allows for quick decision making",
+          "z2": "Our authority structure does not always allow for quick decision making",
+          "z3": "Our authority structure does not allow for quick decision making"
+        },
+        {
+          "t": "Our structure of authority does not cause conflicts in the decision-making process",
+          "z2": "Our structure of authority sometimes causes conflicts in the decision-making process",
+          "z3": "Our structure of authority often causes conflicts in the decision-making process"
+        },
+        {
+          "t": "Our reward system contributes to the achievement of our goals",
+          "z2": "Our reward system does not fully contribute to the achievement of our goals",
+          "z3": "Our reward system rarely helps us achieve our goals"
+        },
+        {
+          "t": "Our employees are satisfied with the existing motivation system",
+          "z2": "Our employees are not always satisfied with the existing motivation system",
+          "z3": "Our employees are often not satisfied with the existing motivation system"
+        },
+        {
+          "t": "Our long term goals / strategy are clearly defined",
+          "z2": "Our long term goals / strategy are not well defined",
+          "z3": "Our long term goals / strategy are not defined"
+        },
+        {
+          "t": "Our long term goals / strategy are documented",
+          "z2": "Our long term goals / strategy are not fully documented",
+          "z3": "Our long term goals / strategy are not documented"
+        },
+        {
+          "t": "Our long-term goals / strategy are known to management",
+          "z2": "Not all of our long-term goals / strategy are known to management",
+          "z3": "Our long-term goals / strategy are not known to management"
+        },
+        {
+          "t": "Our long-term goals / strategy were developed with the participation of management",
+          "z2": "Our long-term goals / strategy were developed with insufficient management involvement",
+          "z3": "Our long-term goals / strategy were developed without management involvement"
+        },
+        {
+          "t": "Our long term goals / strategy are supported by management",
+          "z2": "Our long-term goals / strategy are not fully supported by management",
+          "z3": "Our long-term goals / strategy are not supported by management"
+        },
+        {
+          "t": "Our long term goals / strategy are backed up by a detailed action plan",
+          "z2": "Our long term goals / strategy are not fully backed by a detailed action plan",
+          "z3": "Our long term goals / strategy are not backed up by a specific action plan"
+        },
+        {
+          "t": "Our long-term goals / strategy are backed by the necessary resources",
+          "z2": "Our long-term goals / strategy are not fully resourced",
+          "z3": "Our long-term goals / strategy are not resourced"
+        },
+        {
+          "t": "We regularly evaluate the implementation of long-term goals / strategies",
+          "z2": "We do not regularly evaluate the implementation of long-term goals / strategies",
+          "z3": "We rarely evaluate the implementation of long-term goals / strategies"
+        },
+        {
+          "t": "Our long-term goals / strategy are regularly / if necessary revised",
+          "z2": "Our long-term goals / strategy are not reviewed regularly enough",
+          "z3": "Our long-term goals / strategy are rarely revised"
+        },
+        {
+          "t": "We base our annual plans on our long-term objectives / strategies",
+          "z2": "We do not always base our annual plans on our long-term objectives / strategies",
+          "z3": "We do not base our annual plans on our long-term objectives / strategies"
+        },
+        {
+          "t": "I have enough information to make key regular management decisions",
+          "z2": "I do not always have enough information to make key regular management decisions",
+          "z3": "I often do not have enough information to make key regular management decisions"
+        },
+        {
+          "t": "Information for taking management decisions usually contains reliable information",
+          "z2": "Information for taking management decisions does not always contain reliable information",
+          "z3": "Information for taking management decisions often does not contain reliable information"
+        },
+        {
+          "t": "Information for taking management decisions is usually collected in a timely manner",
+          "z2": "Information for taking management decisions is not always collected in a timely manner",
+          "z3": "Information for taking management decisions is usually not collected in a timely manner"
+        },
+        {
+          "t": "Information for taking management decisions does not contain redundant unnecessary information",
+          "z2": "Information for taking management decisions sometimes contains redundant unnecessary information",
+          "z3": "Information for taking management decisions often contains redundant unnecessary information"
+        },
+        {
+          "t": "The collection of information for taking management decisions is automated in our company",
+          "z2": "The collection of information for taking management decisions is not fully automated in our company",
+          "z3": "The collection of information for taking management decisions is not automated in our company"
+        },
+        {
+          "t": "We carry out control / analysis of our company's performance at least once a month",
+          "z2": "We do not always carry out control / analysis of our company's performance at least once a month",
+          "z3": "We rarely monitor / analyze our company's performance"
+        },
+        {
+          "t": "We carry out control / analysis of our company's performance in a team of key managers",
+          "z2": "We do not always monitor / analyze our company's performance in a team of key managers",
+          "z3": "We do not monitor / analyze the performance of the company in a team of key managers"
+        },
+        {
+          "t": "We control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures",
+          "z2": "We do not always control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures",
+          "z3": "We do not control and analyse the performance of our company with discussion, fixation and subsequent control of the implementation of corrective measures"
+        },
+        {
+          "t": "We control and analyse the performance of our company with the identification and fixation of systemic problems",
+          "z2": "We do not always control and analyse the performance of our company with the identification and fixation of systemic problems",
+          "z3": "We do not control and analyse the performance of our company with the identification and fixation of systemic problems"
+        },
+        {
+          "t": "We know our target customers and their needs well",
+          "z2": "We do not always know the target customers and their needs well",
+          "z3": "We do not know the target customers and their needs well"
+        },
+        {
+          "t": "Our selling proposition and our promotion and sales models are highly responsive to the needs of our customers",
+          "z2": "Our selling proposition and our promotion and sales models do not fully meet the needs of our customers",
+          "z3": "Our selling proposition and our promotion and sales models meet the needs of our customers only to a small extent"
+        },
+        {
+          "t": "Our selling proposition and promotion and sales models are competitive",
+          "z2": "Our selling proposition and promotion and sales models are not always competitive",
+          "z3": "Our selling proposition and promotion and sales models are not fully competitive"
+        },
+        {
+          "t": "Our annual / quarterly production / operating unit plans are based on the sales plan",
+          "z2": "Our annual / quarterly production / operating unit plans are partially based on the sales plan",
+          "z3": "Our annual / quarterly production / operating unit plans are not based on sales plans"
+        },
+        {
+          "t": "The activities of commercial and operational (production) functions are well coordinated with each other",
+          "z2": "The actions of commercial and operational (production) functions are not always well coordinated with each other",
+          "z3": "The actions of commercial and operational (production) functions are poorly coordinated with each other"
+        },
+        {
+          "t": "Most of our standard processes and procedures are documented",
+          "z2": "Not all of our standard processes and procedures are documented",
+          "z3": "Most of our standard processes and procedures are not documented"
+        },
+        {
+          "t": "We follow most of our standard processes and procedures",
+          "z2": "We follow some of our standard processes and procedures",
+          "z3": "We rarely follow our standard processes and procedures"
+        },
+        {
+          "t": "Most of our standard processes and procedures are subject to periodic adjustments",
+          "z2": "Only a subset of our standard processes and procedures are subject to periodic adjustments",
+          "z3": "A small part of our standard processes and procedures are subject to periodic adjustments"
+        },
+        {
+          "t": "Most of our standard processes and procedures are automated",
+          "z2": "Only part of our standard processes and procedures are automated",
+          "z3": "A small part of our standard processes and procedures are automated"
+        },
+        {
+          "t": "Our work on the development and release of new products is effective",
+          "z2": "Our activity in developing and launching new products is not effective enough",
+          "z3": "Our activity on the development and release of new products is ineffective"
+        },
+        {
+          "t": "We take a systematic approach to training and development",
+          "z2": "Our approach to training and development is not systematic enough",
+          "z3": "We do not approach training and development systematically"
+        },
+        {
+          "t": "We handle hiring challenges",
+          "z2": "We do not fully cope with the tasks of hiring",
+          "z3": "We are bad at hiring tasks"
+        },
+        {
+          "t": "We do not experience a shortage of qualified personnel",
+          "z2": "Sometimes we experience a shortage of qualified personnel",
+          "z3": "We are experiencing a shortage of qualified personnel"
+        },
+        {
+          "t": "We know the break-even point",
+          "z2": "We roughly know the break-even point",
+          "z3": "We don't know the break-even point"
+        },
+        {
+          "t": "We have implemented a budgeting process and follow it",
+          "z2": "Our budgeting process is not fully implemented",
+          "z3": "We do not have a budgeting process implemented"
+        },
+        {
+          "t": "We have implemented management accounting and it operates",
+          "z2": "We have partially implemented management accounting",
+          "z3": "We have not implemented management accounting"
+        },
+        {
+          "t": "Payment requests (to suppliers / contractors) in most cases are paid quickly / within a specified time frame",
+          "z2": "Payment requests (to suppliers / contractors) are not always paid quickly / within a specified time frame",
+          "z3": "Payment requests (to suppliers / contractors) are rarely paid quickly / within a stipulated time frame"
+        },
+        {
+          "t": "We have a low level of key personnel turnover",
+          "z2": "We have an average level of key personnel turnover",
+          "z3": "We have a high level of key personnel turnover"
+        },
+        {
+          "t": "Our employees recommend the company to their friends",
+          "z2": "Not all of our employees recommend the company to their friends",
+          "z3": "Our employees do not recommend the company to their friends"
+        },
+        {
+          "t": "Our product line is changing rapidly",
+          "z2": "Our product line is not changing fast enough",
+          "z3": "Our product line is slowly changing"
+        },
+        {
+          "t": "Changes in our company are not met with resistance",
+          "z2": "Changes in our company are sometimes met with resistance",
+          "z3": "Changes in our company are often resisted"
+        },
+        {
+          "t": "Our development budget has been growing for the past three years",
+          "z2": "Our development budget has slightly grown for the past three years",
+          "z3": "Our development budget has not been growing for the last three years"
+        },
+        {
+          "t": "The share of our income from new areas of activity (markets, products) has been growing over the past three years",
+          "z2": "The share of our income from new areas of activity (markets, products) has slightly grown over the past three years",
+          "z3": "The share of our income from new areas of activity (markets, products) has not been growing for the last three years"
+        },
+        {
+          "t": "Our profits have been growing for the last three years",
+          "z2": "Our profits have slightly grown over the past three years",
+          "z3": "Our profits have not grown for the last three years"
+        },
+        {
+          "t": "Our profitability has been growing for the past three years",
+          "z2": "Our profitability has slightly increased over the past three years",
+          "z3": "Our profitability has not increased for the past three years"
+        },
+        {
+          "t": "Our market share has been growing for the past three years",
+          "z2": "Our market share has grown little over the past three years",
+          "z3": "Our market share has not been growing for the last three years"
+        },
+        {
+          "t": "Our sales volume has been growing for the last three years",
+          "z2": "Our sales volume has grown little for the last three years",
+          "z3": "Our sales volume has not grown for the last three years"
+        },
+        {
+          "t": "Our clients recommend us",
+          "z2": "Our clients do not always recommend us",
+          "z3": "Our clients rarely recommend us"
+        }
+      ]
+    },
+    "es": {
+      "code": "es",
+      "langName": "Español",
+      "locale": "es-MX",
+      "ui": {
+        "start": "Comenzar",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "pressEnter": "presiona Enter ↵",
+        "keyboardHint": "Teclas 1–4 · 0 = No puedo responder",
+        "of": "de",
+        "section": "Área",
+        "resume": "Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.",
+        "resumeYes": "Continuar donde me quedé",
+        "resumeNo": "Empezar de nuevo",
+        "loading": "Cargando…",
+        "sending": "Enviando tus respuestas…",
+        "errorGeneric": "Algo salió mal. Revisa tu conexión e inténtalo de nuevo.",
+        "retry": "Intentar de nuevo"
+      },
+      "intro": {
+        "eyebrow": "Diagnóstico Exprés",
+        "hello": "Hola, {first}",
+        "title": "{company} quiere conocer tu visión de la organización",
+        "body": "{company} está realizando un diagnóstico organizacional con el Instituto Adizes. Calificarás 67 afirmaciones sobre cómo funciona hoy la empresa, en los 16 factores de la metodología Adizes.",
+        "bullets": [
+          "Toma alrededor de 10 minutos. Puedes pausar y continuar después con el mismo enlace.",
+          "Tus respuestas se combinan con las de los demás participantes en un reporte grupal.",
+          "Responde según cómo funcionan las cosas hoy, no cómo deberían funcionar."
+        ],
+        "note": "Si no tienes elementos para juzgar una afirmación, elige “No puedo responder”.",
+        "deadline": "Disponible hasta el {date}",
+        "meta": "67 afirmaciones · alrededor de 10 minutos"
+      },
+      "scale": [
+        {
+          "value": 2,
+          "label": "Nunca",
+          "sub": "Totalmente en desacuerdo"
+        },
+        {
+          "value": 3,
+          "label": "A veces",
+          "sub": "Parcialmente en desacuerdo"
+        },
+        {
+          "value": 4,
+          "label": "A menudo",
+          "sub": "Parcialmente de acuerdo"
+        },
+        {
+          "value": 5,
+          "label": "Siempre",
+          "sub": "Totalmente de acuerdo"
+        }
+      ],
+      "cannot": "No puedo responder",
+      "cells": {
+        "values": "Valores",
+        "climate": "Clima",
+        "responsibility": "Estructura de responsabilidad",
+        "authority": "Estructura de autoridad",
+        "reward": "Estructura de recompensas",
+        "planning": "Planificación",
+        "information": "Flujo de información",
+        "corrective": "Acciones correctivas",
+        "client": "Interfaz con el cliente",
+        "transformation": "Transformación",
+        "human": "Factores humanos",
+        "financial": "Factores financieros",
+        "behaviour": "Comportamiento",
+        "changes": "Cambios",
+        "inefficiency": "Ineficiencia",
+        "ineffectiveness": "Inefectividad"
+      },
+      "diagram": {
+        "title": "Factores causales de los problemas organizacionales sistémicos",
+        "external": "Factores externos",
+        "internal": "Factores internos",
+        "causes": "Causas organizacionales sistémicas",
+        "culture": "Cultura organizacional",
+        "subsystems": "Síntomas en los subsistemas",
+        "manifestations": "Manifestaciones sistémicas",
+        "labels": {
+          "values": "Valores",
+          "climate": "Clima",
+          "planning": "Planeación estratégica",
+          "responsibility": "Estructura organizacional",
+          "authority": "Autoridad",
+          "information": "Flujo de información",
+          "corrective": "Acciones correctivas",
+          "reward": "Recompensas",
+          "client": "Interfaz con el cliente",
+          "transformation": "Transformación",
+          "human": "Recursos humanos",
+          "financial": "Finanzas",
+          "inefficiency": "Ineficiencia",
+          "behaviour": "Comportamiento",
+          "changes": "Cambio",
+          "ineffectiveness": "Inefectividad"
+        }
+      },
+      "radar": {
+        "title1": "Problemas organizacionales sistémicos",
+        "title2": "Problemas operativos y manifestaciones sistémicas (consecuencias)",
+        "normal": "Situación normal",
+        "abnormal": "Situación anormal",
+        "yours": "La empresa"
+      },
+      "colors": {
+        "green": "El proceso está sano",
+        "yellow": "Hay áreas de mejora",
+        "red": "Zona de enfoque clave"
+      },
+      "colorShort": {
+        "green": "Sano",
+        "yellow": "Por mejorar",
+        "red": "Zona de enfoque clave"
+      },
+      "frames": {
+        "title": "Tipo de marco",
+        "sub": "Según cuánto varían las opiniones de los participantes, se muestra un marco distinto",
+        "dotted": "Marco punteado: las opiniones de los participantes coinciden en gran medida",
+        "thin": "Marco delgado: hay una divergencia de opinión notable",
+        "thick": "Marco grueso: las opiniones de los participantes no coinciden en absoluto"
+      },
+      "noAnswer": "sin respuesta",
+      "review": {
+        "eyebrow": "Último paso",
+        "title": "Revisa tus respuestas",
+        "body": "Calificaste las {n} afirmaciones.",
+        "cannot": "{n} como “No puedo responder”.",
+        "missingN": "Faltan {n} afirmaciones por responder.",
+        "missingHelp": "Haz clic en cualquier afirmación para responderla o cambiarla.",
+        "missing": "Sin responder",
+        "warn": "Haz clic en cualquier afirmación para cambiar tu respuesta. Una vez enviadas, ya no se pueden cambiar.",
+        "submit": "Enviar mis respuestas",
+        "hint": "También puedes enviarlas al final de la lista.",
+        "back": "Volver a la revisión"
+      },
+      "thanks": {
+        "title": "Gracias, {first}",
+        "body": "Tus respuestas quedaron registradas. {company} recibirá el reporte grupal a través del Instituto Adizes. Ya puedes cerrar esta ventana."
+      },
+      "states": {
+        "noToken": {
+          "title": "Necesitas tu enlace personal",
+          "body": "Para responder, abre el enlace que recibiste en tu correo de invitación."
+        },
+        "invalid_link": {
+          "title": "Este enlace no es válido",
+          "body": "Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com."
+        },
+        "completed": {
+          "title": "Ya respondiste",
+          "body": "Tus respuestas quedaron registradas. Gracias por participar."
+        },
+        "closed": {
+          "title": "Este diagnóstico ya cerró",
+          "body": "Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó."
+        },
+        "not_open": {
+          "title": "Este diagnóstico aún no está abierto",
+          "body": "Inténtalo más tarde con el mismo enlace."
+        }
+      },
+      "pdf": {
+        "title": "Diagnóstico Exprés",
+        "subtitle": "Reporte",
+        "company": "Empresa",
+        "date": "Fecha del reporte",
+        "design": "Diseño del estudio: encuesta a distancia a la alta dirección",
+        "participants": "Participantes",
+        "participantsCount": "Participantes encuestados",
+        "howTitle": "Cómo leer este reporte",
+        "howBody": "Cada uno de los 16 factores se califica con las respuestas de los participantes en una escala de 4 puntos (“No puedo responder” no cuenta como respuesta y baja la calificación del factor). El mapa causal muestra dónde se originan los problemas, las gráficas de radar comparan la empresa con una situación normal y una anormal, y la última sección presenta cada afirmación con su calificación.",
+        "summary": "En resumen",
+        "keyFactors": "Factores organizacionales clave",
+        "keyFactorsHelp": "Cada afirmación aparece con la redacción que corresponde a su calificación.",
+        "colorsTitle": "Significado de los colores",
+        "footer": "Instituto Adizes · Diagnóstico Exprés",
+        "page": "Página",
+        "cont": "cont."
+      },
+      "questions": [
+        {
+          "t": "Nuestro sistema de valores está claramente articulado en unas pocas palabras/frases",
+          "z2": "Nuestro sistema de valores no está claramente articulado",
+          "z3": "Nuestro sistema de valores no está articulado"
+        },
+        {
+          "t": "Nuestro sistema de valores es respetado en nuestra práctica empresarial diaria, los valores declarados corresponden a los demostrados",
+          "z2": "Nuestro sistema de valores no siempre es respetado en nuestra práctica empresarial diaria, los valores declarados no siempre corresponden a los demostrados",
+          "z3": "Nuestro sistema de valores a menudo no se cumple en nuestra práctica empresarial diaria, los valores declarados a menudo no corresponden con los demostrados"
+        },
+        {
+          "t": "Nuestro sistema de valores es el mismo en todas las divisiones",
+          "z2": "Nuestro sistema de valores no es el mismo en algunos departamentos",
+          "z3": "Nuestro sistema de valores no es el mismo en muchos departamentos"
+        },
+        {
+          "t": "Nuestra cultura corporativa es muy similar en la mayoría de los departamentos",
+          "z2": "Nuestra cultura corporativa no es lo suficientemente similar en la mayoría de los departamentos",
+          "z3": "Nuestra cultura corporativa no es la misma en la mayoría de los departamentos"
+        },
+        {
+          "t": "Nuestra cultura corporativa se caracteriza por un alto nivel de colaboración entre las divisiones",
+          "z2": "Nuestra cultura corporativa se caracteriza por la falta de cooperación entre departamentos",
+          "z3": "Nuestra cultura corporativa se caracteriza por un bajo nivel de cooperación entre las divisiones"
+        },
+        {
+          "t": "Nuestra cultura corporativa se caracteriza por un alto nivel de disciplina en el desempeño",
+          "z2": "Nuestra cultura corporativa se caracteriza por la falta de disciplina en el desempeño",
+          "z3": "Nuestra cultura corporativa se caracteriza por un bajo nivel de disciplina en el desempeño"
+        },
+        {
+          "t": "Nuestra cultura corporativa se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones",
+          "z2": "Nuestra cultura corporativa no siempre se caracteriza por la capacidad de expresar sin miedo nuestras propias opiniones",
+          "z3": "Nuestra cultura corporativa no se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones"
+        },
+        {
+          "t": "Nuestra cultura corporativa se caracteriza por una alta iniciativa de los empleados",
+          "z2": "Nuestra cultura corporativa se caracteriza por una iniciativa insuficiente de los empleados",
+          "z3": "Nuestra cultura corporativa se caracteriza por la baja iniciativa de los empleados"
+        },
+        {
+          "t": "Nuestra cultura corporativa se caracteriza por un bajo nivel de conflictividad",
+          "z2": "Nuestra cultura corporativa no siempre se caracteriza por bajos niveles de conflicto",
+          "z3": "Nuestra cultura corporativa no se caracteriza por un bajo nivel de conflictividad"
+        },
+        {
+          "t": "Nuestra estructura organizativa es compatible con el modelo de negocio actual",
+          "z2": "Nuestra estructura organizativa no es lo suficientemente compatible con el modelo de negocio actual",
+          "z3": "Nuestra estructura organizativa no es totalmente compatible con el modelo de negocio actual"
+        },
+        {
+          "t": "Nuestra estructura organizacional apoya bien los objetivos a largo plazo de la empresa",
+          "z2": "Nuestra estructura organizacional no respalda suficientemente los objetivos a largo plazo de la empresa",
+          "z3": "Nuestra estructura organizacional tiene poco apoyo para los objetivos a largo plazo de la empresa"
+        },
+        {
+          "t": "Nuestra estructura organizacional contiene todas las funciones necesarias",
+          "z2": "Nuestra estructura organizacional no contiene todas las funciones necesarias",
+          "z3": "Nuestra estructura organizacional carece de muchas funciones esenciales"
+        },
+        {
+          "t": "No hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional",
+          "z2": "A veces hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional",
+          "z3": "Hay muchas áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional"
+        },
+        {
+          "t": "Nuestra estructura organizacional se basa en gran medida “en torno a las funciones” en lugar de “en torno a las personas”",
+          "z2": "Nuestra estructura organizacional es un poco “alrededor de funciones” en lugar de “alrededor de personas”",
+          "z3": "Nuestra estructura organizacional está más “en torno a las personas” que “en torno a las funciones”"
+        },
+        {
+          "t": "La mayoría de nuestros líderes tienen suficiente autoridad para manejar los desafíos que enfrentan",
+          "z2": "Algunos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan",
+          "z3": "Muchos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan"
+        },
+        {
+          "t": "En nuestra empresa, la mayor autoridad la tienen las divisiones comerciales",
+          "z2": "En nuestra empresa, solo una parte de la autoridad está en manos de las divisiones comerciales",
+          "z3": "En nuestra empresa, una pequeña parte de la autoridad la tienen las divisiones comerciales"
+        },
+        {
+          "t": "Nuestra estructura de autoridad permite una rápida toma de decisiones",
+          "z2": "Nuestra estructura de autoridad no siempre permite una rápida toma de decisiones",
+          "z3": "Nuestra estructura de autoridad no permite una toma de decisiones rápida"
+        },
+        {
+          "t": "Nuestra estructura de autoridad no genera conflictos en el proceso de toma de decisiones",
+          "z2": "Nuestra estructura de autoridad a veces provoca conflictos en el proceso de toma de decisiones",
+          "z3": "Nuestra estructura de autoridad a menudo causa conflictos en el proceso de toma de decisiones"
+        },
+        {
+          "t": "Nuestro sistema de recompensas contribuye al logro de nuestros objetivos",
+          "z2": "Nuestro sistema de recompensas no contribuye completamente al logro de nuestros objetivos",
+          "z3": "Nuestro sistema de recompensas rara vez nos ayuda a alcanzar nuestros objetivos"
+        },
+        {
+          "t": "Nuestros empleados están satisfechos con el sistema de motivación existente",
+          "z2": "Nuestros empleados no siempre están satisfechos con el sistema de motivación existente",
+          "z3": "Nuestros empleados a menudo no están satisfechos con el sistema de motivación existente"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo están claramente definidos",
+          "z2": "Nuestros objetivos/estrategia a largo plazo no están bien definidos",
+          "z3": "Nuestros objetivos/estrategia a largo plazo no están definidos"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo están documentados",
+          "z2": "Nuestros objetivos/estrategia a largo plazo no están completamente documentados",
+          "z3": "Nuestros objetivos/estrategia a largo plazo no están documentados"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo son conocidos por la gerencia",
+          "z2": "No todos nuestros objetivos/estrategias a largo plazo son conocidos por la gerencia",
+          "z3": "Nuestros objetivos/estrategia a largo plazo no son conocidos por la gerencia"
+        },
+        {
+          "t": "Nuestras metas/estrategia a largo plazo fueron desarrolladas con la participación de la gerencia",
+          "z2": "Nuestras metas/estrategia a largo plazo se desarrollaron con una participación gerencial insuficiente",
+          "z3": "Nuestros objetivos/estrategia a largo plazo se desarrollaron sin la participación de la gerencia"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo están respaldados por la dirección",
+          "z2": "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por la dirección",
+          "z3": "Nuestros objetivos/estrategia a largo plazo no están respaldados por la dirección"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo están respaldados por un plan de acción detallado",
+          "z2": "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por un plan de acción detallado",
+          "z3": "Nuestros objetivos/estrategia a largo plazo no están respaldados por un plan de acción específico"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo están respaldados por los recursos necesarios",
+          "z2": "Nuestros objetivos/estrategia a largo plazo no cuentan con todos los recursos",
+          "z3": "Nuestros objetivos/estrategia a largo plazo no cuentan con recursos"
+        },
+        {
+          "t": "Evaluamos regularmente la implementación de objetivos/estrategias a largo plazo",
+          "z2": "No evaluamos regularmente la implementación de objetivos/estrategias a largo plazo",
+          "z3": "Rara vez evaluamos la implementación de objetivos/estrategias a largo plazo"
+        },
+        {
+          "t": "Nuestros objetivos/estrategia a largo plazo se revisan regularmente/si es necesario",
+          "z2": "Nuestros objetivos/estrategia a largo plazo no se revisan con la suficiente regularidad",
+          "z3": "Nuestras metas/estrategia a largo plazo rara vez se revisan"
+        },
+        {
+          "t": "Basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo",
+          "z2": "No siempre basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo",
+          "z3": "No basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo"
+        },
+        {
+          "t": "Tengo suficiente información para tomar decisiones gerenciales clave de manera habitual",
+          "z2": "No siempre tengo suficiente información para tomar decisiones gerenciales clave de manera habitual",
+          "z3": "A menudo no tengo suficiente información para tomar decisiones gerenciales clave de manera habitual"
+        },
+        {
+          "t": "La información para la toma de decisiones gerenciales suele contener información fiable",
+          "z2": "La información para la toma de decisiones gerenciales no siempre contiene información confiable",
+          "z3": "La información para la toma de decisiones gerenciales a menudo no contiene información fiable"
+        },
+        {
+          "t": "La información para la toma de decisiones gerenciales suele recopilarse en el momento oportuno",
+          "z2": "La información para la toma de decisiones gerenciales no siempre se recopila de manera oportuna",
+          "z3": "La información para la toma de decisiones gerenciales generalmente no se recopila de manera oportuna"
+        },
+        {
+          "t": "La información para la toma de decisiones gerenciales no contiene información redundante innecesaria",
+          "z2": "La información para la toma de decisiones gerenciales a veces contiene información innecesaria y redundante",
+          "z3": "La información para la toma de decisiones gerenciales a menudo contiene información innecesaria y redundante"
+        },
+        {
+          "t": "La recolección de información para la toma de decisiones gerenciales está automatizada en nuestra empresa",
+          "z2": "La recolección de información para la toma de decisiones de gestión no está totalmente automatizada en nuestra empresa",
+          "z3": "La recolección de información para la toma de decisiones de gestión no está automatizada en nuestra empresa"
+        },
+        {
+          "t": "Realizamos control/análisis del desempeño de nuestra empresa al menos una vez al mes",
+          "z2": "No siempre llevamos a cabo un control/análisis del rendimiento de la empresa al menos una vez al mes",
+          "z3": "Raramente monitoreamos/analizamos el desempeño de nuestra empresa"
+        },
+        {
+          "t": "Realizamos control/análisis del desempeño de nuestra empresa en un equipo de directivos clave",
+          "z2": "No siempre monitoreamos/analizamos el desempeño de nuestra empresa en un equipo de directores clave",
+          "z3": "No monitoreamos/analizamos el desempeño de la empresa en un equipo de directores clave"
+        },
+        {
+          "t": "Controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas",
+          "z2": "No siempre controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas",
+          "z3": "No controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas"
+        },
+        {
+          "t": "Controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos",
+          "z2": "No siempre controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos",
+          "z3": "No controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos"
+        },
+        {
+          "t": "Conocemos bien a nuestros clientes objetivo y sus necesidades",
+          "z2": "No siempre conocemos bien a los clientes objetivo y sus necesidades",
+          "z3": "No conocemos bien a los clientes objetivo y sus necesidades"
+        },
+        {
+          "t": "Nuestra propuesta de venta y nuestros modelos de promoción y venta responden en gran medida a las necesidades de nuestros clientes",
+          "z2": "Nuestra propuesta de venta y nuestros modelos de promoción y venta no satisfacen plenamente las necesidades de nuestros clientes",
+          "z3": "Nuestra propuesta de venta y nuestros modelos de promoción y venta satisfacen en pequeña medida las necesidades de nuestros clientes"
+        },
+        {
+          "t": "Nuestra propuesta de valor y modelos de promoción y venta son competitivos",
+          "z2": "Nuestra propuesta de valor y modelos de promoción y venta no siempre son competitivos",
+          "z3": "Nuestra propuesta de valor y modelos de promoción y venta no son totalmente competitivos"
+        },
+        {
+          "t": "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan en el plan de ventas",
+          "z2": "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan parcialmente en el plan de ventas",
+          "z3": "Nuestros planes anuales/trimestrales de producción/unidades operativas no se basan en planes de ventas"
+        },
+        {
+          "t": "Las actividades de las funciones comerciales y operativas (producción) están bien coordinadas entre sí",
+          "z2": "Las acciones de las funciones comercial y operativa (producción) no siempre están bien coordinadas entre sí",
+          "z3": "Las acciones de las funciones comerciales y operativas (producción) están mal coordinadas entre sí"
+        },
+        {
+          "t": "La mayoría de nuestros procesos y procedimientos estándar están documentados",
+          "z2": "No todos nuestros procesos y procedimientos estándar están documentados",
+          "z3": "La mayoría de nuestros procesos y procedimientos estándar no están documentados"
+        },
+        {
+          "t": "Seguimos la mayoría de nuestros procesos y procedimientos estándar",
+          "z2": "Seguimos algunos de nuestros procesos y procedimientos estándar",
+          "z3": "Rara vez seguimos nuestros procesos y procedimientos estándar"
+        },
+        {
+          "t": "La mayoría de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos",
+          "z2": "Solo un subconjunto de nuestros procesos y procedimientos estándar está sujeto a ajustes periódicos",
+          "z3": "Una pequeña parte de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos"
+        },
+        {
+          "t": "La mayoría de nuestros procesos y procedimientos estándar están automatizados",
+          "z2": "Solo una parte de nuestros procesos y procedimientos estándar están automatizados",
+          "z3": "Una pequeña parte de nuestros procesos y procedimientos estándar están automatizados"
+        },
+        {
+          "t": "Nuestro trabajo en el desarrollo y lanzamiento de nuevos productos es efectivo",
+          "z2": "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos no es lo suficientemente eficaz",
+          "z3": "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos es ineficaz"
+        },
+        {
+          "t": "Adoptamos un enfoque sistemático para la capacitación y el desarrollo",
+          "z2": "Nuestro enfoque de capacitación y desarrollo no es lo suficientemente sistemático",
+          "z3": "No abordamos la capacitación y el desarrollo de forma sistemática"
+        },
+        {
+          "t": "Manejamos desafíos de contratación",
+          "z2": "No hacemos frente completamente a las tareas de contratación",
+          "z3": "Somos malos en las tareas de contratación"
+        },
+        {
+          "t": "No experimentamos escasez de personal calificado",
+          "z2": "A veces experimentamos escasez de personal cualificado",
+          "z3": "Estamos experimentando una escasez de personal calificado"
+        },
+        {
+          "t": "Conocemos el punto de equilibrio",
+          "z2": "Aproximadamente conocemos el punto de equilibrio",
+          "z3": "No conocemos el punto de equilibrio"
+        },
+        {
+          "t": "Hemos implementado un proceso de presupuestación y lo seguimos",
+          "z2": "Nuestro proceso de presupuestación no está completamente implementado",
+          "z3": "No tenemos un proceso de presupuestación implementado"
+        },
+        {
+          "t": "Hemos implementado una contabilidad de gestión y funciona",
+          "z2": "Hemos implementado parcialmente una contabilidad de gestión",
+          "z3": "No hemos implementado una contabilidad de gestión"
+        },
+        {
+          "t": "Las solicitudes de pago (a proveedores/contratistas) en la mayoría de los casos se pagan rápidamente/dentro de un plazo específico",
+          "z2": "Las solicitudes de pago (a proveedores/contratistas) no siempre se pagan rápidamente/dentro de un plazo específico",
+          "z3": "Las solicitudes de pago (a proveedores/contratistas) rara vez se pagan rápidamente/dentro de un plazo estipulado"
+        },
+        {
+          "t": "Tenemos un bajo nivel de rotación de personal clave",
+          "z2": "Tenemos un nivel medio de rotación de personal clave",
+          "z3": "Tenemos un alto nivel de rotación de personal clave"
+        },
+        {
+          "t": "Nuestros empleados recomiendan la empresa a sus amigos",
+          "z2": "No todos nuestros empleados recomiendan la empresa a sus amigos",
+          "z3": "Nuestros empleados no recomiendan la empresa a sus amigos"
+        },
+        {
+          "t": "Nuestra línea de productos está cambiando rápidamente",
+          "z2": "Nuestra línea de productos no está cambiando lo suficientemente rápido",
+          "z3": "Nuestra línea de productos está cambiando lentamente"
+        },
+        {
+          "t": "Los cambios en nuestra empresa no encuentran resistencia",
+          "z2": "Los cambios en nuestra empresa a veces encuentran resistencia",
+          "z3": "Los cambios en nuestra empresa a menudo encuentran resistencia"
+        },
+        {
+          "t": "Nuestro presupuesto de desarrollo ha estado creciendo durante los últimos tres años",
+          "z2": "Nuestro presupuesto de desarrollo ha crecido ligeramente durante los últimos tres años",
+          "z3": "Nuestro presupuesto de desarrollo no ha estado creciendo durante los últimos tres años"
+        },
+        {
+          "t": "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha ido creciendo en los últimos tres años",
+          "z2": "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha crecido ligeramente en los últimos tres años",
+          "z3": "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) no ha estado creciendo durante los últimos tres años"
+        },
+        {
+          "t": "Nuestras ganancias han estado creciendo durante los últimos tres años",
+          "z2": "Nuestras ganancias han crecido ligeramente en los últimos tres años",
+          "z3": "Nuestras ganancias no han crecido en los últimos tres años"
+        },
+        {
+          "t": "Nuestra rentabilidad ha estado creciendo durante los últimos tres años",
+          "z2": "Nuestra rentabilidad ha aumentado ligeramente en los últimos tres años",
+          "z3": "Nuestra rentabilidad no ha aumentado en los últimos tres años"
+        },
+        {
+          "t": "Nuestra participación de mercado ha estado creciendo durante los últimos tres años",
+          "z2": "Nuestra participación de mercado ha crecido poco en los últimos tres años",
+          "z3": "Nuestra participación de mercado no ha estado creciendo durante los últimos tres años"
+        },
+        {
+          "t": "Nuestro volumen de ventas ha estado creciendo durante los últimos tres años",
+          "z2": "Nuestro volumen de ventas ha crecido poco en los últimos tres años",
+          "z3": "Nuestro volumen de ventas no ha crecido en los últimos tres años"
+        },
+        {
+          "t": "Nuestros clientes nos recomiendan",
+          "z2": "Nuestros clientes no siempre nos recomiendan",
+          "z3": "Nuestros clientes raramente nos recomiendan"
+        }
+      ]
+    }
+  }
+}

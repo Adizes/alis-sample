@@ -64,3 +64,7 @@ npm test          # engine golden case + backend tests + Playwright desktop/mobi
 3. In Webflow, change the version in the script URL (`@v1.0.1`) and publish.
 4. If `apps-script/Code.gs` changed: paste it into Apps Script → Deploy → Manage deployments → ✏️ → New version
    (see `apps-script/README.md`).
+
+## Developer handoff
+
+`handoff/` documents both tests for re-implementation on another platform: logic, scoring, every text in every language (`handoff/data/*.json`), test vectors, sample reports and screens. Start with `handoff/README.md` or `handoff/Adizes-Assessments-Developer-Guide.pdf`. Regenerate with `node tools/export-handoff.mjs` and `node tools/sample-reports.mjs`.
