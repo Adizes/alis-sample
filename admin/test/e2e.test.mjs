@@ -55,6 +55,11 @@ let edLinks = [], esLinks = [];
   await p.waitForTimeout(150); await shot(p, 'admin-2-company-form');
   await p.click('.modal button[type="submit"]');
   await p.waitForSelector('[data-new-launch="ED"]'); await settle(p);
+  // no employees yet → the Engagement Survey can't be launched (needs 5 for anonymity)
+  await p.click('[data-new-launch="ES"]'); await p.waitForTimeout(150);
+  assert.match(await p.textContent('.modal'), /at least 5 active employees/);
+  assert.equal(await p.locator('.modal [name="name"]').count(), 0);
+  await shot(p, 'admin-3-es-needs-5'); await p.click('.modal [data-x]');
   await p.click('[data-act="new-emp"]'); await p.waitForTimeout(150); await shot(p, 'admin-3-employee-form'); await p.click('.modal [data-x]');
   await p.click('[data-act="import"]');
   await p.fill('.modal [name="rows"]', [
@@ -86,11 +91,13 @@ let edLinks = [], esLinks = [];
   await p.click('[data-new-launch="ES"]');
   await p.selectOption('.modal [name="language"]', 'en');
   await p.fill('.modal [name="name"]', 'Engagement 2026');
-  assert.equal(await p.getAttribute('.modal [data-min]', 'placeholder'), '5');
+  assert.equal(await p.isHidden('.modal [data-min]'), true, 'minimum responses does not apply to ES');
+  await p.waitForTimeout(150); await shot(p, 'admin-5-es-launch-form');
   await p.click('.modal button[type="submit"]');
   await p.waitForSelector('[data-act="open-send"]'); await settle(p);
   await p.click('[data-act="open-send"]'); await p.click('.modal button[type="submit"]');
   await p.waitForSelector('[data-act="remind"]'); await settle(p);
+  await shot(p, 'admin-5-es-open', true);
   esLinks = await p.$$eval('[data-copy]', bs => bs.map(b => b.getAttribute('data-copy')));
   assert.equal(esLinks.length, 8);
   assert.ok(esLinks.every(l => /engagement-survey\?t=/.test(l)));

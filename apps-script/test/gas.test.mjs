@@ -242,9 +242,17 @@ t('force finish (≥ minimum), reopen with a new date, close, delete only drafts
   s = admin('close', { launchId });
   assert.equal(s.launches[0].status, 'Closed');
   assert.equal(admin('deleteLaunch', { id: launchId }).error, 'only_drafts');
-  s = admin('saveLaunch', { companyId: company.id, type: 'ES', name: 'Borrador', language: 'es', employeeIds: [emp[0].id] });
-  assert.equal(s.launches.find(l => l.id === s.savedId).minResponses, 5, 'ES minimum is 5');
-  s = admin('deleteLaunch', { id: s.savedId });
+  // ES needs 5 active employees in the company (it has 4) and 5 participants
+  assert.equal(admin('saveLaunch', { companyId: company.id, type: 'ES', name: 'Borrador', language: 'es', employeeIds: emp.map(e => e.id) }).error, 'es_min_employees');
+  s = admin('saveEmployee', { companyId: company.id, name: 'Eva Soto', email: 'eva@nandu.mx', area: 'Ventas' });
+  const all = s.employees.map(e => e.id);
+  assert.equal(admin('saveLaunch', { companyId: company.id, type: 'ES', name: 'Borrador', language: 'es', employeeIds: all.slice(0, 4) }).error, 'es_min_participants');
+  s = admin('saveLaunch', { companyId: company.id, type: 'ES', name: 'Borrador', language: 'es', minResponses: 9, employeeIds: all });
+  const esId = s.savedId;
+  assert.equal(s.launches.find(l => l.id === esId).minResponses, 5, 'ES minimum is always 5 (the field does not apply)');
+  assert.equal(admin('saveLaunch', { id: esId, name: 'Borrador', language: 'es', minResponses: 2 }).launches.find(l => l.id === esId).minResponses, 5);
+  assert.equal(admin('setParticipants', { launchId: esId, employeeIds: all.slice(0, 3) }).error, 'es_min_participants');
+  s = admin('deleteLaunch', { id: esId });
   assert.equal(s.launches.length, 1);
   assert.equal(admin('saveLaunch', { companyId: company.id, type: 'XX', name: 'x' }).error, 'invalid_type');
   assert.equal(admin('saveLaunch', { companyId: company.id, type: 'ED', name: 'x', recipients: 'a@b.co, nope' }).error, 'invalid_recipients');
@@ -336,9 +344,12 @@ t('ES: answers validated (importance 1–15 "most important"), stored without na
   assert.ok(d.responses.some(r => r.comments[3] === "'=Better coffee please" || r.comments[3] === '=Better coffee please'));
 });
 
-t('ES: below 5 answers no report, even if everybody invited answered', () => {
-  const g = esWorld(4);
-  g.invites.forEach(i => g.post({ action: 'p_submit', t: tokenOf(i.link), answers: esAnswers(4), importance: esImp(1) }));
+t('ES: below 5 answers no report; a launch can never have fewer than 5 participants', () => {
+  const g = esWorld(6);
+  g.invites.slice(0, 4).forEach(i => g.post({ action: 'p_submit', t: tokenOf(i.link), answers: esAnswers(4), importance: esImp(1) }));
+  // removing pending people below 5 participants is refused (the 4 who answered always stay)
+  const ids = g.admin('state').invites.filter(i => i.status === 'Completed').map(i => i.employeeId);
+  assert.equal(g.admin('setParticipants', { launchId: g.launchId, employeeIds: ids }).error, 'es_min_participants');
   const s = g.admin('state');
   assert.equal(s.launches[0].done, 4); assert.equal(s.launches[0].status, 'Open');
   assert.equal(g.admin('reportData', { launchId: g.launchId }).error, 'below_minimum');

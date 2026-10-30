@@ -131,6 +131,9 @@ a { color: inherit; }
 .report { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; }
 .report > div { padding: 20px; }
 .report > div + div { border-left: 1px solid var(--line); }
+.report .rep-opt { margin: 0 0 14px; }
+.report .rep-opt .chk { display: flex; align-items: flex-start; line-height: 1.4; }
+.report .rep-opt .chk input { margin-top: 1px; flex: none; }
 .field { display: grid; gap: 6px; margin-bottom: 16px; align-content: start; min-width: 0; }
 .field label { font-size: 12.5px; font-weight: 600; color: var(--ink); }
 .field .hint, .hint { font-size: 12px; line-height: 1.45; color: var(--muted); }
@@ -169,6 +172,7 @@ a { color: inherit; }
 .types input { accent-color: var(--red); margin-top: 3px; flex: none; width: 16px; height: 16px; }
 .types b { display: block; font-size: 14px; }
 .types small { display: block; color: var(--muted); margin-top: 4px; font-size: 12px; line-height: 1.45; }
+.types label.is-off { cursor: not-allowed; opacity: .55; background: #fafafa; }
 .pick-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
 .pick-tools .input { flex: 1 1 240px; width: auto; }
 .pick .pick-n { display: grid; min-width: 0; }

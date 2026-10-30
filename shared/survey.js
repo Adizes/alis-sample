@@ -83,12 +83,25 @@ SP.progress = function () {
 };
 SP.frame = function (inner, opts) {
   opts = opts || {};
-  this.root.innerHTML =
-    '<div class="adz-stage">' +
-      '<div class="adz-top">' + this.logo() + (opts.right || '') + '</div>' +
-      (opts.progress ? this.progress() : '') +
-      '<div class="adz-body' + (opts.top ? ' is-top' : '') + '"><div class="adz-screen' + (opts.wide ? ' is-wide' : '') + (this.dir < 0 ? ' is-back' : '') + '">' + inner + '</div></div>' +
-    '</div>';
+  var right = opts.right || '', stage = this.root.firstChild;
+  // Build the stage once; afterwards only the progress bar and the screen are replaced,
+  // so the logo and the header never reload (no flash between questions).
+  if (!stage || !stage.classList || !stage.classList.contains('adz-stage') || stage.getAttribute('data-right') !== right) {
+    this.root.innerHTML = '<div class="adz-stage"><div class="adz-top">' + this.logo() + right + '</div>' +
+      '<div class="adz-progress-slot"></div><div class="adz-body"></div></div>';
+    stage = this.root.firstChild; stage.setAttribute('data-right', right);
+  }
+  var slot = stage.querySelector('.adz-progress-slot'), body = stage.querySelector('.adz-body');
+  if (opts.progress) {
+    var bar = slot.firstChild, fresh = this.progress();
+    var tmp = document.createElement('div'); tmp.innerHTML = fresh;
+    if (bar && bar.children.length === tmp.firstChild.children.length) {
+      // same sections: only move the fills, so they glide instead of being redrawn
+      Array.prototype.forEach.call(tmp.firstChild.querySelectorAll('i'), function (i, k) { bar.querySelectorAll('i')[k].style.width = i.style.width; });
+    } else slot.innerHTML = fresh;
+  } else slot.innerHTML = '';
+  body.className = 'adz-body' + (opts.top ? ' is-top' : '');
+  body.innerHTML = '<div class="adz-screen' + (opts.wide ? ' is-wide' : '') + (this.dir < 0 ? ' is-back' : '') + (opts.still ? ' is-still' : '') + '">' + inner + '</div>';
   this.scrollTop();
 };
 SP.scrollTop = function () {
@@ -151,8 +164,8 @@ SP.renderStep = function () {
     imp = '<div class="adz-imp"><div class="adz-imp-h"><b>' + esc(t.ui.importance) + '</b><span class="adz-imp-c' + (used >= sp.importance.max ? ' is-full' : '') + '">' +
       fill(esc(t.ui.mostCount), { n: used, max: sp.importance.max }) + '</span></div>' +
       '<div class="adz-seg" role="radiogroup">' + [1, 2, 3].map(function (k) {
-        return '<button type="button" role="radio" data-imp="' + k + '" aria-checked="' + (lv === k) + '"' + (k === 3 && full ? ' disabled title="' + esc(t.ui.mostFull) + '"' : '') + '>' + esc(t.ui.imp[k - 1]) + '</button>';
-      }).join('') + '</div>' + (full ? '<p class="adz-imp-note">' + esc(t.ui.mostFull) + '</p>' : '') + '</div>';
+        return '<button type="button" role="radio" data-imp="' + k + '" aria-checked="' + (lv === k) + '"' + (k === 3 && full ? ' disabled title="' + esc(t.ui.mostFull) + '"' : '') + '><i></i>' + esc(t.ui.imp[k - 1]) + '</button>';
+      }).join('') + '</div><p class="adz-imp-note"' + (full ? '' : ' hidden') + '>' + esc(t.ui.mostFull) + '</p></div>';
   }
   var com = '';
   if (sp.comments) {
@@ -163,7 +176,8 @@ SP.renderStep = function () {
   var canNext = !!cur;
   var navRight = this.reviewing
     ? '<button type="button" class="adz-btn" data-act="toreview"' + (canNext ? '' : ' disabled') + '>' + esc(t.review.back) + ' →</button>'
-    : (canNext ? '<button type="button" class="adz-btn' + (sp.autoAdvance && !sp.importance ? ' adz-btn--ghost' : '') + '" data-act="next">' + esc(t.ui.next) + ' →</button>' : '');
+    : '<button type="button" class="adz-btn' + (sp.autoAdvance && !sp.importance ? ' adz-btn--ghost' : '') + '" data-act="next"' + (canNext ? '' : ' disabled') +
+      (sp.autoAdvance && !sp.importance && !canNext ? ' hidden' : '') + '>' + esc(t.ui.next) + ' →</button>';
   var html =
     '<div class="adz-qhead"><div class="adz-eyebrow">' + esc(t.ui.section) + ' ' + (s.index + 1) + '/' + s.total + ' · ' + esc(t.cells[s.key]) + '</div>' +
     '<span class="adz-count">' + (q + 1) + ' ' + esc(t.ui.of) + ' ' + this.N + '</span></div>' +
@@ -205,14 +219,30 @@ SP.choose = function (v, btn) {
   } else {
     // keep the screen (importance / comment may follow) and just enable Next
     var nr = this.root.querySelector('[data-act="next"],[data-act="toreview"]');
-    if (nr) nr.disabled = false; else this.renderStepKeepScroll();
+    if (nr) { nr.disabled = false; nr.hidden = false; }
   }
 };
-SP.renderStepKeepScroll = function () { var y = window.pageYOffset; this.mounted = false; this.renderStep(); window.scrollTo(0, y); };
 SP.setImportance = function (k) {
   var q = this.state.step, max = this.spec.importance.max;
   if (k === 3 && this.state.importance[q] !== 3 && this.mostCount() >= max) return;
-  this.state.importance[q] = k; this.save(); this.renderStepKeepScroll();
+  this.state.importance[q] = k; this.save(); this.paintImportance();
+};
+// Updates the importance control in place (no re-render, no flash).
+SP.paintImportance = function () {
+  var t = this.t(), q = this.state.step, max = this.spec.importance.max, lv = this.state.importance[q];
+  var used = this.mostCount(), full = used >= max && lv !== 3, box = this.root.querySelector('.adz-imp');
+  if (!box) return;
+  box.querySelectorAll('[data-imp]').forEach(function (b) {
+    var k = Number(b.getAttribute('data-imp'));
+    b.setAttribute('aria-checked', String(lv === k));
+    b.disabled = k === 3 && full;
+    if (k === 3 && full) b.title = t.ui.mostFull; else b.removeAttribute('title');
+  });
+  var c = box.querySelector('.adz-imp-c');
+  c.textContent = fill(t.ui.mostCount, { n: used, max: max });
+  c.classList.toggle('is-full', used >= max);
+  var note = box.querySelector('.adz-imp-note');
+  note.textContent = t.ui.mostFull; note.hidden = !full;
 };
 SP.next = function () {
   if (this.state.step < this.N && !this.state.answers[this.state.step]) return;

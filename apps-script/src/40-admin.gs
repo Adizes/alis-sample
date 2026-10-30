@@ -229,19 +229,29 @@ function saveLaunch_(p) {
   if (p.id) {
     const cur = byId_(LAUNCHES, p.id);
     if (!cur) throw new Error('not_found');
-    const min = Math.max(CONFIG.MIN_RESPONSES[cur.rec['Type']], Math.floor(Number(p.minResponses) || 0));
-    row['Min Responses'] = min;
+    row['Min Responses'] = minFor_(cur.rec['Type'], p.minResponses);
     update_(LAUNCHES, p.id, row);
     if (cur.rec['Status'] === L_STATUS.OPEN) checkReady_(p.id);
     return p.id;
   }
   if (TESTS.indexOf(p.type) < 0) throw new Error('invalid_type');
   if (!byId_(COMPANIES, p.companyId)) throw new Error('company_not_found');
+  if (p.type === 'ES') {
+    // Anonymity: an Engagement Survey needs at least 5 active employees in the company and 5 participants.
+    const active = rows_(EMPLOYEES).filter(r => r['Company ID'] === p.companyId && r['Status'] !== 'Archived').length;
+    if (active < CONFIG.MIN_RESPONSES.ES) throw new Error('es_min_employees');
+    if (!p.employeeIds || p.employeeIds.length < CONFIG.MIN_RESPONSES.ES) throw new Error('es_min_participants');
+  }
   const id = newId_('L');
-  row['Min Responses'] = Math.max(CONFIG.MIN_RESPONSES[p.type], Math.floor(Number(p.minResponses) || 0));
+  row['Min Responses'] = minFor_(p.type, p.minResponses);
   appendRecord_(LAUNCHES, Object.assign({ 'ID': id, 'Company ID': p.companyId, 'Type': p.type, 'Status': L_STATUS.DRAFT, 'Created At': new Date() }, row));
   if (p.employeeIds) setParticipants_(id, p.employeeIds);
   return id;
+}
+// ED: at least 1, the admin may ask for more. ES: always exactly 5 (fixed by the anonymity rule).
+function minFor_(type, asked) {
+  if (type === 'ES') return CONFIG.MIN_RESPONSES.ES;
+  return Math.max(CONFIG.MIN_RESPONSES[type] || 1, Math.floor(Number(asked) || 0));
 }
 function deleteLaunch_(id) {
   const f = byId_(LAUNCHES, id);
@@ -257,6 +267,10 @@ function setParticipants_(launchId, employeeIds) {
   if (!l) throw new Error('not_found');
   if ([L_STATUS.DRAFT, L_STATUS.OPEN].indexOf(l.rec['Status']) < 0) throw new Error('launch_not_editable');
   const want = {}; employeeIds.forEach(id => want[id] = true);
+  if (l.rec['Type'] === 'ES') {
+    const kept = rows_(INVITES).filter(r => r['Launch ID'] === launchId && r['Status'] === I_STATUS.DONE && !want[r['Employee ID']]).length;
+    if (Object.keys(want).length + kept < CONFIG.MIN_RESPONSES.ES) throw new Error('es_min_participants');
+  }
   const emp = {}; rows_(EMPLOYEES).forEach(r => { if (r['Company ID'] === l.rec['Company ID']) emp[r['ID']] = r; });
   const have = {};
   rows_(INVITES).filter(r => r['Launch ID'] === launchId).forEach(r => {

@@ -121,6 +121,9 @@ a { color: inherit; }
 .report { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; }
 .report > div { padding: 20px; }
 .report > div + div { border-left: 1px solid var(--line); }
+.report .rep-opt { margin: 0 0 14px; }
+.report .rep-opt .chk { display: flex; align-items: flex-start; line-height: 1.4; }
+.report .rep-opt .chk input { margin-top: 1px; flex: none; }
 .field { display: grid; gap: 6px; margin-bottom: 16px; align-content: start; min-width: 0; }
 .field label { font-size: 12.5px; font-weight: 600; color: var(--ink); }
 .field .hint, .hint { font-size: 12px; line-height: 1.45; color: var(--muted); }
@@ -157,6 +160,7 @@ a { color: inherit; }
 .types input { accent-color: var(--red); margin-top: 3px; flex: none; width: 16px; height: 16px; }
 .types b { display: block; font-size: 14px; }
 .types small { display: block; color: var(--muted); margin-top: 4px; font-size: 12px; line-height: 1.45; }
+.types label.is-off { cursor: not-allowed; opacity: .55; background: #fafafa; }
 .pick-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
 .pick-tools .input { flex: 1 1 240px; width: auto; }
 .pick .pick-n { display: grid; min-width: 0; }
@@ -216,9 +220,9 @@ a { color: inherit; }
 <div id="toast" class="adm-toast" role="status" aria-live="polite"></div>
 <script>
   window.ADM_CONFIG = {
-    version: '1.1.0',
+    version: '1.2.0',
     autoSession: '__AUTO_SESSION__',
-    assetsBase: 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@v1.1.0/shared/assets/'
+    assetsBase: 'https://cdn.jsdelivr.net/gh/Adizes/alis-sample@v1.2.0/shared/assets/'
   };
 </script>
 <script>(function(){
@@ -1948,6 +1952,8 @@ var ERR = {
   no_participants: 'Add at least one participant.', not_draft: 'This launch is no longer a draft.', not_open: 'This launch isn’t open.',
   no_report: 'Generate the report first.', no_recipients: 'Add at least one recipient.', only_drafts: 'Only drafts can be deleted.', not_ready: 'Open the launch first.',
   launch_not_editable: 'Participants can’t be changed in this launch anymore.', company_not_found: 'Company not found.', not_found: 'Record not found.',
+  es_min_employees: 'The Engagement Survey needs at least 5 active employees in the company (minimum for anonymity).',
+  es_min_participants: 'The Engagement Survey needs at least 5 participants (minimum for anonymity).',
   not_setup: 'Run setup() in Apps Script first.', not_reopenable: 'This launch can’t be reopened.', invalid_type: 'Invalid test type.',
 };
 
@@ -2318,25 +2324,42 @@ function bindPicker(form) {
 function picked(form) { return Array.prototype.filter.call(form.querySelectorAll('input[name="emp"]'), function (b) { return b.checked; }).map(function (b) { return b.value; }); }
 
 function launchForm(cid, l, type) {
-  var c = company(cid), isNew = !l;
+  var c = company(cid), isNew = !l, nEmp = employeesOf(cid).length, esOk = nEmp >= S.min.ES;
+  if (isNew && type === 'ES' && !esOk) {
+    modal({ title: 'New Engagement Survey · ' + c.name, ok: null,
+      body: '<div class="notice">The Engagement Survey is anonymous, so it needs at least <b>' + S.min.ES + ' active employees</b> in the company. ' +
+        h(c.name) + ' has ' + nEmp + '. Add ' + (S.min.ES - nEmp) + ' more first.</div>' });
+    return;
+  }
+  if (isNew && type !== 'ES' && type !== 'ED') type = 'ED';
   l = l || { type: type || 'ED', language: c.language || 'en', recipients: c.contactEmail || '' };
   var sel0 = {}; if (isNew) employeesOf(cid).forEach(function (e) { sel0[e.id] = true; });
   var typeHtml = isNew ? field('Test', '<div class="types">' + ['ED', 'ES'].map(function (t) {
-    return '<label><input type="radio" name="type" value="' + t + '"' + (l.type === t ? ' checked' : '') + '><span><b>' + typeTag(t) + ' ' + TYPES[t] + '</b><small>' + TYPE_INFO[t] + '</small></span></label>';
+    var off = t === 'ES' && !esOk;
+    return '<label' + (off ? ' class="is-off"' : '') + '><input type="radio" name="type" value="' + t + '"' + (l.type === t ? ' checked' : '') + (off ? ' disabled' : '') + '><span><b>' + typeTag(t) + ' ' + TYPES[t] + '</b><small>' +
+      (off ? 'Needs at least ' + S.min.ES + ' active employees (this company has ' + nEmp + ')' : TYPE_INFO[t]) + '</small></span></label>';
   }).join('') + '</div>') : '';
   modal({
     title: isNew ? 'New launch · ' + c.name : 'Edit launch · ' + l.name, ok: isNew ? 'Create draft' : 'Save changes', wide: true,
     body: typeHtml + field('Launch name', inp('name', l.name, 'text', 'e.g. Leadership team · Nov 2026')) +
-      grid('3', field('Language', sel('language', l.language, LANGS)) + field('Closing date (optional)', inp('closeDate', l.closeDate, 'date')) +
-        field('Minimum responses', inp('minResponses', l.minResponses || '', 'number', '', ' min="1" step="1" data-min'))) +
-      '<p class="hint hint-row">Everything participants see — invitation emails, the survey and the report — uses this language. When the closing date passes with the minimum reached, the launch becomes Ready.</p>' +
+      '<div class="fgrid fgrid-3" data-lgrid>' + field('Language', sel('language', l.language, LANGS)) + field('Closing date (optional)', inp('closeDate', l.closeDate, 'date')) +
+        field('Minimum responses', inp('minResponses', l.minResponses || '', 'number', '', ' min="1" step="1" data-min'), '', 'is-min') + '</div>' +
+      '<p class="hint hint-row" data-lhint></p>' +
       field('Report recipients', inp('recipients', l.recipients, 'text', 'name@company.com, other@company.com'), 'Separate several emails with commas. You can change them before sending.') +
       field('Internal notes', '<textarea class="textarea" name="notes" rows="2" placeholder="Only visible here (optional)">' + h(l.notes || '') + '</textarea>') +
       (isNew ? field('Participants', pickerHtml(cid, sel0, {})) : ''),
     onOpen: function (form) {
       if (isNew) bindPicker(form);
-      var minEl = form.querySelector('[data-min]');
-      function upd() { var t = (vals(form).type || l.type); minEl.placeholder = String(S.min[t] || 1); minEl.min = String(S.min[t] || 1); }
+      var minEl = form.querySelector('[data-min]'), g = form.querySelector('[data-lgrid]'), hint = form.querySelector('[data-lhint]');
+      function upd() {
+        var t = (vals(form).type || l.type), es = t === 'ES';
+        minEl.placeholder = String(S.min[t] || 1); minEl.min = String(S.min[t] || 1);
+        // The Engagement Survey always needs exactly 5 answers (anonymity), so the field doesn't apply.
+        minEl.closest('.field').hidden = es; g.className = 'fgrid fgrid-' + (es ? '2' : '3');
+        hint.textContent = 'Everything participants see — invitation emails, the survey and the report — uses this language. ' +
+          (es ? 'The report needs at least ' + S.min.ES + ' answers (fixed, to keep answers anonymous). ' : '') +
+          'When the closing date passes with the minimum reached, the launch becomes Ready.';
+      }
       form.querySelectorAll('input[name="type"]').forEach(function (r) { r.addEventListener('change', upd); });
       upd();
     },
@@ -2344,6 +2367,7 @@ function launchForm(cid, l, type) {
       var v = vals(form);
       if (!v.name) return ERR.name_required;
       var p = { id: l.id, companyId: cid, type: v.type || l.type, name: v.name, language: v.language, closeDate: v.closeDate, minResponses: v.minResponses, recipients: v.recipients, notes: v.notes };
+      if (p.type === 'ES') delete p.minResponses;
       if (isNew) { p.employeeIds = picked(form); if (!p.employeeIds.length) return ERR.no_participants; }
       if (isNew && p.type === 'ES' && p.employeeIds.length < S.min.ES) return 'The Engagement Survey needs at least ' + S.min.ES + ' participants (minimum for anonymity).';
       return run('saveLaunch', p, isNew ? 'Draft created' : 'Launch updated').then(function (r) { if (isNew && r.savedId) go('#/launch/' + r.savedId); });
@@ -2360,6 +2384,7 @@ function participantsForm(l) {
     onOk: function (form) {
       var ids = picked(form).concat(Object.keys(locked).filter(function (id) { return picked(form).indexOf(id) < 0; }));
       if (!ids.length) return ERR.no_participants;
+      if (l.type === 'ES' && ids.length < S.min.ES) return ERR.es_min_participants;
       return run('setParticipants', { launchId: l.id, employeeIds: ids }, 'Participants updated');
     },
   });
@@ -2405,9 +2430,9 @@ function renderLaunch(lid) {
       '<div><div class="adm-eyebrow">1 · Generate</div>' +
       (canReport ? '<p class="small muted" style="margin:6px 0 12px">Built in your browser from the ' + l.done + ' current response(s), in ' + h(LANGS[l.language] || l.language) + ', and saved to Drive.</p>'
         : '<p class="small muted" style="margin:6px 0 12px">Available once the minimum of ' + l.minResponses + ' response(s) is reached. Now: ' + l.done + '.</p>') +
-      (l.type === 'ES' ? '<label class="chk" style="margin-bottom:12px"><input type="checkbox" data-comments checked> Include participants’ comments</label>' : '') +
+      (l.type === 'ES' ? '<div class="rep-opt"><label class="chk"><input type="checkbox" data-comments checked> Include participants’ comments</label></div>' : '') +
       (l.reportUrl ? '<div class="pdf-ok"><i></i><div><a href="' + h(l.reportUrl) + '" target="_blank" rel="noopener" class="strong">Open PDF in Drive</a><div class="small muted">Generated ' + h(fdate(l.reportGeneratedAt, true)) + '</div></div></div>' : '') +
-      '<button class="btn ' + (l.reportUrl ? 'btn-line' : 'btn-dark') + '" data-act="generate"' + (canReport ? '' : ' disabled') + '>' + (l.reportUrl ? 'Generate again' : 'Generate report') + '</button></div>' +
+      '<div class="adm-btns"><button class="btn ' + (l.reportUrl ? 'btn-line' : 'btn-dark') + '" data-act="generate"' + (canReport ? '' : ' disabled') + '>' + (l.reportUrl ? 'Generate again' : 'Generate report') + '</button></div></div>' +
       '<div><div class="adm-eyebrow">2 · Send</div>' +
       '<form data-send-form style="margin-top:10px">' + field('To', inp('to', l.recipients || c.contactEmail || '', 'text', 'name@company.com, other@company.com'), 'Separate several emails with commas.') +
       field('Message (optional)', '<textarea class="textarea" name="note" rows="3" placeholder="Added to the email with the PDF attached."></textarea>') +
