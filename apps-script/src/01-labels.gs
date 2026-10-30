@@ -1,0 +1,185 @@
+/* Texts sent by the server (invitations, reminders, report email) per language.
+ * GENERATED from the translations workbook (tools/translations.py). Edit the workbook, not this file.
+ * {placeholders} are filled by the server. Internal notices to admins are in Spanish (50-mail.gs). */
+const LABELS = {
+  en: {
+    langName: "English",
+    months: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    dateFormat: "{month} {d}, {y}",
+    tests: {
+      ED: "Express Diagnostics",
+      ES: "Engagement Survey"
+    },
+    invite: {
+      subject: "{company}: {test}",
+      reminderSubject: "Reminder — {company}: {test}",
+      hi: "Hi {first},",
+      body: "{company} has invited you to take part in the {test}, conducted together with the Adizes Institute. It takes about 10 minutes.",
+      reminder: "This is a friendly reminder: your answers to the {test} for {company} are still pending.",
+      privacy: {
+        ED: "Your answers are combined with those of the other participants in a group report for {company}.",
+        ES: "The survey is anonymous: {company} only receives aggregated results, never individual answers."
+      },
+      deadline: "Please complete it by {date}.",
+      cta: "Start",
+      personal: "This link is personal. Please do not share it.",
+      sign: "The Adizes Institute team",
+      footer: "You received this email because {company} invited you to participate."
+    },
+    report: {
+      subject: "{test} report — {company}",
+      hi: "Hello,",
+      body: "Attached is the {test} report for {company} ({launch}), based on {n} responses.",
+      sign: "The Adizes Institute team",
+      footer: "Adizes Institute · www.adizes.com"
+    }
+  },
+  es: {
+    langName: "Español",
+    months: [
+      "enero",
+      "febrero",
+      "marzo",
+      "abril",
+      "mayo",
+      "junio",
+      "julio",
+      "agosto",
+      "septiembre",
+      "octubre",
+      "noviembre",
+      "diciembre"
+    ],
+    dateFormat: "{d} de {month} de {y}",
+    tests: {
+      ED: "Diagnóstico Exprés",
+      ES: "Encuesta de Compromiso"
+    },
+    invite: {
+      subject: "{company}: {test}",
+      reminderSubject: "Recordatorio — {company}: {test}",
+      hi: "Hola, {first}:",
+      body: "{company} te invita a participar en el {test}, que realiza junto con el Instituto Adizes. Toma alrededor de 10 minutos.",
+      reminder: "Te recordamos que tus respuestas al {test} de {company} siguen pendientes.",
+      privacy: {
+        ED: "Tus respuestas se combinan con las de los demás participantes en un reporte grupal para {company}.",
+        ES: "La encuesta es anónima: {company} solo recibe resultados agregados, nunca respuestas individuales."
+      },
+      deadline: "Por favor respóndela antes del {date}.",
+      cta: "Comenzar",
+      personal: "Este enlace es personal. Por favor no lo compartas.",
+      sign: "El equipo del Instituto Adizes",
+      footer: "Recibiste este correo porque {company} te invitó a participar."
+    },
+    report: {
+      subject: "Reporte de {test} — {company}",
+      hi: "Hola:",
+      body: "Adjuntamos el reporte de {test} de {company} ({launch}), con base en {n} respuestas.",
+      sign: "El equipo del Instituto Adizes",
+      footer: "Instituto Adizes · www.adizes.com"
+    }
+  },
+  lv: {
+    langName: "Latviešu",
+    months: [
+      "janvāris",
+      "februāris",
+      "marts",
+      "aprīlis",
+      "maijs",
+      "jūnijs",
+      "jūlijs",
+      "augusts",
+      "septembris",
+      "oktobris",
+      "novembris",
+      "decembris"
+    ],
+    dateFormat: "{y}. gada {d}. {month}",
+    tests: {
+      ED: "Ekspresdiagnostika",
+      ES: "Iesaistes aptauja"
+    },
+    invite: {
+      subject: "{company}: {test}",
+      reminderSubject: "Atgādinājums — {company}: {test}",
+      hi: "Labdien, {first}!",
+      body: "{company} aicina jūs piedalīties aptaujā “{test}”, ko uzņēmums veic kopā ar Adizes institūtu. Tas aizņems apmēram 10 minūtes.",
+      reminder: "Laipni atgādinām, ka jūsu atbildes aptaujā “{test}” ({company}) vēl nav saņemtas.",
+      privacy: {
+        ED: "Jūsu atbildes tiks apvienotas ar pārējo dalībnieku atbildēm grupas atskaitē, ko saņems {company}.",
+        ES: "Aptauja ir anonīma: {company} saņem tikai apkopotus rezultātus, nekad — individuālas atbildes."
+      },
+      deadline: "Termiņš: {date}.",
+      cta: "Sākt",
+      personal: "Šī saite ir personīga. Lūdzu, nepārsūtiet to citiem.",
+      sign: "Adizes institūta komanda",
+      footer: "Jūs saņēmāt šo e-pastu, jo {company} jūs uzaicināja piedalīties."
+    },
+    report: {
+      subject: "Atskaite: {test} — {company}",
+      hi: "Labdien!",
+      body: "Pielikumā — atskaite “{test}” uzņēmumam {company} ({launch}). Atbilžu skaits: {n}.",
+      sign: "Adizes institūta komanda",
+      footer: "Adizes institūts · www.adizes.com"
+    }
+  },
+  lt: {
+    langName: "Lietuvių",
+    months: [
+      "sausio",
+      "vasario",
+      "kovo",
+      "balandžio",
+      "gegužės",
+      "birželio",
+      "liepos",
+      "rugpjūčio",
+      "rugsėjo",
+      "spalio",
+      "lapkričio",
+      "gruodžio"
+    ],
+    dateFormat: "{y} m. {month} {d} d.",
+    tests: {
+      ED: "Ekspresinė diagnostika",
+      ES: "Įsitraukimo apklausa"
+    },
+    invite: {
+      subject: "{company}: {test}",
+      reminderSubject: "Priminimas — {company}: {test}",
+      hi: "Sveiki, {first},",
+      body: "{company} kviečia jus dalyvauti apklausoje „{test}“, kurią atlieka kartu su Adizes institutu. Tai užtruks apie 10 minučių.",
+      reminder: "Maloniai primename, kad dar laukiame jūsų atsakymų į apklausą „{test}“ ({company}).",
+      privacy: {
+        ED: "Jūsų atsakymai bus sujungti su kitų dalyvių atsakymais į grupės ataskaitą, kurią gaus {company}.",
+        ES: "Apklausa anoniminė: {company} gauna tik apibendrintus rezultatus, niekada — atskirų žmonių atsakymų."
+      },
+      deadline: "Terminas: {date}",
+      cta: "Pradėti",
+      personal: "Ši nuoroda asmeninė. Prašome jos niekam neperduoti.",
+      sign: "Adizes instituto komanda",
+      footer: "Šį laišką gavote, nes {company} pakvietė jus dalyvauti."
+    },
+    report: {
+      subject: "Ataskaita: {test} — {company}",
+      hi: "Sveiki,",
+      body: "Pridedame įmonės {company} ataskaitą „{test}“ ({launch}). Atsakymų skaičius: {n}.",
+      sign: "Adizes instituto komanda",
+      footer: "Adizes institutas · www.adizes.com"
+    }
+  }
+};

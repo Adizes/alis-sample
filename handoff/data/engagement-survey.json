@@ -1,7 +1,7 @@
 {
   "test": "Engagement Survey",
   "code": "ES",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "model": {
     "questionCount": 50,
     "scales": {
@@ -127,7 +127,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "Our leaders follow the values declared in the Organization",
-        "es": "Nuestros líderes siguen los valores declarados en la empresa"
+        "es": "Nuestros líderes siguen los valores declarados en la empresa",
+        "lt": "Mūsų vadovai laikosi organizacijoje deklaruojamų vertybių",
+        "lv": "Uzņēmuma vadītāji ievēro tajā deklarētās vērtības"
       },
       "options": {
         "en": [
@@ -181,6 +183,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -195,7 +251,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "Our Organization fully fulfils its obligations to employees",
-        "es": "Nuestra empresa cumple plenamente sus obligaciones con los empleados"
+        "es": "Nuestra empresa cumple plenamente sus obligaciones con los empleados",
+        "lt": "Mūsų organizacija visiškai vykdo savo įsipareigojimus darbuotojams",
+        "lv": "Mūsu uzņēmums pilnībā pilda savas saistības pret darbiniekiem"
       },
       "options": {
         "en": [
@@ -249,6 +307,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -263,7 +375,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "The Organization values and supports new ideas",
-        "es": "La empresa valora y apoya nuevas ideas"
+        "es": "La empresa valora y apoya nuevas ideas",
+        "lt": "Organizacija vertina ir palaiko naujas idėjas",
+        "lv": "Uzņēmums novērtē un atbalsta jaunas idejas"
       },
       "options": {
         "en": [
@@ -317,6 +431,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -331,7 +499,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I feel comfortable with the atmosphere in the Organization",
-        "es": "Me siento cómodo con el ambiente de la empresa"
+        "es": "Me siento cómodo con el ambiente de la empresa",
+        "lt": "Man gera organizacijoje vyraujančioje atmosferoje",
+        "lv": "Es jūtos labi uzņēmumā valdošajā atmosfērā"
       },
       "options": {
         "en": [
@@ -385,6 +555,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -399,7 +623,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "We have an “every man for himself” culture",
-        "es": "Tenemos una cultura de “cada quien por su lado”"
+        "es": "Tenemos una cultura de “cada quien por su lado”",
+        "lt": "Pas mus galioja principas „kiekvienas už save“",
+        "lv": "Pie mums uzņēmumā katrs ir pats par sevi"
       },
       "options": {
         "en": [
@@ -453,6 +679,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 5,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 2,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 5,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 2,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -467,7 +747,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I am praised and appreciated when I do good work",
-        "es": "Soy elogiado y apreciado cuando hago un buen trabajo"
+        "es": "Soy elogiado y apreciado cuando hago un buen trabajo",
+        "lt": "Už gerai atliktą darbą sulaukiu padėkos ir įvertinimo",
+        "lv": "Par labi padarītu darbu es saņemu pateicību un novērtējumu"
       },
       "options": {
         "en": [
@@ -521,6 +803,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -535,7 +871,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "We respect each other",
-        "es": "Nos respetamos entre todos"
+        "es": "Nos respetamos entre todos",
+        "lt": "Mes gerbiame vieni kitus",
+        "lv": "Mēs cienām viens otru"
       },
       "options": {
         "en": [
@@ -589,6 +927,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -603,7 +995,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "The behavior shown by the supervisors in our organization contributes to a healthy working environment, the achievement of goals and the development of the organization",
-        "es": "El comportamiento mostrado por los supervisores en nuestra organización contribuye a un ambiente de trabajo saludable, el logro de objetivos y el desarrollo de la organización"
+        "es": "El comportamiento mostrado por los supervisores en nuestra organización contribuye a un ambiente de trabajo saludable, el logro de objetivos y el desarrollo de la organización",
+        "lt": "Mūsų organizacijos vadovų elgesys padeda kurti sveiką darbo aplinką, siekti tikslų ir plėtoti organizaciją",
+        "lv": "Mūsu uzņēmuma vadītāju uzvedība veicina veselīgu darba vidi, mērķu sasniegšanu un uzņēmuma attīstību"
       },
       "options": {
         "en": [
@@ -657,6 +1051,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -671,7 +1119,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I clearly understand my work tasks and understand my role in the activities of my department",
-        "es": "Entiendo claramente mis tareas laborales y entiendo mi papel en las actividades de mi departamento"
+        "es": "Entiendo claramente mis tareas laborales y entiendo mi papel en las actividades de mi departamento",
+        "lt": "Aiškiai suprantu savo darbo užduotis ir savo vaidmenį skyriaus veikloje",
+        "lv": "Es skaidri saprotu savus darba uzdevumus un savu lomu nodaļas darbā"
       },
       "options": {
         "en": [
@@ -725,6 +1175,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -739,7 +1243,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I understand what should guide me in carrying out my work: policies, regulations, rules, professional standards, etc",
-        "es": "Entiendo lo que debería guiarme en la realización de mi trabajo: políticas, reglamentos, normas, estándares profesionales, etc"
+        "es": "Entiendo lo que debería guiarme en la realización de mi trabajo: políticas, reglamentos, normas, estándares profesionales, etc",
+        "lt": "Suprantu, kuo turiu vadovautis atlikdamas savo darbą: politikomis, reglamentais, taisyklėmis, profesiniais standartais ir pan.",
+        "lv": "Man ir saprotams, kādas procedūras, noteikumi, politikas, profesionālie standarti u. tml. regulē manu darbu"
       },
       "options": {
         "en": [
@@ -793,6 +1299,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -807,7 +1367,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I know who I can go to with questions",
-        "es": "Sé a quién puedo acudir con preguntas"
+        "es": "Sé a quién puedo acudir con preguntas",
+        "lt": "Žinau, į ką galiu kreiptis su klausimais",
+        "lv": "Es zinu, pie kā vērsties ar jautājumiem"
       },
       "options": {
         "en": [
@@ -861,6 +1423,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -875,7 +1491,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I understand what decisions I have the right to make",
-        "es": "Entiendo qué decisiones tengo derecho a tomar"
+        "es": "Entiendo qué decisiones tengo derecho a tomar",
+        "lt": "Suprantu, kokius sprendimus turiu teisę priimti",
+        "lv": "Es saprotu, kādus lēmumus man ir tiesības pieņemt"
       },
       "options": {
         "en": [
@@ -929,6 +1547,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -943,7 +1615,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "Decision-making on issues that affect me takes place in a timely and predictable way",
-        "es": "La toma de decisiones sobre asuntos que me afectan se realiza de manera oportuna y predecible"
+        "es": "La toma de decisiones sobre asuntos que me afectan se realiza de manera oportuna y predecible",
+        "lt": "Sprendimai klausimais, kurie liečia mane, priimami laiku ir nuspėjamai",
+        "lv": "Lēmumi jautājumos, kas skar mani, tiek pieņemti laikus un paredzamā veidā"
       },
       "options": {
         "en": [
@@ -997,6 +1671,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1011,7 +1739,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I have enough authority to be responsible for the results of my work",
-        "es": "Tengo suficiente autoridad para ser responsable de los resultados de mi trabajo"
+        "es": "Tengo suficiente autoridad para ser responsable de los resultados de mi trabajo",
+        "lt": "Turiu pakankamai įgaliojimų, kad galėčiau atsakyti už savo darbo rezultatus",
+        "lv": "Man ir pietiekamas pilnvaras, lai uzņemtos atbildību par sava darba rezultātiem"
       },
       "options": {
         "en": [
@@ -1065,6 +1795,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1079,7 +1863,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I believe that the level of income that I get in the Organization is competitive",
-        "es": "Creo que el nivel de ingresos que obtengo en la empresa es competitivo"
+        "es": "Creo que el nivel de ingresos que obtengo en la empresa es competitivo",
+        "lt": "Manau, kad pajamos, kurias gaunu organizacijoje, yra konkurencingos",
+        "lv": "Mans atalgojuma līmenis uzņēmumā ir konkurētspējīgs"
       },
       "options": {
         "en": [
@@ -1133,6 +1919,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1147,7 +1987,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I understand what the variable part of my income depends on",
-        "es": "Entiendo de qué depende la parte variable de mis ingresos"
+        "es": "Entiendo de qué depende la parte variable de mis ingresos",
+        "lt": "Suprantu, nuo ko priklauso kintamoji mano pajamų dalis",
+        "lv": "Es saprotu, no kā ir atkarīga mana ienākumu mainīgā daļa"
       },
       "options": {
         "en": [
@@ -1201,6 +2043,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1215,7 +2111,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I believe that I am able to influence both my fixed and variable income to a rather high degree",
-        "es": "Creo que soy capaz de influir en mis ingresos fijos y variables en un grado bastante alto"
+        "es": "Creo que soy capaz de influir en mis ingresos fijos y variables en un grado bastante alto",
+        "lt": "Manau, kad galiu gana stipriai paveikti tiek pastoviąją, tiek kintamąją savo pajamų dalį",
+        "lv": "Es uzskatu, ka varu diezgan lielā mērā ietekmēt gan fiksēto, gan mainīgo ienākumu daļu"
       },
       "options": {
         "en": [
@@ -1269,6 +2167,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1283,7 +2235,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My benefits package is competitive in the market",
-        "es": "Mi paquete de beneficios es competitivo en el mercado"
+        "es": "Mi paquete de beneficios es competitivo en el mercado",
+        "lt": "Mano socialinių naudų paketas konkurencingas rinkoje",
+        "lv": "Mana sociālā pakete ir konkurētspējīga tirgū"
       },
       "options": {
         "en": [
@@ -1337,6 +2291,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1351,7 +2359,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I can discuss personal issues with my supervisor",
-        "es": "Puedo discutir asuntos personales con mi supervisor"
+        "es": "Puedo discutir asuntos personales con mi supervisor",
+        "lt": "Su savo vadovu galiu aptarti asmeninius klausimus",
+        "lv": "Es varu pārrunāt personiskus jautājumus ar savu vadītāju"
       },
       "options": {
         "en": [
@@ -1405,6 +2415,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1419,7 +2483,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My supervisor treats me as an individual",
-        "es": "Mi supervisor me trata como un individuo"
+        "es": "Mi supervisor me trata como un individuo",
+        "lt": "Mano vadovas elgiasi su manimi kaip su asmenybe",
+        "lv": "Mans vadītājs izturas pret mani kā pret personību"
       },
       "options": {
         "en": [
@@ -1473,6 +2539,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1487,7 +2607,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My supervisor encourages my professional development",
-        "es": "Mi supervisor fomenta mi desarrollo profesional"
+        "es": "Mi supervisor fomenta mi desarrollo profesional",
+        "lt": "Mano vadovas skatina mano profesinį tobulėjimą",
+        "lv": "Mans vadītājs veicina manu profesionālo izaugsmi"
       },
       "options": {
         "en": [
@@ -1541,6 +2663,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1555,7 +2731,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My supervisor talks to me about my progress on a regular basis",
-        "es": "Mi supervisor me habla regularmente sobre mi progreso"
+        "es": "Mi supervisor me habla regularmente sobre mi progreso",
+        "lt": "Mano vadovas reguliariai kalbasi su manimi apie mano pažangą",
+        "lv": "Mans vadītājs regulāri runā ar mani par manu progresu"
       },
       "options": {
         "en": [
@@ -1609,6 +2787,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1623,7 +2855,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My supervisor gives quality and motivating feedback - I always know what he thinks about me and my work",
-        "es": "Mi supervisor ofrece comentarios motivadores y de calidad: siempre sé lo que piensa sobre mí y mi trabajo"
+        "es": "Mi supervisor ofrece comentarios motivadores y de calidad: siempre sé lo que piensa sobre mí y mi trabajo",
+        "lt": "Mano vadovas teikia kokybišką ir motyvuojantį grįžtamąjį ryšį — visada žinau, ką jis mano apie mane ir mano darbą",
+        "lv": "Mans vadītājs sniedz kvalitatīvu un motivējošu atgriezenisko saiti — es vienmēr zinu, ko viņš domā par mani un manu darbu"
       },
       "options": {
         "en": [
@@ -1677,6 +2911,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1691,7 +2979,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "The tasks that the supervisor sets for me are clear and realistic",
-        "es": "Las tareas que el supervisor establece para mí son claras y realistas"
+        "es": "Las tareas que el supervisor establece para mí son claras y realistas",
+        "lt": "Vadovo man skiriamos užduotys yra aiškios ir įgyvendinamos",
+        "lv": "Uzdevumi, ko man uzdod mans vadītājs, ir skaidri un izpildāmi"
       },
       "options": {
         "en": [
@@ -1745,6 +3035,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1759,7 +3103,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I feel comfortable asking clarifying questions to my supervisor",
-        "es": "Me siento cómodo haciendo preguntas aclaratorias a mi supervisor"
+        "es": "Me siento cómodo haciendo preguntas aclaratorias a mi supervisor",
+        "lt": "Nesivaržau užduoti savo vadovui patikslinančių klausimų",
+        "lv": "Es varu droši uzdot savam vadītājam precizējošus jautājumus"
       },
       "options": {
         "en": [
@@ -1813,6 +3159,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1827,7 +3227,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I believe that the decisions made by my supervisor are correct and useful to the Organization",
-        "es": "Creo que las decisiones tomadas por mi supervisor son correctas y útiles para la empresa"
+        "es": "Creo que las decisiones tomadas por mi supervisor son correctas y útiles para la empresa",
+        "lt": "Manau, kad mano vadovo priimami sprendimai yra teisingi ir naudingi organizacijai",
+        "lv": "Es uzskatu, ka mana vadītāja pieņemtie lēmumi ir pareizi un noderīgi uzņēmumam"
       },
       "options": {
         "en": [
@@ -1881,6 +3283,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1895,7 +3351,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My supervisor carefully listens to me and takes into account my point of view",
-        "es": "Mi supervisor me escucha atentamente y toma en cuenta mi punto de vista"
+        "es": "Mi supervisor me escucha atentamente y toma en cuenta mi punto de vista",
+        "lt": "Mano vadovas atidžiai mane išklauso ir atsižvelgia į mano nuomonę",
+        "lv": "Mans vadītājs uzmanīgi uzklausa mani un ņem vērā manu viedokli"
       },
       "options": {
         "en": [
@@ -1949,6 +3407,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -1963,7 +3475,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I know and understand the long-term goals of the Organization",
-        "es": "Conozco y entiendo los objetivos a largo plazo de la empresa"
+        "es": "Conozco y entiendo los objetivos a largo plazo de la empresa",
+        "lt": "Žinau ir suprantu ilgalaikius organizacijos tikslus",
+        "lv": "Es zinu un saprotu uzņēmuma ilgtermiņa mērķus"
       },
       "options": {
         "en": [
@@ -2017,6 +3531,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2031,7 +3599,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I am inspired by the goals of our Organization. We are engaged in important and useful work",
-        "es": "Me inspiran los objetivos de nuestra empresa. Estamos comprometidos en un trabajo importante y útil"
+        "es": "Me inspiran los objetivos de nuestra empresa. Estamos comprometidos en un trabajo importante y útil",
+        "lt": "Mane įkvepia mūsų organizacijos tikslai. Mes dirbame svarbų ir naudingą darbą",
+        "lv": "Mani iedvesmo mūsu uzņēmuma mērķi. Mēs darām svarīgu un noderīgu darbu"
       },
       "options": {
         "en": [
@@ -2085,6 +3655,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2099,7 +3723,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I understand how the results of my work affect the overall result of the Organization",
-        "es": "Entiendo cómo los resultados de mi trabajo afectan el resultado general de la empresa"
+        "es": "Entiendo cómo los resultados de mi trabajo afectan el resultado general de la empresa",
+        "lt": "Suprantu, kaip mano darbo rezultatai veikia bendrą organizacijos rezultatą",
+        "lv": "Es saprotu, kā mana darba rezultāti ietekmē uzņēmuma kopējos rezultātus"
       },
       "options": {
         "en": [
@@ -2153,6 +3779,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2167,7 +3847,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I have the opportunity to be heard",
-        "es": "Tengo la oportunidad de ser escuchado"
+        "es": "Tengo la oportunidad de ser escuchado",
+        "lt": "Turiu galimybę būti išklausytas",
+        "lv": "Man ir iespēja tikt uzklausītam"
       },
       "options": {
         "en": [
@@ -2221,6 +3903,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2235,7 +3971,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I have enough information about what is happening in the Organization to do my work",
-        "es": "Tengo suficiente información sobre lo que está sucediendo en la empresa para hacer mi trabajo"
+        "es": "Tengo suficiente información sobre lo que está sucediendo en la empresa para hacer mi trabajo",
+        "lt": "Turiu pakankamai informacijos apie tai, kas vyksta organizacijoje, kad galėčiau atlikti savo darbą",
+        "lv": "Man ir pietiekami daudz informācijas par to, kas notiek uzņēmumā, lai veiktu savu darbu"
       },
       "options": {
         "en": [
@@ -2289,6 +4027,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2303,7 +4095,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I know who the target market is (internal or external customer). I know what needs we can satisfy with what products or services",
-        "es": "Sé quién es el mercado objetivo (cliente interno o externo). Sé qué necesidades podemos satisfacer con qué productos o servicios"
+        "es": "Sé quién es el mercado objetivo (cliente interno o externo). Sé qué necesidades podemos satisfacer con qué productos o servicios",
+        "lt": "Žinau, kas yra mūsų tiksliniai klientai (vidiniai ar išoriniai). Žinau, kokius poreikius ir kokiais produktais ar paslaugomis galime patenkinti",
+        "lv": "Es zinu, kuri ir mūsu mērķa klienti (iekšējie vai ārējie). Es zinu, kādas vajadzības mēs varam apmierināt un ar kādiem produktiem vai pakalpojumiem"
       },
       "options": {
         "en": [
@@ -2357,6 +4151,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2371,7 +4219,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "We know our market (internal or external customers) well, we monitor trends and needs and we constantly think about how we can serve our market (internal or external customers) better",
-        "es": "Conocemos bien nuestro mercado (clientes internos o externos), monitoreamos tendencias y necesidades y constantemente pensamos en cómo podemos servir mejor a nuestro mercado (clientes internos o externos)"
+        "es": "Conocemos bien nuestro mercado (clientes internos o externos), monitoreamos tendencias y necesidades y constantemente pensamos en cómo podemos servir mejor a nuestro mercado (clientes internos o externos)",
+        "lt": "Gerai pažįstame savo rinką (vidinius ar išorinius klientus), stebime tendencijas ir poreikius ir nuolat galvojame, kaip geriau aptarnauti savo klientus (vidinius ar išorinius)",
+        "lv": "Mēs labi zinām savu tirgu (iekšējos vai ārējos klientus), sekojam tendencēm un vajadzībām un pastāvīgi domājam, kā labāk apkalpot savus klientus (iekšējos vai ārējos)"
       },
       "options": {
         "en": [
@@ -2425,6 +4275,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2439,7 +4343,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I have a comfortable working environment",
-        "es": "Tengo un ambiente de trabajo cómodo"
+        "es": "Tengo un ambiente de trabajo cómodo",
+        "lt": "Mano darbo aplinka patogi",
+        "lv": "Man ir ērta darba vide"
       },
       "options": {
         "en": [
@@ -2493,6 +4399,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2507,7 +4467,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I have all the necessary technical resources to do my job well",
-        "es": "Tengo todos los recursos técnicos necesarios para hacer bien mi trabajo"
+        "es": "Tengo todos los recursos técnicos necesarios para hacer bien mi trabajo",
+        "lt": "Turiu visas technines priemones, reikalingas gerai atlikti savo darbą",
+        "lv": "Man ir visi nepieciešamie tehniskie resursi, lai labi veiktu savu darbu"
       },
       "options": {
         "en": [
@@ -2561,6 +4523,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2575,7 +4591,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "The work processes which I participate in are systematized and well organized",
-        "es": "Los procesos de trabajo en los que participo están sistematizados y bien organizados"
+        "es": "Los procesos de trabajo en los que participo están sistematizados y bien organizados",
+        "lt": "Darbo procesai, kuriuose dalyvauju, yra susisteminti ir gerai organizuoti",
+        "lv": "Darba procesi, kuros es piedalos, ir sistematizēti un labi organizēti"
       },
       "options": {
         "en": [
@@ -2629,6 +4647,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2643,7 +4715,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "We are committed to improving our work processes and applied technologies",
-        "es": "Estamos comprometidos a mejorar nuestros procesos de trabajo y tecnologías aplicadas"
+        "es": "Estamos comprometidos a mejorar nuestros procesos de trabajo y tecnologías aplicadas",
+        "lt": "Esame pasiryžę tobulinti savo darbo procesus ir taikomas technologijas",
+        "lv": "Mēs apņēmīgi uzlabojam savus darba procesus un izmantotās tehnoloģijas"
       },
       "options": {
         "en": [
@@ -2697,6 +4771,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2711,7 +4839,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I am satisfied with the quality of the work that other units provide",
-        "es": "Estoy satisfecho con la calidad del trabajo que ofrecen otras unidades"
+        "es": "Estoy satisfecho con la calidad del trabajo que ofrecen otras unidades",
+        "lt": "Mane tenkina kitų padalinių darbo kokybė",
+        "lv": "Mani apmierina darba kvalitāte, ko nodrošina citas nodaļas"
       },
       "options": {
         "en": [
@@ -2765,6 +4895,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -2779,7 +4963,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "My work over the past 12 months has allowed me to improve/develop my knowledge, skills and abilities",
-        "es": "Mi trabajo durante los últimos 12 meses me ha permitido mejorar / desarrollar mis conocimientos, habilidades y capacidades"
+        "es": "Mi trabajo durante los últimos 12 meses me ha permitido mejorar / desarrollar mis conocimientos, habilidades y capacidades",
+        "lt": "Per pastaruosius 12 mėnesių darbas leido man patobulinti ir išplėsti savo žinias, įgūdžius ir gebėjimus",
+        "lv": "Pēdējo 12 mēnešu laikā mans darbs ir ļāvis man uzlabot un attīstīt savas zināšanas, prasmes un iemaņas"
       },
       "options": {
         "en": [
@@ -2835,6 +5021,60 @@
             "label": "No sé",
             "sub": ""
           }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
+            "sub": ""
+          }
         ]
       }
     },
@@ -2847,7 +5087,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I know under what conditions (what to do, what to learn, what to achieve), I can “grow” in the Organization",
-        "es": "Sé bajo qué condiciones (qué hacer, qué aprender, qué lograr), puedo “crecer” en la empresa"
+        "es": "Sé bajo qué condiciones (qué hacer, qué aprender, qué lograr), puedo “crecer” en la empresa",
+        "lt": "Žinau, kokiomis sąlygomis (ką daryti, ko mokytis, ką pasiekti) galiu „augti“ organizacijoje",
+        "lv": "Es zinu, ar kādiem nosacījumiem (kas jādara, jāmācās, jāsasniedz) es varu “augt” uzņēmumā"
       },
       "options": {
         "en": [
@@ -2903,6 +5145,60 @@
             "label": "No sé",
             "sub": ""
           }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
+            "sub": ""
+          }
         ]
       }
     },
@@ -2915,7 +5211,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "Does your work, within this Organization, satisfy you?",
-        "es": "¿Tu trabajo en esta empresa te satisface?"
+        "es": "¿Tu trabajo en esta empresa te satisface?",
+        "lt": "Ar jus tenkina jūsų darbas šioje organizacijoje?",
+        "lv": "Vai jūs kopumā apmierina darbs šajā uzņēmumā?"
       },
       "options": {
         "en": [
@@ -2971,6 +5269,60 @@
             "label": "No sé",
             "sub": ""
           }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai netenkina",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės netenkina",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės tenkina",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Visiškai tenkina",
+            "sub": ""
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnīgi neapmierina",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk neapmierina",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk apmierina",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Pilnīgi apmierina",
+            "sub": ""
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
+            "sub": ""
+          }
         ]
       }
     },
@@ -2983,7 +5335,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I feel valued and appreciated in the Organization",
-        "es": "Me siento valorado y apreciado en la empresa"
+        "es": "Me siento valorado y apreciado en la empresa",
+        "lt": "Jaučiu, kad organizacijoje esu vertinamas",
+        "lv": "Es jūtu, ka uzņēmumā mani novērtē"
       },
       "options": {
         "en": [
@@ -3037,6 +5391,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -3051,7 +5459,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "The work that I actually do is interesting and enjoyable for me",
-        "es": "El trabajo que realmente hago es interesante y agradable para mí"
+        "es": "El trabajo que realmente hago es interesante y agradable para mí",
+        "lt": "Darbas, kurį iš tikrųjų dirbu, man įdomus ir teikia malonumą",
+        "lv": "Darbs, ko es patiesībā daru, man ir interesants un sniedz gandarījumu"
       },
       "options": {
         "en": [
@@ -3105,6 +5515,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -3119,7 +5583,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I plan on leaving the Organization within the next year",
-        "es": "Planeo dejar la empresa dentro del próximo año"
+        "es": "Planeo dejar la empresa dentro del próximo año",
+        "lt": "Planuoju išeiti iš organizacijos per artimiausius metus",
+        "lv": "Es plānoju aiziet no uzņēmuma tuvākā gada laikā"
       },
       "options": {
         "en": [
@@ -3173,6 +5639,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 5,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 2,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 5,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 2,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -3187,7 +5707,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I recommend our Organization to my friends and acquaintances as a good employer",
-        "es": "Recomiendo nuestra empresa a mis amigos y conocidos como un buen empleador"
+        "es": "Recomiendo nuestra empresa a mis amigos y conocidos como un buen empleador",
+        "lt": "Rekomenduoju mūsų organizaciją savo draugams ir pažįstamiems kaip gerą darbdavį",
+        "lv": "Es iesaku mūsu uzņēmumu saviem draugiem un paziņām kā labu darba devēju"
       },
       "options": {
         "en": [
@@ -3241,6 +5763,60 @@
           {
             "value": 1,
             "label": "No sé",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
             "sub": ""
           }
         ]
@@ -3255,7 +5831,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I am proud to work in the Organization",
-        "es": "Estoy orgulloso de trabajar en la empresa"
+        "es": "Estoy orgulloso de trabajar en la empresa",
+        "lt": "Didžiuojuosi, kad dirbu šioje organizacijoje",
+        "lv": "Es lepojos, ka strādāju šajā uzņēmumā"
       },
       "options": {
         "en": [
@@ -3311,6 +5889,60 @@
             "label": "No sé",
             "sub": ""
           }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
+            "sub": ""
+          }
         ]
       }
     },
@@ -3323,7 +5955,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "Our Organization moves with the times (products, technologies, processes)",
-        "es": "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)"
+        "es": "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)",
+        "lt": "Mūsų organizacija neatsilieka nuo laiko (produktai, technologijos, procesai)",
+        "lv": "Uzņēmums attīstās līdzi laikam (produkti, tehnoloģijas, procesi)"
       },
       "options": {
         "en": [
@@ -3379,6 +6013,60 @@
             "label": "No sé",
             "sub": ""
           }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
+            "sub": ""
+          }
         ]
       }
     },
@@ -3391,7 +6079,9 @@
       "hasDontKnow": true,
       "texts": {
         "en": "I believe that the potential of employees, their skills, knowledge and abilities are effectively used in the Organization",
-        "es": "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa"
+        "es": "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa",
+        "lt": "Manau, kad darbuotojų potencialas, jų įgūdžiai, žinios ir gebėjimai organizacijoje panaudojami efektyviai",
+        "lv": "Es uzskatu, ka darbinieku potenciāls, viņu prasmes, zināšanas un iemaņas uzņēmumā tiek izmantotas efektīvi"
       },
       "options": {
         "en": [
@@ -3447,6 +6137,60 @@
             "label": "No sé",
             "sub": ""
           }
+        ],
+        "lt": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          },
+          {
+            "value": 1,
+            "label": "Nežinau",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          },
+          {
+            "value": 1,
+            "label": "Nezinu",
+            "sub": ""
+          }
         ]
       }
     },
@@ -3459,7 +6203,9 @@
       "hasDontKnow": false,
       "texts": {
         "en": "Based on your overall previous answers, do you think the situation in the Organization as a whole has changed over the last year?",
-        "es": "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?"
+        "es": "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?",
+        "lt": "Atsižvelgiant į visus ankstesnius jūsų atsakymus, kaip, jūsų nuomone, per pastaruosius metus pasikeitė padėtis organizacijoje apskritai?",
+        "lv": "Ņemot vērā visas iepriekšējās atbildes, kā, jūsuprāt, situācija uzņēmumā kopumā ir mainījusies pēdējā gada laikā?"
       },
       "options": {
         "en": [
@@ -3513,6 +6259,60 @@
           {
             "value": 5,
             "label": "Mejoró significativamente",
+            "sub": ""
+          }
+        ],
+        "lt": [
+          {
+            "value": 1,
+            "label": "Gerokai pablogėjo",
+            "sub": ""
+          },
+          {
+            "value": 2,
+            "label": "Šiek tiek pablogėjo",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Esminių pokyčių nėra",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Šiek tiek pagerėjo",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Gerokai pagerėjo",
+            "sub": ""
+          }
+        ],
+        "lv": [
+          {
+            "value": 1,
+            "label": "Būtiski pasliktinājusies",
+            "sub": ""
+          },
+          {
+            "value": 2,
+            "label": "Nedaudz pasliktinājusies",
+            "sub": ""
+          },
+          {
+            "value": 3,
+            "label": "Būtisku pārmaiņu nav",
+            "sub": ""
+          },
+          {
+            "value": 4,
+            "label": "Nedaudz uzlabojusies",
+            "sub": ""
+          },
+          {
+            "value": 5,
+            "label": "Būtiski uzlabojusies",
             "sub": ""
           }
         ]
@@ -3795,6 +6595,7 @@
         }
       },
       "pdf": {
+        "file": "Engagement-Survey",
         "title": "Engagement Survey",
         "subtitle": "Report",
         "company": "Company",
@@ -4186,6 +6987,7 @@
         }
       },
       "pdf": {
+        "file": "Encuesta-de-Compromiso",
         "title": "Encuesta de Compromiso",
         "subtitle": "Reporte",
         "company": "Empresa",
@@ -4300,6 +7102,790 @@
         "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)",
         "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa",
         "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?"
+      ]
+    },
+    "lt": {
+      "code": "lt",
+      "langName": "Lietuvių",
+      "locale": "lt-LT",
+      "ui": {
+        "start": "Pradėti",
+        "back": "Atgal",
+        "next": "Toliau",
+        "pressEnter": "paspauskite Enter ↵",
+        "keyboardHint": "Klavišai 1–{n} · 0 = Nežinau",
+        "of": "iš",
+        "section": "Sritis",
+        "resume": "Sveiki sugrįžę! Jūsų ankstesni atsakymai išsaugoti.",
+        "resumeYes": "Tęsti nuo ten, kur baigiau",
+        "resumeNo": "Pradėti iš naujo",
+        "loading": "Įkeliama…",
+        "sending": "Siunčiami jūsų atsakymai…",
+        "errorGeneric": "Įvyko klaida. Patikrinkite interneto ryšį ir bandykite dar kartą.",
+        "retry": "Bandyti dar kartą",
+        "importance": "Kiek jums svarbus šis klausimas?",
+        "imp": [
+          "Mažiau svarbus",
+          "Vidutiniškai svarbus",
+          "Svarbiausias"
+        ],
+        "mostCount": "Svarbiausi: {n} iš {max}",
+        "mostFull": "Jau pažymėta 15 svarbiausių klausimų. Norėdami pažymėti šį, pirmiau pakeiskite vieną iš jų.",
+        "comment": "Pridėti komentarą (neprivaloma)",
+        "commentPh": "Jūsų komentaras… Jis bus pateiktas anonimiškai, pažodžiui."
+      },
+      "intro": {
+        "eyebrow": "Įsitraukimo apklausa",
+        "title": "{company} nori išgirsti jūsų nuomonę",
+        "body": "{company} kartu su Adizes institutu atlieka darbuotojų įsitraukimo apklausą. Atsakysite į {n} klausimų apie savo kasdienį darbą ir organizaciją.",
+        "bullets": [
+          "Apklausa anoniminė: atsakymai apibendrinami, o {company} niekada nemato atskirų žmonių atsakymų.",
+          "Prie kiekvieno klausimo nurodykite, kiek jis jums svarbus. Pažymėkite iki 15 klausimų kaip „Svarbiausius“ (bent vieną).",
+          "Prie bet kurio klausimo galite pridėti komentarą. Komentarai pateikiami pažodžiui be jūsų vardo, todėl nenurodykite detalių, pagal kurias būtų galima jus atpažinti.",
+          "Tai užtruks apie 10–15 minučių. Galite sustoti ir vėliau tęsti naudodami tą pačią nuorodą."
+        ],
+        "note": "Atsakykite, kaip yra iš tikrųjų šiandien. Jei neturite pagrindo atsakyti, pasirinkite „Nežinau“.",
+        "deadline": "Terminas: {date}",
+        "meta": "Klausimų: {n} · apie 10–15 minučių · anonimiškai"
+      },
+      "review": {
+        "eyebrow": "Paskutinis žingsnis",
+        "title": "Peržiūrėkite savo atsakymus",
+        "body": "Atsakėte į visus klausimus ({n}).",
+        "cannot": "Atsakymas „Nežinau“: {n}.",
+        "most": "Svarbiausi: {n} iš {max}.",
+        "needMost": "Prieš siųsdami pažymėkite bent {min} klausimą kaip „Svarbiausią“ (atidarykite bet kurį klausimą, kad tai pakeistumėte).",
+        "missingN": "Neatsakyta klausimų: {n}.",
+        "missingHelp": "Spustelėkite bet kurį klausimą, kad atsakytumėte arba pakeistumėte atsakymą.",
+        "missing": "Neatsakyta",
+        "commented": "Komentaras",
+        "warn": "Spustelėkite bet kurį klausimą, kad pakeistumėte atsakymą, jo svarbą ar komentarą. Išsiųstų atsakymų pakeisti nebegalėsite.",
+        "submit": "Siųsti atsakymus",
+        "hint": "Atsakymus galite išsiųsti ir sąrašo apačioje.",
+        "back": "Grįžti į peržiūrą"
+      },
+      "thanks": {
+        "title": "Ačiū",
+        "body": "Jūsų atsakymai anonimiškai užregistruoti. Dėkojame, kad skyrėte laiko apklausai. Galite uždaryti šį langą."
+      },
+      "states": {
+        "noToken": {
+          "title": "Reikalinga jūsų asmeninė nuoroda",
+          "body": "Norėdami atsakyti, atidarykite nuorodą, kurią gavote kvietimo el. laiške."
+        },
+        "invalid_link": {
+          "title": "Ši nuoroda negalioja",
+          "body": "Įsitikinkite, kad atidarėte visą nuorodą iš kvietimo el. laiško. Jei problema kartojasi, rašykite info@adizes.com."
+        },
+        "completed": {
+          "title": "Jūs jau atsakėte",
+          "body": "Jūsų atsakymai užregistruoti. Ačiū, kad dalyvavote."
+        },
+        "closed": {
+          "title": "Ši apklausa baigta",
+          "body": "Atsakymai nebepriimami. Jei manote, kad tai klaida, kreipkitės į jus pakvietusį asmenį."
+        },
+        "not_open": {
+          "title": "Ši apklausa dar neprasidėjo",
+          "body": "Pabandykite vėliau naudodami tą pačią nuorodą."
+        }
+      },
+      "dontKnow": "Nežinau",
+      "scales": {
+        "F": [
+          {
+            "value": 2,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 5,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          }
+        ],
+        "A": [
+          {
+            "value": 2,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          }
+        ],
+        "FR": [
+          {
+            "value": 5,
+            "label": "Niekada",
+            "sub": "Visiškai nesutinku"
+          },
+          {
+            "value": 4,
+            "label": "Kartais",
+            "sub": "Iš esmės nesutinku"
+          },
+          {
+            "value": 3,
+            "label": "Dažnai",
+            "sub": "Iš esmės sutinku"
+          },
+          {
+            "value": 2,
+            "label": "Visada",
+            "sub": "Visiškai sutinku"
+          }
+        ],
+        "AR": [
+          {
+            "value": 5,
+            "label": "Visiškai nesutinku",
+            "sub": "Niekada"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės nesutinku",
+            "sub": "Kartais"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės sutinku",
+            "sub": "Dažnai"
+          },
+          {
+            "value": 2,
+            "label": "Visiškai sutinku",
+            "sub": "Visada"
+          }
+        ],
+        "S": [
+          {
+            "value": 2,
+            "label": "Visiškai netenkina"
+          },
+          {
+            "value": 3,
+            "label": "Iš esmės netenkina"
+          },
+          {
+            "value": 4,
+            "label": "Iš esmės tenkina"
+          },
+          {
+            "value": 5,
+            "label": "Visiškai tenkina"
+          }
+        ],
+        "C": [
+          {
+            "value": 1,
+            "label": "Gerokai pablogėjo"
+          },
+          {
+            "value": 2,
+            "label": "Šiek tiek pablogėjo"
+          },
+          {
+            "value": 3,
+            "label": "Esminių pokyčių nėra"
+          },
+          {
+            "value": 4,
+            "label": "Šiek tiek pagerėjo"
+          },
+          {
+            "value": 5,
+            "label": "Gerokai pagerėjo"
+          }
+        ]
+      },
+      "cells": {
+        "values": "Vertybės",
+        "climate": "Klimatas",
+        "styles": "Vadovavimo stiliai",
+        "responsibility": "Atsakomybės struktūra",
+        "authority": "Įgaliojimų struktūra",
+        "reward": "Atlygio struktūra",
+        "supervisor": "Vadovas",
+        "planning": "Planavimas",
+        "information": "Informacijos srautai",
+        "client": "Bendravimas su klientais",
+        "transformation": "Transformacija",
+        "human": "Žmogiškieji veiksniai",
+        "behaviour": "Elgsena",
+        "changes": "Pokyčiai",
+        "inefficiency": "Neefektyvumas"
+      },
+      "levels": {
+        "fully": {
+          "name": "Visiškai įsitraukę",
+          "desc": [
+            "aistringai atsidavę savo darbui ir organizacijai",
+            "padarys viską, ko reikia, kad pasiektų rezultatą",
+            "nuolat pasiekia aukštos kokybės rezultatus",
+            "randa nestandartinių ir inovatyvių sprendimų sudėtingiausioms problemoms",
+            "laikomi lyderiais ir pavyzdžiu kitiems"
+          ]
+        },
+        "engaged": {
+          "name": "Įsitraukę",
+          "desc": [
+            "susitelkę į rezultatus, projektus ir savo atsakomybes",
+            "dirba gerai ir stabiliai",
+            "visada atlieka savo darbo dalį",
+            "gerai bendradarbiauja su kitais ir padeda, kai paprašoma"
+          ]
+        },
+        "somewhat": {
+          "name": "Iš dalies įsitraukę",
+          "desc": [
+            "rinkasi, kam skirti savo energiją",
+            "daug laiko skiria veiklai, kuri nepadeda klientams ir (arba) organizacijai",
+            "padaro darbą, kai būtina arba kai yra prižiūrimi",
+            "neigiamai veikia kitus"
+          ]
+        },
+        "disengaged": {
+          "name": "Neįsitraukę",
+          "desc": [
+            "dirba tik tada, kai būtina",
+            "mieliau užsiimtų kuo nors kitu",
+            "rezultatai neatitinka standartų",
+            "mąsto kategorijomis „mes ir jie“",
+            "neigiamai atsiliepia apie organizaciją ir taip pat elgiasi su klientais bei kolegomis"
+          ]
+        }
+      },
+      "pdf": {
+        "file": "Isitraukimo-apklausa",
+        "title": "Įsitraukimo apklausa",
+        "subtitle": "Ataskaita",
+        "company": "Įmonė",
+        "launch": "Apklausa",
+        "date": "Ataskaitos data",
+        "responses": "Atsakymai",
+        "of": "iš",
+        "invited": "pakviestų",
+        "anon": "Apklausa anoniminė. Rezultatai pateikiami tik apibendrinti, o grupės, kuriose mažiau nei 5 atsakymai, niekada nerodomos atskirai.",
+        "contents": "Turinys",
+        "toc": [
+          "Pasiskirstymas pagal įsitraukimo lygį",
+          "Įsitraukimas pagal sritis",
+          "Organizacijos veiksniai",
+          "Kas darbuotojams svarbiausia",
+          "Visi klausimai",
+          "Komentarai"
+        ],
+        "levelsTitle": "Pasiskirstymas pagal įsitraukimo lygį",
+        "levelsHelp": "Kiekvienas dalyvis priskiriamas lygiui pagal visus jo atsakymus ir pagal klausimus, kuriuos jis pažymėjo kaip svarbiausius.",
+        "positive": "Visiškai įsitraukę + Įsitraukę",
+        "people": "žm.",
+        "byAreaTitle": "Įsitraukimas pagal sritis",
+        "byAreaHelp": "Rodomos tik sritys, kuriose yra 5 ar daugiau atsakymų. Mažesnės sritys sujungiamos į „Kitas sritis“, jei kartu jose yra bent 5 atsakymai.",
+        "company_col": "Įmonė",
+        "other": "Kitos sritys",
+        "hidden": "Atsakymai iš sričių, kuriose mažiau nei 5 žmonės, įskaičiuoti tik į bendrą įmonės rezultatą ({n}).",
+        "noAreas": "Nė vienoje srityje dar nėra 5 ar daugiau atsakymų, todėl rezultatai pagal sritis nerodomi.",
+        "respondents": "Respondentai",
+        "factorsTitle": "Organizacijos veiksniai",
+        "factorsHelp": "Kiekvieno veiksnio įvertinimas pagal atsakymus („Nežinau“ neįskaičiuojamas), taikant tą patį metodą kaip Adizes diagnostikos matricoje. 75 % ir daugiau — sveika būklė; mažiau nei 50 % — anomalija.",
+        "groups": {
+          "culture": "Organizacijos kultūra",
+          "structure": "Struktūra",
+          "process": "Procesai",
+          "functions": "Organizacijos funkcijos",
+          "effects": "Pasekmės"
+        },
+        "colors": {
+          "green": "Viskas gerai",
+          "yellow": "Dėmesio zona",
+          "red": "Anomalijų zona"
+        },
+        "topTitle": "Kas darbuotojams svarbiausia",
+        "topHelp": "Klausimai, kurie dažniausiai pažymėti kaip „Svarbiausi“, ir kaip į juos atsakyta.",
+        "mostPct": "svarbiausia",
+        "distTitle": "Visi klausimai",
+        "distHelp": "Atsakymų pasiskirstymas (%) ir raudonai dešinėje — respondentų, pažymėjusių klausimą kaip svarbiausią, dalis.",
+        "legend": {
+          "1": "Nežinau",
+          "2": "Niekada / Visiškai nesutinku",
+          "3": "Kartais / Iš esmės nesutinku",
+          "4": "Dažnai / Iš esmės sutinku",
+          "5": "Visada / Visiškai sutinku"
+        },
+        "q50": "Žalia spalva visada žymi palankiausią atsakymą: neigiamiems teiginiams 5 ir 45 tai „Niekada“ / „Visiškai nesutinku“. 50 klausimas turi savo skalę (gerokai pagerėjo → gerokai pablogėjo).",
+        "commentsTitle": "Komentarai",
+        "commentsHelp": "Parašyti dalyvių, anonimiški ir pateikti pažodžiui.",
+        "noComments": "Komentarų nepalikta.",
+        "footer": "Adizes institutas · Įsitraukimo apklausa",
+        "page": "Puslapis",
+        "cont": "tęsinys"
+      },
+      "questions": [
+        "Mūsų vadovai laikosi organizacijoje deklaruojamų vertybių",
+        "Mūsų organizacija visiškai vykdo savo įsipareigojimus darbuotojams",
+        "Organizacija vertina ir palaiko naujas idėjas",
+        "Man gera organizacijoje vyraujančioje atmosferoje",
+        "Pas mus galioja principas „kiekvienas už save“",
+        "Už gerai atliktą darbą sulaukiu padėkos ir įvertinimo",
+        "Mes gerbiame vieni kitus",
+        "Mūsų organizacijos vadovų elgesys padeda kurti sveiką darbo aplinką, siekti tikslų ir plėtoti organizaciją",
+        "Aiškiai suprantu savo darbo užduotis ir savo vaidmenį skyriaus veikloje",
+        "Suprantu, kuo turiu vadovautis atlikdamas savo darbą: politikomis, reglamentais, taisyklėmis, profesiniais standartais ir pan.",
+        "Žinau, į ką galiu kreiptis su klausimais",
+        "Suprantu, kokius sprendimus turiu teisę priimti",
+        "Sprendimai klausimais, kurie liečia mane, priimami laiku ir nuspėjamai",
+        "Turiu pakankamai įgaliojimų, kad galėčiau atsakyti už savo darbo rezultatus",
+        "Manau, kad pajamos, kurias gaunu organizacijoje, yra konkurencingos",
+        "Suprantu, nuo ko priklauso kintamoji mano pajamų dalis",
+        "Manau, kad galiu gana stipriai paveikti tiek pastoviąją, tiek kintamąją savo pajamų dalį",
+        "Mano socialinių naudų paketas konkurencingas rinkoje",
+        "Su savo vadovu galiu aptarti asmeninius klausimus",
+        "Mano vadovas elgiasi su manimi kaip su asmenybe",
+        "Mano vadovas skatina mano profesinį tobulėjimą",
+        "Mano vadovas reguliariai kalbasi su manimi apie mano pažangą",
+        "Mano vadovas teikia kokybišką ir motyvuojantį grįžtamąjį ryšį — visada žinau, ką jis mano apie mane ir mano darbą",
+        "Vadovo man skiriamos užduotys yra aiškios ir įgyvendinamos",
+        "Nesivaržau užduoti savo vadovui patikslinančių klausimų",
+        "Manau, kad mano vadovo priimami sprendimai yra teisingi ir naudingi organizacijai",
+        "Mano vadovas atidžiai mane išklauso ir atsižvelgia į mano nuomonę",
+        "Žinau ir suprantu ilgalaikius organizacijos tikslus",
+        "Mane įkvepia mūsų organizacijos tikslai. Mes dirbame svarbų ir naudingą darbą",
+        "Suprantu, kaip mano darbo rezultatai veikia bendrą organizacijos rezultatą",
+        "Turiu galimybę būti išklausytas",
+        "Turiu pakankamai informacijos apie tai, kas vyksta organizacijoje, kad galėčiau atlikti savo darbą",
+        "Žinau, kas yra mūsų tiksliniai klientai (vidiniai ar išoriniai). Žinau, kokius poreikius ir kokiais produktais ar paslaugomis galime patenkinti",
+        "Gerai pažįstame savo rinką (vidinius ar išorinius klientus), stebime tendencijas ir poreikius ir nuolat galvojame, kaip geriau aptarnauti savo klientus (vidinius ar išorinius)",
+        "Mano darbo aplinka patogi",
+        "Turiu visas technines priemones, reikalingas gerai atlikti savo darbą",
+        "Darbo procesai, kuriuose dalyvauju, yra susisteminti ir gerai organizuoti",
+        "Esame pasiryžę tobulinti savo darbo procesus ir taikomas technologijas",
+        "Mane tenkina kitų padalinių darbo kokybė",
+        "Per pastaruosius 12 mėnesių darbas leido man patobulinti ir išplėsti savo žinias, įgūdžius ir gebėjimus",
+        "Žinau, kokiomis sąlygomis (ką daryti, ko mokytis, ką pasiekti) galiu „augti“ organizacijoje",
+        "Ar jus tenkina jūsų darbas šioje organizacijoje?",
+        "Jaučiu, kad organizacijoje esu vertinamas",
+        "Darbas, kurį iš tikrųjų dirbu, man įdomus ir teikia malonumą",
+        "Planuoju išeiti iš organizacijos per artimiausius metus",
+        "Rekomenduoju mūsų organizaciją savo draugams ir pažįstamiems kaip gerą darbdavį",
+        "Didžiuojuosi, kad dirbu šioje organizacijoje",
+        "Mūsų organizacija neatsilieka nuo laiko (produktai, technologijos, procesai)",
+        "Manau, kad darbuotojų potencialas, jų įgūdžiai, žinios ir gebėjimai organizacijoje panaudojami efektyviai",
+        "Atsižvelgiant į visus ankstesnius jūsų atsakymus, kaip, jūsų nuomone, per pastaruosius metus pasikeitė padėtis organizacijoje apskritai?"
+      ]
+    },
+    "lv": {
+      "code": "lv",
+      "langName": "Latviešu",
+      "locale": "lv-LV",
+      "ui": {
+        "start": "Sākt",
+        "back": "Atpakaļ",
+        "next": "Tālāk",
+        "pressEnter": "nospiediet Enter ↵",
+        "keyboardHint": "Taustiņi 1–{n} · 0 = Nezinu",
+        "of": "no",
+        "section": "Joma",
+        "resume": "Laipni lūdzam atpakaļ! Jūsu līdzšinējās atbildes ir saglabātas.",
+        "resumeYes": "Turpināt no vietas, kur apstājos",
+        "resumeNo": "Sākt no jauna",
+        "loading": "Ielādē…",
+        "sending": "Sūta jūsu atbildes…",
+        "errorGeneric": "Kaut kas nogāja greizi. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.",
+        "retry": "Mēģināt vēlreiz",
+        "importance": "Cik svarīgs jums ir šis jautājums?",
+        "imp": [
+          "Mazāk svarīgs",
+          "Vidēji svarīgs",
+          "Vissvarīgākais"
+        ],
+        "mostCount": "Vissvarīgākie: {n} no {max}",
+        "mostFull": "Jau ir atzīmēti 15 jautājumi kā vissvarīgākie. Lai atzīmētu šo, vispirms mainiet kādu no tiem.",
+        "comment": "Pievienot komentāru (nav obligāti)",
+        "commentPh": "Jūsu komentārs… Tas tiks parādīts anonīmi un vārds vārdā."
+      },
+      "intro": {
+        "eyebrow": "Iesaistes aptauja",
+        "title": "{company} vēlas uzzināt jūsu viedokli",
+        "body": "{company} kopā ar Adizes institūtu veic darbinieku iesaistes aptauju. Jūs atbildēsiet uz {n} jautājumiem par savu ikdienas darbu un organizāciju.",
+        "bullets": [
+          "Aptauja ir anonīma: atbildes tiek apkopotas, un {company} nekad neredz nevienas personas individuālās atbildes.",
+          "Pie katra jautājuma norādiet, cik tas jums ir svarīgs. Atzīmējiet līdz 15 jautājumiem kā “Vissvarīgākie” (vismaz vienu).",
+          "Pie jebkura jautājuma varat pievienot komentāru. Komentāri tiek parādīti vārds vārdā bez jūsu vārda, tāpēc nenorādiet detaļas, pēc kurām jūs varētu atpazīt.",
+          "Tas aizņems apmēram 10–15 minūtes. Varat pārtraukt un vēlāk turpināt ar to pašu saiti."
+        ],
+        "note": "Atbildiet par to, kā lietas ir patiesībā šodien. Ja jums nav pamata atbildēt, izvēlieties “Nezinu”.",
+        "deadline": "Termiņš: {date}",
+        "meta": "{n} jautājumi · apmēram 10–15 minūtes · anonīmi"
+      },
+      "review": {
+        "eyebrow": "Pēdējais solis",
+        "title": "Pārskatiet savas atbildes",
+        "body": "Jūs atbildējāt uz visiem {n} jautājumiem.",
+        "cannot": "Atbilde “Nezinu”: {n}.",
+        "most": "Vissvarīgākie: {n} no {max}.",
+        "needMost": "Pirms nosūtīšanas atzīmējiet vismaz {min} jautājumu kā “Vissvarīgākais” (atveriet jebkuru jautājumu, lai to mainītu).",
+        "missingN": "Neatbildēti jautājumi: {n}.",
+        "missingHelp": "Noklikšķiniet uz jebkura jautājuma, lai atbildētu vai mainītu atbildi.",
+        "missing": "Nav atbildes",
+        "commented": "Komentārs",
+        "warn": "Noklikšķiniet uz jebkura jautājuma, lai mainītu atbildi, tās svarīgumu vai komentāru. Pēc nosūtīšanas atbildes vairs nevarēs mainīt.",
+        "submit": "Nosūtīt atbildes",
+        "hint": "Atbildes var nosūtīt arī saraksta beigās.",
+        "back": "Atpakaļ uz pārskatu"
+      },
+      "thanks": {
+        "title": "Paldies",
+        "body": "Jūsu atbildes ir anonīmi saņemtas. Paldies, ka veltījāt laiku dalībai aptaujā! Varat aizvērt šo logu."
+      },
+      "states": {
+        "noToken": {
+          "title": "Nepieciešama jūsu personīgā saite",
+          "body": "Lai atbildētu, atveriet saiti, ko saņēmāt uzaicinājuma e-pastā."
+        },
+        "invalid_link": {
+          "title": "Šī saite nav derīga",
+          "body": "Pārliecinieties, ka atvērāt pilnu saiti no uzaicinājuma e-pasta. Ja problēma atkārtojas, rakstiet uz info@adizes.com."
+        },
+        "completed": {
+          "title": "Atbildes jau ir iesniegtas",
+          "body": "Jūsu atbildes ir saņemtas. Paldies par dalību!"
+        },
+        "closed": {
+          "title": "Šī aptauja ir slēgta",
+          "body": "Atbildes vairs netiek pieņemtas. Ja uzskatāt, ka tā ir kļūda, sazinieties ar personu, kas jūs uzaicināja."
+        },
+        "not_open": {
+          "title": "Šī aptauja vēl nav sākusies",
+          "body": "Lūdzu, mēģiniet vēlāk ar to pašu saiti."
+        }
+      },
+      "dontKnow": "Nezinu",
+      "scales": {
+        "F": [
+          {
+            "value": 2,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 5,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          }
+        ],
+        "A": [
+          {
+            "value": 2,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 5,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          }
+        ],
+        "FR": [
+          {
+            "value": 5,
+            "label": "Nekad",
+            "sub": "Pilnībā nepiekrītu"
+          },
+          {
+            "value": 4,
+            "label": "Dažreiz",
+            "sub": "Drīzāk nepiekrītu"
+          },
+          {
+            "value": 3,
+            "label": "Bieži",
+            "sub": "Drīzāk piekrītu"
+          },
+          {
+            "value": 2,
+            "label": "Vienmēr",
+            "sub": "Pilnībā piekrītu"
+          }
+        ],
+        "AR": [
+          {
+            "value": 5,
+            "label": "Pilnībā nepiekrītu",
+            "sub": "Nekad"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk nepiekrītu",
+            "sub": "Dažreiz"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk piekrītu",
+            "sub": "Bieži"
+          },
+          {
+            "value": 2,
+            "label": "Pilnībā piekrītu",
+            "sub": "Vienmēr"
+          }
+        ],
+        "S": [
+          {
+            "value": 2,
+            "label": "Pilnīgi neapmierina"
+          },
+          {
+            "value": 3,
+            "label": "Drīzāk neapmierina"
+          },
+          {
+            "value": 4,
+            "label": "Drīzāk apmierina"
+          },
+          {
+            "value": 5,
+            "label": "Pilnīgi apmierina"
+          }
+        ],
+        "C": [
+          {
+            "value": 1,
+            "label": "Būtiski pasliktinājusies"
+          },
+          {
+            "value": 2,
+            "label": "Nedaudz pasliktinājusies"
+          },
+          {
+            "value": 3,
+            "label": "Būtisku pārmaiņu nav"
+          },
+          {
+            "value": 4,
+            "label": "Nedaudz uzlabojusies"
+          },
+          {
+            "value": 5,
+            "label": "Būtiski uzlabojusies"
+          }
+        ]
+      },
+      "cells": {
+        "values": "Vērtības",
+        "climate": "Klimats",
+        "styles": "Vadības stili",
+        "responsibility": "Pienākumu struktūra",
+        "authority": "Pilnvaru struktūra",
+        "reward": "Atlīdzības struktūra",
+        "supervisor": "Vadītājs",
+        "planning": "Plānošana",
+        "information": "Informācijas plūsma",
+        "client": "Mijiedarbība ar klientiem",
+        "transformation": "Transformācija",
+        "human": "Cilvēkresursi",
+        "behaviour": "Uzvedība",
+        "changes": "Pārmaiņas",
+        "inefficiency": "Neefektivitāte"
+      },
+      "levels": {
+        "fully": {
+          "name": "Pilnībā iesaistīti",
+          "desc": [
+            "aizrautīgi attiecībā uz savu darbu un organizāciju",
+            "darīs visu nepieciešamo, lai sasniegtu rezultātu",
+            "pastāvīgi sasniedz augstas kvalitātes rezultātus",
+            "atrod nestandarta un inovatīvus risinājumus vissarežģītākajām problēmām",
+            "tiek uztverti kā līderi un paraugs citiem"
+          ]
+        },
+        "engaged": {
+          "name": "Iesaistīti",
+          "desc": [
+            "koncentrējas uz rezultātu, projektu un savu pienākumu izpildi",
+            "strādā labi un stabili",
+            "vienmēr paveic savu darba daļu",
+            "labi sadarbojas ar citiem un palīdz, kad tiek lūgti"
+          ]
+        },
+        "somewhat": {
+          "name": "Daļēji iesaistīti",
+          "desc": [
+            "izvēlīgi attiecībā uz to, kam veltīt savu enerģiju",
+            "daudz laika velta lietām, kas nepalīdz klientiem un/vai organizācijai",
+            "paveic darbu, kad tas ir nepieciešams vai kad viņus uzrauga",
+            "negatīvi ietekmē citus"
+          ]
+        },
+        "disengaged": {
+          "name": "Neiesaistīti",
+          "desc": [
+            "strādā tikai tad, kad tas ir nepieciešams",
+            "labprātāk darītu kaut ko citu",
+            "rezultāti neatbilst standartiem",
+            "domā kategorijās “mēs un viņi”",
+            "negatīvi izsakās par organizāciju un saskarsmē ar klientiem un kolēģiem"
+          ]
+        }
+      },
+      "pdf": {
+        "file": "Iesaistes-aptauja",
+        "title": "Iesaistes aptauja",
+        "subtitle": "Atskaite",
+        "company": "Uzņēmums",
+        "launch": "Aptauja",
+        "date": "Atskaites datums",
+        "responses": "Atbildes",
+        "of": "no",
+        "invited": "uzaicinātajiem",
+        "anon": "Aptauja ir anonīma. Rezultāti tiek rādīti tikai apkopotā veidā, un grupas ar mazāk nekā 5 atbildēm nekad netiek rādītas atsevišķi.",
+        "contents": "Saturs",
+        "toc": [
+          "Sadalījums pa iesaistes līmeņiem",
+          "Iesaiste pa jomām",
+          "Organizācijas faktori",
+          "Kas darbiniekiem ir vissvarīgākais",
+          "Visi jautājumi",
+          "Komentāri"
+        ],
+        "levelsTitle": "Sadalījums pa iesaistes līmeņiem",
+        "levelsHelp": "Katrs dalībnieks tiek klasificēts pēc visām viņa atbildēm un pēc jautājumiem, ko viņš atzīmēja kā vissvarīgākos.",
+        "positive": "Pilnībā iesaistīti + Iesaistīti",
+        "people": "cilv.",
+        "byAreaTitle": "Iesaiste pa jomām",
+        "byAreaHelp": "Tiek rādītas tikai jomas ar 5 vai vairāk atbildēm. Mazākas jomas tiek apvienotas grupā “Citas jomas”, ja kopā tās sasniedz 5.",
+        "company_col": "Uzņēmums",
+        "other": "Citas jomas",
+        "hidden": "Atbildes no jomām, kurās ir mazāk nekā 5 cilvēki, ir iekļautas tikai uzņēmuma kopsummā ({n}).",
+        "noAreas": "Nevienā jomā vēl nav 5 vai vairāk atbilžu, tāpēc rezultāti pa jomām netiek rādīti.",
+        "respondents": "Respondenti",
+        "factorsTitle": "Organizācijas faktori",
+        "factorsHelp": "Katra faktora vērtējums pēc atbildēm (“Nezinu” netiek ņemts vērā), izmantojot to pašu metodi kā Adizes diagnostikas matricā. 75% un vairāk — veselīgs stāvoklis; zem 50% — anomālija.",
+        "groups": {
+          "culture": "Organizācijas kultūra",
+          "structure": "Struktūra",
+          "process": "Procesi",
+          "functions": "Organizācijas funkcijas",
+          "effects": "Sekas"
+        },
+        "colors": {
+          "green": "Viss kārtībā",
+          "yellow": "Uzmanības zona",
+          "red": "Anomāliju zona"
+        },
+        "topTitle": "Kas darbiniekiem ir vissvarīgākais",
+        "topHelp": "Jautājumi, kas visbiežāk atzīmēti kā “Vissvarīgākie”, un kā uz tiem tika atbildēts.",
+        "mostPct": "vissvarīgākais",
+        "distTitle": "Visi jautājumi",
+        "distHelp": "Atbilžu sadalījums (%) un sarkanā krāsā labajā pusē — to respondentu daļa, kuri šo jautājumu atzīmēja kā vissvarīgāko.",
+        "legend": {
+          "1": "Nezinu",
+          "2": "Nekad / Pilnībā nepiekrītu",
+          "3": "Dažreiz / Drīzāk nepiekrītu",
+          "4": "Bieži / Drīzāk piekrītu",
+          "5": "Vienmēr / Pilnībā piekrītu"
+        },
+        "q50": "Zaļā krāsa vienmēr ir pozitīvākā atbilde: negatīvajiem apgalvojumiem 5 un 45 tā ir “Nekad” / “Pilnībā nepiekrītu”. 50. jautājumam ir sava skala (būtiski uzlabojusies → būtiski pasliktinājusies).",
+        "commentsTitle": "Komentāri",
+        "commentsHelp": "Dalībnieku rakstīti, anonīmi un vārds vārdā.",
+        "noComments": "Komentāri netika atstāti.",
+        "footer": "Adizes institūts · Iesaistes aptauja",
+        "page": "Lapa",
+        "cont": "turp."
+      },
+      "questions": [
+        "Uzņēmuma vadītāji ievēro tajā deklarētās vērtības",
+        "Mūsu uzņēmums pilnībā pilda savas saistības pret darbiniekiem",
+        "Uzņēmums novērtē un atbalsta jaunas idejas",
+        "Es jūtos labi uzņēmumā valdošajā atmosfērā",
+        "Pie mums uzņēmumā katrs ir pats par sevi",
+        "Par labi padarītu darbu es saņemu pateicību un novērtējumu",
+        "Mēs cienām viens otru",
+        "Mūsu uzņēmuma vadītāju uzvedība veicina veselīgu darba vidi, mērķu sasniegšanu un uzņēmuma attīstību",
+        "Es skaidri saprotu savus darba uzdevumus un savu lomu nodaļas darbā",
+        "Man ir saprotams, kādas procedūras, noteikumi, politikas, profesionālie standarti u. tml. regulē manu darbu",
+        "Es zinu, pie kā vērsties ar jautājumiem",
+        "Es saprotu, kādus lēmumus man ir tiesības pieņemt",
+        "Lēmumi jautājumos, kas skar mani, tiek pieņemti laikus un paredzamā veidā",
+        "Man ir pietiekamas pilnvaras, lai uzņemtos atbildību par sava darba rezultātiem",
+        "Mans atalgojuma līmenis uzņēmumā ir konkurētspējīgs",
+        "Es saprotu, no kā ir atkarīga mana ienākumu mainīgā daļa",
+        "Es uzskatu, ka varu diezgan lielā mērā ietekmēt gan fiksēto, gan mainīgo ienākumu daļu",
+        "Mana sociālā pakete ir konkurētspējīga tirgū",
+        "Es varu pārrunāt personiskus jautājumus ar savu vadītāju",
+        "Mans vadītājs izturas pret mani kā pret personību",
+        "Mans vadītājs veicina manu profesionālo izaugsmi",
+        "Mans vadītājs regulāri runā ar mani par manu progresu",
+        "Mans vadītājs sniedz kvalitatīvu un motivējošu atgriezenisko saiti — es vienmēr zinu, ko viņš domā par mani un manu darbu",
+        "Uzdevumi, ko man uzdod mans vadītājs, ir skaidri un izpildāmi",
+        "Es varu droši uzdot savam vadītājam precizējošus jautājumus",
+        "Es uzskatu, ka mana vadītāja pieņemtie lēmumi ir pareizi un noderīgi uzņēmumam",
+        "Mans vadītājs uzmanīgi uzklausa mani un ņem vērā manu viedokli",
+        "Es zinu un saprotu uzņēmuma ilgtermiņa mērķus",
+        "Mani iedvesmo mūsu uzņēmuma mērķi. Mēs darām svarīgu un noderīgu darbu",
+        "Es saprotu, kā mana darba rezultāti ietekmē uzņēmuma kopējos rezultātus",
+        "Man ir iespēja tikt uzklausītam",
+        "Man ir pietiekami daudz informācijas par to, kas notiek uzņēmumā, lai veiktu savu darbu",
+        "Es zinu, kuri ir mūsu mērķa klienti (iekšējie vai ārējie). Es zinu, kādas vajadzības mēs varam apmierināt un ar kādiem produktiem vai pakalpojumiem",
+        "Mēs labi zinām savu tirgu (iekšējos vai ārējos klientus), sekojam tendencēm un vajadzībām un pastāvīgi domājam, kā labāk apkalpot savus klientus (iekšējos vai ārējos)",
+        "Man ir ērta darba vide",
+        "Man ir visi nepieciešamie tehniskie resursi, lai labi veiktu savu darbu",
+        "Darba procesi, kuros es piedalos, ir sistematizēti un labi organizēti",
+        "Mēs apņēmīgi uzlabojam savus darba procesus un izmantotās tehnoloģijas",
+        "Mani apmierina darba kvalitāte, ko nodrošina citas nodaļas",
+        "Pēdējo 12 mēnešu laikā mans darbs ir ļāvis man uzlabot un attīstīt savas zināšanas, prasmes un iemaņas",
+        "Es zinu, ar kādiem nosacījumiem (kas jādara, jāmācās, jāsasniedz) es varu “augt” uzņēmumā",
+        "Vai jūs kopumā apmierina darbs šajā uzņēmumā?",
+        "Es jūtu, ka uzņēmumā mani novērtē",
+        "Darbs, ko es patiesībā daru, man ir interesants un sniedz gandarījumu",
+        "Es plānoju aiziet no uzņēmuma tuvākā gada laikā",
+        "Es iesaku mūsu uzņēmumu saviem draugiem un paziņām kā labu darba devēju",
+        "Es lepojos, ka strādāju šajā uzņēmumā",
+        "Uzņēmums attīstās līdzi laikam (produkti, tehnoloģijas, procesi)",
+        "Es uzskatu, ka darbinieku potenciāls, viņu prasmes, zināšanas un iemaņas uzņēmumā tiek izmantotas efektīvi",
+        "Ņemot vērā visas iepriekšējās atbildes, kā, jūsuprāt, situācija uzņēmumā kopumā ir mainījusies pēdējā gada laikā?"
       ]
     }
   }

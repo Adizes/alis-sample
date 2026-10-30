@@ -29,7 +29,7 @@ const EDL = J(ctx.ED_I18N), ESL = J(ctx.ES_I18N), LANGS = Object.keys(EDL);
 
 // ---- server texts (emails) from the Apps Script config
 const gctx = {}; vm.createContext(gctx);
-vm.runInContext(read('apps-script/src/00-config.gs') + '\nglobalThis.LABELS = LABELS; globalThis.CONFIG = CONFIG;', gctx);
+vm.runInContext(read('apps-script/src/00-config.gs') + '\n' + read('apps-script/src/01-labels.gs') + '\nglobalThis.LABELS = LABELS; globalThis.CONFIG = CONFIG;', gctx);
 const LABELS = J(gctx.LABELS), CONFIG = J(gctx.CONFIG);
 
 /* ================================================================ Express Diagnostics */

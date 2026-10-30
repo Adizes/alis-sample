@@ -356,4 +356,24 @@ t('ES: below 5 answers no report; a launch can never have fewer than 5 participa
   assert.equal(g.admin('finish', { launchId: g.launchId }).error, 'below_minimum');
 });
 
+t('Latvian and Lithuanian launches: invitation texts and dates in the launch language', () => {
+  for (const [lang, subject, date, body] of [
+    ['lv', 'Acme: Iesaistes aptauja', '2099. gada 30. novembris', /aicina jūs piedalīties aptaujā “Iesaistes aptauja”/],
+    ['lt', 'Acme: Įsitraukimo apklausa', '2099 m. lapkričio 30 d.', /kviečia jus dalyvauti apklausoje „Įsitraukimo apklausa“/],
+  ]) {
+    const g = loadGas();
+    let s = g.admin('saveCompany', { name: 'Acme', language: lang, contactEmail: 'hr@acme.com' });
+    const cid = s.companies[0].id;
+    s = g.admin('importEmployees', { companyId: cid, rows: [0, 1, 2, 3, 4].map(i => ({ name: 'Persona ' + i, email: 'p' + i + '@acme.com', area: 'A' })) });
+    s = g.admin('saveLaunch', { companyId: cid, type: 'ES', name: 'X', language: lang, closeDate: '2099-11-30', employeeIds: s.employees.map(e => e.id) });
+    assert.equal(s.launches[0].language, lang);
+    s = g.admin('openLaunch', { launchId: s.savedId, send: true });
+    const m = g.state.emails[0];
+    assert.equal(m.subject, subject);
+    assert.match(m.options.htmlBody, body);
+    assert.ok(m.options.htmlBody.includes(date), date);
+    assert.equal(g.post({ action: 'p_load', t: tokenOf(s.invites[0].link) }).lang, lang);
+  }
+});
+
 console.log(`\n${n} backend tests passed`);

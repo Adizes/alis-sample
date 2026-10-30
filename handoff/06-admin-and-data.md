@@ -19,7 +19,7 @@ Screenshots: `screens/admin-*.png`.
 
 ## 6.2 Data model (reference — adapt to your database)
 
-**Company:** id, name, country, language (`en`/`es`), contact name, contact email, notes, status (Active/Archived), created/updated.
+**Company:** id, name, country, language (`en`/`es`/`lv`/`lt`), contact name, contact email, notes, status (Active/Archived), created/updated.
 
 **Employee:** id, company id, full name, email, **area**, position, status (Active/Archived), created/updated.
 
@@ -46,7 +46,7 @@ Single endpoint, `POST`, JSON body (sent as `text/plain` to avoid a CORS preflig
 // request
 { "action": "p_load", "t": "<token>" }
 // response
-{ "ok": true, "state": "open|completed|closed|not_open", "type": "ED|ES", "lang": "en|es",
+{ "ok": true, "state": "open|completed|closed|not_open", "type": "ED|ES", "lang": "en|es|lv|lt",
   "company": "Acme", "closeDate": "2026-11-30", "firstName": "Ana" }      // firstName only for ED
 // errors: invalid_link
 ```

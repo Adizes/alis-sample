@@ -4,13 +4,9 @@
 function fmtDate_(d, lang) {
   d = dateStr_(d);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return '';
-  const p = d.split('-');
-  const months = {
-    es: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
-    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  };
-  const m = (months[lang] || months.en)[Number(p[1]) - 1];
-  return lang === 'es' ? Number(p[2]) + ' de ' + m + ' de ' + p[0] : m + ' ' + Number(p[2]) + ', ' + p[0];
+  const p = d.split('-'), T = L_(lang);
+  // dateFormat tokens: {d} day, {dd} 2-digit day, {mm} 2-digit month, {month} month name, {y} year
+  return fill_(T.dateFormat || '{y}-{mm}-{dd}', { d: Number(p[2]), dd: p[2], mm: p[1], month: (T.months || [])[Number(p[1]) - 1] || p[1], y: p[0] });
 }
 function button_(label, url) {
   return '<a href="' + esc_(url) + '" style="display:inline-block;background:#d7141a;color:#ffffff;font:700 15px Arial,sans-serif;text-decoration:none;padding:13px 26px;border-radius:6px">' + esc_(label) + ' &rarr;</a>';

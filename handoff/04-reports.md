@@ -65,7 +65,7 @@ Assets (`source/shared/assets/`):
 - `adizes-logo-color.png`: red mark + black wordmark, for white backgrounds
 - `adizes-logo-color-white.png`: for dark backgrounds
 - `arrow-red.png` / `arrow-white.png`
-- `fonts/Montserrat-*.ttf` (SIL Open Font License)
+- `fonts/Montserrat-*.ttf`: SIL Open Font License; subset with Latin, Latin Extended (Baltic, Turkish…) and Cyrillic
 
 ## Layout notes that are easy to miss
 
@@ -85,5 +85,5 @@ Assets (`source/shared/assets/`):
 - ES “All questions” and “What matters most” bars show **% labels** inside segments that are wide enough.
 - Page breaks never split a single statement or question; a section that continues shows “(cont.)”.
 - File name used by the reference:
-  - `Express-Diagnostics-<company>-<yyyy-mm-dd>.pdf` (Spanish: `Diagnostico-Expres-…`)
-  - `Engagement-Survey-<company>-<yyyy-mm-dd>.pdf` (Spanish: `Encuesta-de-Compromiso-…`)
+  - `<pdf.file>-<company>-<yyyy-mm-dd>.pdf`, where `pdf.file` is a per-language text;
+  - e.g. `Express-Diagnostics-…`, `Diagnostico-Expres-…`, `Ekspresdiagnostika-…`, `Isitraukimo-apklausa-…`.

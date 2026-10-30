@@ -1,209 +1,527 @@
 /* Express Diagnostics — Español
- * Para agregar un idioma: copia en.js (por ejemplo pt.js), cambia `ED_I18N.en` por `ED_I18N.pt`,
- * traduce cada texto y conserva las claves. No cambies el orden de `questions` (es el orden del cálculo).
+ * GENERATED from the translations workbook (tools/translations.py). Edit the workbook, not this file.
+ * Answer values and the order of questions come from English and never change.
  */
 ED_I18N.es = {
-  code: 'es',
-  langName: 'Español',
-  locale: 'es-MX',
-
+  code: "es",
+  langName: "Español",
+  locale: "es-MX",
   ui: {
-    start: 'Comenzar',
-    back: 'Atrás',
-    next: 'Siguiente',
-    pressEnter: 'presiona Enter ↵',
-    keyboardHint: 'Teclas 1–4 · 0 = No puedo responder',
-    of: 'de',
-    section: 'Área',
-    resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
-    resumeYes: 'Continuar donde me quedé',
-    resumeNo: 'Empezar de nuevo',
-    loading: 'Cargando…',
-    sending: 'Enviando tus respuestas…',
-    errorGeneric: 'Algo salió mal. Revisa tu conexión e inténtalo de nuevo.',
-    retry: 'Intentar de nuevo',
+    start: "Comenzar",
+    back: "Atrás",
+    next: "Siguiente",
+    pressEnter: "presiona Enter ↵",
+    keyboardHint: "Teclas 1–4 · 0 = No puedo responder",
+    of: "de",
+    section: "Área",
+    resume: "Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.",
+    resumeYes: "Continuar donde me quedé",
+    resumeNo: "Empezar de nuevo",
+    loading: "Cargando…",
+    sending: "Enviando tus respuestas…",
+    errorGeneric: "Algo salió mal. Revisa tu conexión e inténtalo de nuevo.",
+    retry: "Intentar de nuevo"
   },
-
   intro: {
-    eyebrow: 'Diagnóstico Exprés',
-    hello: 'Hola, {first}',
-    title: '{company} quiere conocer tu visión de la organización',
-    body: '{company} está realizando un diagnóstico organizacional con el Instituto Adizes. Calificarás 67 afirmaciones sobre cómo funciona hoy la empresa, en los 16 factores de la metodología Adizes.',
+    eyebrow: "Diagnóstico Exprés",
+    hello: "Hola, {first}",
+    title: "{company} quiere conocer tu visión de la organización",
+    body: "{company} está realizando un diagnóstico organizacional con el Instituto Adizes. Calificarás 67 afirmaciones sobre cómo funciona hoy la empresa, en los 16 factores de la metodología Adizes.",
     bullets: [
-      'Toma alrededor de 10 minutos. Puedes pausar y continuar después con el mismo enlace.',
-      'Tus respuestas se combinan con las de los demás participantes en un reporte grupal.',
-      'Responde según cómo funcionan las cosas hoy, no cómo deberían funcionar.',
+      "Toma alrededor de 10 minutos. Puedes pausar y continuar después con el mismo enlace.",
+      "Tus respuestas se combinan con las de los demás participantes en un reporte grupal.",
+      "Responde según cómo funcionan las cosas hoy, no cómo deberían funcionar."
     ],
-    note: 'Si no tienes elementos para juzgar una afirmación, elige “No puedo responder”.',
-    deadline: 'Disponible hasta el {date}',
-    meta: '67 afirmaciones · alrededor de 10 minutos',
+    note: "Si no tienes elementos para juzgar una afirmación, elige “No puedo responder”.",
+    deadline: "Disponible hasta el {date}",
+    meta: "67 afirmaciones · alrededor de 10 minutos"
   },
-
   scale: [
-    { value: 2, label: 'Nunca', sub: 'Totalmente en desacuerdo' },
-    { value: 3, label: 'A veces', sub: 'Parcialmente en desacuerdo' },
-    { value: 4, label: 'A menudo', sub: 'Parcialmente de acuerdo' },
-    { value: 5, label: 'Siempre', sub: 'Totalmente de acuerdo' },
-  ],
-  cannot: 'No puedo responder',
-
-  cells: {
-    values: 'Valores', climate: 'Clima', responsibility: 'Estructura de responsabilidad', authority: 'Estructura de autoridad',
-    reward: 'Estructura de recompensas', planning: 'Planificación', information: 'Flujo de información', corrective: 'Acciones correctivas',
-    client: 'Interfaz con el cliente', transformation: 'Transformación', human: 'Factores humanos', financial: 'Factores financieros',
-    behaviour: 'Comportamiento', changes: 'Cambios', inefficiency: 'Ineficiencia', ineffectiveness: 'Inefectividad',
-  },
-
-  diagram: {
-    title: 'Factores causales de los problemas organizacionales sistémicos',
-    external: 'Factores externos',
-    internal: 'Factores internos',
-    causes: 'Causas organizacionales sistémicas',
-    culture: 'Cultura organizacional',
-    subsystems: 'Síntomas en los subsistemas',
-    manifestations: 'Manifestaciones sistémicas',
-    labels: {
-      values: 'Valores', climate: 'Clima', planning: 'Planeación estratégica', responsibility: 'Estructura organizacional',
-      authority: 'Autoridad', information: 'Flujo de información', corrective: 'Acciones correctivas', reward: 'Recompensas',
-      client: 'Interfaz con el cliente', transformation: 'Transformación', human: 'Recursos humanos', financial: 'Finanzas',
-      inefficiency: 'Ineficiencia', behaviour: 'Comportamiento', changes: 'Cambio', ineffectiveness: 'Inefectividad',
+    {
+      value: 2,
+      label: "Nunca",
+      sub: "Totalmente en desacuerdo"
     },
+    {
+      value: 3,
+      label: "A veces",
+      sub: "Parcialmente en desacuerdo"
+    },
+    {
+      value: 4,
+      label: "A menudo",
+      sub: "Parcialmente de acuerdo"
+    },
+    {
+      value: 5,
+      label: "Siempre",
+      sub: "Totalmente de acuerdo"
+    }
+  ],
+  cannot: "No puedo responder",
+  cells: {
+    values: "Valores",
+    climate: "Clima",
+    responsibility: "Estructura de responsabilidad",
+    authority: "Estructura de autoridad",
+    reward: "Estructura de recompensas",
+    planning: "Planificación",
+    information: "Flujo de información",
+    corrective: "Acciones correctivas",
+    client: "Interfaz con el cliente",
+    transformation: "Transformación",
+    human: "Factores humanos",
+    financial: "Factores financieros",
+    behaviour: "Comportamiento",
+    changes: "Cambios",
+    inefficiency: "Ineficiencia",
+    ineffectiveness: "Inefectividad"
   },
-
+  diagram: {
+    title: "Factores causales de los problemas organizacionales sistémicos",
+    external: "Factores externos",
+    internal: "Factores internos",
+    causes: "Causas organizacionales sistémicas",
+    culture: "Cultura organizacional",
+    subsystems: "Síntomas en los subsistemas",
+    manifestations: "Manifestaciones sistémicas",
+    labels: {
+      values: "Valores",
+      climate: "Clima",
+      planning: "Planeación estratégica",
+      responsibility: "Estructura organizacional",
+      authority: "Autoridad",
+      information: "Flujo de información",
+      corrective: "Acciones correctivas",
+      reward: "Recompensas",
+      client: "Interfaz con el cliente",
+      transformation: "Transformación",
+      human: "Recursos humanos",
+      financial: "Finanzas",
+      inefficiency: "Ineficiencia",
+      behaviour: "Comportamiento",
+      changes: "Cambio",
+      ineffectiveness: "Inefectividad"
+    }
+  },
   radar: {
-    title1: 'Problemas organizacionales sistémicos',
-    title2: 'Problemas operativos y manifestaciones sistémicas (consecuencias)',
-    normal: 'Situación normal',
-    abnormal: 'Situación anormal',
-    yours: 'La empresa',
+    title1: "Problemas organizacionales sistémicos",
+    title2: "Problemas operativos y manifestaciones sistémicas (consecuencias)",
+    normal: "Situación normal",
+    abnormal: "Situación anormal",
+    yours: "La empresa"
   },
-
   colors: {
-    green: 'El proceso está sano',
-    yellow: 'Hay áreas de mejora',
-    red: 'Zona de enfoque clave',
+    green: "El proceso está sano",
+    yellow: "Hay áreas de mejora",
+    red: "Zona de enfoque clave"
   },
-  colorShort: { green: 'Sano', yellow: 'Por mejorar', red: 'Zona de enfoque clave' },
+  colorShort: {
+    green: "Sano",
+    yellow: "Por mejorar",
+    red: "Zona de enfoque clave"
+  },
   frames: {
-    title: 'Tipo de marco',
-    sub: 'Según cuánto varían las opiniones de los participantes, se muestra un marco distinto',
-    dotted: 'Marco punteado: las opiniones de los participantes coinciden en gran medida',
-    thin: 'Marco delgado: hay una divergencia de opinión notable',
-    thick: 'Marco grueso: las opiniones de los participantes no coinciden en absoluto',
+    title: "Tipo de marco",
+    sub: "Según cuánto varían las opiniones de los participantes, se muestra un marco distinto",
+    dotted: "Marco punteado: las opiniones de los participantes coinciden en gran medida",
+    thin: "Marco delgado: hay una divergencia de opinión notable",
+    thick: "Marco grueso: las opiniones de los participantes no coinciden en absoluto"
   },
-  noAnswer: 'sin respuesta',
-
+  noAnswer: "sin respuesta",
   review: {
-    eyebrow: 'Último paso',
-    title: 'Revisa tus respuestas',
-    body: 'Calificaste las {n} afirmaciones.',
-    cannot: '{n} como “No puedo responder”.',
-    missingN: 'Faltan {n} afirmaciones por responder.',
-    missingHelp: 'Haz clic en cualquier afirmación para responderla o cambiarla.',
-    missing: 'Sin responder',
-    warn: 'Haz clic en cualquier afirmación para cambiar tu respuesta. Una vez enviadas, ya no se pueden cambiar.',
-    submit: 'Enviar mis respuestas',
-    hint: 'También puedes enviarlas al final de la lista.',
-    back: 'Volver a la revisión',
+    eyebrow: "Último paso",
+    title: "Revisa tus respuestas",
+    body: "Calificaste las {n} afirmaciones.",
+    cannot: "{n} como “No puedo responder”.",
+    missingN: "Faltan {n} afirmaciones por responder.",
+    missingHelp: "Haz clic en cualquier afirmación para responderla o cambiarla.",
+    missing: "Sin responder",
+    warn: "Haz clic en cualquier afirmación para cambiar tu respuesta. Una vez enviadas, ya no se pueden cambiar.",
+    submit: "Enviar mis respuestas",
+    hint: "También puedes enviarlas al final de la lista.",
+    back: "Volver a la revisión"
   },
   thanks: {
-    title: 'Gracias, {first}',
-    body: 'Tus respuestas quedaron registradas. {company} recibirá el reporte grupal a través del Instituto Adizes. Ya puedes cerrar esta ventana.',
+    title: "Gracias, {first}",
+    body: "Tus respuestas quedaron registradas. {company} recibirá el reporte grupal a través del Instituto Adizes. Ya puedes cerrar esta ventana."
   },
   states: {
-    noToken: { title: 'Necesitas tu enlace personal', body: 'Para responder, abre el enlace que recibiste en tu correo de invitación.' },
-    invalid_link: { title: 'Este enlace no es válido', body: 'Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com.' },
-    completed: { title: 'Ya respondiste', body: 'Tus respuestas quedaron registradas. Gracias por participar.' },
-    closed: { title: 'Este diagnóstico ya cerró', body: 'Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó.' },
-    not_open: { title: 'Este diagnóstico aún no está abierto', body: 'Inténtalo más tarde con el mismo enlace.' },
+    noToken: {
+      title: "Necesitas tu enlace personal",
+      body: "Para responder, abre el enlace que recibiste en tu correo de invitación."
+    },
+    invalid_link: {
+      title: "Este enlace no es válido",
+      body: "Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com."
+    },
+    completed: {
+      title: "Ya respondiste",
+      body: "Tus respuestas quedaron registradas. Gracias por participar."
+    },
+    closed: {
+      title: "Este diagnóstico ya cerró",
+      body: "Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó."
+    },
+    not_open: {
+      title: "Este diagnóstico aún no está abierto",
+      body: "Inténtalo más tarde con el mismo enlace."
+    }
   },
-
   pdf: {
-    title: 'Diagnóstico Exprés',
-    subtitle: 'Reporte',
-    company: 'Empresa',
-    date: 'Fecha del reporte',
-    design: 'Diseño del estudio: encuesta a distancia a la alta dirección',
-    participants: 'Participantes',
-    participantsCount: 'Participantes encuestados',
-    howTitle: 'Cómo leer este reporte',
-    howBody: 'Cada uno de los 16 factores se califica con las respuestas de los participantes en una escala de 4 puntos (“No puedo responder” no cuenta como respuesta y baja la calificación del factor). El mapa causal muestra dónde se originan los problemas, las gráficas de radar comparan la empresa con una situación normal y una anormal, y la última sección presenta cada afirmación con su calificación.',
-    summary: 'En resumen',
-    keyFactors: 'Factores organizacionales clave',
-    keyFactorsHelp: 'Cada afirmación aparece con la redacción que corresponde a su calificación.',
-    colorsTitle: 'Significado de los colores',
-    footer: 'Instituto Adizes · Diagnóstico Exprés',
-    page: 'Página',
-    cont: 'cont.',
+    file: "Diagnostico-Expres",
+    title: "Diagnóstico Exprés",
+    subtitle: "Reporte",
+    company: "Empresa",
+    date: "Fecha del reporte",
+    design: "Diseño del estudio: encuesta a distancia a la alta dirección",
+    participants: "Participantes",
+    participantsCount: "Participantes encuestados",
+    howTitle: "Cómo leer este reporte",
+    howBody: "Cada uno de los 16 factores se califica con las respuestas de los participantes en una escala de 4 puntos (“No puedo responder” no cuenta como respuesta y baja la calificación del factor). El mapa causal muestra dónde se originan los problemas, las gráficas de radar comparan la empresa con una situación normal y una anormal, y la última sección presenta cada afirmación con su calificación.",
+    summary: "En resumen",
+    keyFactors: "Factores organizacionales clave",
+    keyFactorsHelp: "Cada afirmación aparece con la redacción que corresponde a su calificación.",
+    colorsTitle: "Significado de los colores",
+    footer: "Instituto Adizes · Diagnóstico Exprés",
+    page: "Página",
+    cont: "cont."
   },
-
   questions: [
-    { t: "Nuestro sistema de valores está claramente articulado en unas pocas palabras/frases", z2: "Nuestro sistema de valores no está claramente articulado", z3: "Nuestro sistema de valores no está articulado" },
-    { t: "Nuestro sistema de valores es respetado en nuestra práctica empresarial diaria, los valores declarados corresponden a los demostrados", z2: "Nuestro sistema de valores no siempre es respetado en nuestra práctica empresarial diaria, los valores declarados no siempre corresponden a los demostrados", z3: "Nuestro sistema de valores a menudo no se cumple en nuestra práctica empresarial diaria, los valores declarados a menudo no corresponden con los demostrados" },
-    { t: "Nuestro sistema de valores es el mismo en todas las divisiones", z2: "Nuestro sistema de valores no es el mismo en algunos departamentos", z3: "Nuestro sistema de valores no es el mismo en muchos departamentos" },
-    { t: "Nuestra cultura corporativa es muy similar en la mayoría de los departamentos", z2: "Nuestra cultura corporativa no es lo suficientemente similar en la mayoría de los departamentos", z3: "Nuestra cultura corporativa no es la misma en la mayoría de los departamentos" },
-    { t: "Nuestra cultura corporativa se caracteriza por un alto nivel de colaboración entre las divisiones", z2: "Nuestra cultura corporativa se caracteriza por la falta de cooperación entre departamentos", z3: "Nuestra cultura corporativa se caracteriza por un bajo nivel de cooperación entre las divisiones" },
-    { t: "Nuestra cultura corporativa se caracteriza por un alto nivel de disciplina en el desempeño", z2: "Nuestra cultura corporativa se caracteriza por la falta de disciplina en el desempeño", z3: "Nuestra cultura corporativa se caracteriza por un bajo nivel de disciplina en el desempeño" },
-    { t: "Nuestra cultura corporativa se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones", z2: "Nuestra cultura corporativa no siempre se caracteriza por la capacidad de expresar sin miedo nuestras propias opiniones", z3: "Nuestra cultura corporativa no se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones" },
-    { t: "Nuestra cultura corporativa se caracteriza por una alta iniciativa de los empleados", z2: "Nuestra cultura corporativa se caracteriza por una iniciativa insuficiente de los empleados", z3: "Nuestra cultura corporativa se caracteriza por la baja iniciativa de los empleados" },
-    { t: "Nuestra cultura corporativa se caracteriza por un bajo nivel de conflictividad", z2: "Nuestra cultura corporativa no siempre se caracteriza por bajos niveles de conflicto", z3: "Nuestra cultura corporativa no se caracteriza por un bajo nivel de conflictividad" },
-    { t: "Nuestra estructura organizativa es compatible con el modelo de negocio actual", z2: "Nuestra estructura organizativa no es lo suficientemente compatible con el modelo de negocio actual", z3: "Nuestra estructura organizativa no es totalmente compatible con el modelo de negocio actual" },
-    { t: "Nuestra estructura organizacional apoya bien los objetivos a largo plazo de la empresa", z2: "Nuestra estructura organizacional no respalda suficientemente los objetivos a largo plazo de la empresa", z3: "Nuestra estructura organizacional tiene poco apoyo para los objetivos a largo plazo de la empresa" },
-    { t: "Nuestra estructura organizacional contiene todas las funciones necesarias", z2: "Nuestra estructura organizacional no contiene todas las funciones necesarias", z3: "Nuestra estructura organizacional carece de muchas funciones esenciales" },
-    { t: "No hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional", z2: "A veces hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional", z3: "Hay muchas áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional" },
-    { t: "Nuestra estructura organizacional se basa en gran medida “en torno a las funciones” en lugar de “en torno a las personas”", z2: "Nuestra estructura organizacional es un poco “alrededor de funciones” en lugar de “alrededor de personas”", z3: "Nuestra estructura organizacional está más “en torno a las personas” que “en torno a las funciones”" },
-    { t: "La mayoría de nuestros líderes tienen suficiente autoridad para manejar los desafíos que enfrentan", z2: "Algunos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan", z3: "Muchos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan" },
-    { t: "En nuestra empresa, la mayor autoridad la tienen las divisiones comerciales", z2: "En nuestra empresa, solo una parte de la autoridad está en manos de las divisiones comerciales", z3: "En nuestra empresa, una pequeña parte de la autoridad la tienen las divisiones comerciales" },
-    { t: "Nuestra estructura de autoridad permite una rápida toma de decisiones", z2: "Nuestra estructura de autoridad no siempre permite una rápida toma de decisiones", z3: "Nuestra estructura de autoridad no permite una toma de decisiones rápida" },
-    { t: "Nuestra estructura de autoridad no genera conflictos en el proceso de toma de decisiones", z2: "Nuestra estructura de autoridad a veces provoca conflictos en el proceso de toma de decisiones", z3: "Nuestra estructura de autoridad a menudo causa conflictos en el proceso de toma de decisiones" },
-    { t: "Nuestro sistema de recompensas contribuye al logro de nuestros objetivos", z2: "Nuestro sistema de recompensas no contribuye completamente al logro de nuestros objetivos", z3: "Nuestro sistema de recompensas rara vez nos ayuda a alcanzar nuestros objetivos" },
-    { t: "Nuestros empleados están satisfechos con el sistema de motivación existente", z2: "Nuestros empleados no siempre están satisfechos con el sistema de motivación existente", z3: "Nuestros empleados a menudo no están satisfechos con el sistema de motivación existente" },
-    { t: "Nuestros objetivos/estrategia a largo plazo están claramente definidos", z2: "Nuestros objetivos/estrategia a largo plazo no están bien definidos", z3: "Nuestros objetivos/estrategia a largo plazo no están definidos" },
-    { t: "Nuestros objetivos/estrategia a largo plazo están documentados", z2: "Nuestros objetivos/estrategia a largo plazo no están completamente documentados", z3: "Nuestros objetivos/estrategia a largo plazo no están documentados" },
-    { t: "Nuestros objetivos/estrategia a largo plazo son conocidos por la gerencia", z2: "No todos nuestros objetivos/estrategias a largo plazo son conocidos por la gerencia", z3: "Nuestros objetivos/estrategia a largo plazo no son conocidos por la gerencia" },
-    { t: "Nuestras metas/estrategia a largo plazo fueron desarrolladas con la participación de la gerencia", z2: "Nuestras metas/estrategia a largo plazo se desarrollaron con una participación gerencial insuficiente", z3: "Nuestros objetivos/estrategia a largo plazo se desarrollaron sin la participación de la gerencia" },
-    { t: "Nuestros objetivos/estrategia a largo plazo están respaldados por la dirección", z2: "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por la dirección", z3: "Nuestros objetivos/estrategia a largo plazo no están respaldados por la dirección" },
-    { t: "Nuestros objetivos/estrategia a largo plazo están respaldados por un plan de acción detallado", z2: "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por un plan de acción detallado", z3: "Nuestros objetivos/estrategia a largo plazo no están respaldados por un plan de acción específico" },
-    { t: "Nuestros objetivos/estrategia a largo plazo están respaldados por los recursos necesarios", z2: "Nuestros objetivos/estrategia a largo plazo no cuentan con todos los recursos", z3: "Nuestros objetivos/estrategia a largo plazo no cuentan con recursos" },
-    { t: "Evaluamos regularmente la implementación de objetivos/estrategias a largo plazo", z2: "No evaluamos regularmente la implementación de objetivos/estrategias a largo plazo", z3: "Rara vez evaluamos la implementación de objetivos/estrategias a largo plazo" },
-    { t: "Nuestros objetivos/estrategia a largo plazo se revisan regularmente/si es necesario", z2: "Nuestros objetivos/estrategia a largo plazo no se revisan con la suficiente regularidad", z3: "Nuestras metas/estrategia a largo plazo rara vez se revisan" },
-    { t: "Basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo", z2: "No siempre basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo", z3: "No basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo" },
-    { t: "Tengo suficiente información para tomar decisiones gerenciales clave de manera habitual", z2: "No siempre tengo suficiente información para tomar decisiones gerenciales clave de manera habitual", z3: "A menudo no tengo suficiente información para tomar decisiones gerenciales clave de manera habitual" },
-    { t: "La información para la toma de decisiones gerenciales suele contener información fiable", z2: "La información para la toma de decisiones gerenciales no siempre contiene información confiable", z3: "La información para la toma de decisiones gerenciales a menudo no contiene información fiable" },
-    { t: "La información para la toma de decisiones gerenciales suele recopilarse en el momento oportuno", z2: "La información para la toma de decisiones gerenciales no siempre se recopila de manera oportuna", z3: "La información para la toma de decisiones gerenciales generalmente no se recopila de manera oportuna" },
-    { t: "La información para la toma de decisiones gerenciales no contiene información redundante innecesaria", z2: "La información para la toma de decisiones gerenciales a veces contiene información innecesaria y redundante", z3: "La información para la toma de decisiones gerenciales a menudo contiene información innecesaria y redundante" },
-    { t: "La recolección de información para la toma de decisiones gerenciales está automatizada en nuestra empresa", z2: "La recolección de información para la toma de decisiones de gestión no está totalmente automatizada en nuestra empresa", z3: "La recolección de información para la toma de decisiones de gestión no está automatizada en nuestra empresa" },
-    { t: "Realizamos control/análisis del desempeño de nuestra empresa al menos una vez al mes", z2: "No siempre llevamos a cabo un control/análisis del rendimiento de la empresa al menos una vez al mes", z3: "Raramente monitoreamos/analizamos el desempeño de nuestra empresa" },
-    { t: "Realizamos control/análisis del desempeño de nuestra empresa en un equipo de directivos clave", z2: "No siempre monitoreamos/analizamos el desempeño de nuestra empresa en un equipo de directores clave", z3: "No monitoreamos/analizamos el desempeño de la empresa en un equipo de directores clave" },
-    { t: "Controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas", z2: "No siempre controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas", z3: "No controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas" },
-    { t: "Controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos", z2: "No siempre controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos", z3: "No controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos" },
-    { t: "Conocemos bien a nuestros clientes objetivo y sus necesidades", z2: "No siempre conocemos bien a los clientes objetivo y sus necesidades", z3: "No conocemos bien a los clientes objetivo y sus necesidades" },
-    { t: "Nuestra propuesta de venta y nuestros modelos de promoción y venta responden en gran medida a las necesidades de nuestros clientes", z2: "Nuestra propuesta de venta y nuestros modelos de promoción y venta no satisfacen plenamente las necesidades de nuestros clientes", z3: "Nuestra propuesta de venta y nuestros modelos de promoción y venta satisfacen en pequeña medida las necesidades de nuestros clientes" },
-    { t: "Nuestra propuesta de valor y modelos de promoción y venta son competitivos", z2: "Nuestra propuesta de valor y modelos de promoción y venta no siempre son competitivos", z3: "Nuestra propuesta de valor y modelos de promoción y venta no son totalmente competitivos" },
-    { t: "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan en el plan de ventas", z2: "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan parcialmente en el plan de ventas", z3: "Nuestros planes anuales/trimestrales de producción/unidades operativas no se basan en planes de ventas" },
-    { t: "Las actividades de las funciones comerciales y operativas (producción) están bien coordinadas entre sí", z2: "Las acciones de las funciones comercial y operativa (producción) no siempre están bien coordinadas entre sí", z3: "Las acciones de las funciones comerciales y operativas (producción) están mal coordinadas entre sí" },
-    { t: "La mayoría de nuestros procesos y procedimientos estándar están documentados", z2: "No todos nuestros procesos y procedimientos estándar están documentados", z3: "La mayoría de nuestros procesos y procedimientos estándar no están documentados" },
-    { t: "Seguimos la mayoría de nuestros procesos y procedimientos estándar", z2: "Seguimos algunos de nuestros procesos y procedimientos estándar", z3: "Rara vez seguimos nuestros procesos y procedimientos estándar" },
-    { t: "La mayoría de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos", z2: "Solo un subconjunto de nuestros procesos y procedimientos estándar está sujeto a ajustes periódicos", z3: "Una pequeña parte de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos" },
-    { t: "La mayoría de nuestros procesos y procedimientos estándar están automatizados", z2: "Solo una parte de nuestros procesos y procedimientos estándar están automatizados", z3: "Una pequeña parte de nuestros procesos y procedimientos estándar están automatizados" },
-    { t: "Nuestro trabajo en el desarrollo y lanzamiento de nuevos productos es efectivo", z2: "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos no es lo suficientemente eficaz", z3: "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos es ineficaz" },
-    { t: "Adoptamos un enfoque sistemático para la capacitación y el desarrollo", z2: "Nuestro enfoque de capacitación y desarrollo no es lo suficientemente sistemático", z3: "No abordamos la capacitación y el desarrollo de forma sistemática" },
-    { t: "Manejamos desafíos de contratación", z2: "No hacemos frente completamente a las tareas de contratación", z3: "Somos malos en las tareas de contratación" },
-    { t: "No experimentamos escasez de personal calificado", z2: "A veces experimentamos escasez de personal cualificado", z3: "Estamos experimentando una escasez de personal calificado" },
-    { t: "Conocemos el punto de equilibrio", z2: "Aproximadamente conocemos el punto de equilibrio", z3: "No conocemos el punto de equilibrio" },
-    { t: "Hemos implementado un proceso de presupuestación y lo seguimos", z2: "Nuestro proceso de presupuestación no está completamente implementado", z3: "No tenemos un proceso de presupuestación implementado" },
-    { t: "Hemos implementado una contabilidad de gestión y funciona", z2: "Hemos implementado parcialmente una contabilidad de gestión", z3: "No hemos implementado una contabilidad de gestión" },
-    { t: "Las solicitudes de pago (a proveedores/contratistas) en la mayoría de los casos se pagan rápidamente/dentro de un plazo específico", z2: "Las solicitudes de pago (a proveedores/contratistas) no siempre se pagan rápidamente/dentro de un plazo específico", z3: "Las solicitudes de pago (a proveedores/contratistas) rara vez se pagan rápidamente/dentro de un plazo estipulado" },
-    { t: "Tenemos un bajo nivel de rotación de personal clave", z2: "Tenemos un nivel medio de rotación de personal clave", z3: "Tenemos un alto nivel de rotación de personal clave" },
-    { t: "Nuestros empleados recomiendan la empresa a sus amigos", z2: "No todos nuestros empleados recomiendan la empresa a sus amigos", z3: "Nuestros empleados no recomiendan la empresa a sus amigos" },
-    { t: "Nuestra línea de productos está cambiando rápidamente", z2: "Nuestra línea de productos no está cambiando lo suficientemente rápido", z3: "Nuestra línea de productos está cambiando lentamente" },
-    { t: "Los cambios en nuestra empresa no encuentran resistencia", z2: "Los cambios en nuestra empresa a veces encuentran resistencia", z3: "Los cambios en nuestra empresa a menudo encuentran resistencia" },
-    { t: "Nuestro presupuesto de desarrollo ha estado creciendo durante los últimos tres años", z2: "Nuestro presupuesto de desarrollo ha crecido ligeramente durante los últimos tres años", z3: "Nuestro presupuesto de desarrollo no ha estado creciendo durante los últimos tres años" },
-    { t: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha ido creciendo en los últimos tres años", z2: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha crecido ligeramente en los últimos tres años", z3: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) no ha estado creciendo durante los últimos tres años" },
-    { t: "Nuestras ganancias han estado creciendo durante los últimos tres años", z2: "Nuestras ganancias han crecido ligeramente en los últimos tres años", z3: "Nuestras ganancias no han crecido en los últimos tres años" },
-    { t: "Nuestra rentabilidad ha estado creciendo durante los últimos tres años", z2: "Nuestra rentabilidad ha aumentado ligeramente en los últimos tres años", z3: "Nuestra rentabilidad no ha aumentado en los últimos tres años" },
-    { t: "Nuestra participación de mercado ha estado creciendo durante los últimos tres años", z2: "Nuestra participación de mercado ha crecido poco en los últimos tres años", z3: "Nuestra participación de mercado no ha estado creciendo durante los últimos tres años" },
-    { t: "Nuestro volumen de ventas ha estado creciendo durante los últimos tres años", z2: "Nuestro volumen de ventas ha crecido poco en los últimos tres años", z3: "Nuestro volumen de ventas no ha crecido en los últimos tres años" },
-    { t: "Nuestros clientes nos recomiendan", z2: "Nuestros clientes no siempre nos recomiendan", z3: "Nuestros clientes raramente nos recomiendan" },
-  ],
+    {
+      t: "Nuestro sistema de valores está claramente articulado en unas pocas palabras/frases",
+      z2: "Nuestro sistema de valores no está claramente articulado",
+      z3: "Nuestro sistema de valores no está articulado"
+    },
+    {
+      t: "Nuestro sistema de valores es respetado en nuestra práctica empresarial diaria, los valores declarados corresponden a los demostrados",
+      z2: "Nuestro sistema de valores no siempre es respetado en nuestra práctica empresarial diaria, los valores declarados no siempre corresponden a los demostrados",
+      z3: "Nuestro sistema de valores a menudo no se cumple en nuestra práctica empresarial diaria, los valores declarados a menudo no corresponden con los demostrados"
+    },
+    {
+      t: "Nuestro sistema de valores es el mismo en todas las divisiones",
+      z2: "Nuestro sistema de valores no es el mismo en algunos departamentos",
+      z3: "Nuestro sistema de valores no es el mismo en muchos departamentos"
+    },
+    {
+      t: "Nuestra cultura corporativa es muy similar en la mayoría de los departamentos",
+      z2: "Nuestra cultura corporativa no es lo suficientemente similar en la mayoría de los departamentos",
+      z3: "Nuestra cultura corporativa no es la misma en la mayoría de los departamentos"
+    },
+    {
+      t: "Nuestra cultura corporativa se caracteriza por un alto nivel de colaboración entre las divisiones",
+      z2: "Nuestra cultura corporativa se caracteriza por la falta de cooperación entre departamentos",
+      z3: "Nuestra cultura corporativa se caracteriza por un bajo nivel de cooperación entre las divisiones"
+    },
+    {
+      t: "Nuestra cultura corporativa se caracteriza por un alto nivel de disciplina en el desempeño",
+      z2: "Nuestra cultura corporativa se caracteriza por la falta de disciplina en el desempeño",
+      z3: "Nuestra cultura corporativa se caracteriza por un bajo nivel de disciplina en el desempeño"
+    },
+    {
+      t: "Nuestra cultura corporativa se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones",
+      z2: "Nuestra cultura corporativa no siempre se caracteriza por la capacidad de expresar sin miedo nuestras propias opiniones",
+      z3: "Nuestra cultura corporativa no se caracteriza por la capacidad de expresar sin temor nuestras propias opiniones"
+    },
+    {
+      t: "Nuestra cultura corporativa se caracteriza por una alta iniciativa de los empleados",
+      z2: "Nuestra cultura corporativa se caracteriza por una iniciativa insuficiente de los empleados",
+      z3: "Nuestra cultura corporativa se caracteriza por la baja iniciativa de los empleados"
+    },
+    {
+      t: "Nuestra cultura corporativa se caracteriza por un bajo nivel de conflictividad",
+      z2: "Nuestra cultura corporativa no siempre se caracteriza por bajos niveles de conflicto",
+      z3: "Nuestra cultura corporativa no se caracteriza por un bajo nivel de conflictividad"
+    },
+    {
+      t: "Nuestra estructura organizativa es compatible con el modelo de negocio actual",
+      z2: "Nuestra estructura organizativa no es lo suficientemente compatible con el modelo de negocio actual",
+      z3: "Nuestra estructura organizativa no es totalmente compatible con el modelo de negocio actual"
+    },
+    {
+      t: "Nuestra estructura organizacional apoya bien los objetivos a largo plazo de la empresa",
+      z2: "Nuestra estructura organizacional no respalda suficientemente los objetivos a largo plazo de la empresa",
+      z3: "Nuestra estructura organizacional tiene poco apoyo para los objetivos a largo plazo de la empresa"
+    },
+    {
+      t: "Nuestra estructura organizacional contiene todas las funciones necesarias",
+      z2: "Nuestra estructura organizacional no contiene todas las funciones necesarias",
+      z3: "Nuestra estructura organizacional carece de muchas funciones esenciales"
+    },
+    {
+      t: "No hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional",
+      z2: "A veces hay áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional",
+      z3: "Hay muchas áreas de responsabilidad poco claras o superpuestas en nuestra estructura organizacional"
+    },
+    {
+      t: "Nuestra estructura organizacional se basa en gran medida “en torno a las funciones” en lugar de “en torno a las personas”",
+      z2: "Nuestra estructura organizacional es un poco “alrededor de funciones” en lugar de “alrededor de personas”",
+      z3: "Nuestra estructura organizacional está más “en torno a las personas” que “en torno a las funciones”"
+    },
+    {
+      t: "La mayoría de nuestros líderes tienen suficiente autoridad para manejar los desafíos que enfrentan",
+      z2: "Algunos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan",
+      z3: "Muchos de nuestros líderes carecen de la autoridad para afrontar los desafíos que enfrentan"
+    },
+    {
+      t: "En nuestra empresa, la mayor autoridad la tienen las divisiones comerciales",
+      z2: "En nuestra empresa, solo una parte de la autoridad está en manos de las divisiones comerciales",
+      z3: "En nuestra empresa, una pequeña parte de la autoridad la tienen las divisiones comerciales"
+    },
+    {
+      t: "Nuestra estructura de autoridad permite una rápida toma de decisiones",
+      z2: "Nuestra estructura de autoridad no siempre permite una rápida toma de decisiones",
+      z3: "Nuestra estructura de autoridad no permite una toma de decisiones rápida"
+    },
+    {
+      t: "Nuestra estructura de autoridad no genera conflictos en el proceso de toma de decisiones",
+      z2: "Nuestra estructura de autoridad a veces provoca conflictos en el proceso de toma de decisiones",
+      z3: "Nuestra estructura de autoridad a menudo causa conflictos en el proceso de toma de decisiones"
+    },
+    {
+      t: "Nuestro sistema de recompensas contribuye al logro de nuestros objetivos",
+      z2: "Nuestro sistema de recompensas no contribuye completamente al logro de nuestros objetivos",
+      z3: "Nuestro sistema de recompensas rara vez nos ayuda a alcanzar nuestros objetivos"
+    },
+    {
+      t: "Nuestros empleados están satisfechos con el sistema de motivación existente",
+      z2: "Nuestros empleados no siempre están satisfechos con el sistema de motivación existente",
+      z3: "Nuestros empleados a menudo no están satisfechos con el sistema de motivación existente"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo están claramente definidos",
+      z2: "Nuestros objetivos/estrategia a largo plazo no están bien definidos",
+      z3: "Nuestros objetivos/estrategia a largo plazo no están definidos"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo están documentados",
+      z2: "Nuestros objetivos/estrategia a largo plazo no están completamente documentados",
+      z3: "Nuestros objetivos/estrategia a largo plazo no están documentados"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo son conocidos por la gerencia",
+      z2: "No todos nuestros objetivos/estrategias a largo plazo son conocidos por la gerencia",
+      z3: "Nuestros objetivos/estrategia a largo plazo no son conocidos por la gerencia"
+    },
+    {
+      t: "Nuestras metas/estrategia a largo plazo fueron desarrolladas con la participación de la gerencia",
+      z2: "Nuestras metas/estrategia a largo plazo se desarrollaron con una participación gerencial insuficiente",
+      z3: "Nuestros objetivos/estrategia a largo plazo se desarrollaron sin la participación de la gerencia"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo están respaldados por la dirección",
+      z2: "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por la dirección",
+      z3: "Nuestros objetivos/estrategia a largo plazo no están respaldados por la dirección"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo están respaldados por un plan de acción detallado",
+      z2: "Nuestros objetivos/estrategia a largo plazo no están totalmente respaldados por un plan de acción detallado",
+      z3: "Nuestros objetivos/estrategia a largo plazo no están respaldados por un plan de acción específico"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo están respaldados por los recursos necesarios",
+      z2: "Nuestros objetivos/estrategia a largo plazo no cuentan con todos los recursos",
+      z3: "Nuestros objetivos/estrategia a largo plazo no cuentan con recursos"
+    },
+    {
+      t: "Evaluamos regularmente la implementación de objetivos/estrategias a largo plazo",
+      z2: "No evaluamos regularmente la implementación de objetivos/estrategias a largo plazo",
+      z3: "Rara vez evaluamos la implementación de objetivos/estrategias a largo plazo"
+    },
+    {
+      t: "Nuestros objetivos/estrategia a largo plazo se revisan regularmente/si es necesario",
+      z2: "Nuestros objetivos/estrategia a largo plazo no se revisan con la suficiente regularidad",
+      z3: "Nuestras metas/estrategia a largo plazo rara vez se revisan"
+    },
+    {
+      t: "Basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo",
+      z2: "No siempre basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo",
+      z3: "No basamos nuestros planes anuales en nuestros objetivos/estrategias a largo plazo"
+    },
+    {
+      t: "Tengo suficiente información para tomar decisiones gerenciales clave de manera habitual",
+      z2: "No siempre tengo suficiente información para tomar decisiones gerenciales clave de manera habitual",
+      z3: "A menudo no tengo suficiente información para tomar decisiones gerenciales clave de manera habitual"
+    },
+    {
+      t: "La información para la toma de decisiones gerenciales suele contener información fiable",
+      z2: "La información para la toma de decisiones gerenciales no siempre contiene información confiable",
+      z3: "La información para la toma de decisiones gerenciales a menudo no contiene información fiable"
+    },
+    {
+      t: "La información para la toma de decisiones gerenciales suele recopilarse en el momento oportuno",
+      z2: "La información para la toma de decisiones gerenciales no siempre se recopila de manera oportuna",
+      z3: "La información para la toma de decisiones gerenciales generalmente no se recopila de manera oportuna"
+    },
+    {
+      t: "La información para la toma de decisiones gerenciales no contiene información redundante innecesaria",
+      z2: "La información para la toma de decisiones gerenciales a veces contiene información innecesaria y redundante",
+      z3: "La información para la toma de decisiones gerenciales a menudo contiene información innecesaria y redundante"
+    },
+    {
+      t: "La recolección de información para la toma de decisiones gerenciales está automatizada en nuestra empresa",
+      z2: "La recolección de información para la toma de decisiones de gestión no está totalmente automatizada en nuestra empresa",
+      z3: "La recolección de información para la toma de decisiones de gestión no está automatizada en nuestra empresa"
+    },
+    {
+      t: "Realizamos control/análisis del desempeño de nuestra empresa al menos una vez al mes",
+      z2: "No siempre llevamos a cabo un control/análisis del rendimiento de la empresa al menos una vez al mes",
+      z3: "Raramente monitoreamos/analizamos el desempeño de nuestra empresa"
+    },
+    {
+      t: "Realizamos control/análisis del desempeño de nuestra empresa en un equipo de directivos clave",
+      z2: "No siempre monitoreamos/analizamos el desempeño de nuestra empresa en un equipo de directores clave",
+      z3: "No monitoreamos/analizamos el desempeño de la empresa en un equipo de directores clave"
+    },
+    {
+      t: "Controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas",
+      z2: "No siempre controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas",
+      z3: "No controlamos y analizamos el desempeño de nuestra empresa con discusión, fijación y control posterior de la implementación de medidas correctivas"
+    },
+    {
+      t: "Controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos",
+      z2: "No siempre controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos",
+      z3: "No controlamos y analizamos el desempeño de nuestra empresa con la identificación y solución de problemas sistémicos"
+    },
+    {
+      t: "Conocemos bien a nuestros clientes objetivo y sus necesidades",
+      z2: "No siempre conocemos bien a los clientes objetivo y sus necesidades",
+      z3: "No conocemos bien a los clientes objetivo y sus necesidades"
+    },
+    {
+      t: "Nuestra propuesta de venta y nuestros modelos de promoción y venta responden en gran medida a las necesidades de nuestros clientes",
+      z2: "Nuestra propuesta de venta y nuestros modelos de promoción y venta no satisfacen plenamente las necesidades de nuestros clientes",
+      z3: "Nuestra propuesta de venta y nuestros modelos de promoción y venta satisfacen en pequeña medida las necesidades de nuestros clientes"
+    },
+    {
+      t: "Nuestra propuesta de valor y modelos de promoción y venta son competitivos",
+      z2: "Nuestra propuesta de valor y modelos de promoción y venta no siempre son competitivos",
+      z3: "Nuestra propuesta de valor y modelos de promoción y venta no son totalmente competitivos"
+    },
+    {
+      t: "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan en el plan de ventas",
+      z2: "Nuestros planes anuales/trimestrales de producción/unidades operativas se basan parcialmente en el plan de ventas",
+      z3: "Nuestros planes anuales/trimestrales de producción/unidades operativas no se basan en planes de ventas"
+    },
+    {
+      t: "Las actividades de las funciones comerciales y operativas (producción) están bien coordinadas entre sí",
+      z2: "Las acciones de las funciones comercial y operativa (producción) no siempre están bien coordinadas entre sí",
+      z3: "Las acciones de las funciones comerciales y operativas (producción) están mal coordinadas entre sí"
+    },
+    {
+      t: "La mayoría de nuestros procesos y procedimientos estándar están documentados",
+      z2: "No todos nuestros procesos y procedimientos estándar están documentados",
+      z3: "La mayoría de nuestros procesos y procedimientos estándar no están documentados"
+    },
+    {
+      t: "Seguimos la mayoría de nuestros procesos y procedimientos estándar",
+      z2: "Seguimos algunos de nuestros procesos y procedimientos estándar",
+      z3: "Rara vez seguimos nuestros procesos y procedimientos estándar"
+    },
+    {
+      t: "La mayoría de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos",
+      z2: "Solo un subconjunto de nuestros procesos y procedimientos estándar está sujeto a ajustes periódicos",
+      z3: "Una pequeña parte de nuestros procesos y procedimientos estándar están sujetos a ajustes periódicos"
+    },
+    {
+      t: "La mayoría de nuestros procesos y procedimientos estándar están automatizados",
+      z2: "Solo una parte de nuestros procesos y procedimientos estándar están automatizados",
+      z3: "Una pequeña parte de nuestros procesos y procedimientos estándar están automatizados"
+    },
+    {
+      t: "Nuestro trabajo en el desarrollo y lanzamiento de nuevos productos es efectivo",
+      z2: "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos no es lo suficientemente eficaz",
+      z3: "Nuestra actividad en el desarrollo y lanzamiento de nuevos productos es ineficaz"
+    },
+    {
+      t: "Adoptamos un enfoque sistemático para la capacitación y el desarrollo",
+      z2: "Nuestro enfoque de capacitación y desarrollo no es lo suficientemente sistemático",
+      z3: "No abordamos la capacitación y el desarrollo de forma sistemática"
+    },
+    {
+      t: "Manejamos desafíos de contratación",
+      z2: "No hacemos frente completamente a las tareas de contratación",
+      z3: "Somos malos en las tareas de contratación"
+    },
+    {
+      t: "No experimentamos escasez de personal calificado",
+      z2: "A veces experimentamos escasez de personal cualificado",
+      z3: "Estamos experimentando una escasez de personal calificado"
+    },
+    {
+      t: "Conocemos el punto de equilibrio",
+      z2: "Aproximadamente conocemos el punto de equilibrio",
+      z3: "No conocemos el punto de equilibrio"
+    },
+    {
+      t: "Hemos implementado un proceso de presupuestación y lo seguimos",
+      z2: "Nuestro proceso de presupuestación no está completamente implementado",
+      z3: "No tenemos un proceso de presupuestación implementado"
+    },
+    {
+      t: "Hemos implementado una contabilidad de gestión y funciona",
+      z2: "Hemos implementado parcialmente una contabilidad de gestión",
+      z3: "No hemos implementado una contabilidad de gestión"
+    },
+    {
+      t: "Las solicitudes de pago (a proveedores/contratistas) en la mayoría de los casos se pagan rápidamente/dentro de un plazo específico",
+      z2: "Las solicitudes de pago (a proveedores/contratistas) no siempre se pagan rápidamente/dentro de un plazo específico",
+      z3: "Las solicitudes de pago (a proveedores/contratistas) rara vez se pagan rápidamente/dentro de un plazo estipulado"
+    },
+    {
+      t: "Tenemos un bajo nivel de rotación de personal clave",
+      z2: "Tenemos un nivel medio de rotación de personal clave",
+      z3: "Tenemos un alto nivel de rotación de personal clave"
+    },
+    {
+      t: "Nuestros empleados recomiendan la empresa a sus amigos",
+      z2: "No todos nuestros empleados recomiendan la empresa a sus amigos",
+      z3: "Nuestros empleados no recomiendan la empresa a sus amigos"
+    },
+    {
+      t: "Nuestra línea de productos está cambiando rápidamente",
+      z2: "Nuestra línea de productos no está cambiando lo suficientemente rápido",
+      z3: "Nuestra línea de productos está cambiando lentamente"
+    },
+    {
+      t: "Los cambios en nuestra empresa no encuentran resistencia",
+      z2: "Los cambios en nuestra empresa a veces encuentran resistencia",
+      z3: "Los cambios en nuestra empresa a menudo encuentran resistencia"
+    },
+    {
+      t: "Nuestro presupuesto de desarrollo ha estado creciendo durante los últimos tres años",
+      z2: "Nuestro presupuesto de desarrollo ha crecido ligeramente durante los últimos tres años",
+      z3: "Nuestro presupuesto de desarrollo no ha estado creciendo durante los últimos tres años"
+    },
+    {
+      t: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha ido creciendo en los últimos tres años",
+      z2: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) ha crecido ligeramente en los últimos tres años",
+      z3: "La participación de nuestros ingresos de nuevas áreas de actividad (mercados, productos) no ha estado creciendo durante los últimos tres años"
+    },
+    {
+      t: "Nuestras ganancias han estado creciendo durante los últimos tres años",
+      z2: "Nuestras ganancias han crecido ligeramente en los últimos tres años",
+      z3: "Nuestras ganancias no han crecido en los últimos tres años"
+    },
+    {
+      t: "Nuestra rentabilidad ha estado creciendo durante los últimos tres años",
+      z2: "Nuestra rentabilidad ha aumentado ligeramente en los últimos tres años",
+      z3: "Nuestra rentabilidad no ha aumentado en los últimos tres años"
+    },
+    {
+      t: "Nuestra participación de mercado ha estado creciendo durante los últimos tres años",
+      z2: "Nuestra participación de mercado ha crecido poco en los últimos tres años",
+      z3: "Nuestra participación de mercado no ha estado creciendo durante los últimos tres años"
+    },
+    {
+      t: "Nuestro volumen de ventas ha estado creciendo durante los últimos tres años",
+      z2: "Nuestro volumen de ventas ha crecido poco en los últimos tres años",
+      z3: "Nuestro volumen de ventas no ha crecido en los últimos tres años"
+    },
+    {
+      t: "Nuestros clientes nos recomiendan",
+      z2: "Nuestros clientes no siempre nos recomiendan",
+      z3: "Nuestros clientes raramente nos recomiendan"
+    }
+  ]
 };

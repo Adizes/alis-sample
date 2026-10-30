@@ -18,7 +18,9 @@ var TYPE_INFO = {
   ED: '67 statements · group report with participants’ names · minimum 1 response',
   ES: '50 questions · anonymous · minimum 5 responses · results by area',
 };
-var LANGS = { en: 'English', es: 'Español' };
+// Languages = those with texts for both tests (added through the translations workbook).
+var LANGS = {};
+Object.keys(ED_I18N).forEach(function (k) { if (ES_I18N[k]) LANGS[k] = ED_I18N[k].langName || k; });
 var ERR = {
   forbidden: 'Your session has expired. Please sign in again.', invalid_code: 'That code isn’t valid or has expired.', too_many_attempts: 'Too many attempts. Request a new code.',
   name_required: 'The name is required.', invalid_email: 'Please check the email address.', duplicate_email: 'There is already an employee with that email in this company.',
@@ -567,10 +569,10 @@ function generateReport(l, comments) {
       var doc, base;
       if (d.type === 'ED') {
         doc = renderEdPdf(A, d.lang, { result: ED.score(d.responses), company: d.company, participants: d.names, dateIso: d.dateIso });
-        base = d.lang === 'es' ? 'Diagnostico-Expres' : 'Express-Diagnostics';
+        base = (ED_I18N[d.lang] || ED_I18N.en).pdf.file || 'Express-Diagnostics';
       } else {
         doc = renderEsPdf(A, d.lang, { agg: ES.aggregate(d.responses), company: d.company, launchName: d.launchName, invited: d.total, dateIso: d.dateIso, comments: comments });
-        base = d.lang === 'es' ? 'Encuesta-de-Compromiso' : 'Engagement-Survey';
+        base = (ES_I18N[d.lang] || ES_I18N.en).pdf.file || 'Engagement-Survey';
       }
       var name = base + '-' + slug(d.company) + '-' + d.dateIso.slice(0, 10) + '.pdf';
       return call('saveReport', { launchId: l.id, pdf: doc.output('datauristring').split(',')[1], fileName: name });

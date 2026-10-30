@@ -21,7 +21,7 @@ A working reference implementation is live, and the source code is public at **g
 | `05-participant-experience.md` | The answering flow screen by screen: personal link, resume, keyboard, review, submit, states |
 | `06-admin-and-data.md` | Admin features, data model, API (request/response), error codes, security |
 | `07-verification.md` | How to prove your implementation matches: test vectors and acceptance checklist |
-| `questions-express-diagnostics.md` | All 67 statements × 3 wordings, in every language |
+| `questions-express-diagnostics.md` | All 67 statements × 3 wordings, in every language (EN, ES, LV, LT) |
 | `questions-engagement-survey.md` | All 50 questions, their scale and factor, every answer option, in every language |
 
 ### Data files (use these, don't retype)
@@ -37,8 +37,9 @@ A working reference implementation is live, and the source code is public at **g
 
 | Folder | Content |
 |---|---|
-| `samples/` | Real group reports produced by the reference implementation: ED and ES in English and Spanish, plus the exact inputs used (`sample-report-inputs.json`) |
+| `samples/` | Real group reports produced by the reference implementation: ED and ES in English, Spanish, Latvian and Lithuanian, plus the exact inputs used (`sample-report-inputs.json`) |
 | `screens/` | Screenshots of the participant flow (desktop + mobile) and the admin |
+| `translations/Adizes-Translations.xlsx` | **Every text of both tests in one workbook**: one column per language (EN, ES, LV, LT). Edit it to fix or add translations (see `01-system-overview.md` → Language rule) |
 | `source/` | A copy of the reference implementation (the scoring engines and report renderers are plain JavaScript and can be reused as-is, see `04-reports.md`) |
 
 ## Try it interactively
@@ -67,4 +68,4 @@ A working reference implementation is live, and the source code is public at **g
 | Cell / factor | One of the organizational dimensions the questions are grouped into (16 in ED, 15 in ES) |
 | Raw value | The number stored for an answer (1–5). Never translated, never re-ordered |
 
-Version of the reference implementation documented here: **v1.2.0**.
+Version of the reference implementation documented here: **v1.3.0**. Languages: English, Spanish, Latvian, Lithuanian.

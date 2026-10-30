@@ -1,149 +1,350 @@
-/*! Adizes · Engagement Survey v1.2.0 · github.com/Adizes/alis-sample */
+/*! Adizes · Engagement Survey v1.3.0 · github.com/Adizes/alis-sample */
 (function(){
 'use strict';
 var ES_I18N = {};
 /* Engagement Survey — English
- * To add a language: copy this file (e.g. pt.js), change `ES_I18N.en` to `ES_I18N.pt`, translate every
- * string and keep the keys. Never change the order of `questions` or the `value`s of the scales
- * (they are what is stored and scored; 5 is always the most positive answer).
+ * GENERATED from the translations workbook (tools/translations.py). Edit the workbook, not this file.
+ * Answer values and the order of questions come from English and never change.
  */
 ES_I18N.en = {
-  code: 'en',
-  langName: 'English',
-  locale: 'en-US',
-
+  code: "en",
+  langName: "English",
+  locale: "en-US",
   ui: {
-    start: 'Start',
-    back: 'Back',
-    next: 'Next',
-    pressEnter: 'press Enter ↵',
-    keyboardHint: 'Keys 1–{n} · 0 = Don’t know',
-    of: 'of',
-    section: 'Area',
-    resume: 'Welcome back. Your answers so far are saved.',
-    resumeYes: 'Continue where I left off',
-    resumeNo: 'Start over',
-    loading: 'Loading…',
-    sending: 'Sending your answers…',
-    errorGeneric: 'Something went wrong. Please check your connection and try again.',
-    retry: 'Try again',
-    importance: 'How important is this question for you?',
-    imp: ['Less important', 'Medium', 'Most important'],
-    mostCount: 'Most important: {n} of {max}',
-    mostFull: 'You already chose 15 questions as most important. Change one of them to use it here.',
-    comment: 'Add a comment (optional)',
-    commentPh: 'Your comment… It is shared anonymously, word for word.',
-  },
-
-  intro: {
-    eyebrow: 'Engagement Survey',
-    title: '{company} wants to hear from you',
-    body: '{company} is running an engagement survey together with the Adizes Institute. You will answer {n} questions about your daily work and the organization.',
-    bullets: [
-      'The survey is anonymous: answers are combined, and {company} never sees anyone’s individual answers.',
-      'For each question, say how important it is to you. Mark up to 15 as “Most important” (at least one).',
-      'You can add a comment to any question. Comments are shared word for word without your name, so avoid details that identify you.',
-      'It takes about 10–15 minutes. You can pause and continue later with the same link.',
+    start: "Start",
+    back: "Back",
+    next: "Next",
+    pressEnter: "press Enter ↵",
+    keyboardHint: "Keys 1–{n} · 0 = Don’t know",
+    of: "of",
+    section: "Area",
+    resume: "Welcome back. Your answers so far are saved.",
+    resumeYes: "Continue where I left off",
+    resumeNo: "Start over",
+    loading: "Loading…",
+    sending: "Sending your answers…",
+    errorGeneric: "Something went wrong. Please check your connection and try again.",
+    retry: "Try again",
+    importance: "How important is this question for you?",
+    imp: [
+      "Less important",
+      "Medium",
+      "Most important"
     ],
-    note: 'Answer for how things actually are today. If you have no basis to answer, choose “Don’t know”.',
-    deadline: 'Open until {date}',
-    meta: '{n} questions · about 10–15 minutes · anonymous',
+    mostCount: "Most important: {n} of {max}",
+    mostFull: "You already chose 15 questions as most important. Change one of them to use it here.",
+    comment: "Add a comment (optional)",
+    commentPh: "Your comment… It is shared anonymously, word for word."
   },
-
+  intro: {
+    eyebrow: "Engagement Survey",
+    title: "{company} wants to hear from you",
+    body: "{company} is running an engagement survey together with the Adizes Institute. You will answer {n} questions about your daily work and the organization.",
+    bullets: [
+      "The survey is anonymous: answers are combined, and {company} never sees anyone’s individual answers.",
+      "For each question, say how important it is to you. Mark up to 15 as “Most important” (at least one).",
+      "You can add a comment to any question. Comments are shared word for word without your name, so avoid details that identify you.",
+      "It takes about 10–15 minutes. You can pause and continue later with the same link."
+    ],
+    note: "Answer for how things actually are today. If you have no basis to answer, choose “Don’t know”.",
+    deadline: "Open until {date}",
+    meta: "{n} questions · about 10–15 minutes · anonymous"
+  },
   review: {
-    eyebrow: 'Last step',
-    title: 'Review your answers',
-    body: 'You answered all {n} questions.',
-    cannot: '{n} as “Don’t know”.',
-    most: 'Most important: {n} of {max}.',
-    needMost: 'Mark at least {min} question as “Most important” before sending (open any question to change it).',
-    missingN: '{n} questions still need an answer.',
-    missingHelp: 'Click any question to answer or change it.',
-    missing: 'Not answered',
-    commented: 'Comment',
-    warn: 'Click any question to change your answer, its importance or your comment. Once sent, your answers can’t be changed.',
-    submit: 'Send my answers',
-    hint: 'You can also send from the bottom of the list.',
-    back: 'Back to review',
+    eyebrow: "Last step",
+    title: "Review your answers",
+    body: "You answered all {n} questions.",
+    cannot: "{n} as “Don’t know”.",
+    most: "Most important: {n} of {max}.",
+    needMost: "Mark at least {min} question as “Most important” before sending (open any question to change it).",
+    missingN: "{n} questions still need an answer.",
+    missingHelp: "Click any question to answer or change it.",
+    missing: "Not answered",
+    commented: "Comment",
+    warn: "Click any question to change your answer, its importance or your comment. Once sent, your answers can’t be changed.",
+    submit: "Send my answers",
+    hint: "You can also send from the bottom of the list.",
+    back: "Back to review"
   },
   thanks: {
-    title: 'Thank you',
-    body: 'Your answers have been recorded anonymously. Thank you for taking the time to participate. You can close this window.',
+    title: "Thank you",
+    body: "Your answers have been recorded anonymously. Thank you for taking the time to participate. You can close this window."
   },
   states: {
-    noToken: { title: 'You need your personal link', body: 'To answer, open the link you received in your invitation email.' },
-    invalid_link: { title: 'This link isn’t valid', body: 'Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com.' },
-    completed: { title: 'You have already answered', body: 'Your answers were recorded. Thank you for participating.' },
-    closed: { title: 'This survey is closed', body: 'Answers are no longer being collected. If you think this is a mistake, contact the person who invited you.' },
-    not_open: { title: 'This survey isn’t open yet', body: 'Please try again later from the same link.' },
+    noToken: {
+      title: "You need your personal link",
+      body: "To answer, open the link you received in your invitation email."
+    },
+    invalid_link: {
+      title: "This link isn’t valid",
+      body: "Make sure you opened the complete link from your invitation email. If the problem continues, write to info@adizes.com."
+    },
+    completed: {
+      title: "You have already answered",
+      body: "Your answers were recorded. Thank you for participating."
+    },
+    closed: {
+      title: "This survey is closed",
+      body: "Answers are no longer being collected. If you think this is a mistake, contact the person who invited you."
+    },
+    not_open: {
+      title: "This survey isn’t open yet",
+      body: "Please try again later from the same link."
+    }
   },
-
-  dontKnow: 'Don’t know',
-  // value = raw number stored (5 = most positive). Q5 and Q45 are negative statements: their labels run backwards.
+  dontKnow: "Don’t know",
   scales: {
-    F: [{ value: 2, label: 'Never', sub: 'Absolutely disagree' }, { value: 3, label: 'Sometimes', sub: 'Mostly disagree' }, { value: 4, label: 'Often', sub: 'Mostly agree' }, { value: 5, label: 'Always', sub: 'Absolutely agree' }],
-    A: [{ value: 2, label: 'Absolutely disagree', sub: 'Never' }, { value: 3, label: 'Mostly disagree', sub: 'Sometimes' }, { value: 4, label: 'Mostly agree', sub: 'Often' }, { value: 5, label: 'Absolutely agree', sub: 'Always' }],
-    FR: [{ value: 5, label: 'Never', sub: 'Absolutely disagree' }, { value: 4, label: 'Sometimes', sub: 'Mostly disagree' }, { value: 3, label: 'Often', sub: 'Mostly agree' }, { value: 2, label: 'Always', sub: 'Absolutely agree' }],
-    AR: [{ value: 5, label: 'Absolutely disagree', sub: 'Never' }, { value: 4, label: 'Mostly disagree', sub: 'Sometimes' }, { value: 3, label: 'Mostly agree', sub: 'Often' }, { value: 2, label: 'Absolutely agree', sub: 'Always' }],
-    S: [{ value: 2, label: 'Absolutely dissatisfied' }, { value: 3, label: 'Mostly dissatisfied' }, { value: 4, label: 'Mostly satisfied' }, { value: 5, label: 'Absolutely satisfied' }],
-    C: [{ value: 1, label: 'Significantly deteriorated' }, { value: 2, label: 'Slightly deteriorated' }, { value: 3, label: 'No tangible changes' }, { value: 4, label: 'Slightly improved' }, { value: 5, label: 'Significantly improved' }],
+    F: [
+      {
+        value: 2,
+        label: "Never",
+        sub: "Absolutely disagree"
+      },
+      {
+        value: 3,
+        label: "Sometimes",
+        sub: "Mostly disagree"
+      },
+      {
+        value: 4,
+        label: "Often",
+        sub: "Mostly agree"
+      },
+      {
+        value: 5,
+        label: "Always",
+        sub: "Absolutely agree"
+      }
+    ],
+    A: [
+      {
+        value: 2,
+        label: "Absolutely disagree",
+        sub: "Never"
+      },
+      {
+        value: 3,
+        label: "Mostly disagree",
+        sub: "Sometimes"
+      },
+      {
+        value: 4,
+        label: "Mostly agree",
+        sub: "Often"
+      },
+      {
+        value: 5,
+        label: "Absolutely agree",
+        sub: "Always"
+      }
+    ],
+    FR: [
+      {
+        value: 5,
+        label: "Never",
+        sub: "Absolutely disagree"
+      },
+      {
+        value: 4,
+        label: "Sometimes",
+        sub: "Mostly disagree"
+      },
+      {
+        value: 3,
+        label: "Often",
+        sub: "Mostly agree"
+      },
+      {
+        value: 2,
+        label: "Always",
+        sub: "Absolutely agree"
+      }
+    ],
+    AR: [
+      {
+        value: 5,
+        label: "Absolutely disagree",
+        sub: "Never"
+      },
+      {
+        value: 4,
+        label: "Mostly disagree",
+        sub: "Sometimes"
+      },
+      {
+        value: 3,
+        label: "Mostly agree",
+        sub: "Often"
+      },
+      {
+        value: 2,
+        label: "Absolutely agree",
+        sub: "Always"
+      }
+    ],
+    S: [
+      {
+        value: 2,
+        label: "Absolutely dissatisfied"
+      },
+      {
+        value: 3,
+        label: "Mostly dissatisfied"
+      },
+      {
+        value: 4,
+        label: "Mostly satisfied"
+      },
+      {
+        value: 5,
+        label: "Absolutely satisfied"
+      }
+    ],
+    C: [
+      {
+        value: 1,
+        label: "Significantly deteriorated"
+      },
+      {
+        value: 2,
+        label: "Slightly deteriorated"
+      },
+      {
+        value: 3,
+        label: "No tangible changes"
+      },
+      {
+        value: 4,
+        label: "Slightly improved"
+      },
+      {
+        value: 5,
+        label: "Significantly improved"
+      }
+    ]
   },
-
   cells: {
-    values: 'Values', climate: 'Climate', styles: 'Styles', responsibility: 'Responsibility Structure', authority: 'Authority Structure',
-    reward: 'Reward Structure', supervisor: 'Supervisor', planning: 'Planning', information: 'Information flow', client: 'Client interface',
-    transformation: 'Transformation', human: 'Human factors', behaviour: 'Behaviour', changes: 'Changes', inefficiency: 'Inefficiency',
+    values: "Values",
+    climate: "Climate",
+    styles: "Styles",
+    responsibility: "Responsibility Structure",
+    authority: "Authority Structure",
+    reward: "Reward Structure",
+    supervisor: "Supervisor",
+    planning: "Planning",
+    information: "Information flow",
+    client: "Client interface",
+    transformation: "Transformation",
+    human: "Human factors",
+    behaviour: "Behaviour",
+    changes: "Changes",
+    inefficiency: "Inefficiency"
   },
-
   levels: {
-    fully: { name: 'Fully engaged', desc: ['passionate about their work and the organization', 'will do whatever it takes to deliver results', 'deliver consistent high quality results', 'find non-standard and innovative solutions to the toughest problems', 'seen as a leader and a role model'] },
-    engaged: { name: 'Engaged', desc: ['focused on achieving results, projects, individual responsibilities', 'deliver good, solid performance', 'always do their fair share of work', 'work well with others and help others when asked'] },
-    somewhat: { name: 'Somewhat engaged', desc: ['selective about where they put their energy', 'spend a lot of time doing things that are not helping clients and/or the organization', 'deliver when they have to or when you are watching them', 'have a negative influence on others'] },
-    disengaged: { name: 'Disengaged', desc: ['work only when they have to', 'would like to be doing something else', 'results are not meeting the standards', 'have a “we and they” perspective', 'are negative about the organization, and in their interactions with clients and colleagues'] },
+    fully: {
+      name: "Fully engaged",
+      desc: [
+        "passionate about their work and the organization",
+        "will do whatever it takes to deliver results",
+        "deliver consistent high quality results",
+        "find non-standard and innovative solutions to the toughest problems",
+        "seen as a leader and a role model"
+      ]
+    },
+    engaged: {
+      name: "Engaged",
+      desc: [
+        "focused on achieving results, projects, individual responsibilities",
+        "deliver good, solid performance",
+        "always do their fair share of work",
+        "work well with others and help others when asked"
+      ]
+    },
+    somewhat: {
+      name: "Somewhat engaged",
+      desc: [
+        "selective about where they put their energy",
+        "spend a lot of time doing things that are not helping clients and/or the organization",
+        "deliver when they have to or when you are watching them",
+        "have a negative influence on others"
+      ]
+    },
+    disengaged: {
+      name: "Disengaged",
+      desc: [
+        "work only when they have to",
+        "would like to be doing something else",
+        "results are not meeting the standards",
+        "have a “we and they” perspective",
+        "are negative about the organization, and in their interactions with clients and colleagues"
+      ]
+    }
   },
-
   pdf: {
-    title: 'Engagement Survey',
-    subtitle: 'Report',
-    company: 'Company',
-    launch: 'Survey',
-    date: 'Date of the report',
-    responses: 'Responses',
-    of: 'of',
-    invited: 'invited',
-    anon: 'The survey is anonymous. Results are only shown in aggregate, and groups with fewer than 5 answers are never shown on their own.',
-    contents: 'Contents',
-    toc: ['Distribution by engagement level', 'Engagement by area', 'Organizational factors', 'What matters most to employees', 'All questions', 'Comments'],
-    levelsTitle: 'Distribution by engagement level',
-    levelsHelp: 'Each participant is classified from all their answers and from the questions they marked as most important.',
-    positive: 'Fully engaged + Engaged',
-    people: 'people',
-    byAreaTitle: 'Engagement by area',
-    byAreaHelp: 'Only areas with 5 or more answers are shown. Smaller areas are combined into “Other areas” when together they reach 5.',
-    company_col: 'Company',
-    other: 'Other areas',
-    hidden: '{n} answers from areas with fewer than 5 people are counted only in the company total.',
-    noAreas: 'No area has 5 or more answers yet, so results by area are not shown.',
-    respondents: 'Respondents',
-    factorsTitle: 'Organizational factors',
-    factorsHelp: 'Score of each factor from the answers (“Don’t know” not counted), with the same method as the Adizes diagnostic matrix. 75% or more is healthy; under 50% is an anomaly.',
-    groups: { culture: 'Organizational culture', structure: 'Structure', process: 'Process', functions: 'Organizational functions', effects: 'Effects' },
-    colors: { green: 'All OK', yellow: 'Attention zone', red: 'Anomaly zone' },
-    topTitle: 'What matters most to employees',
-    topHelp: 'The questions most often marked as “Most important”, and how they were answered.',
-    mostPct: 'most important',
-    distTitle: 'All questions',
-    distHelp: 'Distribution of answers (%) and, in red on the right, the share of respondents who marked each question as most important.',
-    legend: { 5: 'Always / Absolutely agree', 4: 'Often / Mostly agree', 3: 'Sometimes / Mostly disagree', 2: 'Never / Absolutely disagree', 1: 'Don’t know' },
-    q50: 'Green is always the most positive answer: for the negative statements 5 and 45 that is “Never” / “Absolutely disagree”. Question 50 uses its own scale (significantly improved → significantly deteriorated).',
-    commentsTitle: 'Comments',
-    commentsHelp: 'Written by participants, anonymous and word for word.',
-    noComments: 'No comments were left.',
-    footer: 'Adizes Institute · Engagement Survey',
-    page: 'Page',
-    cont: 'cont.',
+    file: "Engagement-Survey",
+    title: "Engagement Survey",
+    subtitle: "Report",
+    company: "Company",
+    launch: "Survey",
+    date: "Date of the report",
+    responses: "Responses",
+    of: "of",
+    invited: "invited",
+    anon: "The survey is anonymous. Results are only shown in aggregate, and groups with fewer than 5 answers are never shown on their own.",
+    contents: "Contents",
+    toc: [
+      "Distribution by engagement level",
+      "Engagement by area",
+      "Organizational factors",
+      "What matters most to employees",
+      "All questions",
+      "Comments"
+    ],
+    levelsTitle: "Distribution by engagement level",
+    levelsHelp: "Each participant is classified from all their answers and from the questions they marked as most important.",
+    positive: "Fully engaged + Engaged",
+    people: "people",
+    byAreaTitle: "Engagement by area",
+    byAreaHelp: "Only areas with 5 or more answers are shown. Smaller areas are combined into “Other areas” when together they reach 5.",
+    company_col: "Company",
+    other: "Other areas",
+    hidden: "{n} answers from areas with fewer than 5 people are counted only in the company total.",
+    noAreas: "No area has 5 or more answers yet, so results by area are not shown.",
+    respondents: "Respondents",
+    factorsTitle: "Organizational factors",
+    factorsHelp: "Score of each factor from the answers (“Don’t know” not counted), with the same method as the Adizes diagnostic matrix. 75% or more is healthy; under 50% is an anomaly.",
+    groups: {
+      culture: "Organizational culture",
+      structure: "Structure",
+      process: "Process",
+      functions: "Organizational functions",
+      effects: "Effects"
+    },
+    colors: {
+      green: "All OK",
+      yellow: "Attention zone",
+      red: "Anomaly zone"
+    },
+    topTitle: "What matters most to employees",
+    topHelp: "The questions most often marked as “Most important”, and how they were answered.",
+    mostPct: "most important",
+    distTitle: "All questions",
+    distHelp: "Distribution of answers (%) and, in red on the right, the share of respondents who marked each question as most important.",
+    legend: {
+      "1": "Don’t know",
+      "2": "Never / Absolutely disagree",
+      "3": "Sometimes / Mostly disagree",
+      "4": "Often / Mostly agree",
+      "5": "Always / Absolutely agree"
+    },
+    q50: "Green is always the most positive answer: for the negative statements 5 and 45 that is “Never” / “Absolutely disagree”. Question 50 uses its own scale (significantly improved → significantly deteriorated).",
+    commentsTitle: "Comments",
+    commentsHelp: "Written by participants, anonymous and word for word.",
+    noComments: "No comments were left.",
+    footer: "Adizes Institute · Engagement Survey",
+    page: "Page",
+    cont: "cont."
   },
-
   questions: [
     "Our leaders follow the values declared in the Organization",
     "Our Organization fully fulfils its obligations to employees",
@@ -194,150 +395,353 @@ ES_I18N.en = {
     "I am proud to work in the Organization",
     "Our Organization moves with the times (products, technologies, processes)",
     "I believe that the potential of employees, their skills, knowledge and abilities are effectively used in the Organization",
-    "Based on your overall previous answers, do you think the situation in the Organization as a whole has changed over the last year?",
-  ],
+    "Based on your overall previous answers, do you think the situation in the Organization as a whole has changed over the last year?"
+  ]
 };
 
 /* Engagement Survey — Español
- * Para agregar un idioma: copia en.js (por ejemplo pt.js), cambia `ES_I18N.en` por `ES_I18N.pt`, traduce
- * cada texto y conserva las claves. No cambies el orden de `questions` ni los `value` de las escalas.
+ * GENERATED from the translations workbook (tools/translations.py). Edit the workbook, not this file.
+ * Answer values and the order of questions come from English and never change.
  */
 ES_I18N.es = {
-  code: 'es',
-  langName: 'Español',
-  locale: 'es-MX',
-
+  code: "es",
+  langName: "Español",
+  locale: "es-MX",
   ui: {
-    start: 'Comenzar',
-    back: 'Atrás',
-    next: 'Siguiente',
-    pressEnter: 'presiona Enter ↵',
-    keyboardHint: 'Teclas 1–{n} · 0 = No sé',
-    of: 'de',
-    section: 'Área',
-    resume: 'Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.',
-    resumeYes: 'Continuar donde me quedé',
-    resumeNo: 'Empezar de nuevo',
-    loading: 'Cargando…',
-    sending: 'Enviando tus respuestas…',
-    errorGeneric: 'Algo salió mal. Revisa tu conexión e inténtalo de nuevo.',
-    retry: 'Intentar de nuevo',
-    importance: '¿Qué tan importante es esta pregunta para ti?',
-    imp: ['Poco importante', 'Importante', 'Lo más importante'],
-    mostCount: 'Lo más importante: {n} de {max}',
-    mostFull: 'Ya elegiste 15 preguntas como lo más importante. Cambia una de ellas para usarla aquí.',
-    comment: 'Agregar un comentario (opcional)',
-    commentPh: 'Tu comentario… Se comparte de forma anónima, tal cual lo escribas.',
-  },
-
-  intro: {
-    eyebrow: 'Encuesta de Compromiso',
-    title: '{company} quiere escucharte',
-    body: '{company} está realizando una encuesta de compromiso junto con el Instituto Adizes. Responderás {n} preguntas sobre tu trabajo diario y la organización.',
-    bullets: [
-      'La encuesta es anónima: las respuestas se combinan y {company} nunca ve las respuestas individuales.',
-      'En cada pregunta indica qué tan importante es para ti. Marca hasta 15 como “Lo más importante” (al menos una).',
-      'Puedes dejar un comentario en cualquier pregunta. Los comentarios se comparten tal cual, sin tu nombre; evita detalles que te identifiquen.',
-      'Toma de 10 a 15 minutos. Puedes pausar y continuar después con el mismo enlace.',
+    start: "Comenzar",
+    back: "Atrás",
+    next: "Siguiente",
+    pressEnter: "presiona Enter ↵",
+    keyboardHint: "Teclas 1–{n} · 0 = No sé",
+    of: "de",
+    section: "Área",
+    resume: "Qué bueno que volviste. Tus respuestas hasta ahora están guardadas.",
+    resumeYes: "Continuar donde me quedé",
+    resumeNo: "Empezar de nuevo",
+    loading: "Cargando…",
+    sending: "Enviando tus respuestas…",
+    errorGeneric: "Algo salió mal. Revisa tu conexión e inténtalo de nuevo.",
+    retry: "Intentar de nuevo",
+    importance: "¿Qué tan importante es esta pregunta para ti?",
+    imp: [
+      "Poco importante",
+      "Importante",
+      "Lo más importante"
     ],
-    note: 'Responde según cómo son las cosas hoy. Si no tienes elementos para responder, elige “No sé”.',
-    deadline: 'Disponible hasta el {date}',
-    meta: '{n} preguntas · 10 a 15 minutos · anónima',
+    mostCount: "Lo más importante: {n} de {max}",
+    mostFull: "Ya elegiste 15 preguntas como lo más importante. Cambia una de ellas para usarla aquí.",
+    comment: "Agregar un comentario (opcional)",
+    commentPh: "Tu comentario… Se comparte de forma anónima, tal cual lo escribas."
   },
-
+  intro: {
+    eyebrow: "Encuesta de Compromiso",
+    title: "{company} quiere escucharte",
+    body: "{company} está realizando una encuesta de compromiso junto con el Instituto Adizes. Responderás {n} preguntas sobre tu trabajo diario y la organización.",
+    bullets: [
+      "La encuesta es anónima: las respuestas se combinan y {company} nunca ve las respuestas individuales.",
+      "En cada pregunta indica qué tan importante es para ti. Marca hasta 15 como “Lo más importante” (al menos una).",
+      "Puedes dejar un comentario en cualquier pregunta. Los comentarios se comparten tal cual, sin tu nombre; evita detalles que te identifiquen.",
+      "Toma de 10 a 15 minutos. Puedes pausar y continuar después con el mismo enlace."
+    ],
+    note: "Responde según cómo son las cosas hoy. Si no tienes elementos para responder, elige “No sé”.",
+    deadline: "Disponible hasta el {date}",
+    meta: "{n} preguntas · 10 a 15 minutos · anónima"
+  },
   review: {
-    eyebrow: 'Último paso',
-    title: 'Revisa tus respuestas',
-    body: 'Respondiste las {n} preguntas.',
-    cannot: '{n} como “No sé”.',
-    most: 'Lo más importante: {n} de {max}.',
-    needMost: 'Marca al menos {min} pregunta como “Lo más importante” antes de enviar (abre cualquier pregunta para cambiarlo).',
-    missingN: 'Faltan {n} preguntas por responder.',
-    missingHelp: 'Haz clic en cualquier pregunta para responderla o cambiarla.',
-    missing: 'Sin responder',
-    commented: 'Comentario',
-    warn: 'Haz clic en cualquier pregunta para cambiar tu respuesta, su importancia o tu comentario. Una vez enviadas, ya no se pueden cambiar.',
-    submit: 'Enviar mis respuestas',
-    hint: 'También puedes enviarlas al final de la lista.',
-    back: 'Volver a la revisión',
+    eyebrow: "Último paso",
+    title: "Revisa tus respuestas",
+    body: "Respondiste las {n} preguntas.",
+    cannot: "{n} como “No sé”.",
+    most: "Lo más importante: {n} de {max}.",
+    needMost: "Marca al menos {min} pregunta como “Lo más importante” antes de enviar (abre cualquier pregunta para cambiarlo).",
+    missingN: "Faltan {n} preguntas por responder.",
+    missingHelp: "Haz clic en cualquier pregunta para responderla o cambiarla.",
+    missing: "Sin responder",
+    commented: "Comentario",
+    warn: "Haz clic en cualquier pregunta para cambiar tu respuesta, su importancia o tu comentario. Una vez enviadas, ya no se pueden cambiar.",
+    submit: "Enviar mis respuestas",
+    hint: "También puedes enviarlas al final de la lista.",
+    back: "Volver a la revisión"
   },
   thanks: {
-    title: 'Gracias',
-    body: 'Tus respuestas quedaron registradas de forma anónima. Gracias por tomarte el tiempo de participar. Ya puedes cerrar esta ventana.',
+    title: "Gracias",
+    body: "Tus respuestas quedaron registradas de forma anónima. Gracias por tomarte el tiempo de participar. Ya puedes cerrar esta ventana."
   },
   states: {
-    noToken: { title: 'Necesitas tu enlace personal', body: 'Para responder, abre el enlace que recibiste en tu correo de invitación.' },
-    invalid_link: { title: 'Este enlace no es válido', body: 'Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com.' },
-    completed: { title: 'Ya respondiste', body: 'Tus respuestas quedaron registradas. Gracias por participar.' },
-    closed: { title: 'Esta encuesta ya cerró', body: 'Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó.' },
-    not_open: { title: 'Esta encuesta aún no está abierta', body: 'Inténtalo más tarde con el mismo enlace.' },
+    noToken: {
+      title: "Necesitas tu enlace personal",
+      body: "Para responder, abre el enlace que recibiste en tu correo de invitación."
+    },
+    invalid_link: {
+      title: "Este enlace no es válido",
+      body: "Revisa que hayas abierto el enlace completo del correo de invitación. Si el problema sigue, escríbenos a info@adizes.com."
+    },
+    completed: {
+      title: "Ya respondiste",
+      body: "Tus respuestas quedaron registradas. Gracias por participar."
+    },
+    closed: {
+      title: "Esta encuesta ya cerró",
+      body: "Ya no se reciben respuestas. Si crees que es un error, contacta a quien te invitó."
+    },
+    not_open: {
+      title: "Esta encuesta aún no está abierta",
+      body: "Inténtalo más tarde con el mismo enlace."
+    }
   },
-
-  dontKnow: 'No sé',
+  dontKnow: "No sé",
   scales: {
-    F: [{ value: 2, label: 'Nunca', sub: 'Totalmente en desacuerdo' }, { value: 3, label: 'A veces', sub: 'Mayormente en desacuerdo' }, { value: 4, label: 'A menudo', sub: 'Mayormente de acuerdo' }, { value: 5, label: 'Siempre', sub: 'Totalmente de acuerdo' }],
-    A: [{ value: 2, label: 'Totalmente en desacuerdo', sub: 'Nunca' }, { value: 3, label: 'Mayormente en desacuerdo', sub: 'A veces' }, { value: 4, label: 'Mayormente de acuerdo', sub: 'A menudo' }, { value: 5, label: 'Totalmente de acuerdo', sub: 'Siempre' }],
-    FR: [{ value: 5, label: 'Nunca', sub: 'Totalmente en desacuerdo' }, { value: 4, label: 'A veces', sub: 'Mayormente en desacuerdo' }, { value: 3, label: 'A menudo', sub: 'Mayormente de acuerdo' }, { value: 2, label: 'Siempre', sub: 'Totalmente de acuerdo' }],
-    AR: [{ value: 5, label: 'Totalmente en desacuerdo', sub: 'Nunca' }, { value: 4, label: 'Mayormente en desacuerdo', sub: 'A veces' }, { value: 3, label: 'Mayormente de acuerdo', sub: 'A menudo' }, { value: 2, label: 'Totalmente de acuerdo', sub: 'Siempre' }],
-    S: [{ value: 2, label: 'Totalmente insatisfecho' }, { value: 3, label: 'Mayormente insatisfecho' }, { value: 4, label: 'Mayormente satisfecho' }, { value: 5, label: 'Totalmente satisfecho' }],
-    C: [{ value: 1, label: 'Empeoró significativamente' }, { value: 2, label: 'Empeoró ligeramente' }, { value: 3, label: 'Sin cambios tangibles' }, { value: 4, label: 'Mejoró ligeramente' }, { value: 5, label: 'Mejoró significativamente' }],
+    F: [
+      {
+        value: 2,
+        label: "Nunca",
+        sub: "Totalmente en desacuerdo"
+      },
+      {
+        value: 3,
+        label: "A veces",
+        sub: "Mayormente en desacuerdo"
+      },
+      {
+        value: 4,
+        label: "A menudo",
+        sub: "Mayormente de acuerdo"
+      },
+      {
+        value: 5,
+        label: "Siempre",
+        sub: "Totalmente de acuerdo"
+      }
+    ],
+    A: [
+      {
+        value: 2,
+        label: "Totalmente en desacuerdo",
+        sub: "Nunca"
+      },
+      {
+        value: 3,
+        label: "Mayormente en desacuerdo",
+        sub: "A veces"
+      },
+      {
+        value: 4,
+        label: "Mayormente de acuerdo",
+        sub: "A menudo"
+      },
+      {
+        value: 5,
+        label: "Totalmente de acuerdo",
+        sub: "Siempre"
+      }
+    ],
+    FR: [
+      {
+        value: 5,
+        label: "Nunca",
+        sub: "Totalmente en desacuerdo"
+      },
+      {
+        value: 4,
+        label: "A veces",
+        sub: "Mayormente en desacuerdo"
+      },
+      {
+        value: 3,
+        label: "A menudo",
+        sub: "Mayormente de acuerdo"
+      },
+      {
+        value: 2,
+        label: "Siempre",
+        sub: "Totalmente de acuerdo"
+      }
+    ],
+    AR: [
+      {
+        value: 5,
+        label: "Totalmente en desacuerdo",
+        sub: "Nunca"
+      },
+      {
+        value: 4,
+        label: "Mayormente en desacuerdo",
+        sub: "A veces"
+      },
+      {
+        value: 3,
+        label: "Mayormente de acuerdo",
+        sub: "A menudo"
+      },
+      {
+        value: 2,
+        label: "Totalmente de acuerdo",
+        sub: "Siempre"
+      }
+    ],
+    S: [
+      {
+        value: 2,
+        label: "Totalmente insatisfecho"
+      },
+      {
+        value: 3,
+        label: "Mayormente insatisfecho"
+      },
+      {
+        value: 4,
+        label: "Mayormente satisfecho"
+      },
+      {
+        value: 5,
+        label: "Totalmente satisfecho"
+      }
+    ],
+    C: [
+      {
+        value: 1,
+        label: "Empeoró significativamente"
+      },
+      {
+        value: 2,
+        label: "Empeoró ligeramente"
+      },
+      {
+        value: 3,
+        label: "Sin cambios tangibles"
+      },
+      {
+        value: 4,
+        label: "Mejoró ligeramente"
+      },
+      {
+        value: 5,
+        label: "Mejoró significativamente"
+      }
+    ]
   },
-
   cells: {
-    values: 'Valores', climate: 'Clima', styles: 'Estilos', responsibility: 'Estructura de responsabilidad', authority: 'Estructura de autoridad',
-    reward: 'Estructura de recompensas', supervisor: 'Supervisor', planning: 'Planificación', information: 'Flujo de información', client: 'Interfaz con el cliente',
-    transformation: 'Transformación', human: 'Factores humanos', behaviour: 'Comportamiento', changes: 'Cambios', inefficiency: 'Ineficiencia',
+    values: "Valores",
+    climate: "Clima",
+    styles: "Estilos",
+    responsibility: "Estructura de responsabilidad",
+    authority: "Estructura de autoridad",
+    reward: "Estructura de recompensas",
+    supervisor: "Supervisor",
+    planning: "Planificación",
+    information: "Flujo de información",
+    client: "Interfaz con el cliente",
+    transformation: "Transformación",
+    human: "Factores humanos",
+    behaviour: "Comportamiento",
+    changes: "Cambios",
+    inefficiency: "Ineficiencia"
   },
-
   levels: {
-    fully: { name: 'Totalmente comprometido', desc: ['apasionados por su trabajo y por la organización', 'hacen lo que sea necesario para lograr resultados', 'entregan resultados consistentes y de alta calidad', 'encuentran soluciones innovadoras a los problemas más difíciles', 'son vistos como líderes y modelos a seguir'] },
-    engaged: { name: 'Comprometido', desc: ['enfocados en lograr resultados, proyectos y responsabilidades individuales', 'tienen un desempeño bueno y sólido', 'siempre hacen la parte que les corresponde', 'trabajan bien con otros y ayudan cuando se les pide'] },
-    somewhat: { name: 'Algo comprometido', desc: ['selectivos sobre dónde ponen su energía', 'dedican mucho tiempo a cosas que no ayudan a los clientes ni a la organización', 'cumplen cuando tienen que hacerlo o cuando se les supervisa', 'tienen una influencia negativa en otros'] },
-    disengaged: { name: 'No comprometido', desc: ['trabajan solo cuando tienen que hacerlo', 'preferirían estar haciendo otra cosa', 'sus resultados no cumplen los estándares', 'tienen una perspectiva de “nosotros contra ellos”', 'son negativos con la organización y en su trato con clientes y colegas'] },
+    fully: {
+      name: "Totalmente comprometido",
+      desc: [
+        "apasionados por su trabajo y por la organización",
+        "hacen lo que sea necesario para lograr resultados",
+        "entregan resultados consistentes y de alta calidad",
+        "encuentran soluciones innovadoras a los problemas más difíciles",
+        "son vistos como líderes y modelos a seguir"
+      ]
+    },
+    engaged: {
+      name: "Comprometido",
+      desc: [
+        "enfocados en lograr resultados, proyectos y responsabilidades individuales",
+        "tienen un desempeño bueno y sólido",
+        "siempre hacen la parte que les corresponde",
+        "trabajan bien con otros y ayudan cuando se les pide"
+      ]
+    },
+    somewhat: {
+      name: "Algo comprometido",
+      desc: [
+        "selectivos sobre dónde ponen su energía",
+        "dedican mucho tiempo a cosas que no ayudan a los clientes ni a la organización",
+        "cumplen cuando tienen que hacerlo o cuando se les supervisa",
+        "tienen una influencia negativa en otros"
+      ]
+    },
+    disengaged: {
+      name: "No comprometido",
+      desc: [
+        "trabajan solo cuando tienen que hacerlo",
+        "preferirían estar haciendo otra cosa",
+        "sus resultados no cumplen los estándares",
+        "tienen una perspectiva de “nosotros contra ellos”",
+        "son negativos con la organización y en su trato con clientes y colegas"
+      ]
+    }
   },
-
   pdf: {
-    title: 'Encuesta de Compromiso',
-    subtitle: 'Reporte',
-    company: 'Empresa',
-    launch: 'Encuesta',
-    date: 'Fecha del reporte',
-    responses: 'Respuestas',
-    of: 'de',
-    invited: 'invitados',
-    anon: 'La encuesta es anónima. Los resultados solo se muestran en conjunto y los grupos con menos de 5 respuestas nunca se muestran por separado.',
-    contents: 'Contenido',
-    toc: ['Distribución por nivel de compromiso', 'Compromiso por área', 'Factores organizacionales', 'Lo más importante para los colaboradores', 'Todas las preguntas', 'Comentarios'],
-    levelsTitle: 'Distribución por nivel de compromiso',
-    levelsHelp: 'Cada participante se clasifica con todas sus respuestas y con las preguntas que marcó como lo más importante.',
-    positive: 'Totalmente comprometido + Comprometido',
-    people: 'personas',
-    byAreaTitle: 'Compromiso por área',
-    byAreaHelp: 'Solo se muestran las áreas con 5 o más respuestas. Las áreas más pequeñas se combinan en “Otras áreas” cuando juntas suman 5.',
-    company_col: 'Empresa',
-    other: 'Otras áreas',
-    hidden: '{n} respuestas de áreas con menos de 5 personas se cuentan solo en el total de la empresa.',
-    noAreas: 'Ninguna área tiene todavía 5 o más respuestas, por eso no se muestran resultados por área.',
-    respondents: 'Respuestas',
-    factorsTitle: 'Factores organizacionales',
-    factorsHelp: 'Calificación de cada factor con base en las respuestas (“No sé” no cuenta), con el mismo método de la matriz de diagnóstico Adizes. 75% o más es sano; menos de 50% es una anomalía.',
-    groups: { culture: 'Cultura organizacional', structure: 'Estructura', process: 'Procesos', functions: 'Funciones organizacionales', effects: 'Efectos' },
-    colors: { green: 'Todo bien', yellow: 'Zona de atención', red: 'Zona de anomalía' },
-    topTitle: 'Lo más importante para los colaboradores',
-    topHelp: 'Las preguntas que más veces se marcaron como “Lo más importante” y cómo se respondieron.',
-    mostPct: 'lo más importante',
-    distTitle: 'Todas las preguntas',
-    distHelp: 'Distribución de respuestas (%) y, en rojo a la derecha, el porcentaje de participantes que marcaron cada pregunta como lo más importante.',
-    legend: { 5: 'Siempre / Totalmente de acuerdo', 4: 'A menudo / Mayormente de acuerdo', 3: 'A veces / Mayormente en desacuerdo', 2: 'Nunca / Totalmente en desacuerdo', 1: 'No sé' },
-    q50: 'El verde siempre es la respuesta más positiva: en las afirmaciones negativas 5 y 45 es “Nunca” / “Totalmente en desacuerdo”. La pregunta 50 usa su propia escala (mejoró significativamente → empeoró significativamente).',
-    commentsTitle: 'Comentarios',
-    commentsHelp: 'Escritos por los participantes, anónimos y tal cual.',
-    noComments: 'No se dejaron comentarios.',
-    footer: 'Instituto Adizes · Encuesta de Compromiso',
-    page: 'Página',
-    cont: 'cont.',
+    file: "Encuesta-de-Compromiso",
+    title: "Encuesta de Compromiso",
+    subtitle: "Reporte",
+    company: "Empresa",
+    launch: "Encuesta",
+    date: "Fecha del reporte",
+    responses: "Respuestas",
+    of: "de",
+    invited: "invitados",
+    anon: "La encuesta es anónima. Los resultados solo se muestran en conjunto y los grupos con menos de 5 respuestas nunca se muestran por separado.",
+    contents: "Contenido",
+    toc: [
+      "Distribución por nivel de compromiso",
+      "Compromiso por área",
+      "Factores organizacionales",
+      "Lo más importante para los colaboradores",
+      "Todas las preguntas",
+      "Comentarios"
+    ],
+    levelsTitle: "Distribución por nivel de compromiso",
+    levelsHelp: "Cada participante se clasifica con todas sus respuestas y con las preguntas que marcó como lo más importante.",
+    positive: "Totalmente comprometido + Comprometido",
+    people: "personas",
+    byAreaTitle: "Compromiso por área",
+    byAreaHelp: "Solo se muestran las áreas con 5 o más respuestas. Las áreas más pequeñas se combinan en “Otras áreas” cuando juntas suman 5.",
+    company_col: "Empresa",
+    other: "Otras áreas",
+    hidden: "{n} respuestas de áreas con menos de 5 personas se cuentan solo en el total de la empresa.",
+    noAreas: "Ninguna área tiene todavía 5 o más respuestas, por eso no se muestran resultados por área.",
+    respondents: "Respuestas",
+    factorsTitle: "Factores organizacionales",
+    factorsHelp: "Calificación de cada factor con base en las respuestas (“No sé” no cuenta), con el mismo método de la matriz de diagnóstico Adizes. 75% o más es sano; menos de 50% es una anomalía.",
+    groups: {
+      culture: "Cultura organizacional",
+      structure: "Estructura",
+      process: "Procesos",
+      functions: "Funciones organizacionales",
+      effects: "Efectos"
+    },
+    colors: {
+      green: "Todo bien",
+      yellow: "Zona de atención",
+      red: "Zona de anomalía"
+    },
+    topTitle: "Lo más importante para los colaboradores",
+    topHelp: "Las preguntas que más veces se marcaron como “Lo más importante” y cómo se respondieron.",
+    mostPct: "lo más importante",
+    distTitle: "Todas las preguntas",
+    distHelp: "Distribución de respuestas (%) y, en rojo a la derecha, el porcentaje de participantes que marcaron cada pregunta como lo más importante.",
+    legend: {
+      "1": "No sé",
+      "2": "Nunca / Totalmente en desacuerdo",
+      "3": "A veces / Mayormente en desacuerdo",
+      "4": "A menudo / Mayormente de acuerdo",
+      "5": "Siempre / Totalmente de acuerdo"
+    },
+    q50: "El verde siempre es la respuesta más positiva: en las afirmaciones negativas 5 y 45 es “Nunca” / “Totalmente en desacuerdo”. La pregunta 50 usa su propia escala (mejoró significativamente → empeoró significativamente).",
+    commentsTitle: "Comentarios",
+    commentsHelp: "Escritos por los participantes, anónimos y tal cual.",
+    noComments: "No se dejaron comentarios.",
+    footer: "Instituto Adizes · Encuesta de Compromiso",
+    page: "Página",
+    cont: "cont."
   },
-
   questions: [
     "Nuestros líderes siguen los valores declarados en la empresa",
     "Nuestra empresa cumple plenamente sus obligaciones con los empleados",
@@ -388,8 +792,802 @@ ES_I18N.es = {
     "Estoy orgulloso de trabajar en la empresa",
     "Nuestra empresa se mueve con los tiempos (productos, tecnologías, procesos)",
     "Creo que el potencial de los empleados, sus capacidades, conocimientos y habilidades se utilizan efectivamente en la empresa",
-    "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?",
-  ],
+    "Según todas tus respuestas anteriores, ¿crees que la situación de la empresa en su conjunto ha cambiado durante el último año?"
+  ]
+};
+
+/* Engagement Survey — Lietuvių
+ * GENERATED from the translations workbook (tools/translations.py). Edit the workbook, not this file.
+ * Answer values and the order of questions come from English and never change.
+ */
+ES_I18N.lt = {
+  code: "lt",
+  langName: "Lietuvių",
+  locale: "lt-LT",
+  ui: {
+    start: "Pradėti",
+    back: "Atgal",
+    next: "Toliau",
+    pressEnter: "paspauskite Enter ↵",
+    keyboardHint: "Klavišai 1–{n} · 0 = Nežinau",
+    of: "iš",
+    section: "Sritis",
+    resume: "Sveiki sugrįžę! Jūsų ankstesni atsakymai išsaugoti.",
+    resumeYes: "Tęsti nuo ten, kur baigiau",
+    resumeNo: "Pradėti iš naujo",
+    loading: "Įkeliama…",
+    sending: "Siunčiami jūsų atsakymai…",
+    errorGeneric: "Įvyko klaida. Patikrinkite interneto ryšį ir bandykite dar kartą.",
+    retry: "Bandyti dar kartą",
+    importance: "Kiek jums svarbus šis klausimas?",
+    imp: [
+      "Mažiau svarbus",
+      "Vidutiniškai svarbus",
+      "Svarbiausias"
+    ],
+    mostCount: "Svarbiausi: {n} iš {max}",
+    mostFull: "Jau pažymėta 15 svarbiausių klausimų. Norėdami pažymėti šį, pirmiau pakeiskite vieną iš jų.",
+    comment: "Pridėti komentarą (neprivaloma)",
+    commentPh: "Jūsų komentaras… Jis bus pateiktas anonimiškai, pažodžiui."
+  },
+  intro: {
+    eyebrow: "Įsitraukimo apklausa",
+    title: "{company} nori išgirsti jūsų nuomonę",
+    body: "{company} kartu su Adizes institutu atlieka darbuotojų įsitraukimo apklausą. Atsakysite į {n} klausimų apie savo kasdienį darbą ir organizaciją.",
+    bullets: [
+      "Apklausa anoniminė: atsakymai apibendrinami, o {company} niekada nemato atskirų žmonių atsakymų.",
+      "Prie kiekvieno klausimo nurodykite, kiek jis jums svarbus. Pažymėkite iki 15 klausimų kaip „Svarbiausius“ (bent vieną).",
+      "Prie bet kurio klausimo galite pridėti komentarą. Komentarai pateikiami pažodžiui be jūsų vardo, todėl nenurodykite detalių, pagal kurias būtų galima jus atpažinti.",
+      "Tai užtruks apie 10–15 minučių. Galite sustoti ir vėliau tęsti naudodami tą pačią nuorodą."
+    ],
+    note: "Atsakykite, kaip yra iš tikrųjų šiandien. Jei neturite pagrindo atsakyti, pasirinkite „Nežinau“.",
+    deadline: "Terminas: {date}",
+    meta: "Klausimų: {n} · apie 10–15 minučių · anonimiškai"
+  },
+  review: {
+    eyebrow: "Paskutinis žingsnis",
+    title: "Peržiūrėkite savo atsakymus",
+    body: "Atsakėte į visus klausimus ({n}).",
+    cannot: "Atsakymas „Nežinau“: {n}.",
+    most: "Svarbiausi: {n} iš {max}.",
+    needMost: "Prieš siųsdami pažymėkite bent {min} klausimą kaip „Svarbiausią“ (atidarykite bet kurį klausimą, kad tai pakeistumėte).",
+    missingN: "Neatsakyta klausimų: {n}.",
+    missingHelp: "Spustelėkite bet kurį klausimą, kad atsakytumėte arba pakeistumėte atsakymą.",
+    missing: "Neatsakyta",
+    commented: "Komentaras",
+    warn: "Spustelėkite bet kurį klausimą, kad pakeistumėte atsakymą, jo svarbą ar komentarą. Išsiųstų atsakymų pakeisti nebegalėsite.",
+    submit: "Siųsti atsakymus",
+    hint: "Atsakymus galite išsiųsti ir sąrašo apačioje.",
+    back: "Grįžti į peržiūrą"
+  },
+  thanks: {
+    title: "Ačiū",
+    body: "Jūsų atsakymai anonimiškai užregistruoti. Dėkojame, kad skyrėte laiko apklausai. Galite uždaryti šį langą."
+  },
+  states: {
+    noToken: {
+      title: "Reikalinga jūsų asmeninė nuoroda",
+      body: "Norėdami atsakyti, atidarykite nuorodą, kurią gavote kvietimo el. laiške."
+    },
+    invalid_link: {
+      title: "Ši nuoroda negalioja",
+      body: "Įsitikinkite, kad atidarėte visą nuorodą iš kvietimo el. laiško. Jei problema kartojasi, rašykite info@adizes.com."
+    },
+    completed: {
+      title: "Jūs jau atsakėte",
+      body: "Jūsų atsakymai užregistruoti. Ačiū, kad dalyvavote."
+    },
+    closed: {
+      title: "Ši apklausa baigta",
+      body: "Atsakymai nebepriimami. Jei manote, kad tai klaida, kreipkitės į jus pakvietusį asmenį."
+    },
+    not_open: {
+      title: "Ši apklausa dar neprasidėjo",
+      body: "Pabandykite vėliau naudodami tą pačią nuorodą."
+    }
+  },
+  dontKnow: "Nežinau",
+  scales: {
+    F: [
+      {
+        value: 2,
+        label: "Niekada",
+        sub: "Visiškai nesutinku"
+      },
+      {
+        value: 3,
+        label: "Kartais",
+        sub: "Iš esmės nesutinku"
+      },
+      {
+        value: 4,
+        label: "Dažnai",
+        sub: "Iš esmės sutinku"
+      },
+      {
+        value: 5,
+        label: "Visada",
+        sub: "Visiškai sutinku"
+      }
+    ],
+    A: [
+      {
+        value: 2,
+        label: "Visiškai nesutinku",
+        sub: "Niekada"
+      },
+      {
+        value: 3,
+        label: "Iš esmės nesutinku",
+        sub: "Kartais"
+      },
+      {
+        value: 4,
+        label: "Iš esmės sutinku",
+        sub: "Dažnai"
+      },
+      {
+        value: 5,
+        label: "Visiškai sutinku",
+        sub: "Visada"
+      }
+    ],
+    FR: [
+      {
+        value: 5,
+        label: "Niekada",
+        sub: "Visiškai nesutinku"
+      },
+      {
+        value: 4,
+        label: "Kartais",
+        sub: "Iš esmės nesutinku"
+      },
+      {
+        value: 3,
+        label: "Dažnai",
+        sub: "Iš esmės sutinku"
+      },
+      {
+        value: 2,
+        label: "Visada",
+        sub: "Visiškai sutinku"
+      }
+    ],
+    AR: [
+      {
+        value: 5,
+        label: "Visiškai nesutinku",
+        sub: "Niekada"
+      },
+      {
+        value: 4,
+        label: "Iš esmės nesutinku",
+        sub: "Kartais"
+      },
+      {
+        value: 3,
+        label: "Iš esmės sutinku",
+        sub: "Dažnai"
+      },
+      {
+        value: 2,
+        label: "Visiškai sutinku",
+        sub: "Visada"
+      }
+    ],
+    S: [
+      {
+        value: 2,
+        label: "Visiškai netenkina"
+      },
+      {
+        value: 3,
+        label: "Iš esmės netenkina"
+      },
+      {
+        value: 4,
+        label: "Iš esmės tenkina"
+      },
+      {
+        value: 5,
+        label: "Visiškai tenkina"
+      }
+    ],
+    C: [
+      {
+        value: 1,
+        label: "Gerokai pablogėjo"
+      },
+      {
+        value: 2,
+        label: "Šiek tiek pablogėjo"
+      },
+      {
+        value: 3,
+        label: "Esminių pokyčių nėra"
+      },
+      {
+        value: 4,
+        label: "Šiek tiek pagerėjo"
+      },
+      {
+        value: 5,
+        label: "Gerokai pagerėjo"
+      }
+    ]
+  },
+  cells: {
+    values: "Vertybės",
+    climate: "Klimatas",
+    styles: "Vadovavimo stiliai",
+    responsibility: "Atsakomybės struktūra",
+    authority: "Įgaliojimų struktūra",
+    reward: "Atlygio struktūra",
+    supervisor: "Vadovas",
+    planning: "Planavimas",
+    information: "Informacijos srautai",
+    client: "Bendravimas su klientais",
+    transformation: "Transformacija",
+    human: "Žmogiškieji veiksniai",
+    behaviour: "Elgsena",
+    changes: "Pokyčiai",
+    inefficiency: "Neefektyvumas"
+  },
+  levels: {
+    fully: {
+      name: "Visiškai įsitraukę",
+      desc: [
+        "aistringai atsidavę savo darbui ir organizacijai",
+        "padarys viską, ko reikia, kad pasiektų rezultatą",
+        "nuolat pasiekia aukštos kokybės rezultatus",
+        "randa nestandartinių ir inovatyvių sprendimų sudėtingiausioms problemoms",
+        "laikomi lyderiais ir pavyzdžiu kitiems"
+      ]
+    },
+    engaged: {
+      name: "Įsitraukę",
+      desc: [
+        "susitelkę į rezultatus, projektus ir savo atsakomybes",
+        "dirba gerai ir stabiliai",
+        "visada atlieka savo darbo dalį",
+        "gerai bendradarbiauja su kitais ir padeda, kai paprašoma"
+      ]
+    },
+    somewhat: {
+      name: "Iš dalies įsitraukę",
+      desc: [
+        "rinkasi, kam skirti savo energiją",
+        "daug laiko skiria veiklai, kuri nepadeda klientams ir (arba) organizacijai",
+        "padaro darbą, kai būtina arba kai yra prižiūrimi",
+        "neigiamai veikia kitus"
+      ]
+    },
+    disengaged: {
+      name: "Neįsitraukę",
+      desc: [
+        "dirba tik tada, kai būtina",
+        "mieliau užsiimtų kuo nors kitu",
+        "rezultatai neatitinka standartų",
+        "mąsto kategorijomis „mes ir jie“",
+        "neigiamai atsiliepia apie organizaciją ir taip pat elgiasi su klientais bei kolegomis"
+      ]
+    }
+  },
+  pdf: {
+    file: "Isitraukimo-apklausa",
+    title: "Įsitraukimo apklausa",
+    subtitle: "Ataskaita",
+    company: "Įmonė",
+    launch: "Apklausa",
+    date: "Ataskaitos data",
+    responses: "Atsakymai",
+    of: "iš",
+    invited: "pakviestų",
+    anon: "Apklausa anoniminė. Rezultatai pateikiami tik apibendrinti, o grupės, kuriose mažiau nei 5 atsakymai, niekada nerodomos atskirai.",
+    contents: "Turinys",
+    toc: [
+      "Pasiskirstymas pagal įsitraukimo lygį",
+      "Įsitraukimas pagal sritis",
+      "Organizacijos veiksniai",
+      "Kas darbuotojams svarbiausia",
+      "Visi klausimai",
+      "Komentarai"
+    ],
+    levelsTitle: "Pasiskirstymas pagal įsitraukimo lygį",
+    levelsHelp: "Kiekvienas dalyvis priskiriamas lygiui pagal visus jo atsakymus ir pagal klausimus, kuriuos jis pažymėjo kaip svarbiausius.",
+    positive: "Visiškai įsitraukę + Įsitraukę",
+    people: "žm.",
+    byAreaTitle: "Įsitraukimas pagal sritis",
+    byAreaHelp: "Rodomos tik sritys, kuriose yra 5 ar daugiau atsakymų. Mažesnės sritys sujungiamos į „Kitas sritis“, jei kartu jose yra bent 5 atsakymai.",
+    company_col: "Įmonė",
+    other: "Kitos sritys",
+    hidden: "Atsakymai iš sričių, kuriose mažiau nei 5 žmonės, įskaičiuoti tik į bendrą įmonės rezultatą ({n}).",
+    noAreas: "Nė vienoje srityje dar nėra 5 ar daugiau atsakymų, todėl rezultatai pagal sritis nerodomi.",
+    respondents: "Respondentai",
+    factorsTitle: "Organizacijos veiksniai",
+    factorsHelp: "Kiekvieno veiksnio įvertinimas pagal atsakymus („Nežinau“ neįskaičiuojamas), taikant tą patį metodą kaip Adizes diagnostikos matricoje. 75 % ir daugiau — sveika būklė; mažiau nei 50 % — anomalija.",
+    groups: {
+      culture: "Organizacijos kultūra",
+      structure: "Struktūra",
+      process: "Procesai",
+      functions: "Organizacijos funkcijos",
+      effects: "Pasekmės"
+    },
+    colors: {
+      green: "Viskas gerai",
+      yellow: "Dėmesio zona",
+      red: "Anomalijų zona"
+    },
+    topTitle: "Kas darbuotojams svarbiausia",
+    topHelp: "Klausimai, kurie dažniausiai pažymėti kaip „Svarbiausi“, ir kaip į juos atsakyta.",
+    mostPct: "svarbiausia",
+    distTitle: "Visi klausimai",
+    distHelp: "Atsakymų pasiskirstymas (%) ir raudonai dešinėje — respondentų, pažymėjusių klausimą kaip svarbiausią, dalis.",
+    legend: {
+      "1": "Nežinau",
+      "2": "Niekada / Visiškai nesutinku",
+      "3": "Kartais / Iš esmės nesutinku",
+      "4": "Dažnai / Iš esmės sutinku",
+      "5": "Visada / Visiškai sutinku"
+    },
+    q50: "Žalia spalva visada žymi palankiausią atsakymą: neigiamiems teiginiams 5 ir 45 tai „Niekada“ / „Visiškai nesutinku“. 50 klausimas turi savo skalę (gerokai pagerėjo → gerokai pablogėjo).",
+    commentsTitle: "Komentarai",
+    commentsHelp: "Parašyti dalyvių, anonimiški ir pateikti pažodžiui.",
+    noComments: "Komentarų nepalikta.",
+    footer: "Adizes institutas · Įsitraukimo apklausa",
+    page: "Puslapis",
+    cont: "tęsinys"
+  },
+  questions: [
+    "Mūsų vadovai laikosi organizacijoje deklaruojamų vertybių",
+    "Mūsų organizacija visiškai vykdo savo įsipareigojimus darbuotojams",
+    "Organizacija vertina ir palaiko naujas idėjas",
+    "Man gera organizacijoje vyraujančioje atmosferoje",
+    "Pas mus galioja principas „kiekvienas už save“",
+    "Už gerai atliktą darbą sulaukiu padėkos ir įvertinimo",
+    "Mes gerbiame vieni kitus",
+    "Mūsų organizacijos vadovų elgesys padeda kurti sveiką darbo aplinką, siekti tikslų ir plėtoti organizaciją",
+    "Aiškiai suprantu savo darbo užduotis ir savo vaidmenį skyriaus veikloje",
+    "Suprantu, kuo turiu vadovautis atlikdamas savo darbą: politikomis, reglamentais, taisyklėmis, profesiniais standartais ir pan.",
+    "Žinau, į ką galiu kreiptis su klausimais",
+    "Suprantu, kokius sprendimus turiu teisę priimti",
+    "Sprendimai klausimais, kurie liečia mane, priimami laiku ir nuspėjamai",
+    "Turiu pakankamai įgaliojimų, kad galėčiau atsakyti už savo darbo rezultatus",
+    "Manau, kad pajamos, kurias gaunu organizacijoje, yra konkurencingos",
+    "Suprantu, nuo ko priklauso kintamoji mano pajamų dalis",
+    "Manau, kad galiu gana stipriai paveikti tiek pastoviąją, tiek kintamąją savo pajamų dalį",
+    "Mano socialinių naudų paketas konkurencingas rinkoje",
+    "Su savo vadovu galiu aptarti asmeninius klausimus",
+    "Mano vadovas elgiasi su manimi kaip su asmenybe",
+    "Mano vadovas skatina mano profesinį tobulėjimą",
+    "Mano vadovas reguliariai kalbasi su manimi apie mano pažangą",
+    "Mano vadovas teikia kokybišką ir motyvuojantį grįžtamąjį ryšį — visada žinau, ką jis mano apie mane ir mano darbą",
+    "Vadovo man skiriamos užduotys yra aiškios ir įgyvendinamos",
+    "Nesivaržau užduoti savo vadovui patikslinančių klausimų",
+    "Manau, kad mano vadovo priimami sprendimai yra teisingi ir naudingi organizacijai",
+    "Mano vadovas atidžiai mane išklauso ir atsižvelgia į mano nuomonę",
+    "Žinau ir suprantu ilgalaikius organizacijos tikslus",
+    "Mane įkvepia mūsų organizacijos tikslai. Mes dirbame svarbų ir naudingą darbą",
+    "Suprantu, kaip mano darbo rezultatai veikia bendrą organizacijos rezultatą",
+    "Turiu galimybę būti išklausytas",
+    "Turiu pakankamai informacijos apie tai, kas vyksta organizacijoje, kad galėčiau atlikti savo darbą",
+    "Žinau, kas yra mūsų tiksliniai klientai (vidiniai ar išoriniai). Žinau, kokius poreikius ir kokiais produktais ar paslaugomis galime patenkinti",
+    "Gerai pažįstame savo rinką (vidinius ar išorinius klientus), stebime tendencijas ir poreikius ir nuolat galvojame, kaip geriau aptarnauti savo klientus (vidinius ar išorinius)",
+    "Mano darbo aplinka patogi",
+    "Turiu visas technines priemones, reikalingas gerai atlikti savo darbą",
+    "Darbo procesai, kuriuose dalyvauju, yra susisteminti ir gerai organizuoti",
+    "Esame pasiryžę tobulinti savo darbo procesus ir taikomas technologijas",
+    "Mane tenkina kitų padalinių darbo kokybė",
+    "Per pastaruosius 12 mėnesių darbas leido man patobulinti ir išplėsti savo žinias, įgūdžius ir gebėjimus",
+    "Žinau, kokiomis sąlygomis (ką daryti, ko mokytis, ką pasiekti) galiu „augti“ organizacijoje",
+    "Ar jus tenkina jūsų darbas šioje organizacijoje?",
+    "Jaučiu, kad organizacijoje esu vertinamas",
+    "Darbas, kurį iš tikrųjų dirbu, man įdomus ir teikia malonumą",
+    "Planuoju išeiti iš organizacijos per artimiausius metus",
+    "Rekomenduoju mūsų organizaciją savo draugams ir pažįstamiems kaip gerą darbdavį",
+    "Didžiuojuosi, kad dirbu šioje organizacijoje",
+    "Mūsų organizacija neatsilieka nuo laiko (produktai, technologijos, procesai)",
+    "Manau, kad darbuotojų potencialas, jų įgūdžiai, žinios ir gebėjimai organizacijoje panaudojami efektyviai",
+    "Atsižvelgiant į visus ankstesnius jūsų atsakymus, kaip, jūsų nuomone, per pastaruosius metus pasikeitė padėtis organizacijoje apskritai?"
+  ]
+};
+
+/* Engagement Survey — Latviešu
+ * GENERATED from the translations workbook (tools/translations.py). Edit the workbook, not this file.
+ * Answer values and the order of questions come from English and never change.
+ */
+ES_I18N.lv = {
+  code: "lv",
+  langName: "Latviešu",
+  locale: "lv-LV",
+  ui: {
+    start: "Sākt",
+    back: "Atpakaļ",
+    next: "Tālāk",
+    pressEnter: "nospiediet Enter ↵",
+    keyboardHint: "Taustiņi 1–{n} · 0 = Nezinu",
+    of: "no",
+    section: "Joma",
+    resume: "Laipni lūdzam atpakaļ! Jūsu līdzšinējās atbildes ir saglabātas.",
+    resumeYes: "Turpināt no vietas, kur apstājos",
+    resumeNo: "Sākt no jauna",
+    loading: "Ielādē…",
+    sending: "Sūta jūsu atbildes…",
+    errorGeneric: "Kaut kas nogāja greizi. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.",
+    retry: "Mēģināt vēlreiz",
+    importance: "Cik svarīgs jums ir šis jautājums?",
+    imp: [
+      "Mazāk svarīgs",
+      "Vidēji svarīgs",
+      "Vissvarīgākais"
+    ],
+    mostCount: "Vissvarīgākie: {n} no {max}",
+    mostFull: "Jau ir atzīmēti 15 jautājumi kā vissvarīgākie. Lai atzīmētu šo, vispirms mainiet kādu no tiem.",
+    comment: "Pievienot komentāru (nav obligāti)",
+    commentPh: "Jūsu komentārs… Tas tiks parādīts anonīmi un vārds vārdā."
+  },
+  intro: {
+    eyebrow: "Iesaistes aptauja",
+    title: "{company} vēlas uzzināt jūsu viedokli",
+    body: "{company} kopā ar Adizes institūtu veic darbinieku iesaistes aptauju. Jūs atbildēsiet uz {n} jautājumiem par savu ikdienas darbu un organizāciju.",
+    bullets: [
+      "Aptauja ir anonīma: atbildes tiek apkopotas, un {company} nekad neredz nevienas personas individuālās atbildes.",
+      "Pie katra jautājuma norādiet, cik tas jums ir svarīgs. Atzīmējiet līdz 15 jautājumiem kā “Vissvarīgākie” (vismaz vienu).",
+      "Pie jebkura jautājuma varat pievienot komentāru. Komentāri tiek parādīti vārds vārdā bez jūsu vārda, tāpēc nenorādiet detaļas, pēc kurām jūs varētu atpazīt.",
+      "Tas aizņems apmēram 10–15 minūtes. Varat pārtraukt un vēlāk turpināt ar to pašu saiti."
+    ],
+    note: "Atbildiet par to, kā lietas ir patiesībā šodien. Ja jums nav pamata atbildēt, izvēlieties “Nezinu”.",
+    deadline: "Termiņš: {date}",
+    meta: "{n} jautājumi · apmēram 10–15 minūtes · anonīmi"
+  },
+  review: {
+    eyebrow: "Pēdējais solis",
+    title: "Pārskatiet savas atbildes",
+    body: "Jūs atbildējāt uz visiem {n} jautājumiem.",
+    cannot: "Atbilde “Nezinu”: {n}.",
+    most: "Vissvarīgākie: {n} no {max}.",
+    needMost: "Pirms nosūtīšanas atzīmējiet vismaz {min} jautājumu kā “Vissvarīgākais” (atveriet jebkuru jautājumu, lai to mainītu).",
+    missingN: "Neatbildēti jautājumi: {n}.",
+    missingHelp: "Noklikšķiniet uz jebkura jautājuma, lai atbildētu vai mainītu atbildi.",
+    missing: "Nav atbildes",
+    commented: "Komentārs",
+    warn: "Noklikšķiniet uz jebkura jautājuma, lai mainītu atbildi, tās svarīgumu vai komentāru. Pēc nosūtīšanas atbildes vairs nevarēs mainīt.",
+    submit: "Nosūtīt atbildes",
+    hint: "Atbildes var nosūtīt arī saraksta beigās.",
+    back: "Atpakaļ uz pārskatu"
+  },
+  thanks: {
+    title: "Paldies",
+    body: "Jūsu atbildes ir anonīmi saņemtas. Paldies, ka veltījāt laiku dalībai aptaujā! Varat aizvērt šo logu."
+  },
+  states: {
+    noToken: {
+      title: "Nepieciešama jūsu personīgā saite",
+      body: "Lai atbildētu, atveriet saiti, ko saņēmāt uzaicinājuma e-pastā."
+    },
+    invalid_link: {
+      title: "Šī saite nav derīga",
+      body: "Pārliecinieties, ka atvērāt pilnu saiti no uzaicinājuma e-pasta. Ja problēma atkārtojas, rakstiet uz info@adizes.com."
+    },
+    completed: {
+      title: "Atbildes jau ir iesniegtas",
+      body: "Jūsu atbildes ir saņemtas. Paldies par dalību!"
+    },
+    closed: {
+      title: "Šī aptauja ir slēgta",
+      body: "Atbildes vairs netiek pieņemtas. Ja uzskatāt, ka tā ir kļūda, sazinieties ar personu, kas jūs uzaicināja."
+    },
+    not_open: {
+      title: "Šī aptauja vēl nav sākusies",
+      body: "Lūdzu, mēģiniet vēlāk ar to pašu saiti."
+    }
+  },
+  dontKnow: "Nezinu",
+  scales: {
+    F: [
+      {
+        value: 2,
+        label: "Nekad",
+        sub: "Pilnībā nepiekrītu"
+      },
+      {
+        value: 3,
+        label: "Dažreiz",
+        sub: "Drīzāk nepiekrītu"
+      },
+      {
+        value: 4,
+        label: "Bieži",
+        sub: "Drīzāk piekrītu"
+      },
+      {
+        value: 5,
+        label: "Vienmēr",
+        sub: "Pilnībā piekrītu"
+      }
+    ],
+    A: [
+      {
+        value: 2,
+        label: "Pilnībā nepiekrītu",
+        sub: "Nekad"
+      },
+      {
+        value: 3,
+        label: "Drīzāk nepiekrītu",
+        sub: "Dažreiz"
+      },
+      {
+        value: 4,
+        label: "Drīzāk piekrītu",
+        sub: "Bieži"
+      },
+      {
+        value: 5,
+        label: "Pilnībā piekrītu",
+        sub: "Vienmēr"
+      }
+    ],
+    FR: [
+      {
+        value: 5,
+        label: "Nekad",
+        sub: "Pilnībā nepiekrītu"
+      },
+      {
+        value: 4,
+        label: "Dažreiz",
+        sub: "Drīzāk nepiekrītu"
+      },
+      {
+        value: 3,
+        label: "Bieži",
+        sub: "Drīzāk piekrītu"
+      },
+      {
+        value: 2,
+        label: "Vienmēr",
+        sub: "Pilnībā piekrītu"
+      }
+    ],
+    AR: [
+      {
+        value: 5,
+        label: "Pilnībā nepiekrītu",
+        sub: "Nekad"
+      },
+      {
+        value: 4,
+        label: "Drīzāk nepiekrītu",
+        sub: "Dažreiz"
+      },
+      {
+        value: 3,
+        label: "Drīzāk piekrītu",
+        sub: "Bieži"
+      },
+      {
+        value: 2,
+        label: "Pilnībā piekrītu",
+        sub: "Vienmēr"
+      }
+    ],
+    S: [
+      {
+        value: 2,
+        label: "Pilnīgi neapmierina"
+      },
+      {
+        value: 3,
+        label: "Drīzāk neapmierina"
+      },
+      {
+        value: 4,
+        label: "Drīzāk apmierina"
+      },
+      {
+        value: 5,
+        label: "Pilnīgi apmierina"
+      }
+    ],
+    C: [
+      {
+        value: 1,
+        label: "Būtiski pasliktinājusies"
+      },
+      {
+        value: 2,
+        label: "Nedaudz pasliktinājusies"
+      },
+      {
+        value: 3,
+        label: "Būtisku pārmaiņu nav"
+      },
+      {
+        value: 4,
+        label: "Nedaudz uzlabojusies"
+      },
+      {
+        value: 5,
+        label: "Būtiski uzlabojusies"
+      }
+    ]
+  },
+  cells: {
+    values: "Vērtības",
+    climate: "Klimats",
+    styles: "Vadības stili",
+    responsibility: "Pienākumu struktūra",
+    authority: "Pilnvaru struktūra",
+    reward: "Atlīdzības struktūra",
+    supervisor: "Vadītājs",
+    planning: "Plānošana",
+    information: "Informācijas plūsma",
+    client: "Mijiedarbība ar klientiem",
+    transformation: "Transformācija",
+    human: "Cilvēkresursi",
+    behaviour: "Uzvedība",
+    changes: "Pārmaiņas",
+    inefficiency: "Neefektivitāte"
+  },
+  levels: {
+    fully: {
+      name: "Pilnībā iesaistīti",
+      desc: [
+        "aizrautīgi attiecībā uz savu darbu un organizāciju",
+        "darīs visu nepieciešamo, lai sasniegtu rezultātu",
+        "pastāvīgi sasniedz augstas kvalitātes rezultātus",
+        "atrod nestandarta un inovatīvus risinājumus vissarežģītākajām problēmām",
+        "tiek uztverti kā līderi un paraugs citiem"
+      ]
+    },
+    engaged: {
+      name: "Iesaistīti",
+      desc: [
+        "koncentrējas uz rezultātu, projektu un savu pienākumu izpildi",
+        "strādā labi un stabili",
+        "vienmēr paveic savu darba daļu",
+        "labi sadarbojas ar citiem un palīdz, kad tiek lūgti"
+      ]
+    },
+    somewhat: {
+      name: "Daļēji iesaistīti",
+      desc: [
+        "izvēlīgi attiecībā uz to, kam veltīt savu enerģiju",
+        "daudz laika velta lietām, kas nepalīdz klientiem un/vai organizācijai",
+        "paveic darbu, kad tas ir nepieciešams vai kad viņus uzrauga",
+        "negatīvi ietekmē citus"
+      ]
+    },
+    disengaged: {
+      name: "Neiesaistīti",
+      desc: [
+        "strādā tikai tad, kad tas ir nepieciešams",
+        "labprātāk darītu kaut ko citu",
+        "rezultāti neatbilst standartiem",
+        "domā kategorijās “mēs un viņi”",
+        "negatīvi izsakās par organizāciju un saskarsmē ar klientiem un kolēģiem"
+      ]
+    }
+  },
+  pdf: {
+    file: "Iesaistes-aptauja",
+    title: "Iesaistes aptauja",
+    subtitle: "Atskaite",
+    company: "Uzņēmums",
+    launch: "Aptauja",
+    date: "Atskaites datums",
+    responses: "Atbildes",
+    of: "no",
+    invited: "uzaicinātajiem",
+    anon: "Aptauja ir anonīma. Rezultāti tiek rādīti tikai apkopotā veidā, un grupas ar mazāk nekā 5 atbildēm nekad netiek rādītas atsevišķi.",
+    contents: "Saturs",
+    toc: [
+      "Sadalījums pa iesaistes līmeņiem",
+      "Iesaiste pa jomām",
+      "Organizācijas faktori",
+      "Kas darbiniekiem ir vissvarīgākais",
+      "Visi jautājumi",
+      "Komentāri"
+    ],
+    levelsTitle: "Sadalījums pa iesaistes līmeņiem",
+    levelsHelp: "Katrs dalībnieks tiek klasificēts pēc visām viņa atbildēm un pēc jautājumiem, ko viņš atzīmēja kā vissvarīgākos.",
+    positive: "Pilnībā iesaistīti + Iesaistīti",
+    people: "cilv.",
+    byAreaTitle: "Iesaiste pa jomām",
+    byAreaHelp: "Tiek rādītas tikai jomas ar 5 vai vairāk atbildēm. Mazākas jomas tiek apvienotas grupā “Citas jomas”, ja kopā tās sasniedz 5.",
+    company_col: "Uzņēmums",
+    other: "Citas jomas",
+    hidden: "Atbildes no jomām, kurās ir mazāk nekā 5 cilvēki, ir iekļautas tikai uzņēmuma kopsummā ({n}).",
+    noAreas: "Nevienā jomā vēl nav 5 vai vairāk atbilžu, tāpēc rezultāti pa jomām netiek rādīti.",
+    respondents: "Respondenti",
+    factorsTitle: "Organizācijas faktori",
+    factorsHelp: "Katra faktora vērtējums pēc atbildēm (“Nezinu” netiek ņemts vērā), izmantojot to pašu metodi kā Adizes diagnostikas matricā. 75% un vairāk — veselīgs stāvoklis; zem 50% — anomālija.",
+    groups: {
+      culture: "Organizācijas kultūra",
+      structure: "Struktūra",
+      process: "Procesi",
+      functions: "Organizācijas funkcijas",
+      effects: "Sekas"
+    },
+    colors: {
+      green: "Viss kārtībā",
+      yellow: "Uzmanības zona",
+      red: "Anomāliju zona"
+    },
+    topTitle: "Kas darbiniekiem ir vissvarīgākais",
+    topHelp: "Jautājumi, kas visbiežāk atzīmēti kā “Vissvarīgākie”, un kā uz tiem tika atbildēts.",
+    mostPct: "vissvarīgākais",
+    distTitle: "Visi jautājumi",
+    distHelp: "Atbilžu sadalījums (%) un sarkanā krāsā labajā pusē — to respondentu daļa, kuri šo jautājumu atzīmēja kā vissvarīgāko.",
+    legend: {
+      "1": "Nezinu",
+      "2": "Nekad / Pilnībā nepiekrītu",
+      "3": "Dažreiz / Drīzāk nepiekrītu",
+      "4": "Bieži / Drīzāk piekrītu",
+      "5": "Vienmēr / Pilnībā piekrītu"
+    },
+    q50: "Zaļā krāsa vienmēr ir pozitīvākā atbilde: negatīvajiem apgalvojumiem 5 un 45 tā ir “Nekad” / “Pilnībā nepiekrītu”. 50. jautājumam ir sava skala (būtiski uzlabojusies → būtiski pasliktinājusies).",
+    commentsTitle: "Komentāri",
+    commentsHelp: "Dalībnieku rakstīti, anonīmi un vārds vārdā.",
+    noComments: "Komentāri netika atstāti.",
+    footer: "Adizes institūts · Iesaistes aptauja",
+    page: "Lapa",
+    cont: "turp."
+  },
+  questions: [
+    "Uzņēmuma vadītāji ievēro tajā deklarētās vērtības",
+    "Mūsu uzņēmums pilnībā pilda savas saistības pret darbiniekiem",
+    "Uzņēmums novērtē un atbalsta jaunas idejas",
+    "Es jūtos labi uzņēmumā valdošajā atmosfērā",
+    "Pie mums uzņēmumā katrs ir pats par sevi",
+    "Par labi padarītu darbu es saņemu pateicību un novērtējumu",
+    "Mēs cienām viens otru",
+    "Mūsu uzņēmuma vadītāju uzvedība veicina veselīgu darba vidi, mērķu sasniegšanu un uzņēmuma attīstību",
+    "Es skaidri saprotu savus darba uzdevumus un savu lomu nodaļas darbā",
+    "Man ir saprotams, kādas procedūras, noteikumi, politikas, profesionālie standarti u. tml. regulē manu darbu",
+    "Es zinu, pie kā vērsties ar jautājumiem",
+    "Es saprotu, kādus lēmumus man ir tiesības pieņemt",
+    "Lēmumi jautājumos, kas skar mani, tiek pieņemti laikus un paredzamā veidā",
+    "Man ir pietiekamas pilnvaras, lai uzņemtos atbildību par sava darba rezultātiem",
+    "Mans atalgojuma līmenis uzņēmumā ir konkurētspējīgs",
+    "Es saprotu, no kā ir atkarīga mana ienākumu mainīgā daļa",
+    "Es uzskatu, ka varu diezgan lielā mērā ietekmēt gan fiksēto, gan mainīgo ienākumu daļu",
+    "Mana sociālā pakete ir konkurētspējīga tirgū",
+    "Es varu pārrunāt personiskus jautājumus ar savu vadītāju",
+    "Mans vadītājs izturas pret mani kā pret personību",
+    "Mans vadītājs veicina manu profesionālo izaugsmi",
+    "Mans vadītājs regulāri runā ar mani par manu progresu",
+    "Mans vadītājs sniedz kvalitatīvu un motivējošu atgriezenisko saiti — es vienmēr zinu, ko viņš domā par mani un manu darbu",
+    "Uzdevumi, ko man uzdod mans vadītājs, ir skaidri un izpildāmi",
+    "Es varu droši uzdot savam vadītājam precizējošus jautājumus",
+    "Es uzskatu, ka mana vadītāja pieņemtie lēmumi ir pareizi un noderīgi uzņēmumam",
+    "Mans vadītājs uzmanīgi uzklausa mani un ņem vērā manu viedokli",
+    "Es zinu un saprotu uzņēmuma ilgtermiņa mērķus",
+    "Mani iedvesmo mūsu uzņēmuma mērķi. Mēs darām svarīgu un noderīgu darbu",
+    "Es saprotu, kā mana darba rezultāti ietekmē uzņēmuma kopējos rezultātus",
+    "Man ir iespēja tikt uzklausītam",
+    "Man ir pietiekami daudz informācijas par to, kas notiek uzņēmumā, lai veiktu savu darbu",
+    "Es zinu, kuri ir mūsu mērķa klienti (iekšējie vai ārējie). Es zinu, kādas vajadzības mēs varam apmierināt un ar kādiem produktiem vai pakalpojumiem",
+    "Mēs labi zinām savu tirgu (iekšējos vai ārējos klientus), sekojam tendencēm un vajadzībām un pastāvīgi domājam, kā labāk apkalpot savus klientus (iekšējos vai ārējos)",
+    "Man ir ērta darba vide",
+    "Man ir visi nepieciešamie tehniskie resursi, lai labi veiktu savu darbu",
+    "Darba procesi, kuros es piedalos, ir sistematizēti un labi organizēti",
+    "Mēs apņēmīgi uzlabojam savus darba procesus un izmantotās tehnoloģijas",
+    "Mani apmierina darba kvalitāte, ko nodrošina citas nodaļas",
+    "Pēdējo 12 mēnešu laikā mans darbs ir ļāvis man uzlabot un attīstīt savas zināšanas, prasmes un iemaņas",
+    "Es zinu, ar kādiem nosacījumiem (kas jādara, jāmācās, jāsasniedz) es varu “augt” uzņēmumā",
+    "Vai jūs kopumā apmierina darbs šajā uzņēmumā?",
+    "Es jūtu, ka uzņēmumā mani novērtē",
+    "Darbs, ko es patiesībā daru, man ir interesants un sniedz gandarījumu",
+    "Es plānoju aiziet no uzņēmuma tuvākā gada laikā",
+    "Es iesaku mūsu uzņēmumu saviem draugiem un paziņām kā labu darba devēju",
+    "Es lepojos, ka strādāju šajā uzņēmumā",
+    "Uzņēmums attīstās līdzi laikam (produkti, tehnoloģijas, procesi)",
+    "Es uzskatu, ka darbinieku potenciāls, viņu prasmes, zināšanas un iemaņas uzņēmumā tiek izmantotas efektīvi",
+    "Ņemot vērā visas iepriekšējās atbildes, kā, jūsuprāt, situācija uzņēmumā kopumā ir mainījusies pēdējā gada laikā?"
+  ]
 };
 
 /* Shared browser utilities (bundled inside each widget's private scope). */
@@ -1099,7 +2297,7 @@ bootSurvey('ES_CONFIG', {
   assetsBase: '',
   loadFont: true,
   css: "__ROOT__ {\n--ink: #111111;\n--ink-2: #3a3a3a;\n--muted: #6b6f76;\n--soft: #9aa0a6;\n--line: #e6e6e6;\n--paper: #f6f6f6;\n--white: #ffffff;\n--red: #d7141a;\n--red-dark: #b10f14;\n--red-tint: #fdecec;\n--green: #1e8e4e; --green-t: #dcf2e5;\n--yellow: #d9a400; --yellow-ink: #8a6500; --yellow-t: #fff0bf;\n--red-t: #fbd6d7;\ndisplay: block; width: 100%;\nfont-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;\ncolor: var(--ink); line-height: 1.5; text-align: left;\n-webkit-font-smoothing: antialiased;\n}\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after {\nbox-sizing: border-box; margin: 0; padding: 0; border: 0;\nfont: inherit; color: inherit; letter-spacing: normal; text-transform: none;\nbackground: none; box-shadow: none; text-decoration: none; list-style: none;\n}\n__ROOT__ strong, __ROOT__ b { font-weight: 700; }\n__ROOT__ em { font-style: normal; color: var(--soft); }\n__ROOT__ button { cursor: pointer; -webkit-appearance: none; appearance: none; line-height: 1.3; }\n__ROOT__ button:focus-visible, __ROOT__ a:focus-visible, __ROOT__ input:focus-visible, __ROOT__ textarea:focus-visible, __ROOT__ select:focus-visible {\noutline: 3px solid rgba(215, 20, 26, .35); outline-offset: 2px;\n}\n__ROOT__ a { color: inherit; }\n__ROOT__ [hidden] { display: none !important; }\n__ROOT__ .adz-stage {\nbackground: var(--white); border: 1px solid var(--line); border-radius: 10px;\nmin-height: min(680px, 100svh); display: flex; flex-direction: column; overflow: hidden;\n}\n__ROOT__ .adz-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 32px 10px; }\n__ROOT__ .adz-logo { display: block; height: 32px; width: auto; max-width: none; }\n__ROOT__ .adz-logo-txt { font-weight: 800; letter-spacing: .06em; color: var(--red); }\n__ROOT__ .adz-lang { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }\n__ROOT__ .adz-lang button { padding: 6px 11px; font-size: 12px; font-weight: 600; color: var(--muted); }\n__ROOT__ .adz-lang button[aria-pressed=\"true\"] { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-progress { display: flex; gap: 3px; padding: 4px 32px 0; }\n__ROOT__ .adz-progress span { height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }\n__ROOT__ .adz-progress i { display: block; height: 100%; background: var(--red); transition: width .35s ease; }\n__ROOT__ .adz-body { flex: 1; display: flex; align-items: center; padding: 22px 32px 26px; }\n__ROOT__ .adz-screen { width: 100%; max-width: 740px; margin: 0 auto; animation: adzIn .22s ease-out both; }\n__ROOT__ .adz-screen.is-back { animation-name: adzBack; }\n__ROOT__ .adz-screen.is-still { animation: none; }\n@keyframes adzIn { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }\n@keyframes adzBack { from { opacity: .4; transform: translateY(-6px); } to { opacity: 1; transform: none; } }\n__ROOT__ .adz-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }\n__ROOT__ .adz-h1 { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.12; font-weight: 700; margin: 12px 0 16px; letter-spacing: -.01em; }\n__ROOT__ .adz-h1--sm { font-size: clamp(26px, 3.6vw, 36px); }\n__ROOT__ .adz-lead { font-size: 17px; line-height: 1.6; color: var(--ink-2); max-width: 640px; }\n__ROOT__ .adz-list { margin: 22px 0; display: grid; gap: 10px; }\n__ROOT__ .adz-list li { position: relative; padding-left: 26px; font-size: 15.5px; color: var(--ink-2); }\n__ROOT__ .adz-list li::before { content: ''; position: absolute; left: 0; top: .62em; width: 12px; height: 2px; background: var(--red); }\n__ROOT__ .adz-note { font-size: 14px; color: var(--muted); max-width: 620px; border-left: 2px solid var(--line); padding-left: 14px; }\n__ROOT__ .adz-meta { margin-top: 18px; font-size: 13px; color: var(--soft); }\n__ROOT__ .adz-help { font-size: 14.5px; color: var(--muted); max-width: 680px; margin: 4px 0 18px; }\n__ROOT__ .adz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 28px; }\n__ROOT__ .adz-actions--tight { margin-top: 0; }\n__ROOT__ .adz-btn {\ndisplay: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px;\npadding: 12px 24px; border-radius: 6px; background: var(--red); color: var(--white);\nfont-size: 15px; font-weight: 600; transition: background .15s ease, transform .15s ease;\n}\n__ROOT__ .adz-btn:hover { background: var(--red-dark); }\n__ROOT__ .adz-btn:active { transform: translateY(1px); }\n__ROOT__ .adz-btn:disabled { opacity: .55; cursor: default; }\n__ROOT__ .adz-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }\n__ROOT__ .adz-btn--ghost:hover { background: var(--ink); color: var(--white); }\n__ROOT__ .adz-btn--dark { background: var(--ink); }\n__ROOT__ .adz-btn--dark:hover { background: #000; }\n__ROOT__ .adz-hint { font-size: 12.5px; color: var(--soft); }\n__ROOT__ .adz-back { font-size: 14px; font-weight: 600; color: var(--muted); padding: 10px 2px; }\n__ROOT__ .adz-back:hover { color: var(--ink); }\n__ROOT__ .adz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }\n__ROOT__ .adz-form { margin-top: 24px; display: grid; gap: 14px; max-width: 520px; }\n__ROOT__ .adz-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }\n__ROOT__ .adz-field input[type=\"text\"], __ROOT__ .adz-field input[type=\"email\"], __ROOT__ .adz-field input:not([type]), __ROOT__ .adz-field select, __ROOT__ .adz-field textarea {\ndisplay: block; width: 100%; height: 48px; padding: 0 14px; border: 1px solid #cfcfcf; border-radius: 6px;\nbackground: var(--white); font-size: 16px; color: var(--ink); margin: 0;\n}\n__ROOT__ .adz-field textarea { height: auto; min-height: 96px; padding: 12px 14px; line-height: 1.5; resize: vertical; }\n__ROOT__ .adz-field input:focus, __ROOT__ .adz-field textarea:focus { border-color: var(--ink); outline: none; }\n__ROOT__ .adz-field input::placeholder, __ROOT__ .adz-field textarea::placeholder { color: #a5a5a5; }\n__ROOT__ .adz-err { display: none; font-size: 12.5px; color: var(--red); margin-top: 5px; }\n__ROOT__ .adz-field.has-error input { border-color: var(--red); }\n__ROOT__ .adz-field.has-error .adz-err { display: block; }\n__ROOT__ .adz-consent { display: flex !important; gap: 10px; align-items: flex-start; font-weight: 400 !important; font-size: 13.5px !important; color: var(--ink-2) !important; cursor: pointer; }\n__ROOT__ .adz-consent input { width: 18px; height: 18px; margin: 2px 0 0 !important; flex: none; accent-color: var(--red); -webkit-appearance: auto; appearance: auto; }\n__ROOT__ .adz-consent a { text-decoration: underline; }\n__ROOT__ .adz-loading { display: grid; justify-items: center; gap: 18px; text-align: center; padding: 40px 0; }\n__ROOT__ .adz-spinner { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--red); animation: adzSpin .8s linear infinite; }\n@keyframes adzSpin { to { transform: rotate(360deg); } }\n__ROOT__ .adz-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 28px; }\n__ROOT__ .adz-card h2 { font-size: 21px; font-weight: 700; line-height: 1.25; margin: 6px 0 10px; }\n__ROOT__ .adz-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; }\n__ROOT__ .adz-card--dark { background: var(--ink); border-color: var(--ink); color: var(--white); }\n__ROOT__ .adz-card--dark p { color: #cfcfcf; }\n@media (max-width: 640px) {\n__ROOT__ .adz-stage { border-radius: 0; border-left: 0; border-right: 0; }\n__ROOT__ .adz-top { padding: 16px 18px 12px; }\n__ROOT__ .adz-logo { height: 30px; }\n__ROOT__ .adz-progress { padding: 0 18px; gap: 2px; }\n__ROOT__ .adz-body { padding: 24px 18px 32px; align-items: flex-start; }\n__ROOT__ .adz-lead { font-size: 16px; }\n__ROOT__ .adz-card { padding: 22px; }\n}\n@media (prefers-reduced-motion: reduce) {\n__ROOT__ *, __ROOT__ *::before, __ROOT__ *::after { animation: none !important; transition: none !important; }\n}\n__ROOT__ .adz-qhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }\n__ROOT__ .adz-count { font-size: 13px; font-weight: 600; color: var(--soft); white-space: nowrap; font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-q { font-size: clamp(20px, 2.2vw, 25px); line-height: 1.32; font-weight: 600; margin: 10px 0 18px; min-height: 2.64em; }\n__ROOT__ .adz-scale { display: grid; gap: 8px; }\n__ROOT__ .adz-opt {\ndisplay: flex; align-items: center; gap: 14px; width: 100%; padding: 9px 14px; text-align: left;\nborder: 1px solid #d6d6d6; border-radius: 8px; background: var(--white); transition: border-color .15s, background .15s;\n}\n__ROOT__ .adz-opt:hover { border-color: var(--ink); }\n__ROOT__ .adz-opt[aria-checked=\"true\"] { border-color: var(--red); background: var(--red-tint); box-shadow: inset 0 0 0 1px var(--red); }\n__ROOT__ .adz-key {\nflex: none; width: 26px; height: 26px; border-radius: 6px; border: 1px solid #d6d6d6; display: grid; place-items: center;\nfont-size: 12px; font-weight: 700; color: var(--muted);\n}\n__ROOT__ .adz-opt[aria-checked=\"true\"] .adz-key { background: var(--red); border-color: var(--red); color: var(--white); }\n__ROOT__ .adz-opt-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }\n__ROOT__ .adz-opt-t b { font-size: 15.5px; font-weight: 600; }\n__ROOT__ .adz-opt-t small { font-size: 13px; color: var(--muted); }\n__ROOT__ .adz-opt.is-pop { animation: adzPop .28s ease; }\n@keyframes adzPop { 50% { transform: scale(.985); } }\n__ROOT__ .adz-cannot {\nmargin-top: 10px; font-size: 14px; font-weight: 600; color: var(--muted); padding: 4px 2px;\nborder-bottom: 1px dashed #c4c4c4;\n}\n__ROOT__ .adz-cannot:hover { color: var(--ink); border-bottom-color: var(--ink); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"] { color: var(--red); border-bottom-color: var(--red); }\n__ROOT__ .adz-cannot[aria-pressed=\"true\"]::before { content: '● '; }\n__ROOT__ .adz-imp { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }\n__ROOT__ .adz-imp-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 14px; margin-bottom: 8px; }\n__ROOT__ .adz-imp-h b { font-size: 14.5px; font-weight: 600; }\n__ROOT__ .adz-imp-c { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-imp-c.is-full { color: var(--red); font-weight: 600; }\n__ROOT__ .adz-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #d6d6d6; border-radius: 8px; overflow: hidden; }\n__ROOT__ .adz-seg button {\ndisplay: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 8px; font-size: 14px; font-weight: 600;\ncolor: var(--muted); border-left: 1px solid #d6d6d6; background: var(--white); transition: background .15s, color .15s;\n}\n__ROOT__ .adz-seg button i { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--imp); }\n__ROOT__ .adz-seg button[data-imp=\"1\"] { --imp: #9a9a9a; --imp-ink: #fff; }\n__ROOT__ .adz-seg button[data-imp=\"2\"] { --imp: #f2b705; --imp-ink: #1a1a1a; }\n__ROOT__ .adz-seg button[data-imp=\"3\"] { --imp: #2e9b57; --imp-ink: #fff; }\n__ROOT__ .adz-seg button:first-child { border-left: 0; }\n__ROOT__ .adz-seg button:hover { color: var(--ink); }\n__ROOT__ .adz-seg button[aria-checked=\"true\"] { background: var(--imp); color: var(--imp-ink); }\n__ROOT__ .adz-seg button[aria-checked=\"true\"] i { background: var(--imp-ink); opacity: .85; }\n__ROOT__ .adz-seg button:disabled { opacity: .4; cursor: not-allowed; }\n__ROOT__ .adz-imp-note { font-size: 12.5px; color: var(--muted); margin-top: 6px; }\n__ROOT__ .adz-com { margin-top: 12px; }\n__ROOT__ .adz-com-btn { font-size: 14px; font-weight: 600; color: var(--muted); padding: 4px 0; }\n__ROOT__ .adz-com-btn:hover { color: var(--ink); }\n__ROOT__ .adz-com-ta { display: block; width: 100%; min-height: 72px; padding: 11px 13px; border: 1px solid #cfcfcf; border-radius: 8px; font-size: 15px; line-height: 1.5; resize: vertical; background: var(--white); }\n__ROOT__ .adz-com-ta:focus { outline: none; border-color: var(--ink); }\n__ROOT__ .adz-screen.is-wide { max-width: 860px; }\n__ROOT__ .adz-body.is-top { align-items: flex-start; }\n__ROOT__ .adz-warn { margin-top: 10px; font-size: 14.5px; color: var(--red); font-weight: 600; }\n__ROOT__ .adz-rv-actions { margin-top: 20px; }\n__ROOT__ .adz-rv { margin-top: 26px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }\n__ROOT__ .adz-rv-h { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--red); padding: 14px 16px 8px; background: #fafafa; border-bottom: 1px solid var(--line); }\n__ROOT__ .adz-rv-sec + .adz-rv-sec .adz-rv-h { border-top: 1px solid var(--line); }\n__ROOT__ .adz-rv-row { display: grid; grid-template-columns: 32px minmax(0, 1fr) minmax(120px, auto); gap: 12px; align-items: center; width: 100%; padding: 11px 16px; text-align: left; border-bottom: 1px solid #f0f0f0; background: var(--white); }\n__ROOT__ .adz-rv-row:last-child { border-bottom: 0; }\n__ROOT__ .adz-rv-row:hover { background: #fafafa; }\n__ROOT__ .adz-rv-row:hover .adz-rv-a { text-decoration: underline; }\n__ROOT__ .adz-rv-n { font-size: 12px; font-weight: 700; color: var(--soft); font-variant-numeric: tabular-nums; }\n__ROOT__ .adz-rv-t { font-size: 14px; line-height: 1.45; color: var(--ink-2); }\n__ROOT__ .adz-rv-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }\n__ROOT__ .adz-tag { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 10px; background: var(--paper); color: var(--muted); }\n__ROOT__ .adz-tag.is-most { background: #e5f4ea; color: #23784a; }\n__ROOT__ .adz-rv-a { font-size: 13.5px; font-weight: 700; text-align: right; color: var(--ink); }\n__ROOT__ .adz-rv-a.is-cannot { color: var(--muted); font-weight: 600; }\n__ROOT__ .adz-rv-row.is-missing .adz-rv-a { color: var(--red); }\n__ROOT__ .adz-hello { font-size: 18px; font-weight: 600; margin-top: 14px; }\n__ROOT__ .adz-hello + .adz-h1 { margin-top: 4px; }\n__ROOT__ .adz-msg { max-width: 640px; }\n__ROOT__ .adz-msg--done { text-align: center; margin: 0 auto; }\n__ROOT__ .adz-msg--done .adz-lead { margin: 0 auto; }\n__ROOT__ .adz-check { width: 56px; height: 56px; border-radius: 50%; background: var(--red); margin: 0 auto 8px; position: relative; }\n__ROOT__ .adz-check::after { content: ''; position: absolute; left: 20px; top: 14px; width: 12px; height: 22px; border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg); }\n@media (max-width: 640px) {\n__ROOT__ .adz-hint--keys { display: none; }\n__ROOT__ .adz-q { min-height: 0; }\n__ROOT__ .adz-opt { padding: 9px 12px; }\n__ROOT__ .adz-rv-row { grid-template-columns: 26px minmax(0, 1fr); padding: 11px 12px; }\n__ROOT__ .adz-rv-a { grid-column: 2; text-align: left; }\n__ROOT__ .adz-seg button { font-size: 12.5px; padding: 10px 4px; line-height: 1.25; }\n__ROOT__ .adz-seg button i { display: none; }\n}",
-  version: "1.2.0",
+  version: "1.3.0",
 }, {
   I18N: ES_I18N, prefix: 'adz-es:', count: ES.COUNT, autoAdvance: false,
   section: esSection,

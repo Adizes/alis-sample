@@ -42,7 +42,7 @@ The legacy PDF was produced when blank slots 68–72 still existed, so its Plann
 ## Acceptance checklist
 
 **Content**
-- [ ] ED 67 statements and ES 50 questions in the original order, in English and Spanish, matching `data/*.json`
+- [ ] ED 67 statements and ES 50 questions in the original order, in every language (English, Spanish, Latvian, Lithuanian), matching `data/*.json`
 - [ ] Raw values stored exactly as specified (ED 1–5 with 1 = cannot answer; ES 5 = always positive, Q5/Q45 reversed, Q50 no don't-know)
 - [ ] ES importance stored 1–3; between 1 and 15 marked “Most important”
 

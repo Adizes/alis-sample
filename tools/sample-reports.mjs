@@ -45,7 +45,8 @@ const page = await browser.newPage();
 page.on('pageerror', e => console.error('page error:', e.message));
 await page.goto(base + '/');
 await page.waitForFunction(() => window.jspdf && window.renderEsPdf);
-for (const lang of ['en', 'es']) {
+const LANG_LIST = await page.evaluate(() => Object.keys(ED_I18N).filter(k => ES_I18N[k]));
+for (const lang of LANG_LIST) {
   const files = await page.evaluate(async ({ lang, edResponses, edNames, esResponses }) => {
     const A = await getPdfAssets('/shared/assets/');
     const date = '2026-10-30T12:00:00.000Z';

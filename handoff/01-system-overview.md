@@ -13,7 +13,7 @@
 | Minimum to create a launch | 1 participant | **5 active employees in the company and 5 participants** |
 | Result per person | none (only group) | Engagement level: fully engaged / engaged / somewhat engaged / disengaged |
 | Group report | 16 factors, 2 radars, causal diagram, every statement worded by its score | Levels, levels by area, 15 factors, what matters most, all questions, comments |
-| Languages | English, Spanish (extensible) | English, Spanish (extensible) |
+| Languages | English, Spanish, Latvian, Lithuanian (extensible) | English, Spanish, Latvian, Lithuanian (extensible) |
 
 Participants **never see results**. They answer and get a thank-you screen. Adizes staff generate the group report in the admin and email it to the people they choose.
 
@@ -78,7 +78,18 @@ Reminders go only to people with status **Sent** who have not answered yet.
 
 The **launch language** governs everything participants see: invitation and reminder emails, the survey (there is no language switch for participants), the thank-you page, and the group report. The admin itself is in English. Internal notices to Adizes staff are in Spanish in the reference implementation; this is free to change.
 
-To add a language, add one more entry for each text set in `data/*.json` (UI + questions + report) and `data/emails.json`. Keys, question order and raw values must not change.
+Available languages: **English (`en`), Spanish (`es`), Latvian (`lv`), Lithuanian (`lt`)**.
+
+- The Latvian Engagement Survey questions are based on the official Latvian question bank of the legacy platform, with grammar fixes.
+- Everything else in Latvian and Lithuanian was translated for this version. The legacy platform had no Lithuanian questions and no Latvian Express Diagnostics.
+- The legacy platform also had Engagement Survey questions in Russian, Turkish and Chinese. These can be added the same way.
+
+**All texts of both tests (UI, questions, report and emails) live in one workbook, `translations/Adizes-Translations.xlsx`:**
+- one sheet per test plus an Emails sheet;
+- one column per language;
+- yellow cells are missing texts.
+
+Add a language by adding a column `Name [code]`, then run `python3 tools/translations.py import` to regenerate the language files. The same keys appear in `data/*.json` → `texts.<lang>`. Keys, question order and raw values must not change.
 
 ## Anonymity rules (Engagement Survey) — must be enforced server-side
 
